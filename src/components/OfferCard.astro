@@ -1,0 +1,185 @@
+---
+import type { Offer } from '../data/offers';
+interface Props { offer: Offer; }
+const { offer } = Astro.props;
+---
+
+<article class={`offer-card${offer.highlight ? ' highlight' : ''} reveal-on-scroll`}>
+  <span class="card-eyebrow">{offer.eyebrow}</span>
+  <h3>{offer.headline}</h3>
+  <p class="promise">{offer.promise}</p>
+
+  <ul class="bullets">
+    {offer.bullets.map((b) => <li>{b}</li>)}
+  </ul>
+
+  <div class="meta">
+    <span class="format">{offer.format}</span>
+    <span class="price">{offer.priceFrom}</span>
+  </div>
+
+  {offer.tiers && (
+    <div class="tiers">
+      {offer.tiers.map((t) => (
+        <a href={t.url} class="tier" target="_blank" rel="noopener">
+          <strong>{t.name}</strong>
+          <span>{t.price}</span>
+        </a>
+      ))}
+    </div>
+  )}
+
+  <a href={offer.ctaUrl} class="card-cta" target="_blank" rel="noopener">
+    {offer.ctaText} <span aria-hidden="true">→</span>
+  </a>
+
+  {offer.note && <p class="note">{offer.note}</p>}
+</article>
+
+<style>
+  .offer-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 0 rgba(44, 75, 123, 0.06), 0 12px 32px rgba(44, 75, 123, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+    position: relative;
+    border: 1px solid rgba(44, 75, 123, 0.06);
+  }
+  .offer-card:hover {
+    box-shadow: 0 1px 0 rgba(44, 75, 123, 0.06), 0 20px 50px rgba(44, 75, 123, 0.12);
+    transform: translateY(-2px);
+  }
+  .offer-card.highlight::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 32px;
+    width: 32px; height: 2px;
+    background: var(--orange);
+  }
+  .card-eyebrow {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+  }
+  .offer-card h3 {
+    font-size: 22px;
+    line-height: 1.28;
+    color: var(--blue-deep);
+    margin: 0;
+    font-weight: 700;
+  }
+  .promise {
+    font-family: 'Fontin', serif;
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+    font-size: 15px;
+    color: var(--text-soft);
+  }
+  .bullets li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+  .bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 0 0;
+    border-top: 1px solid rgba(44, 75, 123, 0.08);
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.03em;
+  }
+  .meta .format {
+    font-style: italic;
+  }
+  .meta .price {
+    font-family: 'Fontin', serif;
+    font-weight: 700;
+    color: var(--blue-deep);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .tier {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 10px 14px;
+    text-align: center;
+    transition: background .25s;
+    color: var(--text) !important;
+  }
+  .tier:hover { background: #f5ebe0; text-decoration: none; }
+  .tier strong {
+    display: block;
+    font-family: 'Fontin', serif;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 2px;
+    font-weight: 700;
+  }
+  .tier span {
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+  .card-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 4px;
+    background: transparent;
+    color: var(--blue-deep) !important;
+    border-bottom: 1.5px solid var(--blue-deep);
+    border-radius: 0;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all .25s var(--ease);
+    text-decoration: none;
+  }
+  .card-cta span { transition: transform .25s var(--ease); }
+  .card-cta:hover {
+    color: var(--orange) !important;
+    border-color: var(--orange);
+    text-decoration: none;
+  }
+  .card-cta:hover span { transform: translateX(4px); }
+  .note {
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+    margin: 4px 0 0;
+  }
+</style>

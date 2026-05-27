@@ -1,0 +1,62 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  note?: string;
+}
+const { quote, author, note = '' } = Astro.props;
+---
+
+<div class="testi">
+  <p>&bdquo;{quote}&ldquo;</p>
+  <div class="testi-author">
+    {author}
+    {note && <small>{note}</small>}
+  </div>
+</div>
+
+<style>
+  .testi {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    position: relative;
+  }
+  .testi::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 36px; right: 36px;
+    height: 4px;
+    background: var(--kurs-schatz);
+    border-radius: 4px 4px 0 0;
+  }
+  .testi p {
+    font-family: 'Fontin', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--blue-deep);
+  }
+  .testi-author::before {
+    content: "";
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--kurs-schatz);
+    flex: 0 0 38px;
+  }
+  .testi-author small {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+</style>

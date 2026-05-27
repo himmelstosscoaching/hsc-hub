@@ -1,0 +1,137 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '' } = Astro.props;
+
+import '../styles/brand.css';
+import '../styles/atmospheres.css';
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+
+  <!-- Open Graph (Platzhalter — vor Live ergänzen) -->
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <slot />
+
+  <!-- Sticky Mobile CTA — Hub-Variante: Kennenlerngespräch -->
+  <a
+    href="https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/"
+    target="_blank"
+    rel="noopener"
+    class="sticky-cta"
+    id="sticky-cta"
+  >
+    Kennenlerngespräch (gratis)
+  </a>
+
+  <script>
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        el.classList.add('reveal');
+        io.observe(el);
+      });
+    }
+
+    // Sticky-CTA: erst nach Hero einblenden, im Final-CTA wieder ausblenden
+    const stickyCta = document.getElementById('sticky-cta');
+    const hero = document.querySelector('.hero-hub');
+    const finalCta = document.querySelector('.final-cta');
+    if (stickyCta && hero) {
+      const heroIo = new IntersectionObserver(([e]) => {
+        stickyCta.classList.toggle('show', !e.isIntersecting);
+      }, { threshold: 0 });
+      heroIo.observe(hero);
+      if (finalCta) {
+        const finalIo = new IntersectionObserver(([e]) => {
+          if (e.isIntersecting) stickyCta.classList.remove('show');
+        }, { threshold: 0.3 });
+        finalIo.observe(finalCta);
+      }
+    }
+  </script>
+</body>
+</html>
+
+<style is:global>
+  section { padding: 110px 0; position: relative; }
+
+  .section-intro { max-width: 760px; margin: 0 auto 60px; text-align: center; }
+  .section-intro p { font-size: 19px; color: var(--text-soft); }
+
+  /* IMAGE-SLOT Platzhalter — sichtbar im Build, damit Bilder nicht vergessen werden */
+  .img-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f0e8df 0%, #e8d9c4 100%);
+    color: var(--blue-deep);
+    border: 2px dashed var(--orange);
+    border-radius: var(--radius-lg);
+    padding: 40px 24px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    min-height: 200px;
+  }
+  .img-slot strong { display: block; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; color: var(--orange); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(20px); transition: all .8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 960px) { section { padding: 80px 0; } }
+  @media (max-width: 540px) { body { font-size: 17px; } }
+
+  /* Sticky Mobile CTA — dezent (Outline auf Cream) */
+  .sticky-cta {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    padding: 15px 20px;
+    background: #fff;
+    color: #2C4B7B !important;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1.5px solid #2C4B7B;
+    box-shadow: 0 12px 32px rgba(44, 75, 123, 0.18);
+    transform: translateY(120%);
+    transition: transform .35s var(--ease);
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  @media (max-width: 768px) {
+    .sticky-cta { display: block; }
+  }
+</style>

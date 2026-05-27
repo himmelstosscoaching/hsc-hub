@@ -1,0 +1,53 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  large?: boolean;
+  meta?: string;
+}
+
+const { href, label, large = false, meta } = Astro.props;
+const classes = `btn btn-primary${large ? ' btn-large' : ''}`;
+---
+
+<div class="cta-wrap">
+  <a href={href} class={classes}>{label}</a>
+  {meta && <p class="cta-meta">{meta}</p>}
+</div>
+
+<style>
+  .cta-wrap { text-align: inherit; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 18px 38px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all .35s var(--ease);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: #e88a68;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(232, 138, 104, 0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background: #99b3b2;
+    box-shadow: 0 12px 28px rgba(153, 179, 178, 0.4);
+    text-decoration: none;
+  }
+  .btn-large { padding: 22px 50px; font-size: 19px; }
+  .cta-meta {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text-soft);
+    letter-spacing: 0.02em;
+  }
+</style>

@@ -1,0 +1,65 @@
+/* ============================================================
+   Atmosphären — Farbverläufe ausschließlich aus HSC-Gradient
+   + genehmigte Zusatzfarben: #f89489 #2C4B7B #FFD800 #75BFDA #ffffff
+   ============================================================ */
+
+.atm-sunrise {
+  background: linear-gradient(180deg, #f89489 0%, #f3966a 18%, #FFD800 28%, #75BFDA 55%, #2783ac 80%, #186996 100%);
+}
+.atm-warm-vignette {
+  background: radial-gradient(ellipse at center, #FFD800 0%, #FFD800 25%, #f3966a 55%, #f89489 100%);
+}
+.atm-yellow-vignette {
+  background: radial-gradient(ellipse at center, #FFD800 0%, #FFD800 22%, #f3966a 60%, #f89489 100%);
+}
+.atm-sun-radial {
+  background: radial-gradient(circle at 50% 38%, #f89489 0%, #f3966a 22%, #f89489 38%, #75BFDA 60%, #2783ac 88%, #186996 100%);
+}
+.atm-sky-dome {
+  background: radial-gradient(ellipse at 50% 100%, #f89489 0%, #f89489 25%, #75BFDA 55%, #2783ac 90%);
+}
+.atm-sunset-horizon {
+  background: linear-gradient(180deg, #f89489 0%, #f3966a 18%, #f89489 35%, #75BFDA 58%, #2783ac 82%, #186996 100%);
+}
+.atm-stripes {
+  background: linear-gradient(180deg,
+    #f89489 0%, #f89489 18%,
+    #FFD800 18%, #FFD800 36%,
+    #f3966a 36%, #f3966a 54%,
+    #75BFDA 54%, #75BFDA 72%,
+    #2C4B7B 72%, #2C4B7B 100%);
+}
+
+/*
+  KURS-FARBSYSTEM — Hintergrundgradient als Quelle
+  Jeder Kurs nutzt eine Zone des Haupt-Gradienten als Thema.
+  Schatz, coachst du mich? → Warme Salmon-Orange-Zone (Mitte-unten)
+  Zukünftige Kurse → andere Zonen (z.B. Blau oben, Türkis Mitte)
+*/
+
+/* Haupt-Gradient — exakte Farbcodes aus dem HSC-Hintergrundbild */
+.atm-page-gradient,
+.atm-schatz-hero {
+  background: linear-gradient(180deg,
+    #186996  0%,
+    #2783ac  9%,
+    #399ac0 18%,
+    #44a8cb 27%,
+    #71b3c3 36%,
+    #99b3b2 45%,
+    #bfae94 55%,
+    #d2a983 64%,
+    #e2a273 73%,
+    #ec9e64 82%,
+    #f3966a 91%,
+    #f2917f 100%
+  );
+}
+
+/* Dark-on-atmosphere utilities */
+.atm-on-dark { color: #fff; }
+.atm-on-dark h1, .atm-on-dark h2, .atm-on-dark h3, .atm-on-dark h4 { color: #fff; }
+.atm-on-dark p { color: rgba(255,255,255,0.92); }
+.atm-on-dark .eyebrow { color: #fff; }
+.atm-on-dark .section-intro p { color: rgba(255,255,255,0.9); }
+.atm-on-dark .cta-meta { color: rgba(255,255,255,0.85); }

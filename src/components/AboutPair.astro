@@ -1,0 +1,107 @@
+---
+// Über Annette & Herbert — Editorial-Style V02
+---
+
+<section id="ueber" class="about-pair">
+  <div class="container">
+    <div class="section-intro">
+      <span class="acc-eyebrow">Wer wir sind</span>
+      <h2>Annette &amp; Herbert</h2>
+      <p>Über 30 Jahre verheiratet. Beide Coaches. Wir leben, was wir lehren — und lehren, was wir leben.</p>
+    </div>
+
+    <div class="pair-grid">
+      <div class="person reveal-on-scroll">
+        <!-- IMAGE-SLOT (optional): Annette allein, Hochformat 3:4 -->
+        <div class="person-photo">
+          <img src="/img/annette-herbert-mallorca.jpg" alt="Annette Himmelsstoß" />
+        </div>
+        <div class="person-text">
+          <h3>Annette</h3>
+          <p class="vita">
+            24 Jahre Ärztin, oft mit austherapierten Patienten — bis sie merkte:
+            Die Wurzel liegt selten dort, wo der Schmerz sitzt. Seit November 2021
+            arbeitet sie als Coach für Authentizität und innere Klarheit.
+          </p>
+        </div>
+      </div>
+
+      <div class="person reveal-on-scroll">
+        <div class="person-photo">
+          <img src="/img/annette-herbert-about.jpg" alt="Herbert Himmelsstoß" />
+        </div>
+        <div class="person-text">
+          <h3>Herbert</h3>
+          <p class="vita">
+            Diplom-Kunsttherapeut und Waldorflehrer. Seit 2008 selbstständig,
+            Spezialist für Sucht- und Drogenprävention sowie Persönlichkeitsentwicklung.
+            Sein Motto: „Werde selbst dein bester Ratgeber."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="together reveal-on-scroll">
+      Wir sind ein Coach-Paar, weil wir glauben: <em>Beziehung lernt man nicht aus Büchern — sondern in der eigenen.</em>
+      30+ Jahre haben uns zwei Schlaganfälle, eine vier-monatige Auszeit in Südafrika
+      und unzählige Streitabende beschert. Und immer wieder die gleiche Erkenntnis:
+      das Lebendige ist eine Entscheidung.
+    </blockquote>
+  </div>
+</section>
+
+<style>
+  .about-pair {
+    background: #fff;
+  }
+  .pair-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+  }
+  .person {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .person-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(44, 75, 123, 0.12);
+  }
+  .person h3 {
+    color: var(--blue-deep);
+    margin-bottom: 14px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .vita {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+  .together {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 0 0 32px;
+    border-left: 2px solid var(--orange);
+    font-family: 'Fontin', serif;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.5;
+    color: var(--blue-deep);
+    quotes: none;
+  }
+  .together em {
+    font-style: italic;
+    color: var(--orange);
+    display: block;
+    margin: 0.2em 0;
+  }
+  @media (max-width: 768px) {
+    .pair-grid { grid-template-columns: 1fr; gap: 40px; }
+    .together { padding-left: 24px; }
+  }
+</style>

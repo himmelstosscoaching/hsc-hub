@@ -1,0 +1,105 @@
+---
+const cards = [
+  {
+    icon: '🌱',
+    title: 'Ich suche Klarheit für mich',
+    text: 'Mein Leben neu sortieren, meine Themen verstehen, Entscheidungen treffen.',
+    anchor: '#cluster-f1',
+  },
+  {
+    icon: '💞',
+    title: 'Wir sind ein Paar mit einem Thema',
+    text: 'Wir streiten, leben nebeneinander her, suchen Tiefe.',
+    anchor: '#cluster-f2',
+  },
+  {
+    icon: '🌄',
+    title: 'Wir wollen gemeinsam abtauchen',
+    text: 'Zeit für uns, mit anderen, an einem besonderen Ort.',
+    anchor: '#cluster-f3',
+  },
+];
+---
+
+<section class="selfcheck">
+  <div class="container">
+    <div class="section-intro">
+      <span class="acc-eyebrow">Selbstcheck</span>
+      <h2>Wo stehst du gerade?</h2>
+      <p>Klick auf das, was am ehesten passt — wir zeigen dir, welche Angebote sinnvoll sind.</p>
+    </div>
+
+    <div class="check-grid">
+      {cards.map((c) => (
+        <a href={c.anchor} class="check-card reveal-on-scroll">
+          <span class="icon">{c.icon}</span>
+          <h3>{c.title}</h3>
+          <p>{c.text}</p>
+          <span class="check-cta">Zu meinen Optionen →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .selfcheck { background: var(--cream); }
+  .check-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .check-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 44px 36px;
+    text-align: left;
+    color: var(--text) !important;
+    text-decoration: none;
+    transition: all .35s var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid rgba(44, 75, 123, 0.06);
+    box-shadow: 0 12px 28px rgba(44, 75, 123, 0.05);
+  }
+  .check-card:hover {
+    box-shadow: 0 20px 44px rgba(44, 75, 123, 0.12);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .check-card .icon {
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+  .check-card h3 {
+    font-size: 22px;
+    color: var(--blue-deep);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .check-card p {
+    font-size: 16px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Fontin', serif;
+    font-style: italic;
+  }
+  .check-cta {
+    margin-top: auto;
+    padding-top: 14px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  @media (max-width: 768px) {
+    .check-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>

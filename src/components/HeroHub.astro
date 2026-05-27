@@ -1,0 +1,201 @@
+---
+// Hero V02 — Editorial-Style: Cream-Background, Atmosphäre nur als Akzent-Streifen unten
+---
+
+<section class="hero-hub">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Annette &amp; Herbert Himmelsstoß</span>
+      <h1>
+        Wir lehren euch nicht,<br>
+        wie ihr besser <em>redet</em>.<br>
+        <span class="hl-2">Wir lehren euch,<br>euch gegenseitig zu coachen.</span>
+      </h1>
+      <p class="subline">
+        Online-Kurse, Retreats und persönliche Begleitung — für Paare, die Tiefe suchen,
+        und Menschen, die ihre Klarheit finden wollen.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#angebote" class="btn-hero btn-hero-primary">Was passt jetzt zu mir?</a>
+        <a href="#ueber" class="btn-hero btn-hero-secondary">Annette &amp; Herbert kennenlernen</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="/img/annette-herbert-hero.jpg"
+        alt="Annette und Herbert Himmelsstoß am Strand"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <!-- Trust-Strip — separater Block, dezenter -->
+  <div class="hero-trust">
+    <div class="container">
+      <ul>
+        <li><strong>30+</strong> Jahre Ehe</li>
+        <li><strong>20+</strong> Jahre Coaching</li>
+        <li><strong>1.000+</strong> begleitete Menschen</li>
+        <li><strong>1</strong> Buch im Handel</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Atmosphären-Akzent nur als feiner Verlauf unten — nicht ganzflächig -->
+  <div class="hero-accent-bar" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero-hub {
+    background: var(--cream);
+    padding: 120px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding-bottom: 70px;
+  }
+  .hero-text .eyebrow {
+    color: var(--orange);
+    font-family: 'League Spartan', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 28px;
+    position: relative;
+    padding-left: 38px;
+  }
+  .hero-text .eyebrow::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 50%;
+    width: 26px; height: 1px;
+    background: var(--orange);
+  }
+  .hero-text h1 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.12;
+    color: var(--blue-deep);
+    margin-bottom: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--orange);
+  }
+  .hero-text h1 .hl-2 {
+    display: inline-block;
+    margin-top: 0.15em;
+    font-style: italic;
+    color: var(--blue-mid);
+    font-weight: 700;
+  }
+  .subline {
+    font-size: clamp(17px, 1.5vw, 20px);
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 530px;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s var(--ease);
+  }
+  .btn-hero-primary {
+    background: var(--blue-deep);
+    color: #fff !important;
+  }
+  .btn-hero-primary:hover {
+    background: #1e3556;
+    text-decoration: none;
+  }
+  .btn-hero-secondary {
+    background: transparent;
+    color: var(--blue-deep) !important;
+    border: 1.5px solid rgba(44, 75, 123, 0.3);
+  }
+  .btn-hero-secondary:hover {
+    border-color: var(--blue-deep);
+    background: rgba(44, 75, 123, 0.04);
+    text-decoration: none;
+  }
+
+  .hero-image img {
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(44, 75, 123, 0.18);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  /* Trust-Strip — separat unter dem Hero, dezent */
+  .hero-trust {
+    background: #fff;
+    border-top: 1px solid rgba(44, 75, 123, 0.08);
+    padding: 28px 0;
+  }
+  .hero-trust ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px;
+  }
+  .hero-trust li {
+    font-size: 14px;
+    color: var(--text-soft);
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .hero-trust strong {
+    font-family: 'Fontin', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--orange);
+  }
+
+  /* Akzent-Bar — sehr dünn, dezent */
+  .hero-accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--rose) 0%, var(--orange) 50%, var(--blue-mid) 100%);
+    opacity: 0.6;
+  }
+
+  @media (max-width: 960px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+    .hero-hub { padding: 80px 0 0; }
+    .hero-trust ul { gap: 24px; }
+  }
+</style>
