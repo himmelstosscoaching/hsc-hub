@@ -1,0 +1,111 @@
+---
+// Sektion C — Kostenlos reinschnuppern
+// Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md (Sektion C)
+// Text 1:1 übernommen
+---
+
+<section id="schnuppern" class="freebie-fokus">
+  <div class="container">
+    <div class="section-intro narrow">
+      <h2>Lern uns kennen — kostenlos</h2>
+      <p>Du musst dich nicht gleich entscheiden. Schnupper rein und spür, ob unsere Art zu dir passt.</p>
+    </div>
+
+    <div class="freebie-grid">
+      <article class="freebie-card reveal-on-scroll">
+        <h3>Kostenfreies Webinar</h3>
+        <p>Sei live dabei. Wir nehmen uns ein Thema vor, du stellst deine Fragen — und merkst sofort, wie wir arbeiten.</p>
+        <a href="#webinar" class="btn-link">Zum nächsten Webinar anmelden <span class="arrow">→</span></a>
+      </article>
+
+      <article class="freebie-card reveal-on-scroll">
+        <h3>3 Tage Paar-Impulse (gratis)</h3>
+        <p>Drei Tage, drei Impulse für eure Beziehung — der einfachste erste Schritt zu „Schatz, coachst du mich?".</p>
+        <a href="#freebie-paar" class="btn-link">Impulse gratis holen <span class="arrow">→</span></a>
+      </article>
+
+      <article class="freebie-card reveal-on-scroll">
+        <h3>Sonntagsgespräche</h3>
+        <p>Jeden Sonntag ein Gespräch von uns auf YouTube — Gedanken fürs echte Leben. Offen, auch über unsere eigenen Brüche: zwei Schlaganfälle, Neuanfänge, das, was wirklich trägt. Kostenlos, ohne Anmeldung.</p>
+        <a href="#sonntagsgespraeche" class="btn-link">Auf YouTube ansehen <span class="arrow">→</span></a>
+      </article>
+    </div>
+  </div>
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .freebie-fokus {
+    background: var(--bg-cream);
+    padding-bottom: clamp(80px, 10vw, 130px);
+  }
+  .section-intro {
+    text-align: center;
+    margin: 0 auto 64px;
+  }
+  .section-intro h2 {
+    color: var(--blue-deep);
+    margin: 0 0 14px;
+  }
+  .section-intro p {
+    color: var(--ink-soft);
+    font-size: clamp(18px, 1.5vw, 21px);
+    margin: 0;
+  }
+
+  .freebie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 70px;
+  }
+  .freebie-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-card);
+    padding: 36px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid rgba(250, 157, 86, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  }
+  .freebie-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(250, 157, 86, 0.12);
+    border-color: rgba(250, 157, 86, 0.4);
+  }
+  .freebie-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sun-strip);
+    opacity: 0.7;
+  }
+  .freebie-card h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--blue-deep);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .freebie-card p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+  .freebie-card .btn-link {
+    margin-top: 6px;
+  }
+
+  @media (max-width: 860px) {
+    .freebie-grid { grid-template-columns: 1fr; gap: 14px; max-width: 480px; }
+    .freebie-card { padding: 28px 24px 24px; }
+  }
+</style>

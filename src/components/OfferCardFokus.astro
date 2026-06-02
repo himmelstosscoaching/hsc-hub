@@ -1,0 +1,171 @@
+---
+// Angebots-Karte V02 — ohne Bild (auf User-Wunsch erstmal weg)
+// Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md (Sektion B)
+import type { Offer } from '../data/offers';
+interface Props {
+  offer: Offer;
+  background?: 'cream' | 'white';
+}
+const { offer, background = 'white' } = Astro.props;
+const bgClass = background === 'cream' ? 'bg-cream' : 'bg-white';
+---
+
+<section class={`offer-row ${bgClass}`}>
+  <div class="container">
+    <div class="offer-card reveal-on-scroll">
+      <span class="card-eyebrow">{offer.eyebrow}</span>
+      <h3>{offer.headline}</h3>
+      <p class="promise">{offer.promise}</p>
+
+      <ul class="bullets">
+        {offer.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+
+      <div class="meta">
+        <span class="format">{offer.format}</span>
+        <span class="price">{offer.priceFrom}</span>
+      </div>
+
+      {offer.tiers && (
+        <div class="tiers">
+          {offer.tiers.map((t) => (
+            <div class="tier">
+              <strong>{t.name}</strong>
+              <span>{t.price}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div class="offer-cta">
+        <a href={offer.ctaUrl} class="btn btn-primary" target="_blank" rel="noopener">
+          {offer.ctaText}
+        </a>
+      </div>
+
+      {offer.note && <p class="note">{offer.note}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .offer-row {
+    padding: clamp(60px, 8vw, 100px) 0;
+  }
+  .bg-white { background: var(--bg-white); }
+  .bg-cream { background: var(--bg-cream); }
+
+  .offer-card {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .card-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .card-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .offer-card h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(26px, 2.4vw, 34px);
+    line-height: 1.2;
+    color: var(--blue-deep);
+    margin: 0 0 18px;
+  }
+  .promise {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.5vw, 21px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+  }
+  .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    padding-left: 22px;
+    margin-bottom: 10px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(250, 157, 86, 0.3);
+    border-bottom: 1px solid rgba(250, 157, 86, 0.3);
+    margin-bottom: 22px;
+    font-size: 13.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+  .meta .format { font-style: italic; }
+  .meta .price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--blue-deep);
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .tier {
+    background: var(--bg-cream-deeper);
+    border-radius: var(--radius-button);
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .tier strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 2px;
+  }
+  .tier span {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .offer-cta { margin-top: 6px; }
+  .note {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin: 16px 0 0;
+  }
+</style>

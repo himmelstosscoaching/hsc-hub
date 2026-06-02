@@ -1,0 +1,98 @@
+---
+// Sektion D — Trust-Streifen
+// Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md (Sektion D)
+// Bilder/Cover-Slot raus auf User-Wunsch
+---
+
+<section id="trust" class="trust-fokus">
+  <div class="container narrow">
+    <p class="claim">
+      Auf über 20 Kongressen haben wir gesprochen. Unser Buch wurde zum Amazon-Bestseller.
+    </p>
+
+    <div class="book-block">
+      <h3>Trau keinem, der nicht in einer glücklichen Beziehung ist — die Macht zu bekommen, was beide wollen</h3>
+      <p class="book-desc">Unsere Sicht auf Partnerschaft, Krise und das, was beide tragen kann.</p>
+      <a href="#amazon-link" class="btn-link">Bei Amazon ansehen <span class="arrow">→</span></a>
+    </div>
+
+    <div class="voices">
+      <blockquote>
+        „Wir leben heute ehrlicher, wahrhaftiger, näher zueinander."
+        <cite>— Heike &amp; Frank</cite>
+      </blockquote>
+      <blockquote>
+        „Es ist wie ein zweites Verlieben."
+        <cite>— Armin</cite>
+      </blockquote>
+    </div>
+  </div>
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .trust-fokus {
+    background: var(--bg-white);
+    padding-bottom: clamp(80px, 10vw, 130px);
+  }
+  .claim {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.45;
+    color: var(--blue-deep);
+    margin: 0 auto 64px;
+    max-width: 720px;
+  }
+  .book-block {
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 640px;
+  }
+  .book-block h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.3;
+    color: var(--blue-deep);
+    margin: 0 0 12px;
+  }
+  .book-desc {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin: 0 0 22px;
+  }
+
+  .voices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .voices blockquote {
+    margin: 0;
+    padding: 0 0 0 24px;
+    border-left: 2px solid var(--rose);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55;
+    color: var(--blue-deep);
+  }
+  .voices cite {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 720px) {
+    .voices { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>

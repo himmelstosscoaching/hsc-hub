@@ -1,0 +1,178 @@
+---
+// Hero V02 — Annettes Text exakt
+// Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md (Sektion A)
+---
+
+<section class="hero-fokus">
+  <div class="hero-halo" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <h1>
+      Lerne, deinem eigenen Leben zu folgen —<br>
+      <em>nicht der Meinung der anderen.</em>
+    </h1>
+
+    <p class="subline">
+      Annette &amp; Herbert Himmelsstoß — seit 1992 ein Paar, drei erwachsene Kinder.
+      Wir begleiten Menschen, so lange wir zurückdenken können — als Ärztin, als Lehrer,
+      heute als Coaches, online und vor Ort. Wir erklären dir das Leben nicht.
+      <em class="subline-em">Wir leben es vor — und nehmen dich mit.</em>
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#angebote" class="btn btn-primary">Zeig mir, was zu mir passt</a>
+    </div>
+
+    <a href="#wer-wir-sind" class="scroll-cue" aria-label="Weiterlesen">
+      <span class="cue-line"></span>
+    </a>
+  </div>
+
+  <div class="sun-divider thick" aria-hidden="true"></div>
+
+  <!-- Trust-Strip direkt unter dem Hero — Original-Format mit „·"-Trennern -->
+  <div class="hero-trust">
+    <div class="container">
+      <p>
+        Seit 1992 verheiratet, drei erwachsene Kinder
+        <span class="dot">·</span>
+        20 Jahre Privatarztpraxis &amp; über 20.000 Menschen als Lehrer begleitet
+        <span class="dot">·</span>
+        auf 20+ Kongressen gesprochen
+        <span class="dot">·</span>
+        Amazon-Bestseller (u. a. Beziehungsratgeber)
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-fokus {
+    position: relative;
+    background: var(--bg-white);
+    padding: clamp(90px, 11vw, 140px) 0 0;
+    overflow: hidden;
+  }
+  .hero-halo {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-halo);
+    pointer-events: none;
+    animation: halo-breath 18s ease-in-out infinite;
+  }
+  @keyframes halo-breath {
+    0%, 100% { transform: scale(1) translateX(0); opacity: 1; }
+    50%      { transform: scale(1.08) translateX(-2%); opacity: 0.85; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-halo { animation: none; }
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+    text-align: center;
+    padding-bottom: 80px;
+  }
+  .hero-inner h1 {
+    color: var(--blue-deep);
+    margin: 0 0 32px;
+  }
+  .hero-inner h1 em {
+    font-style: italic;
+    color: var(--orange);
+    font-weight: 400;
+  }
+  .subline {
+    font-size: clamp(18px, 1.55vw, 21px);
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 auto 40px;
+    max-width: 760px;
+  }
+  .subline-em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--rose);
+    font-size: 1.05em;
+  }
+  .hero-ctas {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Scroll-Cue — dezenter Down-Indicator */
+  .scroll-cue {
+    display: block;
+    width: 28px;
+    height: 44px;
+    margin: 56px auto 0;
+    position: relative;
+    text-decoration: none;
+  }
+  .scroll-cue .cue-line {
+    position: absolute;
+    top: 0; left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, var(--orange) 30%, var(--rose) 100%);
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
+  .scroll-cue::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 1.5px solid var(--rose);
+    border-bottom: 1.5px solid var(--rose);
+    transform: translateX(-50%) rotate(45deg);
+    animation: cue-bounce 2.4s ease-in-out infinite;
+  }
+  @keyframes cue-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); opacity: 1; }
+    50%      { transform: translateX(-50%) translateY(6px) rotate(45deg); opacity: 0.5; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue::after { animation: none; }
+  }
+  @media (max-width: 720px) {
+    .scroll-cue { display: none; }
+  }
+
+  /* Trust-Strip */
+  .hero-trust {
+    background: var(--bg-cream);
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(250, 157, 86, 0.18);
+  }
+  .hero-trust p {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .hero-trust .dot {
+    color: var(--orange);
+    font-weight: 700;
+    margin: 0 10px;
+  }
+
+  @media (max-width: 720px) {
+    .hero-inner { padding-bottom: 56px; }
+    .hero-fokus { padding-top: 64px; }
+    .hero-inner h1 br { display: none; }
+    .hero-trust { padding: 18px 0; }
+    .hero-trust p { font-size: 13px; line-height: 1.7; }
+    .hero-trust .dot {
+      display: block;
+      visibility: hidden;
+      height: 4px;
+      margin: 2px 0;
+    }
+  }
+</style>

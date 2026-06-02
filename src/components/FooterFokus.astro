@@ -1,0 +1,130 @@
+---
+// Footer V02 — ohne Instagram (gecancelt)
+---
+
+<footer class="footer-fokus">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="/img/logo.svg" alt="Himmelsstoß Coaching" class="footer-logo" />
+      <p>Annette &amp; Herbert Himmelsstoß<br>Coaches für ein lebendiges Leben</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Mehr Angebote</h4>
+      <ul>
+        <li><a href="/zusaetzliche-produkte">Alle weiteren Angebote →</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:info@himmelstosscoaching.de">info@himmelstosscoaching.de</a></li>
+        <li><a href="https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/" target="_blank" rel="noopener">Orientierungsgespräch</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Folgen</h4>
+      <ul class="social">
+        <li><a href="https://www.facebook.com/profile.php?id=100072016483607" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="#youtube" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="#telegram" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© {new Date().getFullYear()} Himmelsstoß Coaching</span>
+      <ul>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-fokus {
+    background: var(--bg-cream-deeper);
+    color: var(--ink-soft);
+    padding-top: 80px;
+    position: relative;
+  }
+  .footer-fokus::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sun-strip);
+    opacity: 0.5;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 50px;
+    padding-bottom: 60px;
+  }
+  .footer-logo {
+    height: 44px;
+    width: auto;
+    margin-bottom: 16px;
+  }
+  .footer-brand p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-col li { margin-bottom: 10px; font-size: 15px; }
+  .footer-col a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--blue-deep); text-decoration: none; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(184, 149, 107, 0.3);
+    padding: 22px 0;
+    font-size: 13px;
+  }
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-bottom a { color: var(--ink-light); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--blue-deep); }
+
+  @media (max-width: 960px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 540px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>

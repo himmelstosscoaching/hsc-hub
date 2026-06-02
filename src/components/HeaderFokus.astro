@@ -1,0 +1,65 @@
+---
+// Ruhiger Header mit Logo + Anker-Menü
+---
+
+<header class="header-fokus">
+  <div class="container header-inner">
+    <a href="/fokus" class="brand">
+      <img src="/img/logo.svg" alt="Himmelsstoß Coaching" class="brand-logo" />
+    </a>
+    <nav class="nav">
+      <a href="#wer-wir-sind">Über uns</a>
+      <a href="#angebote">Angebote</a>
+      <a href="#schnuppern">Reinschnuppern</a>
+      <a href="#webinar" class="nav-cta">Webinar →</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header-fokus {
+    background: var(--bg-white);
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(184, 149, 107, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.96);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+  .brand-logo {
+    height: 44px;
+    width: auto;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color .2s var(--ease);
+  }
+  .nav a:hover {
+    color: var(--blue-deep);
+    text-decoration: none;
+  }
+  .nav-cta {
+    color: var(--blue-deep) !important;
+    font-weight: 600;
+  }
+  @media (max-width: 768px) {
+    .nav a:not(.nav-cta) { display: none; }
+  }
+</style>
