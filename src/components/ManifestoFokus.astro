@@ -1,0 +1,68 @@
+---
+// Mini-Manifest zwischen About und Pillars
+// Quelle: Buch Kap. 11 „Unsere größte Krise" — „Wahrgenommen-Sein öffnet die Türe."
+// Plus Workbook „Dein Leben lesen lernen" Kap. 9 — „Ohne Lösung wirksam helfen"
+// Plus Sam-Geschichte (Südafrika-Interview)
+---
+
+<section class="manifesto-fokus" aria-label="Manifest">
+  <div class="container narrow">
+    <p class="m-line m-1">Manchmal reicht es,</p>
+    <p class="m-line m-2"><em>wahrgenommen zu werden.</em></p>
+    <p class="m-line m-3">Ohne Rat. Ohne Urteil. Ohne Eile.</p>
+  </div>
+</section>
+
+<style>
+  .manifesto-fokus {
+    background: var(--bg-white);
+    padding: clamp(80px, 11vw, 130px) 0;
+    text-align: center;
+    position: relative;
+  }
+  .manifesto-fokus::before,
+  .manifesto-fokus::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--orange);
+    opacity: 0.5;
+    margin: 0 auto 36px;
+  }
+  .manifesto-fokus::after {
+    margin: 36px auto 0;
+  }
+  .m-line {
+    margin: 0;
+    line-height: 1.3;
+    color: var(--blue-deep);
+  }
+  .m-1 {
+    font-family: var(--font-body);
+    font-size: clamp(18px, 1.8vw, 22px);
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .m-2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.15;
+    color: var(--blue-deep);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  .m-3 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.7vw, 22px);
+    color: var(--rose);
+  }
+
+  @media (max-width: 720px) {
+    .manifesto-fokus::before,
+    .manifesto-fokus::after { margin-bottom: 24px; }
+    .manifesto-fokus::after { margin: 24px auto 0; }
+  }
+</style>

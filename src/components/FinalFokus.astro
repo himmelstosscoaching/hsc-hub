@@ -1,27 +1,56 @@
 ---
-// Sektion E — Final-Block + Newsletter (Tiefblau, „Buchcover-Ende")
-// Text-Quelle: 03-Inhalte/01-Startseite-Texte-V01.md
+// Final-Block — warme Einladung mit mehreren niedrigschwelligen Wegen
+// Quelle: Christians Briefing — warm einladen, Lust machen, mehrere Kontakt-Optionen
 ---
 
 <section id="webinar" class="final-fokus on-dark">
   <div class="sun-strip" aria-hidden="true"></div>
-  <div class="container final-inner">
-    <div class="final-cta">
-      <h2>Der einfachste erste Schritt?<br>Sei beim nächsten Webinar dabei.</h2>
-      <p class="lead">
-        Kostenlos, live, unverbindlich. Du erlebst, wie wir arbeiten — und entscheidest dann in Ruhe.
-        Du musst nichts können, nichts vorbereiten, nichts beweisen. <em>Komm einfach dazu.</em>
-      </p>
 
-      <div class="final-ctas">
-        <a href="#webinar-anmeldung" class="btn btn-primary">Zum nächsten Webinar anmelden</a>
-        <a href="#kontakt" class="btn-link">Lieber direkt sprechen? Schreib uns <span class="arrow">→</span></a>
-      </div>
+  <div class="container final-inner">
+    <div class="final-intro">
+      <p class="final-eyebrow">Komm uns näher</p>
+      <p class="final-statement">So gibst du deinem Leben einen Sinn.</p>
+      <h2>Wir freuen uns, wenn du uns kennenlernst.</h2>
+      <p class="lead">
+        Es lohnt sich, hinzuschauen. Es lohnt sich, dich auf dein Leben einzulassen.
+        Wir versprechen dir nichts — wir laden dich ein, einen ersten Schritt zu gehen.
+        <em>Such dir aus, was sich für dich gerade richtig anfühlt.</em>
+      </p>
+    </div>
+
+    <div class="ways-grid">
+      <a href="#webinar-anmeldung" class="way-card">
+        <span class="way-num">01</span>
+        <h3>Komm ins nächste Webinar.</h3>
+        <p>Live, kostenlos, unverbindlich. Du erlebst, wie wir arbeiten — und stellst deine Fragen.</p>
+        <span class="way-link">Zum Webinar anmelden <span class="arrow">→</span></span>
+      </a>
+
+      <a href="#youtube" class="way-card" target="_blank" rel="noopener">
+        <span class="way-num">02</span>
+        <h3>Hör uns sonntags zu.</h3>
+        <p>Jeden Sonntag ein Gespräch von uns auf YouTube. Gedanken fürs echte Leben. Kostenlos, ohne Anmeldung.</p>
+        <span class="way-link">Auf YouTube ansehen <span class="arrow">→</span></span>
+      </a>
+
+      <a href="/angebote" class="way-card">
+        <span class="way-num">03</span>
+        <h3>Schau dir alle Angebote an.</h3>
+        <p>Online oder vor Ort. Allein oder als Paar. Such dir aus, was zu dir passt.</p>
+        <span class="way-link">Zu den Angeboten <span class="arrow">→</span></span>
+      </a>
+
+      <a href="mailto:kontakt@himmelstosscoaching.de" class="way-card">
+        <span class="way-num">04</span>
+        <h3>Schreib uns einfach.</h3>
+        <p>Du hast eine Frage? Eine Geschichte? Wir lesen alle Mails selbst — und antworten dir persönlich.</p>
+        <span class="way-link">E-Mail schreiben <span class="arrow">→</span></span>
+      </a>
     </div>
 
     <div class="newsletter">
-      <h3>Sonntagsgespräch ins Postfach</h3>
-      <p>Jeden Sonntag ein Brief von uns. Kein Spam, jederzeit abbestellbar.</p>
+      <h3>Oder bleib mit uns in Verbindung.</h3>
+      <p>Sonntagsgespräch ins Postfach — jeden Sonntag ein Brief von uns. Kein Spam, jederzeit abbestellbar.</p>
       <form class="newsletter-form" onsubmit="event.preventDefault();">
         <input type="email" placeholder="deine@email.de" required />
         <button type="submit" class="btn btn-primary">Anmelden</button>
@@ -34,16 +63,15 @@
   .final-fokus {
     background: var(--sunset-surface);
     position: relative;
-    padding: clamp(100px, 13vw, 160px) 0;
+    padding: clamp(100px, 13vw, 160px) 0 clamp(80px, 10vw, 130px);
     overflow: hidden;
   }
   .final-fokus::before {
-    /* Sanfter dunkler Schleier oben — damit Headline lesbar bleibt */
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 55%;
-    background: linear-gradient(180deg, rgba(44, 75, 123, 0.45) 0%, rgba(44, 75, 123, 0) 100%);
+    height: 70%;
+    background: linear-gradient(180deg, rgba(44, 75, 123, 0.55) 0%, rgba(44, 75, 123, 0) 100%);
     pointer-events: none;
   }
   .sun-strip {
@@ -54,64 +82,141 @@
     opacity: 1;
     z-index: 2;
   }
-  .final-inner { position: relative; z-index: 1; }
   .final-inner {
-    max-width: 880px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .final-intro {
+    max-width: 760px;
+    margin: 0 auto 70px;
     text-align: center;
   }
-  .final-cta h2 {
+  .final-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-soft);
+    margin: 0 0 22px;
+  }
+  .final-statement {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.25;
+    color: var(--rose-soft);
+    margin: 0 0 22px;
+    letter-spacing: -0.005em;
+  }
+  .final-fokus h2 {
     color: #fff;
     margin: 0 0 22px;
     font-weight: 600;
   }
   .lead {
-    font-size: clamp(18px, 1.5vw, 21px);
+    font-size: clamp(17px, 1.4vw, 19px);
     color: rgba(255, 255, 255, 0.88);
-    line-height: 1.6;
-    margin: 0 auto 40px;
-    max-width: 640px;
+    line-height: 1.65;
+    margin: 0 auto;
+    max-width: 620px;
   }
   .lead em {
-    color: var(--yellow-warm);
-    font-style: italic;
+    display: block;
+    margin-top: 8px;
+    color: var(--rose-soft);
     font-family: var(--font-display);
-  }
-  .final-ctas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
-  }
-  .final-ctas .btn-link {
-    color: rgba(255, 255, 255, 0.78);
-  }
-  .final-ctas .btn-link:hover {
-    color: #fff;
-    border-bottom-color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
   }
 
+  /* 4-Wege-Grid */
+  .ways-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    max-width: 940px;
+    margin: 0 auto 80px;
+  }
+  .way-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-card);
+    padding: 28px 26px 24px;
+    color: #fff !important;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background .3s var(--ease), transform .3s var(--ease), border-color .3s var(--ease);
+    backdrop-filter: blur(6px);
+  }
+  .way-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .way-num {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+  }
+  .way-card h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(19px, 1.8vw, 22px);
+    line-height: 1.3;
+    color: #fff;
+    margin: 0 0 4px;
+  }
+  .way-card p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+    flex-grow: 1;
+  }
+  .way-link {
+    margin-top: 8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--rose-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .way-link .arrow { transition: transform .25s var(--ease); }
+  .way-card:hover .way-link .arrow { transform: translateX(4px); }
+
+  /* Newsletter */
   .newsletter {
-    margin-top: 80px;
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
     padding-top: 50px;
     border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
   .newsletter h3 {
     color: #fff;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 22px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 1.9vw, 24px);
     margin: 0 0 8px;
   }
   .newsletter p {
     color: rgba(255, 255, 255, 0.82);
-    margin: 0 0 24px;
-    font-size: 15px;
+    margin: 0 0 22px;
+    font-size: 14.5px;
   }
   .newsletter-form {
     display: flex;
     gap: 10px;
-    max-width: 460px;
-    margin: 0 auto;
   }
   .newsletter-form input {
     flex: 1;
@@ -128,7 +233,8 @@
   .newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
   .newsletter-form input:focus { border-color: var(--rose-soft); }
 
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
+    .ways-grid { grid-template-columns: 1fr; gap: 14px; }
     .newsletter-form { flex-direction: column; gap: 10px; }
   }
 </style>

@@ -2,65 +2,35 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import HeroFokus from '../components/HeroFokus.astro';
+import RecognizeFokus from '../components/RecognizeFokus.astro';
 import AboutFokus from '../components/AboutFokus.astro';
-import OfferCardFokus from '../components/OfferCardFokus.astro';
-import FreebieStripFokus from '../components/FreebieStripFokus.astro';
+import ManifestoFokus from '../components/ManifestoFokus.astro';
+import PillarsFokus from '../components/PillarsFokus.astro';
+import TwoWaysFokus from '../components/TwoWaysFokus.astro';
+import StoriesFokus from '../components/StoriesFokus.astro';
+import ApproachFokus from '../components/ApproachFokus.astro';
+import HinweiseFokus from '../components/HinweiseFokus.astro';
 import TrustBookFokus from '../components/TrustBookFokus.astro';
 import FinalFokus from '../components/FinalFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
-import { fokusOffers } from '../data/offersFokus';
-
-const [angebot1, angebot2, angebot3, angebot4, angebot5] = fokusOffers;
 ---
 
 <FokusLayout
-  title="Annette & Herbert Himmelsstoß — Coaches für ein lebendiges Leben"
-  description="Online-Kurse, Retreats und Begleitung mit Annette & Herbert Himmelsstoß. Seit 1992 ein Paar, seit über 30 Jahren begleiten wir Menschen — als Ärztin, Lehrer, Coaches."
+  title="Annette & Herbert Himmelsstoß — wir geben nur weiter, was wir selbst leben"
+  description="Dein Leben spricht zu dir. Wir helfen dir, es zu lesen. Annette & Herbert Himmelsstoß — seit 1992 ein Paar, drei erwachsene Kinder, seit über 25 Jahren Coaches."
   canonical="https://himmelstosscoaching.de/"
 >
   <HeaderFokus />
   <HeroFokus />
+  <RecognizeFokus />
   <AboutFokus />
-
-  <!-- B: 5 Hauptangebote — Intro + Karten -->
-  <div id="angebote">
-    <div class="angebote-intro narrow">
-      <h2>Es gibt nicht den einen Weg zu uns. Es gibt deinen.</h2>
-      <p>
-        Manche beginnen leise für sich, andere als Paar, wieder andere mittendrin
-        in einer Gemeinschaft oder eine Woche lang am Meer.
-        Schau in Ruhe, was sich für dich gerade stimmig anfühlt.
-      </p>
-    </div>
-
-    <OfferCardFokus offer={angebot1} background="white" />
-    <OfferCardFokus offer={angebot2} background="cream" />
-    <OfferCardFokus offer={angebot3} background="white" />
-    <OfferCardFokus offer={angebot4} background="cream" />
-    <OfferCardFokus offer={angebot5} background="white" />
-  </div>
-
-  <FreebieStripFokus />
+  <ManifestoFokus />
+  <PillarsFokus />
+  <ApproachFokus />
+  <HinweiseFokus />
+  <TwoWaysFokus />
+  <StoriesFokus />
   <TrustBookFokus />
   <FinalFokus />
   <FooterFokus />
 </FokusLayout>
-
-<style>
-  .angebote-intro {
-    text-align: center;
-    padding: clamp(80px, 11vw, 140px) 24px clamp(36px, 5vw, 60px);
-  }
-  .angebote-intro h2 {
-    color: var(--blue-deep);
-    font-weight: 600;
-    margin-bottom: 18px;
-    line-height: 1.2;
-  }
-  .angebote-intro p {
-    color: var(--ink-soft);
-    font-size: clamp(17px, 1.5vw, 19px);
-    line-height: 1.65;
-    margin: 0;
-  }
-</style>

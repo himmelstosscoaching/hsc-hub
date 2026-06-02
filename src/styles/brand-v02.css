@@ -29,24 +29,22 @@
   --blue-deep-soft:  #3D5E92;
   --rose:            #F89489;
 
-  /* Marken-Akzent: Lachs + Orange (Sonnenuntergangs-DNA) */
+  /* Marken-Akzent: Lachs + Orange (Sonnenuntergangs-DNA, ohne Gelb) */
   --orange:          #FA9D56;
   --orange-warm:     #f4956a;
   --rose-soft:       #fbb1a7;     /* helleres Rosé für sanfte Akzente */
   --sky-light:       #75BFDA;
-  --yellow-warm:     #FFD800;
 
   /* Gold/Beige nur noch sehr dezent für Trennlinien */
   --gold-line:       #B8956B;
   --gold-soft:       #D8BC97;
 
-  /* Sun-Strip — der HSC-Sonnenuntergangs-Verlauf */
+  /* Sun-Strip — Blau → Lachs (ohne Gelb/Grün) */
   --sun-strip: linear-gradient(90deg,
     #2C4B7B 0%,
-    #3D7AAB 22%,
+    #3D7AAB 18%,
     #75BFDA 38%,
-    #FFD800 55%,
-    #FA9D56 75%,
+    #FA9D56 70%,
     #F89489 100%
   );
 

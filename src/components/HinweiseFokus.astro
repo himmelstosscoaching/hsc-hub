@@ -1,0 +1,137 @@
+---
+// Sektion „Vier Sätze, die uns durchtragen"
+// Quelle: Annettes Aphorismen — aus den HSC-Materialien + Buch-Tonalität
+// Format: 4 Aphorismen in 2x2-Grid, jeder mit kurzer Erläuterung
+---
+
+<section id="vier-hinweise" class="hinweise-fokus">
+  <div class="container narrow section-head">
+    <p class="acc-eyebrow">Vier Sätze</p>
+    <h2>Vier Hinweise, die uns durchtragen.</h2>
+    <p>Wir sind nicht klug geworden, weil wir mehr gelesen haben. Wir sind klug geworden,
+      weil wir diese Sätze immer wieder ausprobiert haben.</p>
+  </div>
+
+  <div class="container hinweise-grid">
+    <article class="hinweis reveal-on-scroll">
+      <span class="num">01</span>
+      <p class="aphorism">Ersetze Angst durch Interesse.</p>
+      <p class="gloss">
+        Was zeigt sich mir gerade? — statt: Was bedroht mich?
+        Aus dieser einen Verschiebung wird ein ganzes Leben.
+      </p>
+    </article>
+
+    <article class="hinweis reveal-on-scroll">
+      <span class="num">02</span>
+      <p class="aphorism">Finde in der Sackgasse das Hinweisschild.</p>
+      <p class="gloss">
+        Wenn nichts mehr geht, ist das selten ein Stopp.
+        Meist ein Wegweiser, den wir noch nicht gelesen haben.
+      </p>
+    </article>
+
+    <article class="hinweis reveal-on-scroll">
+      <span class="num">03</span>
+      <p class="aphorism">Entspann dich von den Erwartungen. Schau bis morgen.</p>
+      <p class="gloss">
+        Was heute riesig wirkt, ist morgen oft klein.
+        Gib dem Leben Zeit, sich zu sortieren.
+      </p>
+    </article>
+
+    <article class="hinweis reveal-on-scroll">
+      <span class="num">04</span>
+      <p class="aphorism">Finde in der alternativlosen Situation die tausend Möglichkeiten.</p>
+      <p class="gloss">
+        „Es gibt keine Wahl" — das ist meist der Moment, in dem wir aufhören zu schauen.
+        Eine Wahl gibt es fast immer. Manchmal nicht die, die wir uns wünschen — aber eine.
+      </p>
+    </article>
+  </div>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hinweise-fokus {
+    background: var(--bg-cream);
+    padding-bottom: clamp(80px, 10vw, 130px);
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-head h2 {
+    color: var(--blue-deep);
+    margin: 0 0 18px;
+    line-height: 1.2;
+  }
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: clamp(17px, 1.5vw, 19px);
+    margin: 0 auto;
+    max-width: 620px;
+    line-height: 1.7;
+  }
+
+  .hinweise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .hinweis {
+    background: var(--bg-white);
+    border-radius: var(--radius-card);
+    padding: 36px 36px 32px;
+    border: 1px solid rgba(250, 157, 86, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .3s var(--ease), transform .3s var(--ease);
+  }
+  .hinweis::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sun-strip);
+    opacity: 0.7;
+  }
+  .hinweis:hover {
+    box-shadow: 0 14px 36px rgba(250, 157, 86, 0.10);
+    transform: translateY(-2px);
+  }
+  .hinweis .num {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+  .aphorism {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(22px, 2.1vw, 28px);
+    line-height: 1.25;
+    color: var(--blue-deep);
+    margin: 0 0 16px;
+    letter-spacing: -0.005em;
+  }
+  .gloss {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(15.5px, 1.3vw, 17px);
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  @media (max-width: 820px) {
+    .hinweise-grid { grid-template-columns: 1fr; gap: 16px; }
+    .hinweis { padding: 28px 26px 24px; }
+  }
+</style>

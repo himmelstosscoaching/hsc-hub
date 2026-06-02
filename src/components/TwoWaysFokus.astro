@@ -1,0 +1,126 @@
+---
+// Sektion „Zwei Wege" — Einzel-Begleitung + Paar-Begleitung
+// Quelle: Schatz-Methode (Buch Kap. 1-3) + Dein-Leben-lesen-lernen-Kurs + Christians Hinweis
+//   zur Paar-Geste „einander neu wahrnehmen, das Potenzial des anderen unterstützen"
+---
+
+<section id="zwei-wege" class="twoways-fokus">
+  <div class="container narrow section-head">
+    <h2>Zwei Wege zu uns.</h2>
+    <p>Du findest beides bei uns: deinen eigenen Weg — und den Weg als Paar.</p>
+  </div>
+
+  <div class="container ways-grid">
+    <article class="way reveal-on-scroll">
+      <span class="way-num">01</span>
+      <h3>Allein für dich.</h3>
+      <p class="way-lead">Du lernst, die Sprache zu hören, in der dein Leben zu dir spricht.</p>
+      <p>
+        Du findest die Antworten, die in dir längst liegen, und folgst ihnen mit Klarheit.
+        Wir geben dir Werkzeuge an die Hand — und gehen so lange mit, bis du sie selbst führst.
+      </p>
+    </article>
+
+    <article class="way reveal-on-scroll">
+      <span class="way-num">02</span>
+      <h3>Oder gemeinsam, als Paar.</h3>
+      <p class="way-lead">Ihr nehmt einander wieder neu wahr — und unterstützt das Potenzial des anderen.</p>
+      <p>
+        Ihr lernt, euch gegenseitig zu coachen: zuzuhören, zu fragen, nicht zu bewerten.
+        So löst ihr die schwersten Themen mit dem Menschen, der euch am nächsten ist.
+      </p>
+    </article>
+  </div>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .twoways-fokus {
+    background: var(--bg-white);
+    padding-bottom: clamp(80px, 10vw, 130px);
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-head h2 {
+    color: var(--blue-deep);
+    margin: 0 0 14px;
+  }
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: clamp(17px, 1.5vw, 19px);
+    margin: 0;
+  }
+
+  .ways-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    position: relative;
+  }
+  .ways-grid::before {
+    /* feine Lachs-Trennlinie zwischen den beiden Wegen */
+    content: "";
+    position: absolute;
+    top: 12%;
+    bottom: 12%;
+    left: 50%;
+    width: 1px;
+    background: var(--orange);
+    opacity: 0.35;
+  }
+  .way {
+    padding: 0 28px;
+  }
+  .way-num {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .way h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(24px, 2.4vw, 32px);
+    line-height: 1.2;
+    color: var(--blue-deep);
+    margin: 0 0 18px;
+  }
+  .way-lead {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.45;
+    color: var(--rose);
+    margin: 0 0 18px;
+  }
+  .way p:not(.way-lead) {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .ways-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+    .ways-grid::before {
+      top: auto;
+      bottom: auto;
+      left: 12%;
+      right: 12%;
+      width: auto;
+      height: 1px;
+      top: 50%;
+    }
+    .way { padding: 0; }
+  }
+</style>

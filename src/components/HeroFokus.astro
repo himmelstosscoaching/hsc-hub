@@ -7,20 +7,20 @@
   <div class="hero-halo" aria-hidden="true"></div>
 
   <div class="container hero-inner">
+    <p class="hero-eyebrow">Schön, dass du da bist.</p>
     <h1>
-      Lerne, deinem eigenen Leben zu folgen —<br>
-      <em>nicht der Meinung der anderen.</em>
+      <span class="h1-line">Dein Leben spricht zu&nbsp;dir.</span>
+      <em>Wir helfen dir, es zu lesen.</em>
     </h1>
 
     <p class="subline">
       Annette &amp; Herbert Himmelsstoß — seit 1992 ein Paar, drei erwachsene Kinder.
-      Wir begleiten Menschen, so lange wir zurückdenken können — als Ärztin, als Lehrer,
-      heute als Coaches, online und vor Ort. Wir erklären dir das Leben nicht.
-      <em class="subline-em">Wir leben es vor — und nehmen dich mit.</em>
+      <span class="subline-em">Wir geben nur weiter, was wir selbst leben.</span>
     </p>
 
     <div class="hero-ctas">
-      <a href="#angebote" class="btn btn-primary">Zeig mir, was zu mir passt</a>
+      <a href="#wer-wir-sind" class="btn btn-primary">Annette &amp; Herbert kennenlernen</a>
+      <a href="/angebote" class="btn-link">Angebote ansehen <span class="arrow">→</span></a>
     </div>
 
     <a href="#wer-wir-sind" class="scroll-cue" aria-label="Weiterlesen">
@@ -74,9 +74,26 @@
     text-align: center;
     padding-bottom: 80px;
   }
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(17px, 1.5vw, 21px);
+    color: var(--orange);
+    margin: 0 0 18px;
+  }
   .hero-inner h1 {
     color: var(--blue-deep);
     margin: 0 0 32px;
+    font-size: clamp(38px, 5vw, 64px);
+  }
+  .h1-line {
+    display: block;
+  }
+  @media (min-width: 760px) {
+    .h1-line { white-space: nowrap; }
+  }
+  .hero-inner h1 em {
+    display: block;
   }
   .hero-inner h1 em {
     font-style: italic;
@@ -91,14 +108,19 @@
     max-width: 760px;
   }
   .subline-em {
+    display: block;
+    margin-top: 12px;
     font-family: var(--font-display);
     font-style: italic;
     color: var(--rose);
-    font-size: 1.05em;
+    font-size: 1.1em;
   }
   .hero-ctas {
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
   }
 
   /* Scroll-Cue — dezenter Down-Indicator */

@@ -1,0 +1,180 @@
+---
+// Sektion C — Was uns auszeichnet (4 Säulen) + Methoden-Trias
+// Quelle: Buch „Trau keinem ..." + Marketing-Context + Konzept V03
+---
+
+<section id="was-uns-auszeichnet" class="pillars-fokus">
+  <div class="container narrow section-head">
+    <h2>Was uns auszeichnet</h2>
+    <p>Vier Dinge, die uns von vielen anderen unterscheiden — und die du auf der Seite und in jedem Gespräch mit uns wiederfindest.</p>
+  </div>
+
+  <div class="container pillars-grid">
+    <article class="pillar reveal-on-scroll">
+      <span class="num">01</span>
+      <h3>Gelebt, nicht studiert.</h3>
+      <p>Wir geben weiter, was wir miteinander durchgetragen haben — drei Kinder, zwei Schlaganfälle, mehr als 30 Jahre Ehe. Unsere heftigste Krise dauerte 90 Minuten.</p>
+    </article>
+
+    <article class="pillar reveal-on-scroll">
+      <span class="num">02</span>
+      <h3>Wir hören wirklich zu.</h3>
+      <p>Ohne dich zu bewerten. Ohne Lösung im Kopf. Wir geben dir den Raum, alles auszusprechen — und fragen weiter, bis du selbst spürst, worum es eigentlich geht. <em>Viele erleben das zum ersten Mal.</em></p>
+    </article>
+
+    <article class="pillar reveal-on-scroll">
+      <span class="num">03</span>
+      <h3>Spiritualität, die im Alltag ankommt.</h3>
+      <p>Visualisierung. Dankbarkeit. Tägliche Praxis. Wir bringen Spiritualität dahin, wo sie wirkt — in deinen Alltag. Und glauben mit Rudolf Steiner: <em>Wenn du nicht jeden Tag ein Wunder erlebst, hast du es nur nicht bemerkt.</em></p>
+    </article>
+
+    <article class="pillar reveal-on-scroll">
+      <span class="num">04</span>
+      <h3>Du bist dein bester Ratgeber.</h3>
+      <p>Wir lehren nicht von außen. Wir geben dir Werkzeuge — zwölf Kapitel, dutzende Übungen — mit denen du dein Leben selbst zu lesen lernst. Und als Paar euch gegenseitig zum Coach werdet.</p>
+    </article>
+  </div>
+
+  <div class="trias">
+    <div class="container narrow">
+      <p class="trias-eyebrow">Die Himmelstoß-Methode</p>
+      <p class="trias-words">
+        <span>Verstehen.</span>
+        <span>Gestalten.</span>
+        <span>Genießen.</span>
+      </p>
+      <p class="trias-foot">Drei Worte für ein Leben, das wir seit über 30 Jahren miteinander erproben.</p>
+    </div>
+  </div>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .pillars-fokus {
+    background: var(--bg-cream);
+    padding-bottom: clamp(60px, 8vw, 100px);
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-head h2 {
+    color: var(--blue-deep);
+    margin: 0 0 14px;
+  }
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: clamp(17px, 1.5vw, 19px);
+    margin: 0;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 80px;
+  }
+  .pillar {
+    background: var(--bg-white);
+    border-radius: var(--radius-card);
+    padding: 36px 32px 32px;
+    border: 1px solid rgba(250, 157, 86, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .pillar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sun-strip);
+    opacity: 0.7;
+  }
+  .pillar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(250, 157, 86, 0.10);
+  }
+  .pillar .num {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .pillar h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.3;
+    color: var(--blue-deep);
+    margin: 0 0 12px;
+  }
+  .pillar p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .pillar p em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  /* Trias-Block — Methoden-Signatur */
+  .trias {
+    text-align: center;
+    padding: 64px 0 40px;
+    border-top: 1px solid rgba(184, 149, 107, 0.25);
+    margin: 0 24px;
+  }
+  .trias-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 22px;
+  }
+  .trias-words {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    color: var(--blue-deep);
+    margin: 0 0 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    font-weight: 400;
+  }
+  .trias-words span {
+    display: inline-block;
+  }
+  .trias-foot {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: clamp(16px, 1.4vw, 19px);
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .pillars-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    .pillar { padding: 28px 24px 24px; }
+    .trias { padding: 40px 0 24px; }
+    .trias-words {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+</style>
