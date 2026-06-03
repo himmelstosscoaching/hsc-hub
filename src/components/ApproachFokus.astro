@@ -18,6 +18,14 @@
       die im Leben fast aller Menschen auftauchen — und nicht nur einmal.
     </p>
 
+    <p>Und mit ihnen die alten Innensätze, die wir alle kennen:</p>
+
+    <ul class="inner-voices">
+      <li>„Was, wenn beim Arzt etwas Schlimmes rauskommt?"</li>
+      <li>„Wenn ich das anspreche, ist unsere Beziehung in Gefahr."</li>
+      <li>„Wenn ich mich zeige, wird es gefährlich."</li>
+    </ul>
+
     <p>
       Was wir in über dreißig Jahren miteinander gelernt haben:
       <em>Nicht das Thema ist die Falle. Die Falle ist, dass wir jedes Mal
@@ -217,9 +225,27 @@
     margin: 0;
   }
 
+  /* Innensätze-Liste */
+  .inner-voices {
+    list-style: none;
+    padding: 4px 0 4px 28px;
+    margin: 4px 0;
+    border-left: 2px solid var(--rose);
+  }
+  .inner-voices li {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55;
+    color: var(--blue-deep);
+    margin-bottom: 12px;
+  }
+  .inner-voices li:last-child { margin-bottom: 0; }
+
   @media (max-width: 720px) {
     .three-questions { padding: 28px 24px 22px; }
     .three-questions li { font-size: 16px; gap: 12px; }
     .example-box { padding: 22px 22px; }
+    .inner-voices { padding-left: 20px; }
   }
 </style>
