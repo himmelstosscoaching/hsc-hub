@@ -1,0 +1,36 @@
+---
+// V2.1 — schlanke Welcome-Seite (7 Sektionen statt 11)
+// Neu: Hero mit Paarfoto · gekürzte About/Pillars/Stories/Final
+// Weggelassen: Approach (→ /angebote), Hinweise (→ /angebote)
+// /fokus bleibt als alte Version erhalten.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import HeroFokus2 from '../components/HeroFokus2.astro';
+import RecognizeFokus from '../components/RecognizeFokus.astro';
+import ManifestoFokus from '../components/ManifestoFokus.astro';
+import AboutFokus2 from '../components/AboutFokus2.astro';
+import PillarsFokus2 from '../components/PillarsFokus2.astro';
+import TwoWaysFokus from '../components/TwoWaysFokus.astro';
+import StoriesFokus2 from '../components/StoriesFokus2.astro';
+import TrustBookFokus from '../components/TrustBookFokus.astro';
+import FinalFokus2 from '../components/FinalFokus2.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+---
+
+<FokusLayout
+  title="Annette & Herbert Himmelstoß — wir geben nur weiter, was wir selbst leben"
+  description="Dein Leben spricht zu dir. Wir helfen dir, es zu lesen. Annette & Herbert Himmelstoß — seit 1992 ein Paar, Paar- und Life-Coaching."
+  canonical="https://himmelstosscoaching.de/"
+>
+  <HeaderFokus />
+  <HeroFokus2 />
+  <RecognizeFokus />
+  <ManifestoFokus />
+  <AboutFokus2 />
+  <PillarsFokus2 />
+  <TwoWaysFokus />
+  <StoriesFokus2 />
+  <TrustBookFokus />
+  <FinalFokus2 />
+  <FooterFokus />
+</FokusLayout>

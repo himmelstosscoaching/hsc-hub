@@ -1,0 +1,122 @@
+---
+// About V2.1 — gekürzt: Auftakt + Annette|Herbert (Portraits) + 1 Schlusssatz
+// Zone 3 (Methoden/Schema/Verantwortung) entfernt — wandert in Pillars (Dopplung aufgelöst)
+---
+
+<section id="wer-wir-sind" class="about2">
+  <div class="container narrow about2-intro">
+    <h2>Warum mit uns?</h2>
+    <p>
+      Bei uns gibt es kein Experten-Team, das dich durch ein System schleust —
+      es gibt uns zwei: Annette und Herbert. Ein Paar, seit 1992 zusammen:
+      drei Kinder, eine Arztpraxis, viele Klassenzimmer, schwere Stunden und große Geschenke.
+    </p>
+  </div>
+
+  <div class="container about2-persons">
+    <article class="person2 reveal-on-scroll">
+      <img class="portrait2" src="/img/annette-portrait.png" alt="Annette Himmelstoß" />
+      <h3>Annette</h3>
+      <p>
+        Seit 1996 Ärztin — das ist ihre Berufung, bis heute. Zwanzig Jahre lang
+        führte sie eine Privatarztpraxis und sah Menschen, bei denen die Schulmedizin
+        nicht weiterkam. <em>Die Ursache liegt selten dort, wo der Schmerz sich zeigt.</em>
+        Heute arbeitet sie als Coach — der Beruf hat sich gewandelt, die Berufung nicht.
+      </p>
+    </article>
+
+    <article class="person2 reveal-on-scroll">
+      <img class="portrait2" src="/img/herbert-portrait.png" alt="Herbert Himmelstoß" />
+      <h3>Herbert</h3>
+      <p>
+        Erst Kaufmann, dann Kunsttherapeut und Waldorflehrer.
+        <em>„Da können wir keinen Lehrer mehr reinschicken"</em> — drei Monate später
+        staunten alle. Sein Zugang zu Sucht: <em>Was sucht ein Mensch hinter der Droge?</em>
+        Über zwanzigtausend Menschen hat er so begleitet.
+      </p>
+    </article>
+  </div>
+
+  <p class="about2-closing container narrow">
+    Was wir weitergeben, steht in keinem Lehrbuch —
+    <em>wir haben es miteinander gelebt.</em>
+  </p>
+
+  <div class="sun-divider" aria-hidden="true"></div>
+</section>
+
+<style>
+  .about2 {
+    background: var(--bg-white);
+    padding-top: clamp(80px, 10vw, 120px);
+    padding-bottom: clamp(80px, 10vw, 120px);
+  }
+  .about2-intro { text-align: center; margin-bottom: clamp(48px, 6vw, 70px); }
+  .about2-intro h2 {
+    color: var(--blue-deep);
+    margin: 0 0 22px;
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  .about2-intro p {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .about2-persons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    margin-bottom: clamp(40px, 5vw, 60px);
+    align-items: start;
+  }
+  .person2 { text-align: center; }
+  .portrait2 {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 18px;
+    box-shadow: 0 12px 30px rgba(44, 75, 123, 0.14);
+    border: 3px solid #fff;
+  }
+  .person2 h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(23px, 2.2vw, 28px);
+    color: var(--blue-deep);
+    margin: 0 0 14px;
+  }
+  .person2 p {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.3vw, 17px);
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0;
+    text-align: left;
+  }
+  .person2 p em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .about2-closing {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(19px, 1.7vw, 24px);
+    line-height: 1.5;
+    color: var(--blue-deep);
+    padding-top: clamp(36px, 4vw, 50px);
+    border-top: 1px solid rgba(184, 149, 107, 0.25);
+    margin: 0 auto;
+  }
+  .about2-closing em { color: var(--rose); font-style: italic; }
+
+  @media (max-width: 760px) {
+    .about2-persons { grid-template-columns: 1fr; gap: 44px; }
+    .person2 p { text-align: center; }
+  }
+</style>

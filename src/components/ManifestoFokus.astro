@@ -7,9 +7,19 @@
 
 <section class="manifesto-fokus" aria-label="Manifest">
   <div class="container narrow">
-    <p class="m-line m-1">Manchmal reicht es,</p>
+    <p class="m-problem">
+      Warum wiederholen sich diese Themen ständig? Weil wir gelernt haben,
+      sie wegzudrücken — und weil uns selten jemand wirklich zuhört.
+    </p>
+
+    <p class="m-line m-1">Dabei reicht manchmal eines:</p>
     <p class="m-line m-2"><em>wahrgenommen zu werden.</em></p>
     <p class="m-line m-3">Ohne Rat. Ohne Urteil. Ohne Eile.</p>
+
+    <p class="m-wirkung">
+      Wenn dir jemand wirklich zuhört, sprichst du Dinge aus,
+      die dir selbst neu sind. <em>Genau da beginnst du, dein Leben zu lesen.</em>
+    </p>
   </div>
 </section>
 
@@ -58,6 +68,27 @@
     font-style: italic;
     font-size: clamp(18px, 1.7vw, 22px);
     color: var(--rose);
+  }
+  .m-problem {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto 44px;
+  }
+  .m-wirkung {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 44px auto 0;
+  }
+  .m-wirkung em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--blue-deep);
   }
 
   @media (max-width: 720px) {

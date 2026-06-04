@@ -1,0 +1,70 @@
+---
+// Final V2.1 — verschlankt: klarer Haupt-CTA „Angebote", 2 leise Nebenwege, kompakter Newsletter
+---
+
+<section id="abschluss" class="final2 on-dark">
+  <div class="sun-strip" aria-hidden="true"></div>
+  <div class="container final2-inner">
+    <p class="final2-eyebrow">So gibst du deinem Leben einen Sinn.</p>
+    <h2>Schau dir an, womit wir dich begleiten.</h2>
+    <p class="final2-lead">
+      Online oder vor Ort. Allein oder als Paar.
+      <em>Such dir in Ruhe aus, was sich für dich gerade stimmig anfühlt.</em>
+    </p>
+
+    <div class="final2-ctas">
+      <a href="/angebote" class="btn btn-primary">Angebote ansehen</a>
+      <a href="#webinar" class="final2-link">Oder ins nächste Webinar reinschnuppern <span class="arrow">→</span></a>
+    </div>
+
+    <div class="final2-news">
+      <p>Lieber in Verbindung bleiben? <strong>Sonntagsgespräch ins Postfach</strong> — jeden Sonntag ein Brief von uns.</p>
+      <form class="final2-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="deine@email.de" required />
+        <button type="submit" class="btn btn-primary">Anmelden</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final2 {
+    background: var(--sunset-surface);
+    position: relative;
+    padding: clamp(90px, 12vw, 140px) 0 clamp(70px, 9vw, 110px);
+    overflow: hidden;
+    text-align: center;
+  }
+  .final2::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(44,75,123,0.5) 0%, rgba(44,75,123,0.1) 60%, rgba(44,75,123,0) 100%);
+    pointer-events: none;
+  }
+  .sun-strip { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); z-index: 2; }
+  .final2-inner { position: relative; z-index: 1; max-width: 680px; }
+  .final2-eyebrow {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(17px, 1.5vw, 21px); color: #ffd9c2; margin: 0 0 18px;
+  }
+  .final2 h2 { color: #fff; margin: 0 0 18px; font-weight: 600; }
+  .final2-lead { font-size: clamp(17px, 1.5vw, 20px); color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0 auto 36px; max-width: 560px; }
+  .final2-lead em { color: #fff; font-style: italic; font-family: var(--font-display); }
+  .final2-ctas { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .final2-link { color: rgba(255,255,255,0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .final2-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); text-decoration: none; }
+  .final2-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .final2-link:hover .arrow { transform: translateX(4px); }
+
+  .final2-news { margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .final2-news p { color: rgba(255,255,255,0.85); font-size: 15px; margin: 0 0 20px; }
+  .final2-news strong { color: #fff; font-weight: 600; }
+  .final2-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+  .final2-form input {
+    flex: 1; padding: 14px 18px; border-radius: var(--radius-button);
+    border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+    color: #fff; font-family: var(--font-body); font-size: 15px; outline: none;
+  }
+  .final2-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .final2-form input:focus { border-color: var(--rose-soft); }
+  @media (max-width: 600px) { .final2-form { flex-direction: column; } }
+</style>
