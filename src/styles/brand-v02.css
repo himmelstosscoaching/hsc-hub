@@ -171,8 +171,10 @@ section { padding: var(--s-section) 0; position: relative; }
   background-size: 200% 100%;
   opacity: 0.7;
   animation: sun-shimmer 14s ease-in-out infinite;
+  margin-top: clamp(44px, 6vw, 80px); /* Luft zwischen Text und Trenner */
 }
-.sun-divider.thick { height: 8px; opacity: 0.85; }
+/* im Hero (thick, am unteren Bildrand) keinen Abstand — sitzt direkt auf der Kante */
+.sun-divider.thick { height: 8px; opacity: 0.85; margin-top: 0; }
 
 @keyframes sun-shimmer {
   0%, 100% { background-position: 0% 50%; }

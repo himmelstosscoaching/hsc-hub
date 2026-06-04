@@ -1,0 +1,78 @@
+---
+// Foto-Band — großes randloses A&H-Foto auf einer Sektionshälfte + Zitat/Text daneben
+// Konzept von der alten himmelstosscoaching.de übernommen (große Bilder tauchen immer mal auf)
+interface Props {
+  image: string;
+  alt: string;
+  side?: 'left' | 'right';   // auf welcher Seite das Foto sitzt
+  bg?: 'cream' | 'white';
+  eyebrow?: string;
+  quote: string;             // großes Statement (Fontin)
+  text?: string;             // optionaler kleiner Begleittext
+}
+const { image, alt, side = 'left', bg = 'cream', eyebrow, quote, text } = Astro.props;
+const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
+---
+
+<section class={`photoband ${bgClass} ${side === 'right' ? 'img-right' : 'img-left'}`}>
+  <div class="pb-photo">
+    <img src={image} alt={alt} loading="lazy" />
+  </div>
+  <div class="pb-textwrap">
+    <div class="pb-text reveal-on-scroll">
+      {eyebrow && <span class="acc-eyebrow">{eyebrow}</span>}
+      <p class="pb-quote">{quote}</p>
+      {text && <p class="pb-body">{text}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .photoband {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: clamp(420px, 52vh, 600px);
+    position: relative;
+  }
+  .pb-cream { background: var(--bg-cream); }
+  .pb-white { background: var(--bg-white); }
+
+  .pb-photo { position: relative; overflow: hidden; }
+  .pb-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .pb-textwrap { display: flex; align-items: center; padding: clamp(40px, 6vw, 90px); }
+  .pb-text { max-width: 480px; }
+  .pb-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.28;
+    color: var(--blue-deep);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .pb-body {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 22px 0 0;
+  }
+
+  /* Foto rechts → Reihenfolge umkehren */
+  .img-right .pb-photo { order: 2; }
+  .img-right .pb-textwrap { order: 1; justify-content: flex-end; }
+  .img-right .pb-text { text-align: right; }
+  .img-right .acc-eyebrow { flex-direction: row-reverse; }
+
+  @media (max-width: 820px) {
+    .photoband { grid-template-columns: 1fr; min-height: 0; }
+    .pb-photo { aspect-ratio: 3 / 2; }
+    .img-right .pb-photo { order: -1; }
+    .img-right .pb-textwrap { order: 0; justify-content: flex-start; }
+    .img-right .pb-text { text-align: left; }
+    .img-right .acc-eyebrow { flex-direction: row; }
+    .pb-textwrap { padding: clamp(36px, 8vw, 56px) 24px; }
+  }
+</style>

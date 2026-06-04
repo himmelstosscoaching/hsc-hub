@@ -1,0 +1,174 @@
+---
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import { kategorien, kostenlos } from '../data/angebote';
+---
+
+<FokusLayout
+  title="Angebote — Annette & Herbert Himmelstoß"
+  description="Online-Kurse, persönliche Begleitung und Retreats mit Annette & Herbert Himmelstoß. Such dir aus, was zu dir passt — allein oder als Paar."
+  canonical="https://himmelstosscoaching.de/angebote"
+>
+  <HeaderFokus />
+
+  <!-- Hero -->
+  <section class="ang-hero">
+    <div class="ang-halo" aria-hidden="true"></div>
+    <div class="container narrow">
+      <p class="acc-eyebrow">Unsere Angebote</p>
+      <h1>Es gibt nicht den einen Weg zu uns. Es gibt deinen.</h1>
+      <p class="ang-sub">
+        Manche beginnen leise für sich, andere als Paar, wieder andere mittendrin
+        in einer Gemeinschaft oder eine Woche lang am Meer.
+        Schau in Ruhe, was sich für dich gerade stimmig anfühlt.
+      </p>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- Kategorien -->
+  {kategorien.map((kat, ki) => (
+    <section class={`ang-kat ${ki % 2 === 0 ? 'bg-white' : 'bg-cream'}`}>
+      <div class="container">
+        <div class="kat-head">
+          <span class="kat-label">{kat.label}</span>
+          <p class="kat-intro">{kat.intro}</p>
+        </div>
+        <div class="kat-grid">
+          {kat.items.map((a) => (
+            <article class={`ang-card${a.highlight ? ' is-highlight' : ''} reveal-on-scroll`}>
+              <h3>{a.name}</h3>
+              <p class="ang-nutzen">{a.nutzen}</p>
+              <p class="ang-format">{a.format}</p>
+              <div class="ang-foot">
+                <span class="ang-preis">{a.preis}</span>
+                <a href={a.url} class="ang-cta" target="_blank" rel="noopener">{a.cta} →</a>
+              </div>
+              {a.note && <p class="ang-note">{a.note}</p>}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Kostenlos reinschnuppern -->
+  <section id="webinar" class="ang-frei">
+    <div class="container">
+      <div class="kat-head center">
+        <span class="kat-label">Kostenlos reinschnuppern</span>
+        <p class="kat-intro">Du musst dich nicht gleich entscheiden. Schnupper rein und spür, ob unsere Art zu dir passt.</p>
+      </div>
+      <div class="frei-grid">
+        {kostenlos.map((a) => (
+          <article class="frei-card reveal-on-scroll">
+            <h3>{a.name}</h3>
+            <p>{a.nutzen}</p>
+            <span class="frei-format">{a.format}</span>
+            <a href={a.url} class="btn-link">{a.cta} <span class="arrow">→</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Abschluss -->
+  <section class="ang-final on-dark">
+    <div class="sun-strip" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2>Du bist dir nicht sicher, was zu dir passt?</h2>
+      <p>Komm in unser nächstes kostenloses Webinar — dort findest du es heraus. Oder schreib uns einfach.</p>
+      <div class="ang-final-ctas">
+        <a href="#webinar" class="btn btn-primary">Zum nächsten Webinar</a>
+        <a href="mailto:kontakt@himmelstosscoaching.de" class="ang-final-link">Lieber schreiben? <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  /* Hero */
+  .ang-hero { position: relative; background: var(--bg-white); padding: clamp(90px, 11vw, 140px) 0 0; overflow: hidden; text-align: center; }
+  .ang-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+  .ang-hero .container { position: relative; z-index: 1; padding-bottom: clamp(70px, 9vw, 110px); }
+  .ang-hero .acc-eyebrow { justify-content: center; }
+  .ang-hero h1 { color: var(--blue-deep); font-size: clamp(34px, 4.4vw, 56px); margin: 0 0 24px; }
+  .ang-sub { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; color: var(--ink-soft); margin: 0 auto; max-width: 640px; }
+
+  /* Kategorie */
+  .ang-kat { padding: clamp(70px, 9vw, 120px) 0; }
+  .bg-white { background: var(--bg-white); }
+  .bg-cream { background: var(--bg-cream); }
+  .kat-head { max-width: 640px; margin: 0 0 48px; }
+  .kat-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kat-label {
+    display: inline-block;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(24px, 2.6vw, 34px); color: var(--blue-deep); margin-bottom: 10px;
+  }
+  .kat-intro { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+  .kat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .ang-card {
+    background: var(--bg-white);
+    border: 1px solid rgba(250, 157, 86, 0.18);
+    border-radius: var(--radius-card);
+    padding: 32px 30px;
+    display: flex; flex-direction: column; gap: 12px;
+    box-shadow: var(--shadow-soft);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .bg-white .ang-card { background: var(--bg-cream); }
+  .ang-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+  .ang-card.is-highlight { border-top: 3px solid var(--orange); }
+  .ang-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--blue-deep); margin: 0; }
+  .ang-nutzen { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+  .ang-format { font-size: 13.5px; color: var(--ink-light); margin: 0; letter-spacing: 0.01em; }
+  .ang-foot {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(250,157,86,0.25);
+  }
+  .ang-preis { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--blue-deep); }
+  .ang-cta {
+    font-family: var(--font-body); font-weight: 600; font-size: 13px; letter-spacing: 0.06em;
+    color: var(--blue-deep); border-bottom: 1.5px solid var(--blue-deep); padding-bottom: 2px;
+    text-decoration: none; transition: color .25s, border-color .25s;
+  }
+  .ang-cta:hover { color: var(--orange); border-color: var(--orange); text-decoration: none; }
+  .ang-note { font-size: 11.5px; color: var(--ink-light); font-style: italic; margin: 0; }
+
+  /* Kostenlos */
+  .ang-frei { background: var(--bg-cream); padding: clamp(70px, 9vw, 120px) 0; }
+  .frei-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .frei-card {
+    background: var(--bg-white); border-radius: var(--radius-card); padding: 32px 28px;
+    display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(250,157,86,0.18);
+    position: relative; overflow: hidden;
+  }
+  .frei-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--sun-strip); opacity:.7; }
+  .frei-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--blue-deep); margin: 0; }
+  .frei-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin: 0; flex-grow: 1; }
+  .frei-format { font-size: 12.5px; color: var(--ink-light); }
+  .frei-card .btn-link { margin-top: 6px; }
+
+  /* Final */
+  .ang-final { position: relative; background: var(--sunset-surface); padding: clamp(90px, 11vw, 130px) 0; text-align: center; overflow: hidden; }
+  .ang-final::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(44,75,123,0.5) 0%, rgba(44,75,123,0) 70%); pointer-events:none; }
+  .ang-final .sun-strip { position:absolute; top:0; left:0; right:0; height:6px; background: var(--sun-strip); z-index:2; }
+  .ang-final .container { position: relative; z-index: 1; }
+  .ang-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
+  .ang-final p { color: rgba(255,255,255,0.9); font-size: clamp(16px,1.5vw,19px); margin: 0 auto 32px; max-width: 560px; }
+  .ang-final-ctas { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .ang-final-link { color: rgba(255,255,255,0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .ang-final-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
+  .ang-final-link .arrow, .frei-card .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .ang-final-link:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 820px) {
+    .kat-grid { grid-template-columns: 1fr; }
+    .frei-grid { grid-template-columns: 1fr; max-width: 480px; }
+  }
+</style>
