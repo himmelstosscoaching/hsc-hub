@@ -1,4 +1,4 @@
-# HSC-Hub — Himmelsstoß Coaching Hauptseite
+# HSC-Hub — Himmelstoß Coaching Hauptseite
 
 Astro-basierter One-Pager für **himmelstosscoaching.de**.
 Übersicht über alle HSC-Angebote, leitet zu existierenden Sales-/Opt-In-Pages weiter.

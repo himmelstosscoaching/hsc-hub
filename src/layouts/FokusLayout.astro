@@ -6,8 +6,8 @@ interface Props {
   ogImage?: string;
 }
 const {
-  title = 'Annette & Herbert Himmelsstoß — Coaches für ein lebendiges Leben',
-  description = 'Online-Kurse, Retreats und Begleitung mit Annette & Herbert Himmelsstoß. Seit 1992 ein Paar, seit über 30 Jahren begleiten wir Menschen — als Ärztin, Lehrer, Coaches.',
+  title = 'Annette & Herbert Himmelstoß — Coaches für ein lebendiges Leben',
+  description = 'Online-Kurse, Retreats und Begleitung mit Annette & Herbert Himmelstoß. Seit 1992 ein Paar, seit über 30 Jahren begleiten wir Menschen — als Ärztin, Lehrer, Coaches.',
   canonical = 'https://himmelstosscoaching.de/',
   ogImage = '/img/og-default.jpg',
 } = Astro.props;
@@ -18,12 +18,12 @@ import '../styles/brand-v02.css';
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  'name': 'Himmelsstoß Coaching',
+  'name': 'Himmelstoß Coaching',
   'url': 'https://himmelstosscoaching.de/',
   'logo': 'https://himmelstosscoaching.de/img/logo.svg',
   'founder': [
-    { '@type': 'Person', 'name': 'Annette Himmelsstoß' },
-    { '@type': 'Person', 'name': 'Herbert Himmelsstoß' },
+    { '@type': 'Person', 'name': 'Annette Himmelstoß' },
+    { '@type': 'Person', 'name': 'Herbert Himmelstoß' },
   ],
   'sameAs': [
     'https://www.facebook.com/profile.php?id=100072016483607',
@@ -34,21 +34,21 @@ const orgSchema = {
 const annetteSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  'name': 'Annette Himmelsstoß',
+  'name': 'Annette Himmelstoß',
   'jobTitle': 'Coach für Authentizität und innere Klarheit',
   'description': '24 Jahre Ärztin mit Privatpraxis, seit November 2021 Coach. Begleitet Menschen, bei denen Schulmedizin nicht weiterkam.',
   'knowsAbout': ['Lebenscoaching', 'Authentizität', 'Innere Klarheit', 'Paar-Coaching'],
-  'worksFor': { '@type': 'Organization', 'name': 'Himmelsstoß Coaching' },
+  'worksFor': { '@type': 'Organization', 'name': 'Himmelstoß Coaching' },
 };
 
 const herbertSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  'name': 'Herbert Himmelsstoß',
+  'name': 'Herbert Himmelstoß',
   'jobTitle': 'Diplom-Kunsttherapeut, Waldorflehrer und Coach',
   'description': 'Diplom-Kunsttherapeut und Waldorflehrer. Seit 2008 selbstständig, Spezialist für Sucht- und Drogenprävention sowie Persönlichkeitsentwicklung.',
   'knowsAbout': ['Persönlichkeitsentwicklung', 'Suchtprävention', 'Paar-Coaching', 'Kunsttherapie'],
-  'worksFor': { '@type': 'Organization', 'name': 'Himmelsstoß Coaching' },
+  'worksFor': { '@type': 'Organization', 'name': 'Himmelstoß Coaching' },
 };
 
 const bookSchema = {
@@ -56,8 +56,8 @@ const bookSchema = {
   '@type': 'Book',
   'name': 'Trau keinem, der nicht in einer glücklichen Beziehung ist — die Macht zu bekommen, was beide wollen',
   'author': [
-    { '@type': 'Person', 'name': 'Annette Himmelsstoß' },
-    { '@type': 'Person', 'name': 'Herbert Himmelsstoß' },
+    { '@type': 'Person', 'name': 'Annette Himmelstoß' },
+    { '@type': 'Person', 'name': 'Herbert Himmelstoß' },
   ],
   'inLanguage': 'de',
   'bookFormat': 'https://schema.org/Paperback',
@@ -66,7 +66,7 @@ const bookSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  'name': 'Himmelsstoß Coaching',
+  'name': 'Himmelstoß Coaching',
   'url': 'https://himmelstosscoaching.de/',
   'inLanguage': 'de-DE',
 };
@@ -87,7 +87,7 @@ const websiteSchema = {
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:site_name" content="Himmelsstoß Coaching" />
+  <meta property="og:site_name" content="Himmelstoß Coaching" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
