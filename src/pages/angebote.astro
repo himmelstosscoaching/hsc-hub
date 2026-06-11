@@ -2,6 +2,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import PhotoBand from '../components/PhotoBand.astro';
 import { kategorien, kostenlos } from '../data/angebote';
 ---
 
@@ -27,34 +28,57 @@ import { kategorien, kostenlos } from '../data/angebote';
     <div class="sun-divider thick" aria-hidden="true"></div>
   </section>
 
-  <!-- Kategorien -->
+  <!-- Kategorien (mit großen A&H-Fotos dazwischen) -->
   {kategorien.map((kat, ki) => (
-    <section class={`ang-kat ${ki % 2 === 0 ? 'bg-white' : 'bg-cream'}`}>
-      <div class="container">
-        <div class="kat-head">
-          <span class="kat-label">{kat.label}</span>
-          <p class="kat-intro">{kat.intro}</p>
+    <>
+      <section class={`ang-kat ${ki % 2 === 0 ? 'bg-white' : 'bg-cream'}`}>
+        <div class="container">
+          <div class="kat-head">
+            <span class="kat-label">{kat.label}</span>
+            <p class="kat-intro">{kat.intro}</p>
+          </div>
+          <div class="kat-grid">
+            {kat.items.map((a) => (
+              <article class={`ang-card${a.highlight ? ' is-highlight' : ''} reveal-on-scroll`}>
+                <h3>{a.name}</h3>
+                <p class="ang-nutzen">{a.nutzen}</p>
+                <p class="ang-format">{a.format}</p>
+                <div class="ang-foot">
+                  <span class="ang-preis">{a.preis}</span>
+                  <a href={a.url} class="ang-cta" target="_blank" rel="noopener">{a.cta} →</a>
+                </div>
+                {a.note && <p class="ang-note">{a.note}</p>}
+              </article>
+            ))}
+          </div>
         </div>
-        <div class="kat-grid">
-          {kat.items.map((a) => (
-            <article class={`ang-card${a.highlight ? ' is-highlight' : ''} reveal-on-scroll`}>
-              <h3>{a.name}</h3>
-              <p class="ang-nutzen">{a.nutzen}</p>
-              <p class="ang-format">{a.format}</p>
-              <div class="ang-foot">
-                <span class="ang-preis">{a.preis}</span>
-                <a href={a.url} class="ang-cta" target="_blank" rel="noopener">{a.cta} →</a>
-              </div>
-              {a.note && <p class="ang-note">{a.note}</p>}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+
+      {ki === 0 && (
+        <PhotoBand
+          image="/img/annette-herbert-heben.jpg"
+          alt="Annette und Herbert lachend am Strand"
+          side="right"
+          bg="cream"
+          eyebrow="Lernen, das bleibt"
+          quote="Veränderung passiert nicht im Kopf — sondern wenn du anfängst, sie zu leben."
+        />
+      )}
+      {ki === 1 && (
+        <PhotoBand
+          image="/img/annette-herbert-mallorca.jpg"
+          alt="Annette und Herbert eng umschlungen am Meer"
+          side="left"
+          bg="white"
+          eyebrow="Persönlich heißt persönlich"
+          quote="Bei uns gibt es kein Experten-Team, das dich durch ein System schleust — es gibt uns zwei."
+        />
+      )}
+    </>
   ))}
 
   <!-- Kostenlos reinschnuppern -->
-  <section id="webinar" class="ang-frei">
+  <section id="frei" class="ang-frei">
     <div class="container">
       <div class="kat-head center">
         <span class="kat-label">Kostenlos reinschnuppern</span>
@@ -78,9 +102,10 @@ import { kategorien, kostenlos } from '../data/angebote';
     <div class="sun-strip" aria-hidden="true"></div>
     <div class="container narrow">
       <h2>Du bist dir nicht sicher, was zu dir passt?</h2>
-      <p>Komm in unser nächstes kostenloses Webinar — dort findest du es heraus. Oder schreib uns einfach.</p>
+      <p>Schnupper kostenlos rein — oder buch dir ein unverbindliches Orientierungsgespräch mit uns. Oder schreib uns einfach.</p>
       <div class="ang-final-ctas">
-        <a href="#webinar" class="btn btn-primary">Zum nächsten Webinar</a>
+        <a href="https://orientierungsgespraech-himmelstoss.youcanbook.me" target="_blank" rel="noopener" class="btn btn-primary">Orientierungsgespräch buchen</a>
+        <a href="#frei" class="ang-final-link">Erstmal kostenlos reinschnuppern <span class="arrow">→</span></a>
         <a href="mailto:kontakt@himmelstosscoaching.de" class="ang-final-link">Lieber schreiben? <span class="arrow">→</span></a>
       </div>
     </div>

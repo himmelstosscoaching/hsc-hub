@@ -1,0 +1,123 @@
+---
+// Buch-Zwischenseite — Beschreibung vor dem Amazon-Kauf
+// (Call 11.6.: „Bei Amazon kommt das alles nicht so gut rüber" → eigene Seite)
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+
+const amazon = 'https://www.amazon.de/keinem-nicht-einer-gl%C3%BCcklichen-Beziehung/dp/3911174012/';
+---
+
+<FokusLayout
+  title="Das Buch — Trau keinem, der nicht in einer glücklichen Beziehung ist"
+  description="Partnerschaft als Turbo der eigenen Entwicklung. Annette & Herbert Himmelstoß über die Macht, zu bekommen, was beide wollen — ein praktischer Leitfaden aus dem eigenen Leben."
+  canonical="https://himmelstosscoaching.de/buch"
+>
+  <HeaderFokus />
+
+  <section class="buch-hero">
+    <div class="buch-halo" aria-hidden="true"></div>
+    <div class="container buch-grid">
+      <div class="buch-cover">
+        <img src="/img/buch-cover-mockup.png" alt="Buchcover: Trau keinem, der nicht in einer glücklichen Beziehung ist" loading="eager" />
+      </div>
+      <div class="buch-intro">
+        <p class="acc-eyebrow">Unser Buch</p>
+        <h1>Trau keinem, der nicht in einer glücklichen Beziehung&nbsp;ist</h1>
+        <p class="buch-sub">Die Macht zu bekommen, was beide wollen.</p>
+        <p class="buch-claim">Partnerschaft als Turbo in der eigenen Entwicklung.</p>
+        <a href={amazon} class="btn btn-primary" target="_blank" rel="noopener">Bei Amazon ansehen →</a>
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <section class="buch-text">
+    <div class="container narrow">
+      <p class="lead">
+        Über 30 Jahre Ehe, drei Kinder, Krankheit, Krisen, Neuanfänge —
+        und durch alles hindurch eine Beziehung, die nicht trotz, sondern
+        <em>wegen</em> dieser Themen gewachsen ist.
+      </p>
+      <p>
+        In diesem Buch zeigen wir, wie Partnerschaft zum kraftvollsten Ort der
+        eigenen Entwicklung wird. Kein Beziehungsratgeber, der dir erklärt, wie
+        ihr „funktioniert" — sondern ein praktischer Leitfaden, wie ihr lernt,
+        euch im Streit nicht zu verlieren, alte Reaktionsmuster zu durchbrechen
+        und in den schwierigen Momenten zu bekommen, was ihr <em>beide</em> wollt.
+      </p>
+      <p>
+        Wir geben nur weiter, was wir selbst leben. Alles in diesem Buch haben
+        wir miteinander durchgetragen — ehrlich, manchmal unbequem, immer aus
+        dem echten Leben.
+      </p>
+
+      <blockquote class="buch-voice">
+        „Annette und Herbert ist es gelungen, einen wunderbar praktischen Leitfaden
+        zu entwickeln. Beim Lesen gab es viele Aha-Erlebnisse — mir ist wie Schuppen
+        von den Augen gefallen, in welche Kommunikationsfallen ich immer wieder getappt bin."
+        <cite>— Maike Paschke, Leserin</cite>
+      </blockquote>
+
+      <div class="buch-cta-row">
+        <a href={amazon} class="btn btn-primary" target="_blank" rel="noopener">Jetzt bei Amazon bestellen →</a>
+        <a href="/angebote" class="buch-link">Lieber mit uns arbeiten? Zu den Angeboten <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <PhotoBand
+    image="/img/annette-herbert-about.jpg"
+    alt="Annette und Herbert in jungen Jahren, lachend"
+    side="left"
+    bg="white"
+    eyebrow="Die beiden hinter dem Buch"
+    quote="Über 30 Jahre Ehe — alles, was in diesem Buch steht, haben wir miteinander durchgetragen."
+  />
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  .buch-hero { position: relative; background: var(--bg-white); padding: clamp(80px, 10vw, 130px) 0 0; overflow: hidden; }
+  .buch-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+  .buch-grid {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 72px);
+    align-items: center; padding-bottom: clamp(70px, 9vw, 110px);
+  }
+  .buch-cover { display: flex; justify-content: center; }
+  .buch-cover img { width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 24px 48px rgba(28,52,92,0.22)); }
+
+  .buch-intro .acc-eyebrow { margin-bottom: 6px; }
+  .buch-intro h1 { color: var(--blue-deep); font-size: clamp(30px, 3.8vw, 50px); line-height: 1.12; margin: 0 0 18px; }
+  .buch-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 1.7vw, 23px); color: var(--orange); margin: 0 0 14px; }
+  .buch-claim { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0 0 28px; }
+
+  .buch-text { background: var(--bg-cream); padding: clamp(70px, 9vw, 120px) 0; }
+  .buch-text .lead { font-family: var(--font-display); font-style: italic; font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: var(--blue-deep); margin: 0 0 28px; }
+  .buch-text .lead em, .buch-text p em { font-style: italic; color: var(--orange); }
+  .buch-text p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.7; color: var(--ink-soft); margin: 0 0 22px; }
+
+  .buch-voice {
+    margin: 44px 0; padding: 28px 32px; border-left: 3px solid var(--orange);
+    background: var(--bg-white); border-radius: var(--radius-card);
+    font-family: var(--font-display); font-style: italic; font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55; color: var(--blue-deep);
+  }
+  .buch-voice cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--font-body); font-size: 14px; color: var(--ink-light); }
+
+  .buch-cta-row { margin-top: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .buch-link { color: var(--blue-deep); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .buch-link:hover { border-bottom-color: var(--blue-deep); text-decoration: none; }
+  .buch-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .buch-link:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) {
+    .buch-grid { grid-template-columns: 1fr; text-align: center; }
+    .buch-cover img { max-width: 260px; }
+    .buch-intro .acc-eyebrow { justify-content: center; }
+    .buch-cta-row { align-items: center; }
+  }
+</style>

@@ -42,7 +42,7 @@ export const kategorien: Kategorie[] = [
         format: 'Online-Kurs für Paare · 9 Kapitel über 9 Monate · gedrucktes Workbook',
         preis: 'ab 397 €',
         cta: 'Zum Kurs',
-        url: 'https://aktion.himmelstosscoaching.de',
+        url: 'https://kasse.himmelstosscoaching.de/schatz-coachst-du-mich-basic/',
         highlight: true,
       },
       {
@@ -134,16 +134,16 @@ export const kategorien: Kategorie[] = [
   },
 ];
 
-// Kostenlose Einstiege — eigener Block
+// Kostenlose Einstiege — eigener Block (3 Freebies, Webinar raus lt. Call 11.6.)
 export const kostenlos: Angebot[] = [
   {
-    name: 'Kostenfreies Webinar',
-    nutzen: 'Sei live dabei, stell deine Fragen — und merk sofort, wie wir arbeiten.',
-    format: 'Live · Zoom',
+    name: 'Dein Leben lesen lernen — Schnupper-Impuls',
+    nutzen: 'Lerne in einem ersten kostenlosen Impuls, die Hinweise deines Lebens zu lesen.',
+    format: 'Gratis-Freebie · per E-Mail',
     preis: 'kostenlos',
-    cta: 'Zum nächsten Webinar',
-    url: '#webinar',
-    note: '⚠️ Quentn-Anmeldelink',
+    cta: 'Impuls holen',
+    url: '#freebie-leben',
+    note: '⚠️ Opt-in-Page muss noch gebaut werden',
   },
   {
     name: '3 Tage Paar-Impulse',
@@ -151,8 +151,8 @@ export const kostenlos: Angebot[] = [
     format: 'Gratis-Freebie · per E-Mail',
     preis: 'kostenlos',
     cta: 'Impulse holen',
-    url: '#freebie',
-    note: '⚠️ Funnel-Link',
+    url: '#freebie-paar',
+    note: '⚠️ PDF fertig, Opt-in-Page/Quentn-Flow noch nicht live',
   },
   {
     name: 'Sonntagsgespräche',
@@ -160,7 +160,6 @@ export const kostenlos: Angebot[] = [
     format: 'YouTube · wöchentlich · ohne Anmeldung',
     preis: 'kostenlos',
     cta: 'Auf YouTube ansehen',
-    url: '#youtube',
-    note: '⚠️ YouTube-Link',
+    url: 'https://www.youtube.com/@himmelstosscoaching/streams',
   },
 ];

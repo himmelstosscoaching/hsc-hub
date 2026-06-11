@@ -1,17 +1,22 @@
 ---
 // Ruhiger Header mit Logo + Anker-Menü
+// home = Ziel der Welcome-Seite (Logo + Anker). Default /fokus2;
+// die Panorama-Variante übergibt /fokus2b, damit jede Variante bei sich bleibt.
+interface Props { home?: string }
+const { home = '/fokus2' } = Astro.props;
 ---
 
 <header class="header-fokus">
   <div class="container header-inner">
-    <a href="/fokus" class="brand">
+    <a href={home} class="brand">
       <img src="/img/logo.svg" alt="Himmelstoß Coaching" class="brand-logo" />
     </a>
     <nav class="nav">
-      <a href="#wer-wir-sind">Über uns</a>
-      <a href="#was-uns-auszeichnet">Was uns auszeichnet</a>
+      <a href={`${home}#wer-wir-sind`}>Über uns</a>
+      <a href={`${home}#was-uns-auszeichnet`}>Was uns auszeichnet</a>
       <a href="/angebote">Angebote</a>
-      <a href="#webinar" class="nav-cta">Webinar →</a>
+      <a href="/buch">Buch</a>
+      <a href="/angebote#frei" class="nav-cta">Kostenlos starten →</a>
     </nav>
   </div>
 </header>
