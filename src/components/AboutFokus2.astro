@@ -12,6 +12,10 @@
       dankbar für unsere drei Kinder. Dazu eine Arztpraxis, viele Klassenzimmer,
       schwere Stunden, große Geschenke, herzliches Lachen — an allem sind wir gewachsen.
     </p>
+    <figure class="about2-family reveal-on-scroll">
+      <img src="/img/familie-felsen-quer.jpg" alt="Annette und Herbert mit ihren drei erwachsenen Kindern am Meer" loading="lazy" />
+      <figcaption>Wir fünf — Annette, Herbert und unsere drei erwachsenen Kinder.</figcaption>
+    </figure>
   </div>
 
   <div class="container about2-persons">
@@ -53,6 +57,24 @@
     padding-bottom: clamp(80px, 10vw, 120px);
   }
   .about2-intro { text-align: center; margin-bottom: clamp(48px, 6vw, 70px); }
+  .about2-family {
+    margin: clamp(32px, 4vw, 44px) auto 0;
+    max-width: 420px;
+  }
+  .about2-family img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    box-shadow: 0 14px 34px rgba(44, 75, 123, 0.14);
+    display: block;
+  }
+  .about2-family figcaption {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-top: 10px;
+    text-align: center;
+  }
   .about2-intro h2 {
     color: var(--blue-deep);
     margin: 0 0 22px;
@@ -117,6 +139,7 @@
   .about2-closing em { color: var(--rose); font-style: italic; }
 
   @media (max-width: 760px) {
+    .about2-family { max-width: 320px; }
     .about2-persons { grid-template-columns: 1fr; gap: 44px; }
     .person2 p { text-align: center; }
   }

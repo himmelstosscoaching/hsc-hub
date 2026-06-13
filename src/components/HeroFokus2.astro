@@ -15,8 +15,8 @@
         <em>Wir helfen dir, es zu lesen.</em>
       </h1>
       <p class="hero2-sub">
-        Annette &amp; Herbert Himmelstoß<br>
-        Paar- und Life-Coaching.
+        <span class="hero2-name">Annette &amp; Herbert Himmelstoß</span>
+        <span class="hero2-cat">Paar- und Life-Coaching</span>
         <span class="hero2-claim">Wir geben nur weiter, was wir selbst leben.</span>
       </p>
       <div class="hero2-ctas">
@@ -77,7 +77,7 @@
   }
   .hero2 h1 em {
     font-style: italic;
-    color: #ffd9c2;
+    color: #fff;
     font-weight: 400;
   }
   .hero2-sub {
@@ -86,6 +86,21 @@
     line-height: 1.6;
     color: rgba(255,255,255,0.94);
     margin: 0 0 32px;
+  }
+  .hero2-name {
+    display: block;
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: rgba(255,255,255,0.92);
+  }
+  .hero2-cat {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.1;
+    color: var(--orange);
+    text-shadow: 0 2px 18px rgba(20, 35, 60, 0.3);
   }
   .hero2-claim {
     display: block;

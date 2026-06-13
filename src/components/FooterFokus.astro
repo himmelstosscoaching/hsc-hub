@@ -1,8 +1,24 @@
 ---
-// Footer V02 — ohne Instagram (gecancelt)
+// Footer V03 — ruhiger Newsletter-Streifen oben, klare Navigation, YouTube als Icon
 ---
 
 <footer class="footer-fokus">
+  <!-- Newsletter-Streifen: ein ruhiger Block, Text links / Feld rechts -->
+  <div class="footer-news-strip">
+    <div class="container footer-news-inner">
+      <div class="footer-news-text">
+        <h4>Newsletter</h4>
+        <p>Jede Woche laden wir dich zu unserem Sonntagsgespräch ein — dazu immer wieder Impulse für deinen Alltag.</p>
+      </div>
+      <!-- TODO: Formular an Quentn/Mail-Tool anbinden (mit Diana). Aktuell ohne Versand. -->
+      <form class="footer-news-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="deine@email.de" aria-label="E-Mail-Adresse" required />
+        <button type="submit">Eintragen</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Navigation -->
   <div class="container footer-inner">
     <div class="footer-brand">
       <img src="/img/logo.svg" alt="Himmelstoß Coaching" class="footer-logo" />
@@ -10,7 +26,7 @@
     </div>
 
     <div class="footer-col">
-      <h4>Mehr Angebote</h4>
+      <h4>Angebote</h4>
       <ul>
         <li><a href="/angebote">Alle Angebote →</a></li>
         <li><a href="/buch">Unser Buch →</a></li>
@@ -27,11 +43,13 @@
 
     <div class="footer-col">
       <h4>Folgen</h4>
-      <ul class="social">
-        <li><a href="https://www.facebook.com/profile.php?id=100072016483607" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.youtube.com/@himmelstosscoaching/streams" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="#telegram" target="_blank" rel="noopener">Telegram</a></li>
-      </ul>
+      <a class="footer-yt" href="https://www.youtube.com/@himmelstosscoaching/streams" target="_blank" rel="noopener" aria-label="Unser YouTube-Kanal mit den Sonntagsgesprächen">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+          <path fill="#fff" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        <span>Sonntagsgespräche</span>
+      </a>
     </div>
   </div>
 
@@ -50,7 +68,6 @@
   .footer-fokus {
     background: var(--bg-cream-deeper);
     color: var(--ink-soft);
-    padding-top: 80px;
     position: relative;
   }
   .footer-fokus::before {
@@ -61,43 +78,102 @@
     background: var(--sun-strip);
     opacity: 0.5;
   }
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
-    gap: 50px;
-    padding-bottom: 60px;
+
+  /* Newsletter-Streifen */
+  .footer-news-strip {
+    padding: 44px 0;
+    border-bottom: 1px solid rgba(184, 149, 107, 0.28);
   }
-  .footer-logo {
-    height: 44px;
-    width: auto;
-    margin-bottom: 16px;
+  .footer-news-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    flex-wrap: wrap;
   }
-  .footer-brand p {
+  .footer-news-text { max-width: 480px; }
+  .footer-news-text h4 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .footer-news-text p {
     margin: 0;
     font-size: 14px;
-    color: var(--ink-soft);
     line-height: 1.55;
+    color: var(--ink-soft);
   }
+  .footer-news-form {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .footer-news-form input {
+    width: 230px;
+    padding: 12px 16px;
+    border-radius: var(--radius-button);
+    border: 1px solid rgba(184, 149, 107, 0.5);
+    background: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--blue-deep);
+    outline: none;
+  }
+  .footer-news-form input::placeholder { color: var(--ink-light); }
+  .footer-news-form input:focus { border-color: var(--orange); }
+  .footer-news-form button {
+    padding: 12px 22px;
+    border-radius: var(--radius-button);
+    border: none;
+    background: var(--lachs);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s;
+  }
+  .footer-news-form button:hover { background: var(--orange); }
+
+  /* Navigation */
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.4fr 1.1fr;
+    gap: 50px;
+    padding: 84px 0 64px;
+  }
+  .footer-logo { height: 44px; width: auto; margin-bottom: 16px; }
+  .footer-brand p { margin: 0; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+  .footer-yt {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color .2s;
+    white-space: nowrap;
+  }
+  .footer-yt:hover { color: var(--blue-deep); }
+  .footer-yt svg { flex-shrink: 0; }
+
   .footer-col h4 {
     font-family: var(--font-body);
-    font-size: 12px;
-    letter-spacing: 0.18em;
+    font-size: 15px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--orange);
     margin: 0 0 16px;
     font-weight: 600;
   }
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
   .footer-col li { margin-bottom: 10px; font-size: 15px; }
-  .footer-col a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color .2s;
-  }
+  .footer-col a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
   .footer-col a:hover { color: var(--blue-deep); text-decoration: none; }
 
   .footer-bottom {
@@ -112,20 +188,20 @@
     flex-wrap: wrap;
     gap: 16px;
   }
-  .footer-bottom ul {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .footer-bottom ul { display: flex; gap: 24px; list-style: none; padding: 0; margin: 0; }
   .footer-bottom a { color: var(--ink-light); text-decoration: none; }
   .footer-bottom a:hover { color: var(--blue-deep); }
 
-  @media (max-width: 960px) {
+  @media (max-width: 860px) {
+    .footer-news-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .footer-news-form { width: 100%; }
+    .footer-news-form input { flex: 1; width: auto; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
   }
   @media (max-width: 540px) {
     .footer-inner { grid-template-columns: 1fr; }
+    .footer-news-form { flex-direction: column; }
+    .footer-news-form input { width: 100%; }
+    .footer-news-form button { width: 100%; }
   }
 </style>

@@ -1,0 +1,54 @@
+---
+// Format-Zeichen — ein einheitliches Badge pro Angebot (Christians Wunsch).
+// Drei Formate: Online-Kurs (selbst lernen) · Live online (Zoom) · Live vor Ort (Präsenz).
+type FormatType = 'kurs' | 'live-online' | 'live-vor-ort';
+const { type } = Astro.props as { type: FormatType };
+const labels: Record<FormatType, string> = {
+  'kurs': 'Kurs',
+  'live-online': 'Live per Zoom',
+  'live-vor-ort': 'Vor Ort',
+};
+---
+<span class={`fmt-badge fmt-${type}`}>
+  {type === 'kurs' && (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <path d="M8 21h8" /><path d="M12 17v4" />
+    </svg>
+  )}
+  {type === 'live-online' && (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m22 8-6 4 6 4V8Z" />
+      <rect x="2" y="6" width="14" height="12" rx="2" />
+    </svg>
+  )}
+  {type === 'live-vor-ort' && (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  )}
+  <span>{labels[type]}</span>
+</span>
+
+<style>
+  .fmt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 5px 11px 5px 9px;
+    border-radius: 999px;
+    border: 1px solid;
+    background: var(--bg-white);
+    line-height: 1;
+  }
+  .fmt-badge svg { flex-shrink: 0; }
+  .fmt-kurs { color: var(--blue-deep); border-color: rgba(44, 75, 123, 0.32); }
+  .fmt-live-online { color: var(--orange); border-color: rgba(250, 157, 86, 0.45); }
+  .fmt-live-vor-ort { color: var(--lachs); border-color: rgba(231, 111, 81, 0.42); }
+</style>

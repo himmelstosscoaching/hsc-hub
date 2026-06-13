@@ -31,15 +31,32 @@ import PhotoBand from '../components/PhotoBand.astro';
   <PillarsFokus2 />
   <TwoWaysFokus2 />
   <PhotoBand
-    image="/img/pachy-umarmung.jpg"
-    alt="Annette und Herbert in inniger Umarmung"
+    image="/img/paar-balkon.jpg"
+    alt="Annette und Herbert auf dem blauen Balkon ihres Hauses am Meer"
     side="right"
     bg="white"
-    eyebrow="Worum es geht"
-    quote="Beziehung lernt man nicht aus Büchern — sondern in der eigenen."
+    quote="Und plötzlich entdeckt ihr wieder, warum ihr euch einmal gewählt habt."
   />
   <StoriesFokus2 />
   <TrustBookFokus />
+  <section class="strand-breather">
+    <figure>
+      <img src="/img/paar-strand.jpg" alt="Annette und Herbert eng beieinander am Strand, beide lachen" loading="lazy" />
+    </figure>
+  </section>
   <FinalFokus2 />
   <FooterFokus />
 </FokusLayout>
+
+<style>
+  /* Strand-Stimmungsbild (IMG_9167) — kleines, warmes Abschiedsbild vor dem Schluss-Aufruf. */
+  .strand-breather { background: var(--bg-white); padding: clamp(48px, 7vw, 84px) 0 clamp(40px, 6vw, 64px); }
+  .strand-breather figure { margin: 0 auto; max-width: 340px; padding: 0 24px; }
+  .strand-breather img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    box-shadow: 0 14px 34px rgba(44, 75, 123, 0.14);
+    display: block;
+  }
+</style>

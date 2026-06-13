@@ -2,8 +2,9 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import FormatBadge from '../components/FormatBadge.astro';
 import PhotoBand from '../components/PhotoBand.astro';
-import { kategorien, kostenlos } from '../data/angebote';
+import { kern, weitere, kostenlos } from '../data/angebote';
 ---
 
 <FokusLayout
@@ -18,64 +19,88 @@ import { kategorien, kostenlos } from '../data/angebote';
     <div class="ang-halo" aria-hidden="true"></div>
     <div class="container narrow">
       <p class="acc-eyebrow">Unsere Angebote</p>
-      <h1>Es gibt nicht den einen Weg zu uns. Es gibt deinen.</h1>
+      <h1>Such dir aus, was zu dir passt.</h1>
       <p class="ang-sub">
-        Manche beginnen leise für sich, andere als Paar, wieder andere mittendrin
-        in einer Gemeinschaft oder eine Woche lang am Meer.
-        Schau in Ruhe, was sich für dich gerade stimmig anfühlt.
+        Online oder vor Ort. Für dich allein oder als Paar.
+        Ein erster kostenloser Schritt — oder tiefe Zeit am Meer.
       </p>
+      <!-- Legende: erklärt die drei Format-Zeichen -->
+      <div class="ang-legende">
+        <FormatBadge type="kurs" />
+        <FormatBadge type="live-online" />
+        <FormatBadge type="live-vor-ort" />
+      </div>
     </div>
     <div class="sun-divider thick" aria-hidden="true"></div>
   </section>
 
-  <!-- Kategorien (mit großen A&H-Fotos dazwischen) -->
-  {kategorien.map((kat, ki) => (
-    <>
-      <section class={`ang-kat ${ki % 2 === 0 ? 'bg-white' : 'bg-cream'}`}>
-        <div class="container">
-          <div class="kat-head">
-            <span class="kat-label">{kat.label}</span>
-            <p class="kat-intro">{kat.intro}</p>
-          </div>
-          <div class="kat-grid">
-            {kat.items.map((a) => (
-              <article class={`ang-card${a.highlight ? ' is-highlight' : ''} reveal-on-scroll`}>
-                <h3>{a.name}</h3>
-                <p class="ang-nutzen">{a.nutzen}</p>
-                <p class="ang-format">{a.format}</p>
-                <div class="ang-foot">
-                  <span class="ang-preis">{a.preis}</span>
-                  <a href={a.url} class="ang-cta" target="_blank" rel="noopener">{a.cta} →</a>
-                </div>
-                {a.note && <p class="ang-note">{a.note}</p>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+  <!-- Kernangebote -->
+  <section class="ang-kat bg-white">
+    <div class="container">
+      <div class="kat-head">
+        <span class="kat-label">Unsere Kernangebote</span>
+        <p class="kat-intro">Fünf Wege, mit uns zu arbeiten — von zu Hause aus, live über Zoom oder bei uns vor Ort.</p>
+      </div>
+      <div class="kern-grid">
+        {kern.map((a) => (
+          <article id={a.id} class="ang-card is-highlight reveal-on-scroll">
+            <FormatBadge type={a.formatType} />
+            <h3>{a.name}</h3>
+            <p class="ang-nutzen">{a.nutzen}</p>
+            <p class="ang-format">{a.format}</p>
+            <div class="ang-foot">
+              <span class="ang-preis">{a.preis}</span>
+              <a href={a.url} class="ang-cta" target={a.url.startsWith('http') ? '_blank' : undefined} rel={a.url.startsWith('http') ? 'noopener' : undefined}>{a.cta} →</a>
+            </div>
+            {a.note && <p class="ang-note">{a.note}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-      {ki === 0 && (
-        <PhotoBand
-          image="/img/annette-herbert-heben.jpg"
-          alt="Annette und Herbert lachend am Strand"
-          side="right"
-          bg="cream"
-          eyebrow="Lernen, das bleibt"
-          quote="Veränderung passiert nicht im Kopf — sondern wenn du anfängst, sie zu leben."
-        />
-      )}
-      {ki === 1 && (
-        <PhotoBand
-          image="/img/annette-herbert-mallorca.jpg"
-          alt="Annette und Herbert eng umschlungen am Meer"
-          side="left"
-          bg="white"
-          eyebrow="Persönlich heißt persönlich"
-          quote="Bei uns gibt es kein Experten-Team, das dich durch ein System schleust — es gibt uns zwei."
-        />
-      )}
-    </>
-  ))}
+  <PhotoBand
+    image="/img/annette-herbert-mallorca.jpg"
+    alt="Annette und Herbert eng umschlungen am Meer"
+    side="left"
+    bg="cream"
+    eyebrow="Persönlich heißt persönlich"
+    quote="Kein Schema, kein Skript — wir gehen mit dir genau dahin, wo es bei dir gerade hakt."
+  />
+
+  <!-- Weitere & saisonale Angebote -->
+  <section class="ang-kat bg-white">
+    <div class="container">
+      <div class="kat-head">
+        <span class="kat-label">Weitere &amp; saisonale Angebote</span>
+        <p class="kat-intro">Dazu kommen Angebote für besondere Zeiten und besondere Anliegen.</p>
+      </div>
+      <div class="weitere-grid">
+        {weitere.map((a) => (
+          <article id={a.id} class="ang-card compact reveal-on-scroll">
+            <FormatBadge type={a.formatType} />
+            <h3>{a.name}</h3>
+            <p class="ang-nutzen">{a.nutzen}</p>
+            <p class="ang-format">{a.format}</p>
+            <div class="ang-foot">
+              <span class="ang-preis">{a.preis}</span>
+              <a href={a.url} class="ang-cta" target={a.url.startsWith('http') ? '_blank' : undefined} rel={a.url.startsWith('http') ? 'noopener' : undefined}>{a.cta} →</a>
+            </div>
+            {a.note && <p class="ang-note">{a.note}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PhotoBand
+    image="/img/annette-herbert-heben.jpg"
+    alt="Annette und Herbert lachend am Strand"
+    side="right"
+    bg="cream"
+    eyebrow="Lernen, das bleibt"
+    quote="Veränderung passiert nicht im Kopf — sondern wenn du anfängst, sie zu leben."
+  />
 
   <!-- Kostenlos reinschnuppern -->
   <section id="frei" class="ang-frei">
@@ -122,8 +147,9 @@ import { kategorien, kostenlos } from '../data/angebote';
   .ang-hero .acc-eyebrow { justify-content: center; }
   .ang-hero h1 { color: var(--blue-deep); font-size: clamp(34px, 4.4vw, 56px); margin: 0 0 24px; }
   .ang-sub { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; color: var(--ink-soft); margin: 0 auto; max-width: 640px; }
+  .ang-legende { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
 
-  /* Kategorie */
+  /* Sektion */
   .ang-kat { padding: clamp(70px, 9vw, 120px) 0; }
   .bg-white { background: var(--bg-white); }
   .bg-cream { background: var(--bg-cream); }
@@ -136,34 +162,44 @@ import { kategorien, kostenlos } from '../data/angebote';
   }
   .kat-intro { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0; line-height: 1.6; }
 
-  .kat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  /* Karten-Gitter */
+  .kern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .weitere-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
   .ang-card {
-    background: var(--bg-white);
+    scroll-margin-top: 96px;
+    background: var(--bg-cream);
     border: 1px solid rgba(250, 157, 86, 0.18);
     border-radius: var(--radius-card);
-    padding: 32px 30px;
+    padding: 30px 30px;
     display: flex; flex-direction: column; gap: 12px;
     box-shadow: var(--shadow-soft);
     transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
-  .bg-white .ang-card { background: var(--bg-cream); }
   .ang-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
   .ang-card.is-highlight { border-top: 3px solid var(--orange); }
   .ang-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--blue-deep); margin: 0; }
   .ang-nutzen { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
   .ang-format { font-size: 13.5px; color: var(--ink-light); margin: 0; letter-spacing: 0.01em; }
   .ang-foot {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px 14px;
+    flex-wrap: wrap;
     margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(250,157,86,0.25);
   }
   .ang-preis { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--blue-deep); }
   .ang-cta {
     font-family: var(--font-body); font-weight: 600; font-size: 13px; letter-spacing: 0.06em;
     color: var(--blue-deep); border-bottom: 1.5px solid var(--blue-deep); padding-bottom: 2px;
-    text-decoration: none; transition: color .25s, border-color .25s;
+    text-decoration: none; transition: color .25s, border-color .25s; white-space: nowrap;
   }
   .ang-cta:hover { color: var(--orange); border-color: var(--orange); text-decoration: none; }
   .ang-note { font-size: 11.5px; color: var(--ink-light); font-style: italic; margin: 0; }
+
+  /* Kompakte Karten (Weitere & saisonal) */
+  .ang-card.compact { padding: 24px 24px; gap: 10px; }
+  .ang-card.compact h3 { font-size: 19px; }
+  .ang-card.compact .ang-nutzen { font-size: 15px; }
+  .ang-card.compact .ang-preis { font-size: 16px; }
 
   /* Kostenlos */
   .ang-frei { background: var(--bg-cream); padding: clamp(70px, 9vw, 120px) 0; }
@@ -192,8 +228,12 @@ import { kategorien, kostenlos } from '../data/angebote';
   .ang-final-link .arrow, .frei-card .arrow { display: inline-block; transition: transform .25s var(--ease); }
   .ang-final-link:hover .arrow { transform: translateX(4px); }
 
+  @media (max-width: 980px) {
+    .weitere-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 820px) {
-    .kat-grid { grid-template-columns: 1fr; }
+    .kern-grid { grid-template-columns: 1fr; }
+    .weitere-grid { grid-template-columns: 1fr; }
     .frei-grid { grid-template-columns: 1fr; max-width: 480px; }
   }
 </style>

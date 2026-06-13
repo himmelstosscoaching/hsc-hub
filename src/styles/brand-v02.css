@@ -32,6 +32,7 @@
   /* Marken-Akzent: Lachs + Orange (Sonnenuntergangs-DNA, ohne Gelb) */
   --orange:          #FA9D56;
   --orange-warm:     #f4956a;
+  --lachs:           #F9986F;     /* Salmon zwischen Apricot & Rosé — für Buttons (weicher als Orange) */
   --rose-soft:       #fbb1a7;     /* helleres Rosé für sanfte Akzente */
   --sky-light:       #75BFDA;
 
@@ -57,12 +58,14 @@
   );
 
   /* Sunset-Surface — sanfter Vollflächen-Verlauf für Final-Block */
+  /* Schluss-Verlauf: Tiefblau → Türkis dominant → Lachs nur zart/durchscheinend → sanftes Rosé. Kaum Orange. */
   --sunset-surface: linear-gradient(160deg,
     #2C4B7B  0%,
-    #3D5E92 28%,
-    #75BFDA 55%,
-    #FA9D56 82%,
-    #F89489 100%
+    #3D7AAB 20%,
+    #75BFDA 50%,
+    #A8D2D0 66%,
+    #F4C3A8 85%,
+    #F8AEA0 100%
   );
 
   /* Typo */
@@ -147,7 +150,7 @@ p { margin: 0 0 1em; }
   align-items: center;
   gap: 14px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -212,9 +215,9 @@ section { padding: var(--s-section) 0; position: relative; }
   line-height: 1.2;
 }
 .btn-primary {
-  background: var(--orange);
+  background: var(--lachs);
   color: #fff !important;
-  box-shadow: 0 8px 22px rgba(250, 157, 86, 0.28);
+  box-shadow: 0 8px 22px rgba(249, 152, 111, 0.30);
   min-height: 48px;
 }
 .btn-primary:hover {

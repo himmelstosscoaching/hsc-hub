@@ -1,0 +1,102 @@
+---
+// Notfall-Coaching — Info-/Verkaufsseite. Verlinkt von /angebote.
+// Direkt-Kauf statt Booking: zahlen → sofort Kontaktdaten → zeitnahes Zoom.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+// TODO: ThriveCart-Direktkauf-Link einsetzen (Diana). Bis dahin Platzhalter.
+const buchenUrl = '#';
+---
+
+<FokusLayout
+  title="Notfall-Coaching mit Annette & Herbert Himmelstoß"
+  description="Schnelle, persönliche Hilfe in Krisensituationen. Rückmeldung meist innerhalb von 30 Minuten, spätestens nach 24 Stunden — dann ein zeitnahes Zoom-Gespräch, das dauert, so lange es braucht."
+  canonical="https://himmelstosscoaching.de/notfall"
+>
+  <HeaderFokus />
+
+  <section class="nf-hero">
+    <div class="nf-halo" aria-hidden="true"></div>
+    <div class="container narrow">
+      <img src="/img/notfall-header.jpg" alt="Notfall-Coaching mit Annette und Herbert Himmelstoß" class="nf-banner" />
+      <h1>Notfall-Coaching mit Annette und Herbert</h1>
+      <p class="nf-sub">Schnell und unkompliziert zur Hilfe in Krisensituationen.</p>
+      <p class="nf-reassure">Ihr seid nicht allein. Wir sind schnell für euch da.</p>
+      <div class="nf-cta-row">
+        <a href={buchenUrl} class="btn btn-primary">Jetzt buchen · 497 €</a>
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <section class="nf-body">
+    <div class="container nf-grid">
+      <div class="nf-image">
+        <img src="/img/notfall-sos.jpg" alt="Hand drückt auf einen roten SOS-Knopf" />
+      </div>
+
+      <div class="nf-steps">
+        <h2>So läuft es ab</h2>
+        <p class="nf-intro">Damit wir sofort für euch da sein können, läuft die Buchung direkt — gleich danach erreicht ihr uns.</p>
+        <ol>
+          <li>Sofort nach dem Kauf erhaltet ihr eine E-Mail mit unseren Kontaktdetails — damit ihr uns umgehend erreichen könnt.</li>
+          <li>Meist melden wir uns innerhalb von 30 Minuten — spätestens nach 24 Stunden.</li>
+          <li>Gemeinsam vereinbaren wir ein zeitnahes Zoom-Gespräch, in dem wir euch aus eurer akuten Situation begleiten und einen Notfallplan für die nächste Zeit erstellen.</li>
+          <li>Das Zoom-Gespräch dauert, so lange es braucht.</li>
+        </ol>
+        <div class="nf-cta-row">
+          <a href={buchenUrl} class="btn btn-primary">Jetzt buchen · 497 €</a>
+          <a href="/angebote" class="nf-link">Zurück zu allen Angeboten <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  .nf-hero { position: relative; background: var(--bg-white); padding: clamp(80px, 10vw, 130px) 0 0; overflow: hidden; text-align: center; }
+  .nf-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+  .nf-hero .container { position: relative; z-index: 1; padding-bottom: clamp(60px, 8vw, 100px); }
+  .nf-banner { display: block; width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); margin: 0 auto 32px; }
+  .nf-hero h1 { color: var(--blue-deep); font-size: clamp(30px, 3.8vw, 50px); line-height: 1.14; margin: 0 0 16px; }
+  .nf-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 1.7vw, 23px); color: var(--orange); margin: 0 0 14px; }
+  .nf-reassure { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0 auto 30px; max-width: 520px; }
+  .nf-cta-row { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+  .nf-body { background: var(--bg-cream); padding: clamp(70px, 9vw, 120px) 0; }
+  .nf-grid {
+    display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .nf-image { display: flex; justify-content: center; }
+  .nf-image img { width: 100%; max-width: 340px; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); display: block; }
+
+  .nf-steps h2 { color: var(--blue-deep); font-size: clamp(24px, 2.6vw, 34px); margin: 0 0 14px; }
+  .nf-intro { font-family: var(--font-display); font-style: italic; font-size: clamp(17px, 1.5vw, 20px); color: var(--blue-deep); margin: 0 0 24px; line-height: 1.5; }
+  .nf-steps ol { margin: 0 0 32px; padding-left: 0; list-style: none; counter-reset: step; }
+  .nf-steps li {
+    position: relative; padding-left: 44px; margin-bottom: 16px;
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.6; color: var(--ink-soft);
+    counter-increment: step;
+  }
+  .nf-steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--lachs); color: #fff;
+    font-family: var(--font-display); font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nf-steps .nf-cta-row { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 14px 24px; }
+  .nf-link { color: var(--blue-deep); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .nf-link:hover { border-bottom-color: var(--blue-deep); text-decoration: none; }
+  .nf-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .nf-link:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) {
+    .nf-grid { grid-template-columns: 1fr; }
+    .nf-image { order: -1; }
+  }
+</style>

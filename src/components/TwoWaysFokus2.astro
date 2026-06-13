@@ -6,12 +6,12 @@
 <section id="zwei-wege" class="twoways2">
   <div class="container narrow section-head">
     <h2>Zwei Wege zu uns.</h2>
-    <p>Du findest beides bei uns: deinen eigenen Weg — und den Weg als Paar.</p>
+    <p>Beide führen zu dir selbst — der eine über dich, der andere über euch als Paar.</p>
   </div>
 
   <div class="container twoways2-grid">
     <div class="tw2-photo reveal-on-scroll">
-      <img src="/img/pachy-gespraech.jpg" alt="Annette und Herbert im Gespräch" loading="lazy" />
+      <img src="/img/coaching-tisch.jpg" alt="Annette und Herbert beim gemeinsamen Coaching am Tisch" loading="lazy" />
     </div>
 
     <div class="tw2-ways">
@@ -19,14 +19,16 @@
         <span class="tw2-num">01</span>
         <h3>Allein für dich.</h3>
         <p class="tw2-lead">Du lernst, die Sprache zu hören, in der dein Leben zu dir spricht.</p>
-        <p>Du findest die Antworten, die in dir längst liegen — und folgst ihnen mit Klarheit.</p>
+        <p>Du beginnst, deiner inneren Stimme zu vertrauen — und ihr zu folgen, statt den Erwartungen der anderen.</p>
+        <a class="tw2-link" href="/angebote#leben-lesen">Dein Leben lesen lernen <span class="arrow">→</span></a>
       </article>
 
       <article class="tw2-way reveal-on-scroll">
         <span class="tw2-num">02</span>
-        <h3>Oder gemeinsam, als Paar.</h3>
-        <p class="tw2-lead">Ihr nehmt einander wieder neu wahr — und unterstützt das Potenzial des anderen.</p>
-        <p>Ihr lernt, euch gegenseitig zu coachen: zuhören, fragen, nicht bewerten.</p>
+        <h3>Gemeinsam als Paar.</h3>
+        <p class="tw2-lead">Ihr seht einander wieder — nicht den Alltagspartner, sondern den Menschen.</p>
+        <p>Ihr lernt, euch gegenseitig zu coachen — zuhören, fragen, nicht bewerten — und gestaltet eure Beziehung selbst.</p>
+        <a class="tw2-link" href="/angebote#schatz">Schatz, coachst du mich? <span class="arrow">→</span></a>
       </article>
     </div>
   </div>
@@ -78,6 +80,22 @@
     margin: 0 0 12px;
   }
   .tw2-way p:not(.tw2-lead) { font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin: 0; }
+  .tw2-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--blue-deep);
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(44, 75, 123, 0.35);
+    padding-bottom: 2px;
+    transition: color .25s var(--ease), border-color .25s var(--ease);
+  }
+  .tw2-link:hover { color: var(--orange); border-bottom-color: var(--orange); text-decoration: none; }
+  .tw2-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .tw2-link:hover .arrow { transform: translateX(4px); }
 
   @media (max-width: 860px) {
     .twoways2-grid { grid-template-columns: 1fr; gap: 40px; }
