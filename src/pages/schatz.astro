@@ -1,0 +1,528 @@
+---
+// Schatz, coachst du mich? — Sales Page
+// Deployed to: beziehung.himmelstosscoaching.de
+// ⚠️ checkout = Platzhalter — ThriveCart-URL von Christian einfügen
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+const checkout = '#'; // ← ThriveCart-Checkout-URL hier eintragen
+
+const kapitel = [
+  { nr: 1,  color: '#186996', titel: 'Präsenz — Einander wirklich begegnen',       text: 'Stellt euch vor, ihr sitzt abends auf dem Sofa und schaut euch an — und etwas ist anders. Ihr seid wirklich da. Ihr entdeckt wieder etwas an eurem Partner, das ihr am Anfang so geliebt habt.' },
+  { nr: 2,  color: '#2783ac', titel: 'Elternprägungen — Eure Muster verstehen',     text: 'Ihr werdet mitten im Streit plötzlich schmunzeln. Weil ihr erkennt: „Das ist ja gar nicht unser Streit. Das hat schon meine Mutter so gemacht." Eine ganz neue Freiheit liegt darunter.' },
+  { nr: 3,  color: '#44a8cb', titel: 'Gegenseitiges Coaching — Das Herzstück',      text: 'Statt zurückzuschießen, sagt ihr leise: „Schatz, coachst du mich?" Es fühlt sich an wie Ankommen. Wie endlich gesehen werden. Wie Zuhause.' },
+  { nr: 4,  color: '#71b3c3', titel: 'Das innere Kind — Alte Wunden heilen',        text: 'Ein kleiner Junge, der nie genug war. Ein kleines Mädchen, das sich unsichtbar fühlte. Ihr begegnet diesen Teilen in euch — behutsam, gemeinsam. Und etwas Wunderbares geschieht.' },
+  { nr: 5,  color: '#99b3b2', titel: 'Eure Beziehungsbiografie',                    text: 'Ein langer Spaziergang durch eure gemeinsame Geschichte. Ihr erzählt euch Dinge, die ihr noch nie ausgesprochen habt. Am Ende spürt ihr: Da ist wieder etwas zwischen euch.' },
+  { nr: 6,  color: '#bfae94', titel: 'Intensiv-Tage — Euer Trainingslager',         text: 'Ein Wochenende, das nur euch gehört. Am Sonntagabend fahrt ihr nach Hause mit einer Nähe, die ihr so seit Jahren nicht mehr erlebt habt.' },
+  { nr: 7,  color: '#d2a983', titel: 'Gesundheit — Was euer Körper erzählt',        text: 'Ihr legt eure Krankengeschichte neben eure Lebensgeschichte. Plötzlich ergeben Dinge Sinn, die vorher nur „Pech" waren. Ein stilles, versöhnendes Kapitel.' },
+  { nr: 8,  color: '#e2a273', titel: 'Liebe & Sexualität — Einander wirklich berühren', text: 'Ihr sprecht über das, worüber die meisten Paare schweigen. Es ist verletzlich. Und genau deshalb so schön. Danach fühlt sich „Ich liebe dich" anders an. Voller. Wahrer.' },
+  { nr: 9,  color: '#f3966a', titel: 'Abschluss — Sich neu begegnen',               text: 'Ihr spielt ein Spiel, als hättet ihr euch gerade erst kennengelernt. Ihr lacht, ihr staunt, vielleicht weint ihr. Und ihr seht plötzlich wieder, wen ihr da eigentlich vor euch habt.' },
+  { nr: 10, color: '#f2917f', bonus: true, titel: 'Bonus: Karma in der Beziehung',  text: 'Manche Themen tauchen immer wieder auf — über Jahre, manchmal über Generationen. In diesem Bonus-Kapitel schaut ihr auf die tieferen Schichten eurer Beziehung.' },
+];
+---
+
+<FokusLayout
+  title="Schatz, coachst du mich? — Der Online-Kurs für Paare"
+  description="Der Online-Kurs für Paare, die spüren: Da geht noch mehr zwischen uns. 9 Kapitel, Workbook, Live-Call. Von Annette & Herbert Himmelstoß."
+  canonical="https://beziehung.himmelstosscoaching.de"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="s-hero hero-fokus">
+    <div class="hero-halo" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <p class="acc-eyebrow">Online-Kurs für Paare</p>
+        <h1>Schatz,<br><em>coachst du mich?</em></h1>
+        <p class="hero-sub">Der Kurs für Paare, die spüren: <strong>Da geht noch mehr zwischen uns.</strong></p>
+        <div class="hero-meta">
+          <span>9 Kapitel + Bonus</span>
+          <span>Workbook Digital &amp; Print</span>
+          <span>Begleitet von Annette &amp; Herbert</span>
+        </div>
+        <a href={checkout} class="btn btn-primary btn-lg">Kurs jetzt buchen →</a>
+        <ul class="trust-badges">
+          <li>✓ 14 Tage Geld-zurück-Garantie</li>
+          <li>✓ SSL-verschlüsselt</li>
+          <li>✓ Stripe &amp; PayPal</li>
+        </ul>
+      </div>
+      <div class="hero-img">
+        <img src="/img/annette-herbert-hero.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · WILLKOMMEN -->
+  <section class="s-welcome">
+    <div class="container narrow">
+      <p class="acc-eyebrow" style="justify-content:center">Schön, dass ihr da seid</p>
+      <p class="lead">Vielleicht kommt ihr gerade aus dem Q&amp;A-Call. Vielleicht hat euch das angesprochen, als wir darüber berichtet haben, was sich in einer Beziehung verändern kann, wenn man sich gegenseitig wirklich sieht.</p>
+      <p>Vielleicht seid ihr auch zum ersten Mal hier und spürt nur eines: <em>Da geht noch mehr zwischen uns.</em></p>
+      <p>Wie auch immer ihr hierher gefunden habt — hier findet ihr alles, was ihr über den Kurs wissen müsst und vor allem: wie er euch unterstützen kann, etwas in eurer Beziehung zu bewegen.</p>
+      <p class="welcome-bridge">Viele Paare lieben sich. Sie funktionieren als Team. Der Alltag läuft. Nach außen wirkt alles stabil.</p>
+      <p class="welcome-feeling"><em>Und doch entsteht mit den Jahren ein stilles Gefühl: da geht noch mehr.</em></p>
+
+      <div class="video-wrap">
+        <img src="/img/welcome-thumbnail.jpg" alt="Annette und Herbert — Willkommensvideo" loading="lazy" />
+        <div class="play-btn" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="rgba(44,75,123,0.75)"/><polygon points="26,20 48,32 26,44" fill="#fff"/></svg>
+        </div>
+      </div>
+
+      <blockquote class="ah-quote">
+        „Ein wichtiger Punkt wird in unserer Arbeit immer wieder deutlich: Veränderung entsteht nicht dadurch, dass einer sich bemüht. Sie entsteht, wenn beide bereit sind, sich einzulassen. Und manchmal braucht es dafür einfach einen Rahmen, der neue Gespräche möglich macht. Genau dafür ist dieser Kurs entstanden."
+        <cite>— Annette &amp; Herbert</cite>
+      </blockquote>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 3 · PROBLEM — ruhig, Creme, blaue Zitate -->
+  <section class="s-problem">
+    <div class="container">
+      <h2 class="problem-hl center">Wenn die Liebe da ist,<br>aber etwas zwischen euch fehlt.</h2>
+      <div class="problem-quotes">
+        <blockquote class="problem-quote">„Wir reden aneinander vorbei."</blockquote>
+        <blockquote class="problem-quote">„Wir kehren alles unter den Teppich."</blockquote>
+        <blockquote class="problem-quote">„Ich habe eine Mauer aufgebaut."</blockquote>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 4 · TESTIMONIALS -->
+  <section class="s-testimonials">
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Was Teilnehmer sagen</p>
+      <div class="testi-grid">
+        <blockquote class="testi">
+          <p>„Ich habe nie gelernt, wie man mit Themen umgehen kann. In diesem Kurs habe ich zum ersten Mal gespürt, dass Streit nicht das Ende ist — sondern der Anfang von etwas Neuem."</p>
+          <cite>Frank · Teilnehmer 2025</cite>
+        </blockquote>
+        <blockquote class="testi">
+          <p>„Ich habe Veronika nach so vielen Jahren wieder neu entdeckt. Dinge, die ich gar nicht mehr bewusst gesehen habe. Es ist, als wäre etwas zwischen uns wiedergekommen, das verschüttet war."</p>
+          <cite>Armin und Veronika · Teilnehmer 2025</cite>
+        </blockquote>
+        <blockquote class="testi">
+          <p>„Wir haben dunkle Kapitel unserer Ehe geöffnet, über die wir noch nie gesprochen hatten. Und das Wunderbarste: Unsere Tochter ist seitdem sichtbar glücklicher. Im ganzen Familien-Feld hat sich etwas bewegt."</p>
+          <cite>Heike und Frank · Teilnehmer 2025</cite>
+        </blockquote>
+        <blockquote class="testi">
+          <p>„Ich habe mitten in einem Streit innegehalten und gemerkt: Das ist gar nicht meine Reaktion. Das ist ein altes Muster. Allein das hat alles verändert."</p>
+          <cite>Yvonne · Teilnehmerin 2025</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ANDERE IDEE — Verlauf Dunkelblau→Türkis→Lachs -->
+  <section class="s-idee">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Eine andere Idee von Beziehung</p>
+      <h2 class="idee-hl">Was, wenn der nächste Trigger nicht das Ende,<br>sondern der Anfang wäre?</h2>
+      <p class="idee-intro">„Schatz, coachst du mich?" ist kein Kommunikationskurs und keine Therapie. Es ist eine Einladung, einander auf eine ganz neue Art zu begegnen — als Paar, das sich gegenseitig durch das eigene innere Wachstum begleitet.</p>
+      <div class="idee-pillars">
+        <div class="idee-pillar">
+          <span class="ornament" aria-hidden="true">✦</span>
+          <h3>Trigger werden zu Türöffnern</h3>
+          <p>Statt euch im nächsten Streit zu verlieren, lernt ihr, den Moment zu erkennen, in dem etwas Tieferes berührt wird — und ihn als Einladung zu sehen.</p>
+        </div>
+        <div class="idee-pillar">
+          <span class="ornament" aria-hidden="true">✦</span>
+          <h3>Der Partner wird zum Coach</h3>
+          <p>Ihr braucht keinen Therapeuten zwischen euch. Ihr lernt, einander mit offenen Fragen und stillem Zuhören durch das eigene innere Erleben zu begleiten.</p>
+        </div>
+        <div class="idee-pillar">
+          <span class="ornament" aria-hidden="true">✦</span>
+          <h3>Erfahrung statt Theorie</h3>
+          <p>Jede Übung passiert in eurer echten Beziehung — nicht am Bildschirm. Der Kurs ist nur der Rahmen. Das Leben zwischen euch ist das Training.</p>
+        </div>
+      </div>
+      <a href={checkout} class="btn btn-ghost">Jetzt starten →</a>
+    </div>
+  </section>
+
+  <!-- 6 · KURS-FEATURES — Creme -->
+  <section class="s-kurs">
+    <div class="container">
+      <div class="kurs-grid">
+        <div class="kurs-text">
+          <p class="acc-eyebrow">Unser Kurs</p>
+          <h2>Schatz, coachst du mich?</h2>
+          <p>Dieser Onlinekurs lädt euch dazu ein, eure Beziehung aus einer neuen Perspektive zu betrachten. Nicht als etwas, das einfach funktioniert. Sondern als etwas, das wachsen kann.</p>
+          <div class="kurs-features">
+            <div class="feature-row"><span class="feat-icon">◎</span><div><strong>9 Kapitel</strong> + Bonus-Kapitel</div></div>
+            <div class="feature-row"><span class="feat-icon">✎</span><div><strong>Workbook</strong> — digital &amp; physisch per Post</div></div>
+            <div class="feature-row"><span class="feat-icon">✉</span><div><strong>Telegram-Gruppe</strong> — Austausch mit anderen Paaren</div></div>
+            <div class="feature-row"><span class="feat-icon">▶</span><div><strong>Live Call</strong> mit Annette &amp; Herbert</div></div>
+          </div>
+        </div>
+        <div class="kurs-img">
+          <img src="/img/pachy-gespraech.jpg" alt="Annette und Herbert im Gespräch" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · NACH DEM KURS — mit Streifen oben -->
+  <section class="s-nach">
+    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2 class="center">Nach dem Kurs könnt ihr …</h2>
+      <ul class="nach-list">
+        <li>Gespräche führen, die neue Perspektiven öffnen — statt die alten Muster zu wiederholen</li>
+        <li>einander helfen, eure eigenen Themen besser zu verstehen</li>
+        <li>Konflikte und Spannungen als Hinweise auf Entwicklung nutzen</li>
+        <li>gemeinsam neue Räume für eure Beziehung entdecken</li>
+      </ul>
+      <p class="nach-bridge center"><em>Dieser Kurs richtet sich an Paare, die sich lieben, die miteinander leben, die funktionieren — und trotzdem spüren: Da geht noch mehr.</em></p>
+      <div class="nach-deep">
+        <h3>Beziehung als Entwicklungsraum</h3>
+        <p>In unserer Arbeit mit Paaren haben wir immer wieder erlebt: Partnerschaft ist weit mehr als ein gemeinsamer Alltag. Sie ist ein Raum, in dem zwei Menschen ihr Leben gemeinsam entdecken können — wenn sie bereit sind, einander wirklich zuzuhören und gemeinsam neugierig zu bleiben.</p>
+        <h3>Wenn plötzlich wieder Zukunft entsteht</h3>
+        <p>Viele Teilnehmer berichten, dass sich durch diese Arbeit etwas Entscheidendes verändert hat. Nicht durch große dramatische Erkenntnisse — sondern durch etwas viel Einfacheres: <em>Neugier.</em> Plötzlich entstehen wieder Fragen. Die Beziehung beginnt wieder zu leben.</p>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 8 · KAPITEL — Creme, Streifen oben, Kapitelnummern in Kapitelfarben -->
+  <section class="s-kapitel">
+    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Was euch erwartet</p>
+      <h2 class="center">Neun Kapitel, die euch verändern</h2>
+      <p class="kapitel-intro center">Jedes Kapitel baut auf dem vorherigen auf. Jedes verändert etwas in euch — nicht irgendwann, sondern schon während ihr es durcharbeitet. Nicht im Kopf, sondern dort, wo es zählt.</p>
+      <div class="kapitel-grid">
+        {kapitel.map((k) => (
+          <div class="kapitel-card" style={`--kc: ${k.color}`}>
+            <span class="kapitel-nr">{k.bonus ? 'Bonus' : k.nr}</span>
+            <h3 class="kapitel-titel">{k.titel}</h3>
+            <p class="kapitel-text">{k.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 9 · WAS SICH VERÄNDERT — Verlauf -->
+  <section class="s-veraendert">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Euer neues Miteinander</p>
+      <h2 class="veraendert-hl">Was sich verändert — nach dem Kurs</h2>
+      <div class="veraendert-grid">
+        <div class="veraendert-item">
+          <p class="veraendert-arrow">Hindernis <span aria-hidden="true">→</span> Schatz</p>
+          <p>Was euch früher in Streit getrieben hat, wird zum Hinweis auf etwas Kostbares in euch — das nur noch nicht gesehen wurde.</p>
+        </div>
+        <div class="veraendert-item">
+          <p class="veraendert-arrow">Trigger <span aria-hidden="true">→</span> Forschungsfeld</p>
+          <p>Eure Triggerthemen werden zum interessantesten Forschungsfeld für eure zukünftigen Stärken. Reaktion wird zur Erkenntnis.</p>
+        </div>
+        <div class="veraendert-item">
+          <p class="veraendert-arrow">Konflikt <span aria-hidden="true">→</span> Entwicklung</p>
+          <p>Ihr lernt Konfliktmuster zu erkennen und zu lösen — nicht als Technik, sondern als Haltung. Das Ergebnis ist echtes Wachstum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · WER WIR SIND -->
+  <section class="s-ueber">
+    <div class="container ueber-grid">
+      <div class="ueber-img">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+      </div>
+      <div class="ueber-text">
+        <p class="acc-eyebrow">Wer wir sind</p>
+        <h2>Wir haben das alles selbst durchlebt.</h2>
+        <p>Wir, Annette und Herbert, sind seit 1992 verheiratet. Und wir haben in unserer Beziehung jede Phase erlebt, die ihr vielleicht gerade durchmacht: das große Verliebtsein. Die ersten Streits. Die Zeit, in der wir geglaubt haben, wir hätten uns verloren.</p>
+        <p>Was uns gerettet hat, war keine Therapie und kein Buch. Es war die Entscheidung, einander auf eine neue Art zu begegnen — als Begleiter durch das eigene innere Erleben. Aus dieser Erfahrung ist „Schatz, coachst du mich?" entstanden.</p>
+        <p>Wir sind keine Experten von außen, die euch erklären, wie Liebe funktioniert. Wir sind ein Paar wie ihr — das einen Weg gefunden hat und ihn mit euch teilen möchte.</p>
+        <p class="ueber-sig"><em>— Annette &amp; Herbert</em></p>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 11 · EIGNUNG — kein Verlauf -->
+  <section class="s-eignung">
+    <div class="container">
+      <h2 class="center">Ist dieser Kurs für euch?</h2>
+      <div class="eignung-grid">
+        <div class="eignung-ja">
+          <h3 class="eignung-hl eignung-hl--ja">Ja, wenn ihr …</h3>
+          <ul class="eignung-list">
+            <li>… gemeinsam eine neue Tiefe in eurer Beziehung sucht.</li>
+            <li>… gemeinsam Neues erleben wollt — Spaß, Abenteuer, Lebendigkeit, eine gemeinsame Zukunft.</li>
+            <li>… spürt, dass „da noch mehr geht" zwischen euch.</li>
+            <li>… die immer gleichen Streit­muster durchbrechen wollt.</li>
+            <li>… bereit seid, bei euch selbst anzufangen — nicht beim Partner.</li>
+            <li>… Lust habt, eure Trigger zu verstehen und zu verwandeln.</li>
+            <li>… Dinge wirklich angehen möchtet, statt sie zu umgehen.</li>
+          </ul>
+        </div>
+        <div class="eignung-nein">
+          <h3 class="eignung-hl eignung-hl--nein">Nicht, wenn ihr …</h3>
+          <ul class="eignung-list">
+            <li>… in einer akuten Krise mit Gewalt oder Sucht steckt.</li>
+            <li>… „den Partner ändern" wollt, statt bei euch selbst zu beginnen.</li>
+            <li>… eine schnelle Lösung ohne Eigenarbeit sucht.</li>
+            <li>… nur Kommunikations­techniken lernen wollt.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 12 · FAQ -->
+  <section class="s-faq">
+    <div class="container narrow">
+      <p class="acc-eyebrow" style="justify-content:center">Häufige Fragen</p>
+      <h2 class="center">Was euch noch beschäftigt</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Mein Partner macht da nicht mit. Bringt es trotzdem etwas?</summary>
+          <p>Ja. Der Kurs funktioniert auch, wenn nur einer von euch beginnt. Eure eigene Veränderung verändert die Dynamik zwischen euch — ganz von selbst. Viele Paare haben so gestartet, und der zweite Partner ist später dazugekommen.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Wir brauchen doch keine Therapie.</summary>
+          <p>Das ist auch keine. Es ist ein Kurs, den ihr gemeinsam als Paar macht — eher wie ein gemeinsames Trainingsprogramm für eure Beziehung. Ihr seid nicht „kaputt". Ihr wollt nur tiefer kommen. Das ist ein riesiger Unterschied.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Wir haben keine Zeit dafür.</summary>
+          <p>Ihr habt für jedes Kapitel vier Wochen Zeit. Die wichtigsten Übungen brauchen 15 bis 30 Minuten. Und ehrlich: „Keine Zeit füreinander" ist oft genau das Thema, das der Kurs aufgreift. Die Übungen passieren in eurem Alltag, nicht zusätzlich dazu.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Online-Kurse bringen nichts. Wir lesen nichts zu Ende.</summary>
+          <p>Dieser Kurs ist anders. Die Übungen finden nicht am Bildschirm statt, sondern in eurer echten Beziehung. Ihr schaut nicht zu — ihr macht. Und das gedruckte Workbook habt ihr in der Hand, nicht im Browser-Tab.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was, wenn alte Wunden aufgerissen werden?</summary>
+          <p>Wir gehen behutsam vor. Jedes Kapitel bietet euch genau so viel Tiefe an, wie ihr selbst zulassen wollt. Ihr seid die Regie. Und ihr seid nie allein — ihr habt einander, die Telegram-Gruppe und uns.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was, wenn unsere Wege nicht mehr zusammenpassen?</summary>
+          <p>Dann wird euch dieser Kurs dabei helfen, das klarer zu sehen — ehrlich und mit Würde. Manche Paare entdecken dabei eine Tiefe, die sie nicht mehr kannten. Andere gewinnen Klarheit darüber, dass es Zeit ist, neue Wege zu gehen. Beides ist ein gutes Ergebnis.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Wie läuft das technisch ab?</summary>
+          <p>Nach dem Kauf bekommt ihr sofort eure Zugangsdaten per E-Mail. Ihr loggt euch in den geschützten Mitgliederbereich ein und könnt direkt mit Kapitel 1 starten. Das gedruckte Workbook bekommt ihr per Post nachgeschickt.</p>
+        </details>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 13 · PREIS — Verlauf -->
+  <section class="s-preis">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Euer Weg beginnt hier</p>
+      <h2 class="preis-hl">Schatz, coachst du mich?</h2>
+      <p class="preis-sub">Ein einmaliger Kauf. Lebenslanger Zugang. Kein Abo, keine versteckten Kosten.</p>
+      <div class="preis-card">
+        <p class="preis-tag">Webinar-Sonderpreis</p>
+        <h3 class="preis-name">Der komplette Paar-Kurs</h3>
+        <p class="preis-alt">Regulärer Preis 1.200 €</p>
+        <div class="preis-haupt">€&thinsp;397</div>
+        <p class="preis-rate">oder 3 × 139 € in Raten</p>
+        <ul class="preis-features">
+          <li><span>✓</span> 9 Kapitel mit Video, Audio und vertiefenden Übungen</li>
+          <li><span>✓</span> Workbook — digital zum sofortigen Download <em>und</em> gedruckt per Post</li>
+          <li><span>✓</span> Live Call mit Annette &amp; Herbert für eure Fragen</li>
+          <li><span>✓</span> Telegram-Gruppe für den Austausch mit anderen Paaren</li>
+          <li><span>✓</span> Lebenslanger Zugang — ihr könnt jederzeit zurückkehren</li>
+          <li><span>✓</span> Bonus-Kapitel: Karma in der Beziehung</li>
+        </ul>
+        <a href={checkout} class="btn btn-primary btn-lg preis-btn">Jetzt bestellen ↓</a>
+        <p class="garantie-hl">14 Tage Rückgabe­garantie — ohne Diskussion</p>
+        <p class="garantie-text">Schaut euch den Kurs in Ruhe an. Wenn ihr nach 14 Tagen spürt, dass es nicht der richtige Weg für euch ist, schreibt uns eine Mail. Ihr bekommt euer Geld zurück. Ohne Begründung, ohne Frage.</p>
+        <p class="preis-payment">Sicher zahlen mit Stripe oder PayPal · SSL-verschlüsselt</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · FINAL CTA — Text in Blau -->
+  <section class="s-final final-fokus">
+    <div class="container narrow center">
+      <h2 class="final-hl">Stellt euch vor, der nächste Streit<br>ist der letzte seiner Art.</h2>
+      <p class="final-text">Stellt euch vor, ihr sitzt heute Abend auf eurem Sofa, schaut euch an und wisst: Wir gehen das jetzt zusammen an. Nicht irgendwann. Heute.</p>
+      <a href={checkout} class="btn btn-primary btn-lg">Wir machen das. →</a>
+      <p class="final-meta">14-Tage-Rückgabegarantie · Sicher zahlen mit Stripe oder PayPal</p>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+/* ── HERO ─────────────────────────────────────────────────── */
+.s-hero { background: var(--bg-white); padding: clamp(80px,10vw,130px) 0 0; overflow: hidden; }
+.hero-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+.hero-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px,5vw,72px); align-items: center;
+  padding-bottom: clamp(60px,8vw,100px);
+}
+.hero-text h1 em { font-style: italic; color: var(--orange); }
+.hero-sub { font-size: clamp(18px,1.6vw,22px); color: var(--ink-soft); margin: 0 0 24px; line-height: 1.5; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 32px; font-size: 14px; color: var(--ink-light); font-weight: 500; }
+.hero-meta span + span::before { content: '·'; margin-right: 8px; color: var(--gold-line); }
+.btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
+.trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: var(--ink-light); }
+.hero-img img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+
+/* ── WELCOME ──────────────────────────────────────────────── */
+.s-welcome { background: var(--bg-white); text-align: left; }
+.s-welcome .acc-eyebrow { display: flex; }
+.lead { font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,26px); line-height: 1.5; color: var(--blue-deep); margin: 0 0 24px; }
+.welcome-bridge { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 40px 0 10px; }
+.welcome-feeling { font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,26px); color: var(--blue-deep); margin: 0 0 40px; }
+.video-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; cursor: pointer; margin: 0 0 40px; }
+.video-wrap img { width: 100%; display: block; }
+.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform .25s var(--ease); }
+.video-wrap:hover .play-btn { transform: translate(-50%,-50%) scale(1.1); }
+.ah-quote { margin: 0; padding: 28px 32px; border-left: 3px solid var(--orange); background: var(--bg-cream); border-radius: var(--radius-card); font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); line-height: 1.6; color: var(--blue-deep); }
+.ah-quote cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--font-body); font-size: 14px; color: var(--ink-light); }
+
+/* ── PROBLEM ──────────────────────────────────────────────── */
+.s-problem { background: var(--bg-cream); }
+.problem-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,40px); color: var(--blue-deep); margin-bottom: clamp(40px,5vw,64px); }
+.problem-quotes { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.problem-quote { margin: 0; padding: 28px 24px; background: var(--bg-white); border-radius: var(--radius-card); border-top: 3px solid var(--sky-light); font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.4vw,19px); color: var(--blue-deep); line-height: 1.55; }
+
+/* ── TESTIMONIALS ─────────────────────────────────────────── */
+.s-testimonials { background: var(--bg-white); }
+.s-testimonials .acc-eyebrow { display: flex; }
+.testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 40px auto 0; }
+.testi { margin: 0; padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.testi p { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.3vw,18px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
+.testi cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+/* ── ANDERE IDEE — Verlauf Dunkelblau→Türkis→Lachs ──────── */
+.s-idee { background: var(--sunset-surface); }
+.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,0.5); }
+.idee-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: #fff; line-height: 1.2; margin: 0 0 24px; }
+.idee-intro { font-size: clamp(16px,1.5vw,20px); color: rgba(255,255,255,0.88); max-width: 640px; margin: 0 auto 52px; line-height: 1.7; }
+.idee-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 48px; text-align: left; }
+.idee-pillar { padding: 28px; background: rgba(255,255,255,0.10); border-radius: var(--radius-card); border: 1px solid rgba(255,255,255,0.15); }
+.ornament { display: block; font-size: 18px; color: var(--orange); margin-bottom: 12px; }
+.idee-pillar h3 { font-size: 17px; color: #fff; margin-bottom: 10px; font-weight: 600; }
+.idee-pillar p { font-size: 15px; color: rgba(255,255,255,0.82); margin: 0; line-height: 1.65; }
+.btn-ghost { background: rgba(255,255,255,0.15) !important; color: #fff !important; border: 1.5px solid rgba(255,255,255,0.45) !important; font-size: 16px; padding: 16px 36px; }
+.btn-ghost:hover { background: rgba(255,255,255,0.25) !important; text-decoration: none; }
+
+/* ── KURS-FEATURES ────────────────────────────────────────── */
+.s-kurs { background: var(--bg-cream); }
+.kurs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: center; }
+.kurs-features { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+.feature-row { display: flex; align-items: flex-start; gap: 16px; }
+.feat-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--bg-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--blue-deep); border: 1.5px solid var(--gold-soft); }
+.kurs-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+
+/* ── NACH DEM KURS ────────────────────────────────────────── */
+.s-nach { background: var(--bg-white); padding-top: 0; }
+.strip-top { margin-top: 0 !important; margin-bottom: clamp(56px,7vw,96px); }
+.nach-list { list-style: none; padding: 0; margin: 32px 0; display: flex; flex-direction: column; gap: 12px; }
+.nach-list li { padding: 14px 20px 14px 48px; background: var(--bg-cream); border-radius: 8px; position: relative; font-size: 17px; color: var(--ink-soft); }
+.nach-list li::before { content: '→'; position: absolute; left: 18px; color: var(--orange); font-weight: 700; }
+.nach-bridge { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,21px); color: var(--blue-deep); margin: 40px 0; }
+.nach-deep { margin-top: 48px; border-top: 1px solid var(--gold-soft); padding-top: 48px; }
+.nach-deep h3 { margin-bottom: 12px; }
+.nach-deep em { color: var(--orange); font-style: italic; }
+
+/* ── KAPITEL ──────────────────────────────────────────────── */
+.s-kapitel { background: var(--bg-cream); padding-top: 0; }
+.kapitel-intro { max-width: 640px; margin: 0 auto 52px; font-size: clamp(15px,1.4vw,17px); color: var(--ink-soft); }
+.kapitel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.kapitel-card { background: var(--bg-white); border-radius: var(--radius-card); padding: 26px; border-top: 4px solid var(--kc, var(--sky-light)); box-shadow: var(--shadow-soft); }
+.kapitel-nr { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--kc, var(--sky-light)); line-height: 1; margin-bottom: 10px; }
+.kapitel-titel { font-size: 16px; font-weight: 600; color: var(--blue-deep); margin-bottom: 10px; line-height: 1.35; }
+.kapitel-text { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
+
+/* ── WAS SICH VERÄNDERT ───────────────────────────────────── */
+.s-veraendert { background: var(--sunset-surface); }
+.veraendert-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,40px); color: #fff; margin-bottom: 48px; }
+.veraendert-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; text-align: left; }
+.veraendert-item { background: rgba(255,255,255,0.10); border-radius: var(--radius-card); padding: 28px; border: 1px solid rgba(255,255,255,0.15); }
+.veraendert-arrow { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.veraendert-arrow span { color: var(--rose); }
+.veraendert-item p { font-size: 15px; color: rgba(255,255,255,0.84); margin: 0; line-height: 1.65; }
+
+/* ── WER WIR SIND ─────────────────────────────────────────── */
+.s-ueber { background: var(--bg-white); }
+.ueber-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px,6vw,80px); align-items: center; }
+.ueber-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.ueber-sig { font-family: var(--font-display); font-size: 20px; color: var(--blue-deep); margin-top: 24px; margin-bottom: 0; }
+
+/* ── EIGNUNG ──────────────────────────────────────────────── */
+.s-eignung { background: var(--bg-cream); }
+.s-eignung h2 { margin-bottom: clamp(40px,5vw,60px); }
+.eignung-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+.eignung-hl { font-size: 18px; margin-bottom: 20px; padding-bottom: 12px; }
+.eignung-hl--ja { border-bottom: 2px solid var(--sky-light); }
+.eignung-hl--nein { border-bottom: 2px solid var(--rose); }
+.eignung-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.eignung-ja .eignung-list li,
+.eignung-nein .eignung-list li { padding-left: 28px; position: relative; font-size: 16px; color: var(--ink-soft); line-height: 1.5; }
+.eignung-ja .eignung-list li::before { content: '✓'; position: absolute; left: 0; color: var(--sky-light); font-weight: 700; }
+.eignung-nein .eignung-list li::before { content: '—'; position: absolute; left: 0; color: var(--rose); font-weight: 700; }
+
+/* ── FAQ ──────────────────────────────────────────────────── */
+.s-faq { background: var(--bg-white); }
+.s-faq .acc-eyebrow { display: flex; }
+.s-faq h2 { margin-bottom: 40px; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--bg-cream); border-radius: var(--radius-card); overflow: hidden; }
+.faq-item summary { list-style: none; padding: 20px 24px; font-weight: 600; font-size: 17px; color: var(--blue-deep); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 22px; color: var(--orange); font-weight: 400; flex-shrink: 0; transition: transform .25s var(--ease); }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 24px 20px; margin: 0; font-size: 16px; color: var(--ink-soft); line-height: 1.7; }
+
+/* ── PREIS ────────────────────────────────────────────────── */
+.s-preis { background: var(--sunset-surface); }
+.preis-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 12px; }
+.preis-sub { font-size: 16px; color: rgba(255,255,255,0.78); margin-bottom: 48px; }
+.preis-card { background: rgba(255,255,255,0.12); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: clamp(32px,5vw,60px); max-width: 560px; margin: 0 auto; }
+.preis-tag { display: inline-block; background: var(--orange); color: #fff; padding: 5px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 18px; }
+.preis-name { font-size: 20px; color: #fff; margin-bottom: 12px; font-weight: 600; }
+.preis-alt { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: line-through; margin-bottom: 6px; }
+.preis-haupt { font-family: var(--font-display); font-size: clamp(52px,7vw,76px); font-weight: 700; color: #fff; line-height: 1; margin-bottom: 6px; }
+.preis-rate { font-size: 15px; color: rgba(255,255,255,0.72); margin-bottom: 32px; }
+.preis-features { list-style: none; padding: 0; margin: 0 0 36px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.preis-features li { display: flex; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.88); }
+.preis-features span { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+.preis-btn { width: 100% !important; margin-bottom: 28px !important; }
+.garantie-hl { font-weight: 600; color: #fff; margin-bottom: 8px; font-size: 15px; }
+.garantie-text { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.6; margin-bottom: 20px; }
+.preis-payment { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; }
+
+/* ── FINAL CTA ────────────────────────────────────────────── */
+.s-final { background: var(--bg-cream); }
+.final-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: var(--blue-deep); line-height: 1.2; margin-bottom: 20px; }
+.final-text { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 0 auto 36px; max-width: 500px; }
+.final-meta { margin-top: 20px; font-size: 13px; color: var(--ink-light); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero-grid       { grid-template-columns: 1fr; }
+  .hero-img        { order: -1; }
+  .problem-quotes  { grid-template-columns: 1fr; }
+  .testi-grid      { grid-template-columns: 1fr; }
+  .idee-pillars    { grid-template-columns: 1fr; }
+  .kurs-grid       { grid-template-columns: 1fr; }
+  .kapitel-grid    { grid-template-columns: 1fr; }
+  .veraendert-grid { grid-template-columns: 1fr; }
+  .ueber-grid      { grid-template-columns: 1fr; }
+  .eignung-grid    { grid-template-columns: 1fr; }
+}
+</style>
