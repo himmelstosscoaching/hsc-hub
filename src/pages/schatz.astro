@@ -37,7 +37,7 @@ const kapitel = [
       <div class="hero-text">
         <p class="hero-eyebrow">Online-Kurs für Paare</p>
         <h1>Schatz,<br><em>coachst du mich?</em></h1>
-        <p class="hero-sub">Der Kurs für Paare, die spüren: <strong>Da geht noch mehr zwischen uns.</strong></p>
+        <p class="hero-sub">Der Kurs für Paare, die spüren: <strong>Da geht noch mehr.</strong></p>
         <div class="hero-meta">
           <span>9 Kapitel + Bonus</span>
           <span>Workbook Digital &amp; Print</span>
@@ -395,21 +395,21 @@ const kapitel = [
 .hero-text { max-width: 480px; }
 .hero-eyebrow {
   font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
   margin: 0 0 18px;
 }
 .s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.35); margin: 0 0 22px; }
 .s-hero h1 em { font-style: italic; color: var(--orange); }
-.hero-sub { font-size: clamp(17px,1.6vw,21px); color: rgba(255,255,255,0.88); margin: 0 0 24px; line-height: 1.5; }
+.hero-sub { font-size: clamp(20px,2vw,25px); color: rgba(255,255,255,0.88); margin: 0 0 24px; line-height: 1.5; }
 .hero-sub strong { color: #fff; }
-.hero-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 32px; font-size: 14px; color: rgba(255,255,255,0.72); font-weight: 500; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 32px; font-size: clamp(15px,1.4vw,17px); color: rgba(255,255,255,0.80); font-weight: 500; }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
-.trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: rgba(255,255,255,0.68); }
+.trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: clamp(14px,1.3vw,16px); color: rgba(255,255,255,0.78); }
 .s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── WELCOME ──────────────────────────────────────────────── */
