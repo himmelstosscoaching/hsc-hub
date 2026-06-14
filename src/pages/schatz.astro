@@ -424,7 +424,8 @@ const kapitel = [
 .video-wrap img { width: 100%; display: block; }
 .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform .25s var(--ease); }
 .video-wrap:hover .play-btn { transform: translate(-50%,-50%) scale(1.1); }
-.ah-quote { margin: 0; padding: 28px 32px; border-left: 3px solid var(--orange); background: var(--bg-cream); border-radius: var(--radius-card); font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); line-height: 1.6; color: var(--blue-deep); }
+.ah-quote { position: relative; overflow: hidden; margin: 0; padding: 32px 32px 28px; background: var(--bg-cream); border-radius: var(--radius-card); box-shadow: 0 6px 24px rgba(44,75,123,0.10); font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); line-height: 1.6; color: var(--blue-deep); }
+.ah-quote::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--sun-strip); }
 .ah-quote cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--font-body); font-size: 14px; color: var(--ink-light); }
 
 /* ── PROBLEM ──────────────────────────────────────────────── */
