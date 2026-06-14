@@ -38,7 +38,7 @@ export const kern: Angebot[] = [
     format: 'Online-Kurs für Paare · 9 Kapitel über 9 Monate · gedrucktes Workbook',
     preis: 'ab 397 €',
     cta: 'Mehr erfahren',
-    url: 'https://beziehung.himmelstosscoaching.de',
+    url: '/schatz',
   },
   {
     name: 'Intensivcoaching-Woche Zypern',
