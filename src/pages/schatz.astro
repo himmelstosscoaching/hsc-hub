@@ -140,7 +140,7 @@ const kapitel = [
           <p>Jede Übung passiert in eurer echten Beziehung — nicht am Bildschirm. Der Kurs ist nur der Rahmen. Das Leben zwischen euch ist das Training.</p>
         </div>
       </div>
-      <a href={checkout} class="btn btn-ghost">Jetzt starten → anders gestalten</a>
+      <a href={checkout} class="btn btn-primary">Jetzt starten → anders gestalten</a>
     </div>
   </section>
 
@@ -440,19 +440,17 @@ const kapitel = [
 .testi p { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.3vw,18px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
 .testi cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
 
-/* ── ANDERE IDEE — Verlauf Dunkelblau→Türkis→Lachs ──────── */
-.s-idee { background: var(--sunset-surface); }
-.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
-.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,0.5); }
-.idee-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: #fff; line-height: 1.2; margin: 0 0 24px; }
-.idee-intro { font-size: clamp(16px,1.5vw,20px); color: rgba(255,255,255,0.88); max-width: 640px; margin: 0 auto 52px; line-height: 1.7; }
+/* ── ANDERE IDEE — hell, kein Verlauf ────────────────────── */
+.s-idee { background: var(--bg-white); }
+.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 18px; }
+.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: var(--gold-line, var(--orange)); }
+.idee-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: var(--blue-deep); line-height: 1.2; margin: 0 0 24px; }
+.idee-intro { font-size: clamp(16px,1.5vw,20px); color: var(--ink-soft); max-width: 640px; margin: 0 auto 52px; line-height: 1.7; }
 .idee-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 48px; text-align: left; }
-.idee-pillar { padding: 28px; background: rgba(255,255,255,0.10); border-radius: var(--radius-card); border: 1px solid rgba(255,255,255,0.15); }
+.idee-pillar { padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border: 1px solid rgba(44,75,123,0.08); }
 .ornament { display: block; font-size: 18px; color: var(--orange); margin-bottom: 12px; }
-.idee-pillar h3 { font-size: 17px; color: #fff; margin-bottom: 10px; font-weight: 600; }
-.idee-pillar p { font-size: 15px; color: rgba(255,255,255,0.82); margin: 0; line-height: 1.65; }
-.btn-ghost { background: rgba(255,255,255,0.15) !important; color: #fff !important; border: 1.5px solid rgba(255,255,255,0.45) !important; font-size: 16px; padding: 16px 36px; }
-.btn-ghost:hover { background: rgba(255,255,255,0.25) !important; text-decoration: none; }
+.idee-pillar h3 { font-size: 17px; color: var(--blue-deep); margin-bottom: 10px; font-weight: 600; }
+.idee-pillar p { font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
 
 /* ── KURS-FEATURES ────────────────────────────────────────── */
 .s-kurs { background: var(--bg-cream); }
