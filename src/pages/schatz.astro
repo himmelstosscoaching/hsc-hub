@@ -430,6 +430,8 @@ const kapitel = [
 .welcome-bridge { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 40px 0 10px; }
 .welcome-feeling { font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,26px); color: var(--blue-deep); margin: 0 0 40px; }
 .video-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; cursor: pointer; margin: 0 0 40px; }
+.video-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(44,75,123,0.45) 0%, rgba(117,191,218,0.25) 45%, rgba(248,148,137,0.35) 100%); z-index: 1; }
+.play-btn { z-index: 2; }
 .video-wrap img { width: 100%; display: block; }
 .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform .25s var(--ease); }
 .video-wrap:hover .play-btn { transform: translate(-50%,-50%) scale(1.1); }
