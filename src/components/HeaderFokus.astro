@@ -1,9 +1,9 @@
 ---
 // Ruhiger Header mit Logo + Anker-Menü
-// home = Ziel der Welcome-Seite (Logo + Anker). Default /fokus2;
+// home = Ziel der Welcome-Seite (Logo + Anker). Default / (Startseite);
 // die Panorama-Variante übergibt /fokus2b, damit jede Variante bei sich bleibt.
 interface Props { home?: string }
-const { home = '/fokus2' } = Astro.props;
+const { home = '/' } = Astro.props;
 ---
 
 <header class="header-fokus">

@@ -60,12 +60,12 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   </section>
 
   <PhotoBand
-    image="/img/annette-herbert-mallorca.jpg"
-    alt="Annette und Herbert eng umschlungen am Meer"
+    image="/img/Q8F_3914.jpg"
+    alt="Annette und Herbert im Coaching-Gespräch mit einer Klientin"
     side="left"
     bg="cream"
     eyebrow="Persönlich heißt persönlich"
-    quote="Kein Schema, kein Skript — wir gehen mit dir genau dahin, wo es bei dir gerade hakt."
+    quote="Wir geben dir keine fertigen Antworten — sondern den Raum, deine eigene zu finden."
   />
 
   <!-- Weitere & saisonale Angebote -->
@@ -107,7 +107,7 @@ import { kern, weitere, kostenlos } from '../data/angebote';
     <div class="container">
       <div class="kat-head center">
         <span class="kat-label">Kostenlos reinschnuppern</span>
-        <p class="kat-intro">Du musst dich nicht gleich entscheiden. Schnupper rein und spür, ob unsere Art zu dir passt.</p>
+        <p class="kat-intro">Du musst dich nicht gleich entscheiden. Lern uns kennen und spür, ob unsere Art zu dir passt.</p>
       </div>
       <div class="frei-grid">
         {kostenlos.map((a) => (
@@ -168,6 +168,8 @@ import { kern, weitere, kostenlos } from '../data/angebote';
 
   .ang-card {
     scroll-margin-top: 96px;
+    position: relative;
+    overflow: hidden;
     background: var(--bg-cream);
     border: 1px solid rgba(250, 157, 86, 0.18);
     border-radius: var(--radius-card);
@@ -177,7 +179,16 @@ import { kern, weitere, kostenlos } from '../data/angebote';
     transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
   .ang-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
-  .ang-card.is-highlight { border-top: 3px solid var(--orange); }
+  /* Alle Angebots-Karten: oberer Streifen als animierter Sun-Strip (durchgängiger Hinweis aufs Angebot) */
+  .ang-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--sun-strip);
+    background-size: 200% 100%;
+    animation: sun-shimmer 14s ease-in-out infinite;
+  }
+  /* Kernangebote: dickerer Streifen = mehr Gewicht */
+  .ang-card.is-highlight::before { height: 10px; }
   .ang-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--blue-deep); margin: 0; }
   .ang-nutzen { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
   .ang-format { font-size: 13.5px; color: var(--ink-light); margin: 0; letter-spacing: 0.01em; }
@@ -209,7 +220,10 @@ import { kern, weitere, kostenlos } from '../data/angebote';
     display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(250,157,86,0.18);
     position: relative; overflow: hidden;
   }
-  .frei-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--sun-strip); opacity:.7; }
+  .frei-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .ang-card::before, .frei-card::before { animation: none; }
+  }
   .frei-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--blue-deep); margin: 0; }
   .frei-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin: 0; flex-grow: 1; }
   .frei-format { font-size: 12.5px; color: var(--ink-light); }
