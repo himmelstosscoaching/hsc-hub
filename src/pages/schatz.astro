@@ -448,7 +448,8 @@ const kapitel = [
 .idee-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: var(--blue-deep); line-height: 1.2; margin: 0 0 24px; }
 .idee-intro { font-size: clamp(16px,1.5vw,20px); color: var(--ink-soft); max-width: 640px; margin: 0 auto 52px; line-height: 1.7; }
 .idee-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 48px; text-align: left; }
-.idee-pillar { padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border: 1px solid rgba(44,75,123,0.08); }
+.idee-pillar { position: relative; padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border: 1px solid rgba(44,75,123,0.08); overflow: hidden; }
+.idee-pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--sun-strip); }
 .ornament { display: block; font-size: 18px; color: var(--orange); margin-bottom: 12px; }
 .idee-pillar h3 { font-size: 17px; color: var(--blue-deep); margin-bottom: 10px; font-weight: 600; }
 .idee-pillar p { font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
