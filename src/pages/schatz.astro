@@ -31,7 +31,7 @@ const kapitel = [
 
   <!-- 1 · HERO -->
   <section class="s-hero hero-fokus">
-    <img class="hero-bg" src="/img/annette-herbert-hero.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
+    <img class="hero-bg" src="/img/hero-paar-sonnenuntergang.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-text">
@@ -548,8 +548,16 @@ const kapitel = [
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .hero-grid       { grid-template-columns: 1fr; }
-  .hero-img        { order: -1; }
+  .s-hero          { min-height: 600px; align-items: flex-end; }
+  .hero-bg         { object-position: 70% top; }
+  .hero-veil       {
+    background: linear-gradient(180deg,
+      rgba(39, 131, 172, 0.12) 0%,
+      rgba(24, 105, 150, 0.42) 45%,
+      rgba(20, 86, 122, 0.88) 100%);
+  }
+  .hero-inner      { padding-bottom: 60px; }
+  .hero-text       { max-width: 100%; }
   .problem-quotes  { grid-template-columns: 1fr; }
   .testi-grid      { grid-template-columns: 1fr; }
   .idee-pillars    { grid-template-columns: 1fr; }
