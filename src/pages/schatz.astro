@@ -431,8 +431,7 @@ const kapitel = [
 .s-problem { background: var(--sunset-surface); }
 .problem-hl { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: clamp(26px,3vw,40px); color: var(--bg-cream); margin-bottom: clamp(40px,5vw,64px); }
 .problem-quotes { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin: 0 auto; }
-.problem-quote { position: relative; overflow: hidden; margin: 0; padding: clamp(36px,5vw,60px) 32px; background: var(--bg-cream); border-radius: var(--radius-card); border: none; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.45; text-align: center; }
-.problem-quote::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+.problem-quote { margin: 0; padding: clamp(36px,5vw,60px) 32px; background: var(--bg-cream); border-radius: var(--radius-card); border-top: 4px solid var(--orange); font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.45; text-align: center; }
 
 /* ── TESTIMONIALS ─────────────────────────────────────────── */
 .s-testimonials { background: var(--bg-white); }
