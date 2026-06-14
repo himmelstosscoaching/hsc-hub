@@ -31,10 +31,11 @@ const kapitel = [
 
   <!-- 1 · HERO -->
   <section class="s-hero hero-fokus">
-    <div class="hero-halo" aria-hidden="true"></div>
-    <div class="container hero-grid">
+    <img class="hero-bg" src="/img/annette-herbert-hero.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="container hero-inner">
       <div class="hero-text">
-        <p class="acc-eyebrow">Online-Kurs für Paare</p>
+        <p class="hero-eyebrow">Online-Kurs für Paare</p>
         <h1>Schatz,<br><em>coachst du mich?</em></h1>
         <p class="hero-sub">Der Kurs für Paare, die spüren: <strong>Da geht noch mehr zwischen uns.</strong></p>
         <div class="hero-meta">
@@ -48,9 +49,6 @@ const kapitel = [
           <li>✓ SSL-verschlüsselt</li>
           <li>✓ Stripe &amp; PayPal</li>
         </ul>
-      </div>
-      <div class="hero-img">
-        <img src="/img/annette-herbert-hero.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
       </div>
     </div>
     <div class="sun-divider thick" aria-hidden="true"></div>
@@ -363,21 +361,57 @@ const kapitel = [
 
 <style>
 /* ── HERO ─────────────────────────────────────────────────── */
-.s-hero { background: var(--bg-white); padding: clamp(80px,10vw,130px) 0 0; overflow: hidden; }
-.hero-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
-.hero-grid {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(32px,5vw,72px); align-items: center;
-  padding-bottom: clamp(60px,8vw,100px);
+.s-hero {
+  position: relative;
+  min-height: clamp(520px, 66vh, 680px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
-.hero-text h1 em { font-style: italic; color: var(--orange); }
-.hero-sub { font-size: clamp(18px,1.6vw,22px); color: var(--ink-soft); margin: 0 0 24px; line-height: 1.5; }
-.hero-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 32px; font-size: 14px; color: var(--ink-light); font-weight: 500; }
-.hero-meta span + span::before { content: '·'; margin-right: 8px; color: var(--gold-line); }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(20, 86, 122, 0.92) 0%,
+      rgba(24, 105, 150, 0.66) 28%,
+      rgba(39, 131, 172, 0.30) 46%,
+      rgba(39, 131, 172, 0.06) 58%,
+      rgba(39, 131, 172, 0) 68%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(80px,10vw,120px) 0;
+}
+.hero-text { max-width: 480px; }
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 18px;
+}
+.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.35); margin: 0 0 22px; }
+.s-hero h1 em { font-style: italic; color: var(--orange); }
+.hero-sub { font-size: clamp(17px,1.6vw,21px); color: rgba(255,255,255,0.88); margin: 0 0 24px; line-height: 1.5; }
+.hero-sub strong { color: #fff; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 32px; font-size: 14px; color: rgba(255,255,255,0.72); font-weight: 500; }
+.hero-meta span + span::before { content: '·'; margin-right: 8px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
-.trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: var(--ink-light); }
-.hero-img img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: rgba(255,255,255,0.68); }
+.s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── WELCOME ──────────────────────────────────────────────── */
 .s-welcome { background: var(--bg-white); text-align: left; }
