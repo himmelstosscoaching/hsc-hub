@@ -1,7 +1,7 @@
 // Alle HSC-Angebote für /angebote
 // Aufbau: 5 Kernangebote prominent oben (kern) — weitere & saisonale ordnen sich unter (weitere).
 // Jedes Angebot trägt ein Format-Zeichen (formatType) → einheitliches Badge auf der Karte.
-// ⚠️ = Preis/URL mit A&H/Diana final klären
+// ⚠️ = Preis/URL mit A&H final klären
 
 export type FormatType = 'kurs' | 'live-online' | 'live-vor-ort';
 
@@ -112,7 +112,7 @@ export const weitere: Angebot[] = [
     preis: '497 €',
     cta: 'Mehr erfahren',
     url: '/notfall',
-    note: '⚠️ Kauf-Button auf /notfall braucht noch ThriveCart-Direktkauf-Link (Diana) · SOS-Bild folgt',
+    note: '⚠️ Kauf-Button auf /notfall braucht noch ThriveCart-Direktkauf-Link · SOS-Bild folgt',
   },
 ];
 

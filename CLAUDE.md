@@ -71,7 +71,6 @@ H. Online-Kongress · I. Testimonials · J. FAQ · K. Final-CTA · Footer
 | Annette & Herbert Himmelstoß | Inhalte, Freigabe, Ton |
 | Christian Seitz | Projektleitung, Astro-Build |
 | Godiwa | Design / UX |
-| Diana | ThriveCart, Domain-Migration |
 
 ## Hosting & Domain
 - Aktuell: Netlify-Subdomain (Preview)

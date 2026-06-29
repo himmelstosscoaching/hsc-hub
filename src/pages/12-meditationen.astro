@@ -1,0 +1,232 @@
+---
+// 12 Meditationen durch das Jahr — Info-/Verkaufsseite. Verlinkt von /angebote.
+// Verkauf läuft über die Website; Bezahlung über ThriveCart-Checkout.
+// Texte aus dem Newsletter an die Interessenten (A&H), Stand 2026-06.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+// ThriveCart-Direktkauf (Produkt 15, 88 € Festpreis)
+const buchenUrl = 'https://kasse.himmelstosscoaching.de/meditation--monatsausrichtung/';
+
+const meditationen = [
+  {
+    sign: 'Steinbock',
+    titel: 'Natur als Türöffner',
+    sub: 'Glücksgefühl verankern und durch den Tag tragen.',
+    text: 'Ein Fundament für den Kontakt mit Naturwesen: Du trainierst, Glücksgefühl als bewusst abrufbare Frequenz im Körper zu verankern. Genau diese freudige, dankbare Stimmung öffnet deine Wahrnehmung – Naturwesen und Tierbotschaften können dich leichter erreichen. Glück ist nicht Zufall, sondern ein Zustand, den du wählen und mitnehmen kannst.',
+  },
+  {
+    sign: 'Wassermann',
+    titel: 'Vom Wunsch zur Wirklichkeit',
+    sub: 'Aus dem Herzen in die Handlung.',
+    text: 'Tierbotschaften wollen nicht nur verstanden, sondern gelebt werden. Diese Meditation führt vom Herzensimpuls in die konkrete Handlung.',
+  },
+  {
+    sign: 'Fische',
+    titel: 'Reise zum Ursprung',
+    sub: 'Dein Seelenauftrag – getragen von göttlicher Liebe.',
+    text: 'Diese Meditation richtet dich auf deinen Seelenauftrag aus und erinnert dich an deine Einzigartigkeit. Aus dem Erleben, von göttlicher Liebe getragen zu sein, bildet sich ein geschütztes, durchlässiges Feld – du musst nicht „machen“, Begegnung entsteht.',
+  },
+  {
+    sign: 'Widder',
+    titel: 'Widerstand als Wegweiser',
+    sub: 'Die Kunst des Perspektivwechsels.',
+    text: 'Wir alle kennen Phasen, in denen die Verbindung zur anderen Seite erschwert ist. Diese Meditation macht dich beweglich: Du wechselst die Perspektive – und verstehst plötzlich, was dir ein Tier spiegelt. Dir wird klar, wo du dich verschließt und was dich wieder öffnen kann. So wird Widerstand zum Helfer für deine nächste Wahrnehmungs-Stufe.',
+  },
+  {
+    sign: 'Stier',
+    titel: 'Sternenfamilie und dein Licht für die Erde',
+    sub: '',
+    text: 'Diese Meditation heilt das Gefühl, „falsch gelandet“ zu sein, und stärkt deine Zugehörigkeit zur Erde – ohne dich in die Enge menschlicher Strukturen einsperren zu lassen. Wenn du deinen Ursprung und deinen Auftrag erinnerst, verändert sich dein Blick, und die Begegnung mit Wesen der anderen Seite wird leichter, weil du aus dem Funktionieren aussteigst.',
+  },
+  {
+    sign: 'Zwillinge',
+    titel: 'Wenn Liebe auf dein Leben blickt',
+    sub: '',
+    text: 'Wir sind meist unsere härtesten Kritiker. Diese Meditation leitet dich an, mit dem Blick der reinen Liebe auf dich zu sehen. Du lernst, dich und dein Leben urteilsfrei zu betrachten. Dadurch wird dein Wahrnehmungsfeld hell und weit. Naturwesen oder Tierbotschaften zeigen sich klarer, weil sie auf Liebe und Weichheit antworten – nicht auf Selbstverurteilung.',
+  },
+  {
+    sign: 'Krebs',
+    titel: 'Friedensmeditation',
+    sub: 'Frieden in dir wird zum Frieden in der Welt.',
+    text: 'Frieden ist ein Schlüssel, weil Tiere und Naturwesen auf dein Nervensystem reagieren: Je ruhiger du bist, desto besser können sie sich dir zeigen. In diesem Zustand kannst du am leichtesten Botschaften empfangen.',
+  },
+  {
+    sign: 'Löwe',
+    titel: 'Begegnung mit deinen inneren Helfern',
+    sub: '',
+    text: 'In dieser Meditation wirst du angeleitet, ein konkretes Gespräch mit einem deiner inneren Helfer zu führen.',
+  },
+  {
+    sign: 'Jungfrau',
+    titel: 'Das, was durch dich wirkt',
+    sub: 'Wenn andere dir danken.',
+    text: 'Hier geht es darum, deinen Wert zu fühlen. Auch du bist für die anderen wichtig – für deine Mitmenschen wie für die Naturwesen und anderen übersinnlichen Wesen.',
+  },
+  {
+    sign: 'Waage',
+    titel: 'Die zwei Wege, die eins sind',
+    sub: 'Wähle die Leichtigkeit.',
+    text: 'Ein häufiges Hindernis beim Zeichenlesen und Erfassen der Botschaften ist Schwere: „Ich muss es richtig machen.“ Diese Meditation zeigt dir, wie du in die Leichtigkeit kommst.',
+  },
+  {
+    sign: 'Skorpion',
+    titel: 'Gespräch mit deinem Körperwesen',
+    sub: '',
+    text: 'Das Körperwesen ist dein direkter Übersetzer – es reagiert sofort, bevor der Kopf Geschichten erzählt. Diese Meditation lehrt dich, mit ihm in Verbindung und Austausch zu gehen und seine Botschaften zu verstehen.',
+  },
+  {
+    sign: 'Schütze',
+    titel: 'Der zukünftige Mensch',
+    sub: 'Dein Ziel bist du.',
+    text: 'Naturwesen und Tiere antworten stark auf deine Ausstrahlung – wenn du innerlich klar und ausgerichtet bist, werden Begegnungen synchron, Hinweise deutlich, Botschaften zielgerichtet.',
+  },
+];
+---
+
+<FokusLayout
+  title="Mit 12 Meditationen durch das Jahr — Annette & Herbert Himmelstoß"
+  description="Zwölf geführte Meditationen durch den Jahreskreis — eine Einladung, deine Verbindung zu den Naturwesen und inneren Helfern Schritt für Schritt aufzubauen. Alle zwölf sofort und dauerhaft verfügbar, begleitet von einem monatlichen Impuls durchs Jahr."
+  canonical="https://himmelstosscoaching.de/12-meditationen"
+>
+  <HeaderFokus />
+
+  <section class="md-hero">
+    <div class="md-halo" aria-hidden="true"></div>
+    <div class="container narrow">
+      <p class="md-eyebrow">Online · 12 geführte Meditationen</p>
+      <h1>Mit 12 Meditationen durch das Jahr</h1>
+      <p class="md-sub">Eine Reise durch den Jahreskreis — zu den Naturwesen und zu deinen inneren Helfern.</p>
+      <p class="md-promise">
+        Eine Einladung, deine Verbindung zu den Naturwesen und weiteren inneren Helfern
+        Schritt für Schritt aufzubauen. Jede Meditation entspricht einer Qualität im
+        Jahreskreis und stärkt einen konkreten inneren Schlüssel: Präsenz, Vertrauen,
+        Herzöffnung, Perspektivwechsel, Dankbarkeit, Frieden und klare Ausrichtung.
+      </p>
+      <div class="md-cta-row">
+        <a href={buchenUrl} class="btn btn-primary">Jetzt buchen · 88 €</a>
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <section class="md-intro">
+    <div class="container narrow">
+      <p>
+        So wächst eine echte Beziehung: Du lernst, Botschaften als Resonanz im Körper,
+        als inneres Wissen und als stimmige Führung im Alltag wahrzunehmen. Diese Reihe
+        begleitet dich durch das Jahr wie ein roter Faden – damit Begegnung immer
+        natürlicher wird und du dich getragen fühlst: von der Natur, von deinem eigenen
+        Feld und von den unsichtbaren Wesen, die antworten, wenn du lauschst.
+      </p>
+      <p>
+        Jede Meditation ist so aufgebaut, dass sie eine konkrete Hilfestellung für deinen
+        Alltag ist und dir ermöglicht, deine innere Stimme immer klarer wahrzunehmen und
+        ihr zu folgen.
+      </p>
+    </div>
+  </section>
+
+  <section class="md-ablauf">
+    <div class="container narrow">
+      <h2>So läuft es ab</h2>
+      <ul class="md-facts">
+        <li><strong>Sofort &amp; vollständig:</strong> Alle zwölf Meditationen sind von Anfang an für dich freigeschaltet.</li>
+        <li><strong>Begleitung durchs Jahr:</strong> Jeden Monat zum 20. — wenn ein neues Tierkreiszeichen beginnt — bekommst du einen kurzen Impuls per E-Mail zur Meditation, die gerade dran ist.</li>
+        <li><strong>Dein Tempo:</strong> Du folgst der Reihe durch den Jahreskreis – oder wählst jederzeit die Meditation, die gerade zu dir passt.</li>
+        <li><strong>Für immer:</strong> Dein Zugang bleibt dauerhaft bestehen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="md-list">
+    <div class="container">
+      <h2>Ein Überblick über die zwölf Meditationen</h2>
+      <div class="md-grid">
+        {meditationen.map((m, i) => (
+          <article class="md-card">
+            <div class="md-num">{i + 1}</div>
+            <p class="md-sign">{m.sign}-Zeit</p>
+            <h3>{m.titel}</h3>
+            {m.sub && <p class="md-card-sub">{m.sub}</p>}
+            <p class="md-card-text">{m.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="md-final final-fokus">
+    <div class="md-halo" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2>Bereit, dich tragen zu lassen?</h2>
+      <p>Zwölf Meditationen, ein Jahr, ein roter Faden. Beginne heute mit den ersten beiden.</p>
+      <div class="md-cta-row">
+        <a href={buchenUrl} class="btn btn-primary">Jetzt buchen · 88 €</a>
+        <a href="/angebote" class="md-link">Zurück zu allen Angeboten <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  .md-hero { position: relative; background: var(--bg-white); padding: clamp(80px, 10vw, 130px) 0 0; overflow: hidden; text-align: center; }
+  .md-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+  .md-hero .container { position: relative; z-index: 1; padding-bottom: clamp(60px, 8vw, 100px); }
+  .md-eyebrow { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 14px; }
+  .md-hero h1 { color: var(--blue-deep); font-size: clamp(30px, 4vw, 52px); line-height: 1.12; margin: 0 0 16px; }
+  .md-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 1.8vw, 24px); color: var(--orange); margin: 0 0 22px; }
+  .md-promise { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0 auto 32px; max-width: 620px; line-height: 1.65; }
+  .md-cta-row { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+  .md-intro { background: var(--bg-cream); padding: clamp(60px, 8vw, 100px) 0; }
+  .md-intro p { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); line-height: 1.7; margin: 0 0 20px; }
+  .md-intro p:last-child { margin-bottom: 0; }
+
+  .md-ablauf { background: var(--bg-white); padding: clamp(56px, 7vw, 90px) 0; }
+  .md-ablauf h2 { color: var(--blue-deep); font-size: clamp(24px, 2.6vw, 34px); margin: 0 0 24px; text-align: center; }
+  .md-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 620px; display: grid; gap: 14px; }
+  .md-facts li {
+    position: relative; padding: 18px 22px; border-radius: var(--radius-card);
+    background: var(--bg-cream); box-shadow: var(--shadow-soft);
+    font-size: clamp(15px, 1.3vw, 17px); color: var(--ink-soft); line-height: 1.55;
+  }
+  .md-facts strong { color: var(--blue-deep); }
+
+  .md-list { background: var(--bg-cream); padding: clamp(70px, 9vw, 120px) 0; }
+  .md-list h2 { color: var(--blue-deep); font-size: clamp(24px, 2.8vw, 36px); margin: 0 0 40px; text-align: center; }
+  .md-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: clamp(20px, 2.5vw, 28px); }
+  .md-card {
+    position: relative; background: var(--bg-white); border-radius: var(--radius-card);
+    padding: 30px 26px 26px; box-shadow: var(--shadow-soft);
+    border-top: 3px solid var(--orange);
+  }
+  .md-num {
+    position: absolute; top: -16px; left: 24px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue-deep); color: #fff;
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .md-sign { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 12px; color: var(--orange); margin: 6px 0 8px; }
+  .md-card h3 { color: var(--blue-deep); font-size: clamp(18px, 1.6vw, 21px); line-height: 1.25; margin: 0 0 8px; }
+  .md-card-sub { font-family: var(--font-display); font-style: italic; font-size: 15px; color: var(--ink-soft); margin: 0 0 12px; }
+  .md-card-text { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .md-final { position: relative; background: var(--bg-white); padding: clamp(70px, 9vw, 120px) 0; overflow: hidden; text-align: center; }
+  .md-final .container { position: relative; z-index: 1; }
+  .md-final h2 { color: var(--blue-deep); font-size: clamp(24px, 2.8vw, 38px); margin: 0 0 14px; }
+  .md-final p { font-size: clamp(16px, 1.4vw, 18px); color: var(--ink-soft); margin: 0 auto 30px; max-width: 520px; line-height: 1.6; }
+  .md-final .md-cta-row { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 24px; }
+  .md-link { color: var(--blue-deep); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .md-link:hover { border-bottom-color: var(--blue-deep); text-decoration: none; }
+  .md-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .md-link:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) {
+    .md-grid { grid-template-columns: 1fr; }
+  }
+</style>

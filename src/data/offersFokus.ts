@@ -1,7 +1,7 @@
 // Annettes Fokus-Konzept V02 — 5 Hauptangebote für die Startseite
 // Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md + 02-Konzept/02-Konzept-V02-Fokus.md
 // Reihenfolge laut Konzept: Dein Leben lesen → Schatz → Einzelcoaching → Monatsausrichtung → Zypern
-// ⚠️ = Preis/URL mit A&H bzw. Christian/Diana noch zu bestätigen
+// ⚠️ = Preis/URL mit A&H bzw. Christian noch zu bestätigen
 
 import type { Offer } from './offers';
 
