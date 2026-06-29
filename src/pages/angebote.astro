@@ -126,12 +126,11 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   <section class="ang-final on-dark">
     <div class="sun-strip" aria-hidden="true"></div>
     <div class="container narrow">
-      <h2>Du bist dir nicht sicher, was zu dir passt?</h2>
-      <p>Schnupper kostenlos rein — oder buch dir ein unverbindliches Orientierungsgespräch mit uns. Oder schreib uns einfach.</p>
+      <h2>Lieber direkt mit uns sprechen?</h2>
+      <p>Wenn du magst, buch dir ein unverbindliches Orientierungsgespräch — oder schreib uns einfach eine Nachricht.</p>
       <div class="ang-final-ctas">
         <a href="https://orientierungsgespraech-himmelstoss.youcanbook.me" target="_blank" rel="noopener" class="btn btn-primary">Orientierungsgespräch buchen</a>
-        <a href="#frei" class="ang-final-link">Erstmal kostenlos reinschnuppern <span class="arrow">→</span></a>
-        <a href="mailto:kontakt@himmelstosscoaching.de" class="ang-final-link">Lieber schreiben? <span class="arrow">→</span></a>
+        <a href="mailto:kontakt@himmelstosscoaching.de" class="btn ang-final-write">Lieber schreiben</a>
       </div>
     </div>
   </section>
@@ -236,7 +235,9 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   .ang-final .container { position: relative; z-index: 1; }
   .ang-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
   .ang-final p { color: rgba(255,255,255,0.9); font-size: clamp(16px,1.5vw,19px); margin: 0 auto 32px; max-width: 560px; }
-  .ang-final-ctas { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .ang-final-ctas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; }
+  .ang-final-write { background: transparent; color: #fff !important; border: 1.5px solid rgba(255,255,255,0.6); min-height: 48px; }
+  .ang-final-write:hover { background: rgba(255,255,255,0.10); border-color: #fff; text-decoration: none; transform: translateY(-2px); }
   .ang-final-link { color: rgba(255,255,255,0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
   .ang-final-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
   .ang-final-link .arrow, .frei-card .arrow { display: inline-block; transition: transform .25s var(--ease); }
