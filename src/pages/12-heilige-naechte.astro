@@ -10,8 +10,8 @@ import FooterFokus from '../components/FooterFokus.astro';
 // 🔴 TODO (Christian): Digistore-Checkout für Edition 2026/2027 NEU anlegen — es existiert nur die 2025er-Version.
 //    Produkt 577723 (alter Link) ist die MONATSAUSRICHTUNG, NICHT die Heiligen Nächte → darf NICHT live gehen.
 //    Sobald das neue Produkt steht: Checkout-Link hier eintragen, Gutschein (z. B. „weihnachten-2026“) im Produkt anlegen.
-//    Bis dahin als Platzhalter neutralisiert (führt zur Kontakt-Mail statt zum falschen Produkt).
-const buchenUrl = 'mailto:kontakt@himmelstosscoaching.de?subject=Ja,%20ich%20bin%20dabei%20%E2%80%93%2012%20Heilige%20N%C3%A4chte';
+//    Bis dahin stillgelegt: Buttons sind sichtbar, führen aber bewusst nirgendwohin (kein falsches Produkt).
+const buchenUrl = '#';
 
 // Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links)
 const bloecke = [
@@ -348,7 +348,7 @@ const stimmen = [
   .hn-stimme cite { font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink-light); letter-spacing: 0.04em; }
 
   /* ── FINAL CTA — Bild + Blau→Warm-Verlauf, Text auf Weiß ──── */
-  .hn-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #2783ac 15%, #75bfda 32%, #e6af96 52%, #f09876 74%, #f4a366 100%); }
+  .hn-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
   .hn-final .container { position: relative; z-index: 2; }
   .hn-final-hl { font-family: var(--font-display); font-weight: 400; color: #fff; font-size: clamp(26px,3vw,40px); line-height: 1.2; margin: 0 0 12px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
   .hn-final-dates { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,20px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }
