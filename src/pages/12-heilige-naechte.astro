@@ -1,0 +1,341 @@
+---
+// 12 heilige Nächte — saisonale Info-/Verkaufsseite (Live-Workshop, 12 Zoom-Termine).
+// Verlinkt von /angebote. Bezahlung über Digistore (kein Online-Kurs → kein ThriveCart nötig).
+// Texte 1:1 übernommen von der alten WordPress-Seite (himmelstosscoaching.de/12-heilige-nachte),
+// Jahreszahlen auf die Edition 2026/2027 aktualisiert. Stand 2026-06.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+// Digistore-Checkout (Produkt 577723). Preisstaffelung unverändert (240/270/330 €).
+// ⚠️ Gutschein „weihnachten-2026“ muss im Digistore-Produkt angelegt sein, sonst greift er nicht.
+const buchenUrl = 'https://www.checkout-ds24.com/product/577723?voucher=weihnachten-2026';
+
+// Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links)
+const bloecke = [
+  {
+    img: '/img/heilige-naechte/Himmelstoss_Start_Rauhnaechte-2.jpg',
+    alt: 'Stimmungsvolle Rauhnächte zwischen den Jahren',
+    rev: false,
+    veil: 'blue-left',
+    titel: 'Warum gerade jetzt?',
+    text: [
+      'Die Rauhnächte sind eine Zeit wie keine andere: Die zwölf Nächte zwischen Weihnachten und Neujahr sind eine Zeit, in der die Grenze zwischen Jenseits und Diesseits sehr durchlässig ist. Damit gelingt es leichter als sonst, an seine tiefen inneren Impulse anzuschließen.',
+      'In diesem exklusiven Workshop lernst du, deine 12 persönlichen Botschaften zu empfangen, um im kommenden Jahr das zu leben, was schon lange in deinem Inneren anklopft. Die Botschaften helfen dir, Monat für Monat den Weg in das Leben zu finden, das du wirklich leben willst.',
+    ],
+  },
+  {
+    img: '/img/heilige-naechte/Himmelstoss_Rauhnaechte_Header-2.jpg',
+    alt: 'Sonnenaufgang über einer winterlichen Landschaft',
+    rev: true,
+    veil: 'warm-right',
+    titel: 'Das erwartet dich im Workshop',
+    items: [
+      ['Die freie Meditation', 'Den zentralen Raum nimmt die freie Meditation ein, durch die ich dich jeden Morgen führe. Sie ist mein Impuls aus der Nacht – jeden Tag empfange ich neu, was kommt.'],
+      ['Deine persönlichen Morgenbotschaften', 'Du lernst, deine persönlichen Botschaften zu empfangen, die dein Begleiter für das Jahr 2027 werden.'],
+      ['Gemeinschaft und Kraftfeld der Zuversicht', 'Spüre die Stärke und Ruhe einer Gruppe Gleichgesinnter, die sich mit dir auf die Reise macht und gemeinsam ein kraftvolles Licht in die Welt bringt.'],
+      ['Spirituelle Impulse der Tierkreiszeichen', 'Entdecke, wie jeder Tag dieser besonderen Zeit mit einer Tierkreisenergie aufgeladen ist. Rudolf Steiners Sprüche begleiten uns und entfalten ihre inspirierende Kraft.'],
+    ],
+  },
+  {
+    img: '/img/heilige-naechte/Himmelstoss_Rauhnaechte.jpg',
+    alt: 'Kerzenlicht und Stille in den heiligen Nächten',
+    rev: false,
+    veil: 'warm-left',
+    titel: 'Warum dieser Workshop deine Chance ist',
+    text: [
+      'Hast du genug von den endlosen Wiederholungen und Stillständen?',
+      'Wünschst du dir, voller Vorfreude in das neue Jahr zu starten?',
+      'Dieser Workshop gibt dir die Werkzeuge, die Klarheit und den Schub, den du brauchst – um das neue Jahr nicht nur zu begrüßen, sondern mit Zuversicht und voller Freude zu gestalten!',
+    ],
+  },
+];
+
+const leistungen = [
+  '12 Live-Treffen täglich von 09.00 bis 10.00 Uhr im Gruppen-Zoom',
+  'vom 25.12.2026 bis zum 05.01.2027',
+  'Du kannst einmal nicht dabei sein? Du bekommst eine Aufzeichnung.',
+  'Tierkreisspruch zu jedem Tag',
+  'Tägliche Meditation zu den Tagesthemen',
+  'Zeit für individuelle Rückschau und Vorblick',
+  'Austausch und Gespräch in der Gruppe',
+  'Du lernst, deine eigenen Morgenbotschaften zu empfangen',
+  'Du bekommst ein Workbook, das dich das ganze Jahr 2027 begleitet',
+];
+
+const preise = [
+  { tag: 'Frühbucher', preis: '240 €', frist: 'bei Anmeldung bis 15. November', highlight: false },
+  { tag: 'Aktionspreis', preis: '270 €', frist: 'gültig bis 10. Dezember', highlight: true },
+  { tag: 'Regulärer Preis', preis: '330 €', frist: 'ab 11. Dezember', highlight: false },
+];
+
+const stimmen = [
+  {
+    text: 'Eure Präsenz gibt Sicherheit. Die Balance zwischen Freilassen und Begleiten habt ihr für mich optimal getroffen. Dies ermöglicht das Entdecken der eigenen Persönlichkeit bis zum innersten Kern und das Finden von individuellen Lösungs-Möglichkeiten in jeder Lebenssituation. Ich grüße euch – von Herzen.',
+    name: 'Claudia Bischof',
+  },
+  {
+    text: 'Es ist ein schöner, innerer und äußerer Rhythmus entstanden, der durch den Tag getragen hat. Das vergangene Jahr wurde in kleinen Schritten nochmal angeschaut und die Betrachtung legte den Grundstein für die kommenden Monate. Ich bin viel wacher durch die Tage gegangen.',
+    name: 'Anke Spiess',
+  },
+  {
+    text: 'Unter der weisen Anleitung von Herbert und Annette haben wir uns gegenseitig sehr bereichern können. Das Erkennen unserer Lebensabsichten und Lebensziele war ein so wichtiger Schritt dabei – jedoch auch, dass wir tun, was uns wirklich Freude macht! Danke, danke, danke!',
+    name: 'Anita Peters',
+  },
+  {
+    text: 'Die 12 Heiligen Nächte mit dem täglichen Webinar waren für mich Ausnahmetage, geschenkte Tage, außerhalb des normalen Jahresverlaufs. Ganz besonders war für mich die Erfahrung, Morgenbotschaften zu empfangen. Was da durch mich durchgeflossen ist und nachher auf dem Papier stand, hat mich täglich neu erstaunt!',
+    name: 'Veronika Sudhoff',
+  },
+];
+---
+
+<FokusLayout
+  title="Die 12 heiligen Nächte — Rauhnächte einmal anders | Himmelstoß Coaching"
+  description="Ein geführter Live-Workshop durch die zwölf heiligen Nächte (25.12.2026 – 05.01.2027): täglich Meditation, Tierkreisspruch und deine persönlichen Morgenbotschaften für ein neues Jahr voller Klarheit. Mit Annette & Herbert Himmelstoß."
+  canonical="https://himmelstosscoaching.de/12-heilige-naechte"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="hn-hero">
+    <img class="hn-hero-bg" src="/img/heilige-naechte/Himmelstoss_Rauhnaechte_Header-2.jpg" alt="Die heiligen Nächte – Sonnenaufgang über winterlicher Landschaft" loading="eager" />
+    <div class="hn-veil" aria-hidden="true"></div>
+    <div class="container hn-hero-inner">
+      <p class="hn-eyebrow">Online-Workshop · 12 Live-Treffen</p>
+      <h1>Die 12 heiligen Nächte<br><em>Nutze die Magie der Rauhnächte</em></h1>
+      <p class="hn-dates">vom 25.12.2026 – 05.01.2027</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt anmelden →</a>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · INTRO -->
+  <section class="hn-intro">
+    <div class="container narrow center">
+      <h2>Starte dein Jahr 2027 mit deinen persönlichen Botschaften!</h2>
+      <p>
+        Erlebe in den 12 Heiligen Nächten deinen Neustart – erhalte in der transformierenden
+        Energie zwischen den Jahren deine persönlichen Botschaften, die das kommende Jahr zu einem
+        Jahr voller Wachstum, Klarheit und Durchbruchs-Momente machen!
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 · ABWECHSELNDE BILD-TEXT-BLÖCKE -->
+  <section class="hn-blocks">
+    <div class="container">
+      {bloecke.map((b) => (
+        <div class:list={['hn-block', { 'hn-block--rev': b.rev }]}>
+          <div class:list={['hn-block-img', b.veil]}>
+            <img src={b.img} alt={b.alt} loading="lazy" />
+          </div>
+          <div class="hn-block-text">
+            <h2>{b.titel}</h2>
+            {b.text && b.text.map((p) => <p>{p}</p>)}
+            {b.items && (
+              <ul class="hn-feature-list">
+                {b.items.map(([titel, beschr]) => (
+                  <li><strong>{titel}</strong><span>{beschr}</span></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4 · LEISTUNGEN -->
+  <section class="hn-leistungen">
+    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2 class="center">Erwecke die Magie der Rauhnächte – und mache 2027 zu deinem Jahr der Transformation</h2>
+      <ul class="hn-facts">
+        {leistungen.map((l) => <li>{l}</li>)}
+      </ul>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 5 · PREISE -->
+  <section class="hn-preise">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Einmal bezahlen und als Familie dabei</p>
+      <h2 class="hn-preis-hl">Sei dabei – wähle deinen Zeitpunkt</h2>
+      <div class="hn-preis-grid">
+        {preise.map((p) => (
+          <div class:list={['hn-preis-card', { 'hn-preis-card--hl': p.highlight }]}>
+            {p.highlight && <span class="hn-preis-badge">Beliebt</span>}
+            <p class="hn-preis-tag">{p.tag}</p>
+            <div class="hn-preis-haupt">{p.preis}</div>
+            <p class="hn-preis-frist">{p.frist}</p>
+          </div>
+        ))}
+      </div>
+      <a href={buchenUrl} class="btn btn-primary btn-lg hn-preis-btn">Ja, ich bin dabei →</a>
+      <p class="hn-preis-note">
+        Falls der Link bei dir nicht funktioniert, schreib uns eine E-Mail mit dem Betreff
+        „Ja, ich bin dabei“ an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 · PERSÖNLICHE ERFAHRUNGEN -->
+  <section class="hn-erfahrung">
+    <div class="container narrow">
+      <h2 class="center">Persönliche Erfahrungen</h2>
+      <p class="hn-erfahrung-intro">
+        Seit vielen Jahren beobachten wir, dass die Zeit der 12 heiligen Nächte eine ganz besondere
+        Qualität hat. Darum nehmen wir uns in dieser Zeit bewusst den Raum, den Alltag weitgehend
+        loszulassen und sind aufmerksam, was uns in diesen Tagen begegnet. Vor 10 Jahren gelang uns
+        das aufgrund des Umzuges unserer Schwieger-/Eltern nicht. Es war deutlich zu erleben, dass
+        uns in der folgenden Zeit Kraft und Energie fehlten.
+      </p>
+
+      <figure class="hn-voice">
+        <img src="/img/heilige-naechte/Himmelstoss_Annette-2.png" alt="Annette Himmelstoß" loading="lazy" />
+        <blockquote>
+          <p>Wir leben in einer Zeit, die versucht, uns durch Angst vor der Zukunft, Angst vor Krankheit, vor Armut, vor Krieg zu lenken, zu manipulieren. Umso intensiver wir lernen, in Verbindung mit der höheren Welt zu sein, umso mehr entsteht das Vertrauen, im Leben geführt zu werden. Es breitet sich Ruhe in uns aus.</p>
+          <p>In der Gemeinschaft diese Themen zu bewegen und zu meditieren, hat eine sehr große Kraft, die weit über uns hinausgeht. Genau deshalb ist es mir ein großes Anliegen, die 12 heiligen Nächte in dieser Weise gemeinsam zu begehen.</p>
+          <figcaption>— Annette Himmelstoß</figcaption>
+        </blockquote>
+      </figure>
+
+      <figure class="hn-voice hn-voice--rev">
+        <img src="/img/heilige-naechte/Himmelstoss_Herbert-1.png" alt="Herbert Himmelstoß" loading="lazy" />
+        <blockquote>
+          <p>Monat für Monat auf das alte Jahr zu blicken, mit dem Gesichtspunkt der Tierkreiskräfte, bringt jedes Mal neue und sinnvolle Aspekte, um das Geschehene zu verstehen. Daraus ergeben sich wiederum Gestaltungsimpulse für das kommende Jahr.</p>
+          <p>Eine Besinnungstätigkeit, die den 12 heiligen Nächten entspricht und von ihnen getragen wird. Ein seelisches Atemholen für das ganze neue Jahr.</p>
+          <figcaption>— Herbert Himmelstoß</figcaption>
+        </blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 7 · TEILNEHMERSTIMMEN -->
+  <section class="hn-stimmen">
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Teilnehmerstimmen</p>
+      <h2 class="center">Was Teilnehmer erlebt haben</h2>
+      <div class="hn-stimmen-grid">
+        {stimmen.map((s) => (
+          <blockquote class="hn-stimme">
+            <p>{s.text}</p>
+            <cite>{s.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · FINAL CTA — ohne Foto, nur Blau→Türkis→Warm-Verlauf -->
+  <section class="hn-final">
+    <div class="container narrow center">
+      <h2 class="hn-final-hl">Die 12 heiligen Nächte – Rauhnächte einmal anders</h2>
+      <p class="hn-final-dates">vom 25.12.2026 – 05.01.2027</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Ja, ich bin dabei →</a>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hn-hero { position: relative; min-height: clamp(360px, 46vh, 500px); display: flex; align-items: center; overflow: hidden; text-align: center; }
+  .hn-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+  .hn-veil { position: absolute; inset: 0; background: var(--veil-blue-warm); }
+  .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; }
+  .hn-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,0.92); margin: 0 0 18px; text-shadow: 0 1px 12px rgba(20,35,60,0.55); }
+  .hn-hero h1 { color: #fff; font-size: clamp(36px,5.4vw,66px); line-height: 1.08; margin: 0 0 18px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
+  .hn-hero h1 em { display: block; font-style: italic; color: #fff; font-size: 0.68em; margin-top: 12px; text-shadow: 0 2px 18px rgba(15,28,50,0.6); }
+  .hn-dates { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,2vw,24px); color: rgba(255,255,255,0.95); margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }
+  .hn-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
+
+  /* ── INTRO ────────────────────────────────────────────────── */
+  .hn-intro { background: var(--bg-white); padding: clamp(60px,8vw,100px) 0; }
+  .hn-intro h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,38px); line-height: 1.2; margin: 0 0 22px; }
+  .hn-intro p { font-size: clamp(17px,1.6vw,21px); color: var(--ink-soft); line-height: 1.7; margin: 0 auto; max-width: 640px; }
+
+  /* ── BILD-TEXT-BLÖCKE ─────────────────────────────────────── */
+  .hn-blocks { background: var(--bg-cream); padding: clamp(20px,4vw,40px) 0 clamp(40px,6vw,80px); }
+  .hn-block { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,72px); align-items: center; padding: clamp(36px,5vw,60px) 0; }
+  .hn-block--rev .hn-block-img { order: 2; }
+  .hn-block-img { position: relative; }
+  .hn-block-img img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: block; aspect-ratio: 4 / 3; object-fit: cover; }
+  /* Farbschleier läuft vom äußeren Rand ins Bild, zur Mitte hin auslaufend (wie in der Vorlage) */
+  .hn-block-img::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-card); pointer-events: none; }
+  .hn-block-img.blue-left::after  { background: linear-gradient(90deg,  rgba(44,75,123,0.85) 0%, rgba(44,75,123,0) 50%); }
+  .hn-block-img.warm-left::after  { background: linear-gradient(90deg,  rgba(248,152,116,0.85) 0%, rgba(248,152,116,0) 50%); }
+  .hn-block-img.warm-right::after { background: linear-gradient(270deg, rgba(248,152,116,0.85) 0%, rgba(248,152,116,0) 50%); }
+  .hn-block-text h2 { color: var(--blue-deep); font-size: clamp(24px,2.6vw,34px); line-height: 1.2; margin: 0 0 20px; }
+  .hn-block-text p { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; margin: 0 0 16px; }
+  .hn-block-text p:last-child { margin-bottom: 0; }
+  .hn-feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+  .hn-feature-list li { display: flex; flex-direction: column; gap: 4px; padding-left: 26px; position: relative; }
+  .hn-feature-list li::before { content: '✦'; position: absolute; left: 0; top: 2px; color: var(--orange); }
+  .hn-feature-list strong { color: var(--blue-deep); font-size: clamp(16px,1.4vw,18px); }
+  .hn-feature-list span { color: var(--ink-soft); font-size: clamp(15px,1.3vw,17px); line-height: 1.6; }
+
+  /* ── LEISTUNGEN ───────────────────────────────────────────── */
+  .hn-leistungen { background: var(--bg-white); padding-top: 0; padding-bottom: clamp(60px,8vw,100px); }
+  .hn-leistungen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); line-height: 1.2; margin: 0 0 36px; }
+  .hn-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 640px; display: grid; gap: 12px; }
+  .hn-facts li { position: relative; padding: 16px 20px 16px 56px; border-radius: var(--radius-card); background: var(--bg-cream); box-shadow: var(--shadow-soft); font-size: clamp(15px,1.3vw,17px); color: var(--ink-soft); line-height: 1.5; }
+  .hn-facts li::before { content: '✓'; position: absolute; left: 22px; top: 50%; transform: translateY(-50%); color: var(--orange); font-weight: 700; font-size: 18px; }
+
+  /* ── PREISE ───────────────────────────────────────────────── */
+  .hn-preise { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .hn-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 44px; }
+  .hn-preis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 0 0 40px; }
+  .hn-preis-card { position: relative; background: var(--bg-white); border-radius: 20px; padding: 36px 24px; box-shadow: var(--shadow-soft); border-top: 4px solid var(--orange); }
+  .hn-preis-card--hl { transform: translateY(-8px); box-shadow: var(--shadow-card); border-top-width: 6px; }
+  .hn-preis-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+  .hn-preis-tag { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 12px; }
+  .hn-preis-haupt { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px,5vw,60px); color: var(--blue-deep); line-height: 1; margin: 0 0 10px; }
+  .hn-preis-frist { font-size: 15px; color: var(--ink-soft); margin: 0; }
+  .hn-preis-btn { margin-bottom: 18px; }
+  .hn-preis-note { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin: 0 auto; max-width: 520px; }
+
+  /* ── PERSÖNLICHE ERFAHRUNGEN ──────────────────────────────── */
+  .hn-erfahrung { background: var(--bg-white); padding: clamp(64px,8vw,110px) 0; }
+  .hn-erfahrung h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 24px; }
+  .hn-erfahrung-intro { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; max-width: 640px; margin: 0 auto clamp(40px,6vw,64px); text-align: center; }
+  .hn-voice { display: grid; grid-template-columns: 180px 1fr; gap: clamp(24px,4vw,48px); align-items: center; margin: 0 0 clamp(36px,5vw,56px); }
+  .hn-voice:last-child { margin-bottom: 0; }
+  .hn-voice--rev img { order: 2; }
+  .hn-voice img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+  .hn-voice blockquote { margin: 0; }
+  .hn-voice blockquote p { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.5vw,19px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
+  .hn-voice figcaption { font-family: var(--font-body); font-style: normal; font-weight: 600; font-size: 15px; color: var(--orange); margin-top: 6px; }
+
+  /* ── TEILNEHMERSTIMMEN ────────────────────────────────────── */
+  .hn-stimmen { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .hn-stimmen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 40px; }
+  .hn-stimmen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .hn-stimme { margin: 0; padding: 28px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--orange); box-shadow: var(--shadow-soft); }
+  .hn-stimme p { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.3vw,17px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
+  .hn-stimme cite { font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+  /* ── FINAL CTA — Bild + Blau→Warm-Verlauf, Text auf Weiß ──── */
+  .hn-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #2783ac 15%, #75bfda 32%, #e6af96 52%, #f09876 74%, #f4a366 100%); }
+  .hn-final .container { position: relative; z-index: 2; }
+  .hn-final-hl { font-family: var(--font-display); font-weight: 400; color: #fff; font-size: clamp(26px,3vw,40px); line-height: 1.2; margin: 0 0 12px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
+  .hn-final-dates { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,20px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }
+
+  /* CTA-Buttons auf den Verlauf-Flächen (Hero + Final) in Markenblau statt Lachs/Orange */
+  .hn-hero .btn-primary, .hn-final .btn-primary { background: var(--blue-deep); }
+  .hn-hero .btn-primary:hover, .hn-final .btn-primary:hover { background: var(--blue-deep-soft); }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .hn-block { grid-template-columns: 1fr; gap: 24px; }
+    .hn-block--rev .hn-block-img { order: 0; }
+    .hn-preis-grid { grid-template-columns: 1fr; }
+    .hn-preis-card--hl { transform: none; }
+    .hn-voice, .hn-voice--rev { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .hn-voice img { max-width: 180px; }
+    .hn-voice--rev img { order: 0; }
+    .hn-stimmen-grid { grid-template-columns: 1fr; }
+  }
+</style>
