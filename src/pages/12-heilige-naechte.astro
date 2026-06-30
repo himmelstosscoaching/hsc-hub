@@ -7,9 +7,11 @@ import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 
-// Digistore-Checkout (Produkt 577723). Preisstaffelung unverändert (240/270/330 €).
-// ⚠️ Gutschein „weihnachten-2026“ muss im Digistore-Produkt angelegt sein, sonst greift er nicht.
-const buchenUrl = 'https://www.checkout-ds24.com/product/577723?voucher=weihnachten-2026';
+// 🔴 TODO (Christian): Digistore-Checkout für Edition 2026/2027 NEU anlegen — es existiert nur die 2025er-Version.
+//    Produkt 577723 (alter Link) ist die MONATSAUSRICHTUNG, NICHT die Heiligen Nächte → darf NICHT live gehen.
+//    Sobald das neue Produkt steht: Checkout-Link hier eintragen, Gutschein (z. B. „weihnachten-2026“) im Produkt anlegen.
+//    Bis dahin als Platzhalter neutralisiert (führt zur Kontakt-Mail statt zum falschen Produkt).
+const buchenUrl = 'mailto:kontakt@himmelstosscoaching.de?subject=Ja,%20ich%20bin%20dabei%20%E2%80%93%2012%20Heilige%20N%C3%A4chte';
 
 // Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links)
 const bloecke = [
@@ -98,9 +100,11 @@ const stimmen = [
 
   <!-- 1 · HERO -->
   <section class="hn-hero">
+    <img class="hn-hero-snow hn-hero-snow--left" src="/img/heilige-naechte/Schnee-Tannen.jpeg" alt="" aria-hidden="true" loading="eager" />
+    <img class="hn-hero-snow hn-hero-snow--right" src="/img/heilige-naechte/Schnee-Wald.jpeg" alt="" aria-hidden="true" loading="eager" />
     <div class="container hn-hero-inner">
       <p class="hn-eyebrow">Online-Workshop · 12 Live-Treffen</p>
-      <h1>Die 12 heiligen Nächte<br><em>Jede Nacht ein Monat. Jeder Morgen eine Botschaft.</em></h1>
+      <h1>Die 12 heiligen Nächte<br><em>Jede Nacht ein Monat. Jeder Morgen eine Botschaft.</em><br><span class="hn-h1-sub">Rauhnächte einmal anders.</span></h1>
       <p class="hn-dates">vom 25.12.2026 – 05.01.2027</p>
       <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt anmelden →</a>
     </div>
@@ -110,7 +114,6 @@ const stimmen = [
   <!-- 2 · INTRO -->
   <section class="hn-intro">
     <div class="container narrow center">
-      <p class="hn-intro-kicker">Die zwölf heiligen Nächte — die sogenannten Rauhnächte</p>
       <h2>Starte dein Jahr 2027 mit deinen persönlichen Botschaften!</h2>
       <p>
         Erlebe in den 12 Heiligen Nächten deinen Neustart – erhalte in der transformierenden
@@ -164,7 +167,7 @@ const stimmen = [
   <section class="hn-leistungen">
     <div class="sun-divider strip-top" aria-hidden="true"></div>
     <div class="container narrow">
-      <h2 class="center">Erwecke die Magie der Rauhnächte – und mache 2027 zu deinem Jahr der Transformation</h2>
+      <h2 class="center">Das erwartet dich in den zwölf Nächten</h2>
       <ul class="hn-facts">
         {leistungen.map((l) => <li>{l}</li>)}
       </ul>
@@ -258,16 +261,23 @@ const stimmen = [
 <style>
   /* ── HERO ─────────────────────────────────────────────────── */
   .hn-hero { position: relative; min-height: clamp(300px, 36vh, 420px); display: flex; align-items: center; overflow: hidden; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
+  .hn-hero-snow { position: absolute; top: 0; height: 100%; width: clamp(260px, 40%, 580px); object-fit: cover; object-position: center; opacity: 0.32; pointer-events: none; mix-blend-mode: screen; }
+  .hn-hero-snow--right { right: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%); }
+  .hn-hero-snow--left { left: 0;
+    -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%);
+    mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%); }
   .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; }
   .hn-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,0.92); margin: 0 0 18px; text-shadow: 0 1px 12px rgba(20,35,60,0.55); }
   .hn-hero h1 { color: #fff; font-size: clamp(36px,5.4vw,66px); line-height: 1.08; margin: 0 0 18px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
-  .hn-hero h1 em { display: block; font-style: italic; color: #fff; font-size: 0.68em; margin-top: 12px; text-shadow: 0 2px 18px rgba(15,28,50,0.6); }
+  .hn-hero h1 em { display: block; font-style: italic; color: var(--orange); font-size: 0.68em; margin-top: 12px; text-shadow: 0 2px 18px rgba(15,28,50,0.6); }
+  .hn-hero h1 .hn-h1-sub { display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: #fff; font-size: 0.52em; margin-top: 8px; text-shadow: 0 2px 16px rgba(15,28,50,0.6); }
   .hn-dates { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,2vw,24px); color: rgba(255,255,255,0.95); margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }
   .hn-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
   /* ── INTRO ────────────────────────────────────────────────── */
   .hn-intro { background: var(--bg-white); padding: clamp(60px,8vw,100px) 0; }
-  .hn-intro-kicker { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: clamp(12px,1.2vw,14px); color: var(--orange); margin: 0 0 14px; }
   .hn-intro h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,38px); line-height: 1.2; margin: 0 0 22px; }
   .hn-intro p { font-size: clamp(17px,1.6vw,21px); color: var(--ink-soft); line-height: 1.7; margin: 0 auto; max-width: 640px; }
 
@@ -298,7 +308,7 @@ const stimmen = [
 
   /* ── LEISTUNGEN ───────────────────────────────────────────── */
   .hn-leistungen { background: var(--bg-white); padding-top: 0; padding-bottom: clamp(60px,8vw,100px); }
-  .hn-leistungen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); line-height: 1.2; margin: 0 0 36px; }
+  .hn-leistungen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); line-height: 1.2; margin: clamp(48px,7vw,88px) 0 36px; }
   .hn-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 640px; display: grid; gap: 12px; }
   .hn-facts li { position: relative; padding: 16px 20px 16px 56px; border-radius: var(--radius-card); background: var(--bg-cream); box-shadow: var(--shadow-soft); font-size: clamp(15px,1.3vw,17px); color: var(--ink-soft); line-height: 1.5; }
   .hn-facts li::before { content: '✓'; position: absolute; left: 22px; top: 50%; transform: translateY(-50%); color: var(--orange); font-weight: 700; font-size: 18px; }
