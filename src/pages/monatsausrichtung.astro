@@ -1,0 +1,361 @@
+---
+// Monatsausrichtung — Info-/Verkaufsseite (Jahresprogramm, monatlich Live via Zoom).
+// Grundaufbau + Bilder von der alten WordPress-Seite (himmelstosscoaching.de/tierkreis) übernommen,
+// Stil an /12-heilige-naechte angelehnt, Text komplett neu (wirkungsgefiltert V02, Stand 2026-07).
+// Quelle Text/Entscheidungen: 01_Angebote/Monatsausrichtung/Landingpage-Salespage/
+//   Entwurf-Salespage-Monatsausrichtung-V02-poliert.md
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+// 🔴 TODO (Technik): Kauf-/Abo-Produkt anlegen — 888 €/Jahr + 88 €/Monat (ThriveCart oder Digistore).
+//    Bis dahin führt der CTA bewusst zur Kontakt-Mail (kein falsches Produkt).
+//    Individuelle Rabatte können separat eingeräumt werden.
+const buchenUrl = 'mailto:kontakt@himmelstosscoaching.de?subject=Monatsausrichtung%20%E2%80%94%20ich%20bin%20dabei';
+
+// Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links) — Morgenlicht-Bilder von der alten Seite
+const bloecke = [
+  {
+    img: '/img/monatsausrichtung/Himmelstoss_Tierkreis_1.jpg',
+    alt: 'Hinterleuchtete Gräser im Morgenlicht',
+    rev: false,
+    veil: 'warm-left',
+    titel: 'Ein roter Faden durch dein Jahr',
+    text: [
+      'Es gibt diese Momente, in denen etwas klar wird — ein Bild, ein Satz, ein Gefühl am Morgen, das genau weiß, worum es geht.',
+      'Im Alltag verblasst es schnell.',
+      'Die Monatsausrichtung hält den Faden. Einmal im Monat richten wir uns gemeinsam neu aus: Rückblick auf den Monat, der war — und eine Botschaft für den, der kommt. Deine eigene. Sie wird dein Leitfaden für die nächsten Wochen.',
+    ],
+  },
+  {
+    img: '/img/monatsausrichtung/Himmelstoss_Tierkreis_4.jpg',
+    alt: 'Morgenstimmung in der Natur',
+    rev: true,
+    veil: 'blue-right',
+    titel: 'Du lernst, dir selbst zu vertrauen',
+    text: [
+      'Am Anfang ist es oft ein Suchen — nach Rat, nach Bestätigung, nach jemandem, der einem sagt, wo es langgeht.',
+      'Über die Monate dreht sich das um.',
+    ],
+    items: [
+      ['Du hörst deine eigene Stimme', 'Und lernst, ihr zu trauen, statt außen zu suchen, was längst in dir ist.'],
+      ['Du hast einen roten Faden', 'Jeden Monat eine Botschaft, die deinen Alltag ausrichtet.'],
+      ['Du bleibst dran', 'Der Rhythmus hält die Ausrichtung wach, Monat für Monat.'],
+      ['Du bist nicht allein', 'Im gemeinsamen Feld kommen die Botschaften leichter, und du wirst gehört.'],
+    ],
+  },
+  {
+    img: '/img/monatsausrichtung/Himmelstoss_Tierkreis_6.jpg',
+    alt: 'Licht und Weite im Jahreslauf',
+    rev: false,
+    veil: 'warm-left',
+    titel: 'Im Rhythmus des Jahres',
+    text: [
+      'Jeder Monat trägt eine eigene Stimmung. Rudolf Steiner hat für jedes Tierkreiszeichen einen Spruch geschrieben, der diesen Grundton in Worte fasst. Wir nehmen ihn als Tür: Er stimmt uns auf den Monat ein und öffnet den Raum für das, was persönlich zu jedem kommen will.',
+      'Gewachsen ist die Monatsausrichtung aus dieser Tierkreisarbeit — und aus den 12 Heiligen Nächten, in denen jede Nacht für einen Monat des neuen Jahres steht. Viele kommen von dort. Nötig ist es nicht: Du kannst auch ohne diese Vorerfahrung einsteigen.',
+    ],
+  },
+];
+
+// Die beiden monatlichen Treffen
+const treffen = [
+  {
+    tag: 'Freitagabend',
+    zeit: '18:00 – 19:00 Uhr',
+    titel: 'Rückblick',
+    text: 'Wir schauen zurück auf den vergangenen Monat. Jeder erzählt, was er erlebt hat und wie ihn seine Botschaft begleitet hat. Am Abend stellst du die Frage in die Nacht: Welcher Impuls will für den kommenden Monat zu mir kommen?',
+  },
+  {
+    tag: 'Samstagvormittag',
+    zeit: '09:30 – 11:00 Uhr',
+    titel: 'Ausrichtung',
+    text: 'Jeder bringt mit, was ihm über Nacht begegnet ist — eine Botschaft, ein Lied, ein Gedicht, eine Stimmung. Wer nichts Eigenes hat, findet oft in den Botschaften der anderen genau das, was ihn berührt. Am Ende geht jeder mit seiner Botschaft in den Monat.',
+  },
+];
+
+const leistungen = [
+  'Zwei Live-Treffen im Monat (Zoom) — Rückblick am Freitagabend, Ausrichtung am Samstagvormittag',
+  'Eine Meditation zum Monatsthema — von Annette aus der Nacht empfangen',
+  'Die Tierkreis-Sprüche von Rudolf Steiner — sie geben jedem Monat seinen Grundton',
+  'Telegram-Gruppe für den Austausch zwischendurch — Fragen, Impulse, Verbundenheit',
+  'Aufzeichnung beider Treffen — zum Nachhören, wenn du einmal nicht dabei sein kannst',
+  'Einstieg jederzeit — du kommst zum nächsten Monatstreffen dazu',
+];
+
+const preise = [
+  { tag: 'Jahr', preis: '888 €', frist: 'das ganze Jahr — fast zwei Monate geschenkt', highlight: true },
+  { tag: 'Monat', preis: '88 €', frist: 'monatlich, flexibel — steig ein, wann du magst', highlight: false },
+];
+
+// 🔴 Teilnehmerstimmen später einsetzen (echte O-Töne aus der Gruppe).
+//    Struktur: { text: '…', name: '…' }. Sobald befüllt, rendert die Sektion automatisch.
+const stimmen: { text: string; name: string }[] = [];
+---
+
+<FokusLayout
+  title="Monatsausrichtung — jeden Monat eine eigene Botschaft | Himmelstoß Coaching"
+  description="Ein Jahresprogramm mit Annette & Herbert Himmelstoß: einmal im Monat ausgerichtet — Rückblick, Meditation und deine persönliche Morgenbotschaft für den kommenden Monat. Getragen von einer Gemeinschaft. Einstieg jederzeit."
+  canonical="https://himmelstosscoaching.de/monatsausrichtung"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO — Foto (Sonnenaufgang) mit HSC-Marken-Farbverlauf als halbtransparentem Schleier darüber -->
+  <section class="ma-hero">
+    <img class="ma-hero-bg" src="/img/monatsausrichtung/Himmelstoss_Tierkreis_Header-2.jpg" alt="" aria-hidden="true" loading="eager" />
+    <div class="container ma-hero-inner">
+      <p class="ma-eyebrow">Monatsausrichtung · Jahresprogramm</p>
+      <h1>Jeden Monat eine eigene Botschaft,<br><em>die dich trägt.</em></h1>
+      <p class="ma-sub">Einmal im Monat richtest du dich neu aus. Du lernst, deine eigene Stimme zu hören — und gehst mit deiner Botschaft in den kommenden Monat. Getragen von einer Gemeinschaft, die denselben Weg geht.</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt dabei sein →</a>
+      <p class="ma-hero-note">Einstieg jederzeit möglich.</p>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · ABWECHSELNDE BILD-TEXT-BLÖCKE (Grundgedanke · Nutzen · Hintergrund) -->
+  <section class="ma-blocks">
+    <div class="container">
+      {bloecke.map((b) => (
+        <div class:list={['ma-block', { 'ma-block--rev': b.rev }]}>
+          <div class:list={['ma-block-img', b.veil]}>
+            <img src={b.img} alt={b.alt} loading="lazy" />
+          </div>
+          <div class="ma-block-text">
+            <h2>{b.titel}</h2>
+            {b.text && b.text.map((p) => <p>{p}</p>)}
+            {b.items && (
+              <ul class="ma-feature-list">
+                {b.items.map(([titel, beschr]) => (
+                  <li><strong>{titel}</strong><span>{beschr}</span></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Pull-Quote -->
+  <section class="ma-pull">
+    <div class="container narrow">
+      <span class="ma-pull-mark" aria-hidden="true"></span>
+      <p>Ich bin geführt. Das Leben ist für mich.</p>
+    </div>
+  </section>
+
+  <!-- 3 · SO LÄUFT EIN MONAT -->
+  <section class="ma-ablauf">
+    <div class="container narrow">
+      <h2 class="center">Zwei Treffen, immer um den 20.</h2>
+      <div class="ma-ablauf-grid">
+        {treffen.map((t) => (
+          <div class="ma-ablauf-card">
+            <p class="ma-ablauf-tag">{t.tag}</p>
+            <p class="ma-ablauf-zeit">{t.zeit}</p>
+            <h3>{t.titel}</h3>
+            <p class="ma-ablauf-text">{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · LEISTUNGEN -->
+  <section class="ma-leistungen">
+    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2 class="center">Was dabei ist</h2>
+      <ul class="ma-facts">
+        {leistungen.map((l) => <li>{l}</li>)}
+      </ul>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 5 · PREISE -->
+  <section class="ma-preise">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Dein Platz im Jahreskreis</p>
+      <h2 class="ma-preis-hl">Zwei Wege, dabei zu sein</h2>
+      <div class="ma-preis-grid">
+        {preise.map((p) => (
+          <div class:list={['ma-preis-card', { 'ma-preis-card--hl': p.highlight }]}>
+            {p.highlight && <span class="ma-preis-badge">Empfohlen</span>}
+            <p class="ma-preis-tag">{p.tag}</p>
+            <div class="ma-preis-haupt">{p.preis}</div>
+            <p class="ma-preis-frist">{p.frist}</p>
+          </div>
+        ))}
+      </div>
+      <a href={buchenUrl} class="btn btn-primary btn-lg ma-preis-btn">Ja, ich bin dabei →</a>
+      <p class="ma-preis-note">
+        Schreib uns eine E-Mail mit dem Betreff „Ja, ich bin dabei“ an
+        <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a> —
+        wir richten dir deinen Platz ein.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 · NOCH UNSICHER? -->
+  <section class="ma-unsicher">
+    <div class="container narrow center">
+      <h2>Nicht sicher, ob es zu dir passt?</h2>
+      <p>Dann lass uns kurz sprechen. Schreib uns — wir finden gemeinsam heraus, ob die Monatsausrichtung das Richtige für dich ist. Ohne Druck.</p>
+      <a href="mailto:kontakt@himmelstosscoaching.de?subject=Monatsausrichtung%20%E2%80%94%20Frage" class="btn btn-ghost">Schreib uns →</a>
+    </div>
+  </section>
+
+  <!-- 7 · ÜBER ANNETTE & HERBERT -->
+  <section class="ma-about">
+    <div class="container narrow">
+      <figure class="ma-voice">
+        <img src="/img/monatsausrichtung/Annette-Herbert-Kroatien.jpg" alt="Annette & Herbert Himmelstoß am Meer in Kroatien" loading="lazy" />
+        <blockquote>
+          <p class="ma-about-eyebrow">Wir halten den Raum</p>
+          <p>Annette & Herbert Himmelstoß arbeiten seit über 20 Jahren mit den Tierkreisstimmungen und mit der Frage, wie ein Mensch lernt, seiner eigenen Führung zu trauen. In der Monatsausrichtung halten sie den Raum, in dem deine Botschaften kommen können.</p>
+        </blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 8 · TEILNEHMERSTIMMEN (rendert erst, wenn `stimmen` befüllt ist) -->
+  {stimmen.length > 0 && (
+    <section class="ma-stimmen">
+      <div class="container">
+        <p class="acc-eyebrow" style="justify-content:center">Teilnehmerstimmen</p>
+        <h2 class="center">Was Teilnehmer erleben</h2>
+        <div class="ma-stimmen-grid">
+          {stimmen.map((s) => (
+            <blockquote class="ma-stimme">
+              <p>{s.text}</p>
+              <cite>{s.name}</cite>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 9 · FINAL CTA -->
+  <section class="ma-final">
+    <div class="container narrow center">
+      <h2 class="ma-final-hl">Geh dein Jahr mit einem roten Faden.</h2>
+      <p class="ma-final-sub">Jeden Monat neu ausgerichtet, getragen von einer Gemeinschaft. Einstieg jederzeit.</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt dabei sein →</a>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  /* ── HERO — Morgenlicht-Bild + warmer Verlauf, Text auf dunklem Schleier ── */
+  .ma-hero { position: relative; min-height: clamp(340px, 42vh, 520px); display: flex; align-items: center; overflow: hidden; text-align: center; background: #1c4062; }
+  .ma-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  /* HSC-Marken-Verlauf als halbtransparenter Farbschleier — das Foto bleibt darunter sichtbar.
+     Oben nur ein schmaler Übergang ins Blau, dann früh in die warme Zone. */
+  .ma-hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.7; background: linear-gradient(180deg, #1c4062 0%, #2783ac 12%, #75bfda 20%, #b9b3a4 32%, #d3a98c 48%, #ef9f66 72%, #f2917f 100%); }
+  .ma-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,130px) 0; }
+  .ma-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,0.94); margin: 0 0 18px; text-shadow: 0 1px 12px rgba(40,28,15,0.7); }
+  .ma-hero h1 { color: #fff; font-size: clamp(34px,5.2vw,62px); line-height: 1.1; margin: 0 0 20px; text-shadow: 0 2px 22px rgba(35,24,12,0.7); }
+  .ma-hero h1 em { display: block; font-style: italic; color: var(--orange); font-size: 0.82em; margin-top: 8px; text-shadow: 0 2px 20px rgba(35,24,12,0.7); }
+  .ma-sub { font-family: var(--font-body); font-size: clamp(16px,1.7vw,21px); color: rgba(255,255,255,0.95); line-height: 1.6; max-width: 640px; margin: 0 auto 30px; text-shadow: 0 1px 14px rgba(35,24,12,0.65); }
+  .ma-hero-note { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.5vw,18px); color: rgba(255,255,255,0.9); margin: 16px 0 0; text-shadow: 0 1px 12px rgba(35,24,12,0.6); }
+  .ma-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
+  /* CTA-Button auf den Verlauf-Flächen in Markenblau */
+  .ma-hero .btn-primary, .ma-final .btn-primary { background: var(--blue-deep); }
+  .ma-hero .btn-primary:hover, .ma-final .btn-primary:hover { background: var(--blue-deep-soft); }
+
+  /* ── BILD-TEXT-BLÖCKE ─────────────────────────────────────── */
+  .ma-blocks { background: var(--bg-cream); padding: clamp(40px,6vw,80px) 0; }
+  .ma-block { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,72px); align-items: center; padding: clamp(28px,4vw,52px) 0; }
+  .ma-block--rev .ma-block-img { order: 2; }
+  .ma-block-img { position: relative; }
+  .ma-block-img img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: block; aspect-ratio: 4 / 3; object-fit: cover; }
+  .ma-block-img::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-card); pointer-events: none; }
+  .ma-block-img.warm-left::after  { background: linear-gradient(90deg,  rgba(248,152,116,0.8) 0%, rgba(248,152,116,0) 50%); }
+  .ma-block-img.blue-right::after { background: linear-gradient(270deg, rgba(44,75,123,0.8) 0%, rgba(44,75,123,0) 50%); }
+  .ma-block-text h2 { color: var(--blue-deep); font-size: clamp(24px,2.6vw,34px); line-height: 1.2; margin: 0 0 20px; }
+  .ma-block-text p { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; margin: 0 0 16px; }
+  .ma-block-text p:last-child { margin-bottom: 0; }
+  .ma-feature-list { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 18px; }
+  .ma-feature-list li { display: flex; flex-direction: column; gap: 4px; padding-left: 26px; position: relative; }
+  .ma-feature-list li::before { content: '✦'; position: absolute; left: 0; top: 2px; color: var(--orange); }
+  .ma-feature-list strong { color: var(--blue-deep); font-size: clamp(16px,1.4vw,18px); }
+  .ma-feature-list span { color: var(--ink-soft); font-size: clamp(15px,1.3vw,17px); line-height: 1.6; }
+
+  /* ── PULL-QUOTE ───────────────────────────────────────────── */
+  .ma-pull { background: var(--lachs); padding: clamp(52px,7vw,92px) 0; text-align: center; }
+  .ma-pull-mark { display: block; width: 56px; height: 3px; background: var(--blue-deep); margin: 0 auto 26px; border-radius: 2px; }
+  .ma-pull p { font-family: var(--font-display); font-style: italic; font-size: clamp(26px,3.4vw,44px); line-height: 1.25; color: #fff; max-width: 720px; margin: 0 auto; }
+
+  /* ── SO LÄUFT EIN MONAT ───────────────────────────────────── */
+  .ma-ablauf { background: var(--bg-white); padding: clamp(64px,8vw,110px) 0; }
+  .ma-ablauf h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 40px; }
+  .ma-ablauf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .ma-ablauf-card { background: var(--bg-cream); border-radius: var(--radius-card); padding: clamp(28px,3.5vw,40px); box-shadow: var(--shadow-soft); border-top: 4px solid var(--orange); }
+  .ma-ablauf-tag { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 6px; }
+  .ma-ablauf-zeit { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px,2.2vw,26px); color: var(--blue-deep); margin: 0 0 10px; }
+  .ma-ablauf-card h3 { font-family: var(--font-body); font-size: clamp(17px,1.6vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
+  .ma-ablauf-text { font-size: clamp(15px,1.3vw,17px); color: var(--ink-soft); line-height: 1.7; margin: 0; }
+
+  /* ── LEISTUNGEN ───────────────────────────────────────────── */
+  .ma-leistungen { background: var(--bg-white); padding-top: 0; padding-bottom: clamp(60px,8vw,100px); }
+  .ma-leistungen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); line-height: 1.2; margin: clamp(48px,7vw,88px) 0 36px; }
+  .ma-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 680px; display: grid; gap: 12px; }
+  .ma-facts li { position: relative; padding: 16px 20px 16px 56px; border-radius: var(--radius-card); background: var(--bg-cream); box-shadow: var(--shadow-soft); font-size: clamp(15px,1.3vw,17px); color: var(--ink-soft); line-height: 1.5; }
+  .ma-facts li::before { content: '✓'; position: absolute; left: 22px; top: 22px; color: var(--orange); font-weight: 700; font-size: 18px; }
+
+  /* ── PREISE ───────────────────────────────────────────────── */
+  .ma-preise { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .ma-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 44px; }
+  .ma-preis-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin: 0 auto 40px; max-width: 620px; }
+  .ma-preis-card { position: relative; background: var(--bg-white); border-radius: 20px; padding: 40px 28px; box-shadow: var(--shadow-soft); border-top: 4px solid var(--orange); }
+  .ma-preis-card--hl { transform: translateY(-8px); box-shadow: var(--shadow-card); border-top-width: 6px; }
+  .ma-preis-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+  .ma-preis-tag { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 12px; }
+  .ma-preis-haupt { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px,5vw,60px); color: var(--blue-deep); line-height: 1; margin: 0 0 10px; }
+  .ma-preis-frist { font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+  .ma-preis-btn { margin-bottom: 18px; }
+  .ma-preis-note { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin: 0 auto; max-width: 520px; }
+
+  /* ── NOCH UNSICHER? ───────────────────────────────────────── */
+  .ma-unsicher { background: var(--bg-white); padding: clamp(56px,7vw,96px) 0; }
+  .ma-unsicher h2 { color: var(--blue-deep); font-size: clamp(22px,2.4vw,32px); margin: 0 0 18px; }
+  .ma-unsicher p { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; max-width: 560px; margin: 0 auto 28px; }
+
+  /* ── ÜBER A&H ─────────────────────────────────────────────── */
+  .ma-about { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .ma-voice { display: grid; grid-template-columns: 200px 1fr; gap: clamp(24px,4vw,48px); align-items: center; margin: 0; }
+  .ma-voice img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+  .ma-voice blockquote { margin: 0; }
+  .ma-about-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 12px; }
+  .ma-voice blockquote p:not(.ma-about-eyebrow) { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.5vw,20px); color: var(--blue-deep); line-height: 1.6; margin: 0; }
+
+  /* ── TEILNEHMERSTIMMEN ────────────────────────────────────── */
+  .ma-stimmen { background: var(--bg-white); padding: clamp(64px,8vw,110px) 0; }
+  .ma-stimmen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 40px; }
+  .ma-stimmen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .ma-stimme { margin: 0; padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--orange); box-shadow: var(--shadow-soft); }
+  .ma-stimme p { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.3vw,17px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
+  .ma-stimme cite { font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+  /* ── FINAL CTA — HSC-Marken-Farbverlauf (dunkelblau→türkis→warm), wie /12-heilige-naechte ── */
+  .ma-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #2783ac 24%, #4f9fc4 38%, #75bfda 48%, #a9bcbf 56%, #d3a98c 70%, #ef9f66 84%, #f2917f 100%); }
+  .ma-final .container { position: relative; z-index: 2; }
+  .ma-final-hl { font-family: var(--font-display); font-weight: 400; color: #fff; font-size: clamp(26px,3vw,42px); line-height: 1.2; margin: 0 0 12px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
+  .ma-final-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,20px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .ma-block { grid-template-columns: 1fr; gap: 24px; }
+    .ma-block--rev .ma-block-img { order: 0; }
+    .ma-ablauf-grid { grid-template-columns: 1fr; }
+    .ma-preis-grid { grid-template-columns: 1fr; }
+    .ma-preis-card--hl { transform: none; }
+    .ma-voice { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .ma-voice img { max-width: 200px; }
+    .ma-stimmen-grid { grid-template-columns: 1fr; }
+  }
+</style>

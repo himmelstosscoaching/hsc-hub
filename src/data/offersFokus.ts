@@ -62,10 +62,9 @@ export const fokusOffers: Offer[] = [
       'Monatliche Treffen, Meditationen und eine Gemeinschaft, die dich trägt, während du lernst, dir selbst zu vertrauen.',
     bullets: ['Monatliches Zoom-Treffen + Meditation', '12 gechannelte Meditationen pro Jahr', 'Einstieg meist über „12 heilige Nächte"'],
     format: 'Jahresprogramm',
-    priceFrom: '800 € / Jahr',
+    priceFrom: '888 € / Jahr · 88 € / Monat',
     ctaText: 'Mehr erfahren',
-    ctaUrl: 'https://himmelstosscoaching.de/monatsausrichtung',
-    note: '⚠️ Ziel-URL festlegen · Einstieg 12 heilige Nächte 270/340 €',
+    ctaUrl: '/monatsausrichtung',
   },
   {
     id: 'intensiv-coaching-zypern',
