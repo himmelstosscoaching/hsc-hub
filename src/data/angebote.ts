@@ -60,14 +60,14 @@ export const kern: Angebot[] = [
     note: '⚠️ Ziel-URL festlegen',
   },
   {
+    id: 'einzelcoaching',
     name: 'Ein Thema im Einzelcoaching lösen',
-    nutzen: 'Ein konkretes Thema, das dich belastet, gezielt auflösen — am Abend verstehen, am nächsten Tag lösen.',
+    nutzen: 'Ein konkretes Thema, das dich belastet, gezielt auflösen — am Abend verstehen, am nächsten Tag lösen. Allein, als Paar oder mit deinem Tier im Gespräch.',
     formatType: 'live-online',
     format: '1:1 · 3 Doppeltermine (6 Termine) · Zoom oder vor Ort',
-    preis: '700 €',
-    cta: 'Termin anfragen',
-    url: 'https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/',
-    note: '⚠️ Einführungspreis? klären',
+    preis: 'ab 770 €',
+    cta: 'Mehr erfahren',
+    url: '/einzelcoaching',
   },
 ];
 
