@@ -28,25 +28,15 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
         In drei Doppelterminen gehst du einem Thema so weit auf den Grund, bis es sich auflöst.
         Du wählst, mit wem du diesen Weg gehst.
       </p>
+      <p class="ec-hero-doppel">
+        Jeder Termin ist ein <em>Doppeltermin</em>: ein kurzer Abend, um dein Thema zu setzen —
+        und am nächsten Tag geht es in die Tiefe. Die Nacht dazwischen arbeitet mit.
+      </p>
     </div>
     <div class="sun-divider thick" aria-hidden="true"></div>
   </section>
 
-  <!-- 2 · ABLAUF -->
-  <section class="ec-ablauf">
-    <div class="container narrow">
-      <p class="acc-eyebrow">So läuft es</p>
-      <h2>Wie ein Doppeltermin abläuft</h2>
-      <p class="ec-ablauf-text">
-        Der Weg besteht aus drei Runden, jede mit zwei Terminen. Am ersten, kurzen Abend legst du
-        dein Thema fest und nimmst eine Frage mit in die Nacht. Am nächsten Tag geht ihr in die Tiefe —
-        erst ins Heute, dann in das, was dahinterliegt, und schließlich nach vorn.
-      </p>
-      <p class="ec-ablauf-meta">3 Runden · 6 Termine · Zoom oder vor Ort</p>
-    </div>
-  </section>
-
-  <!-- 3 · DREI SPALTEN -->
+  <!-- 2 · DREI SPALTEN -->
   <section class="ec-wege">
     <div class="container">
       <div class="ec-wege-head">
@@ -59,8 +49,8 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
         <!-- Spalte 1 — allein -->
         <article id="allein" class="ec-card reveal-on-scroll">
           <span class="ec-tag">Allein</span>
-          <h3>Mit Herbert oder Annette</h3>
-          <p class="ec-sub">Du und ein Coach, ganz auf deinem Thema.</p>
+          <h3>Mit Annette oder Herbert</h3>
+          <p class="ec-sub">Im 1:1 in die Tiefe gehen.</p>
           <p class="ec-text">
             Du arbeitest an einem Thema, das dich wirklich bewegt — mit einem Menschen, der hinsieht.
             Ob ein altes Muster, eine Ablösung oder etwas, das dich seit Langem festhält: Ihr geht so
@@ -79,9 +69,9 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
 
         <!-- Spalte 2 — zu zweit -->
         <article id="zu-zweit" class="ec-card reveal-on-scroll">
-          <span class="ec-tag">Zu zweit</span>
-          <h3>Mit Herbert und Annette</h3>
-          <p class="ec-sub">Ihr zwei, begleitet von beiden.</p>
+          <span class="ec-tag">Als Paar</span>
+          <h3>Mit Annette und Herbert</h3>
+          <p class="ec-sub">Von Paar zu Paar.</p>
           <p class="ec-text">
             Für ein Thema, das euch beide betrifft. Ihr geht denselben Weg in drei Runden — aber
             gemeinsam, und Herbert und Annette begleiten euch beide. Ihr bekommt zwei Blickwinkel auf
@@ -101,7 +91,7 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
             <img src="/img/steffi.jpg" alt="Stefanie Sophia (Steffi), Tierkommunikatorin" loading="lazy" />
           </figure>
           <span class="ec-tag ec-tag-tier">Mit deinem Tier</span>
-          <h3>Mit deinem Tier im Gespräch</h3>
+          <h3>Mit Annette, Steffi und deinem Tier</h3>
           <p class="ec-sub">Dein Tier zeigt dir, worum es wirklich geht.</p>
           <p class="ec-text">
             Dein Tier weiß oft mehr über dich, als dir bewusst ist. Hier wird es zum Schlüssel für
@@ -141,9 +131,10 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
             <cite>— Annas Hund, über Steffi</cite>
           </blockquote>
           <p>
-            Annas Hund war aus Kettenhaltung gerettet und lief immer wieder weg. Über Steffi sprach
-            er aus, was ihn festhielt. Während Anna in ihren eigenen Freiheits-Prozess ging, kam der
-            Hund Schritt für Schritt näher — und schließlich freiwillig durch das offene Tor zurück.
+            Annas Hund — aus Kettenhaltung gerettet — war immer wieder tagelang weg. Über Steffi
+            sprach er aus, was ihn forttrieb. Während Anna in ihren eigenen Freiheits-Prozess ging,
+            kam der Hund Schritt für Schritt näher — und schließlich erstmals freiwillig durch das
+            offene Tor zurück.
           </p>
           <!-- LINK-SLOT: URL der Sonntagsgespräch-Aufzeichnung „Was Tiere uns wirklich zeigen" -->
         </div>
@@ -175,13 +166,8 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   .ec-hero .acc-eyebrow { justify-content: center; }
   .ec-hero h1 { color: var(--blue-deep); font-size: clamp(34px, 4.6vw, 58px); margin: 0 0 24px; }
   .ec-hero-sub { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.65; color: var(--ink-soft); margin: 0 auto; max-width: 640px; }
-
-  /* ── Ablauf ── */
-  .ec-ablauf { background: var(--bg-cream); padding: clamp(64px, 8vw, 100px) 0; text-align: center; }
-  .ec-ablauf .acc-eyebrow { justify-content: center; }
-  .ec-ablauf h2 { color: var(--blue-deep); font-size: clamp(26px, 3vw, 38px); margin: 0 0 20px; }
-  .ec-ablauf-text { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; color: var(--ink-soft); margin: 0 auto; max-width: 660px; }
-  .ec-ablauf-meta { margin: 22px 0 0; font-family: var(--font-body); font-size: 13.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); }
+  .ec-hero-doppel { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.6; color: var(--ink-light); margin: 20px auto 0; max-width: 600px; }
+  .ec-hero-doppel em { font-style: italic; font-weight: 600; color: var(--blue-deep); }
 
   /* ── Drei Wege ── */
   .ec-wege { background: var(--bg-white); padding: clamp(70px, 9vw, 120px) 0; }
