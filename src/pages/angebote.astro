@@ -17,17 +17,17 @@ const ecWege = [
     tag: 'Allein',
     variante: 'is-allein',
     titel: 'Mit Herbert oder Annette',
-    nutzen: 'Du und ein Coach, ganz auf deinem Thema. Ihr geht so weit, bis ein altes Muster sich wirklich löst — du wählst nach Gefühl, mit wem du gehst.',
+    nutzen: 'Ihr löst ein tiefliegendes Muster auf, das dir gerade im Weg steht. Du wählst, mit wem du gehst — mit Herbert oder mit Annette.',
     format: '3 Doppeltermine · 6 Sessions',
     preis: '770 €',
     url: '/einzelcoaching#allein',
     foto: null,
   },
   {
-    tag: 'Zu zweit',
+    tag: 'als Paar',
     variante: 'is-paar',
     titel: 'Mit Herbert und Annette',
-    nutzen: 'Für ein Thema, das euch beide betrifft. Herbert und Annette begleiten euch gemeinsam — zwei Blickwinkel auf das, was zwischen euch steht.',
+    nutzen: 'Ein Thema, das zwischen euch steht — und das ihr zu zweit angeht. Herbert und Annette begleiten euch gemeinsam, mit zwei Blickwinkeln auf das, was euch trennt — um wieder zueinander zu finden.',
     format: '3 Doppeltermine · zu zweit begleitet',
     preis: '1.370 €',
     url: '/einzelcoaching#zu-zweit',
@@ -41,7 +41,7 @@ const ecWege = [
     format: '6 Sessions mit Annette + 2 Tiergespräche mit Steffi',
     preis: '890 €',
     url: '/einzelcoaching#mit-tier',
-    foto: '/img/steffi.jpg',
+    foto: null,
   },
 ];
 ---
@@ -81,9 +81,10 @@ const ecWege = [
         <p class="kat-intro">Fünf Wege, mit uns zu arbeiten — von zu Hause aus, live über Zoom oder bei uns vor Ort.</p>
       </div>
       <div class="kern-grid">
-        {kernGrid.map((a) => (
+        {kernGrid.map((a, i) => (
           <article id={a.id} class="ang-card is-highlight reveal-on-scroll">
             <FormatBadge type={a.formatType} />
+            <span class="ang-num">{i + 1}</span>
             <h3>{a.name}</h3>
             <p class="ang-nutzen">{a.nutzen}</p>
             <p class="ang-format">{a.format}</p>
@@ -99,6 +100,7 @@ const ecWege = [
         <article id="einzelcoaching" class="ang-card is-highlight ec-full reveal-on-scroll">
           <div class="ec-head">
             <FormatBadge type="live-online" />
+            <span class="ang-num">5</span>
             <h3>Ein Thema im Einzelcoaching lösen</h3>
             <p class="ang-nutzen">In drei Doppelterminen gehst du einem Thema so weit auf den Grund, bis es sich löst. Du wählst, mit wem du diesen Weg gehst.</p>
           </div>
@@ -193,12 +195,11 @@ const ecWege = [
   <section class="ang-final on-dark">
     <div class="sun-strip" aria-hidden="true"></div>
     <div class="container narrow">
-      <h2>Du bist dir nicht sicher, was zu dir passt?</h2>
-      <p>Schnupper kostenlos rein — oder buch dir ein unverbindliches Orientierungsgespräch mit uns. Oder schreib uns einfach.</p>
+      <h2>Nicht sicher, was zu dir passt?</h2>
+      <p>Schreib uns oder frag einen Termin an — wir schauen gemeinsam, was für dich stimmig ist.</p>
       <div class="ang-final-ctas">
         <a href="https://orientierungsgespraech-himmelstoss.youcanbook.me" target="_blank" rel="noopener" class="btn btn-primary">Orientierungsgespräch buchen</a>
-        <a href="#frei" class="ang-final-link">Erstmal kostenlos reinschnuppern <span class="arrow">→</span></a>
-        <a href="mailto:kontakt@himmelstosscoaching.de" class="ang-final-link">Lieber schreiben? <span class="arrow">→</span></a>
+        <a href="mailto:kontakt@himmelstosscoaching.de" class="btn btn-secondary">Lieber schreiben?</a>
       </div>
     </div>
   </section>
@@ -273,6 +274,18 @@ const ecWege = [
   .ang-cta:hover { color: var(--orange); border-color: var(--orange); text-decoration: none; }
   .ang-note { font-size: 11.5px; color: var(--ink-light); font-style: italic; margin: 0; }
 
+  /* Große Angebots-Nummer vor dem Titel */
+  .ang-num {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(34px, 3.6vw, 46px);
+    line-height: 1;
+    color: var(--orange);
+    margin: 8px 0 2px;
+  }
+  .ec-head .ang-num { margin-top: 0; }
+
   /* ── Einzelcoaching · volle-Breite-Kachel mit 3 Wegen ── */
   .ec-full {
     grid-column: 1 / -1;      /* spannt über beide Raster-Spalten */
@@ -309,7 +322,7 @@ const ecWege = [
   /* 3 Wege klar voneinander abheben — je eigener Akzent */
   .ec-weg.is-allein { border-top-color: var(--blue-deep); }
   .ec-weg.is-paar   { border-top-color: var(--rose); }
-  .ec-weg.is-tier   { border-color: rgba(250, 157, 86, 0.4); border-top-color: var(--orange); background: var(--bg-cream); }
+  .ec-weg.is-tier   { border-top-color: var(--orange); }
 
   /* Foto (nur Tier-Kachel) — randlos bis an die Kachelkanten oben */
   .ec-weg-foto { display: block; margin: -22px -22px 4px; }
@@ -322,7 +335,7 @@ const ecWege = [
     background: rgba(44, 75, 123, 0.08); border-radius: var(--radius-pill); padding: 5px 12px;
   }
   .ec-weg.is-paar .ec-tag { color: var(--rose); background: rgba(200, 116, 120, 0.12); }
-  .ec-weg.is-tier .ec-tag { color: #fff; background: var(--orange); }
+  .ec-weg.is-tier .ec-tag { color: var(--orange); background: rgba(250, 157, 86, 0.12); }
 
   .ec-weg h4 {
     font-family: var(--font-display); font-weight: 700; font-size: 19px;
@@ -374,7 +387,9 @@ const ecWege = [
   .ang-final .container { position: relative; z-index: 1; }
   .ang-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
   .ang-final p { color: rgba(255,255,255,0.9); font-size: clamp(16px,1.5vw,19px); margin: 0 auto 32px; max-width: 560px; }
-  .ang-final-ctas { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .ang-final-ctas { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .ang-final .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,0.6); }
+  .ang-final .btn-secondary:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
   .ang-final-link { color: rgba(255,255,255,0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
   .ang-final-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
   .ang-final-link .arrow, .frei-card .arrow { display: inline-block; transition: transform .25s var(--ease); }

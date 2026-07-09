@@ -41,15 +41,6 @@ export const kern: Angebot[] = [
     url: '/schatz',
   },
   {
-    name: 'Intensivcoaching-Woche Zypern',
-    nutzen: 'Eine Woche am Meer, die nachwirkt — ungestört, in eurem Tempo, mit Wirkung, die bleibt.',
-    formatType: 'live-vor-ort',
-    format: 'Retreat vor Ort (Pachyammos) · als Paar oder einzeln · inkl. Unterkunft & Verpflegung',
-    preis: 'einzeln 4.200 € · als Paar 5.700 €',
-    cta: 'Mehr erfahren',
-    url: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
-  },
-  {
     name: 'Monatsausrichtung',
     nutzen: 'Jeden Monat neu ausgerichtet — lerne, Botschaften deiner inneren Führung zu empfangen, getragen von einer Gemeinschaft.',
     formatType: 'live-online',
@@ -58,6 +49,15 @@ export const kern: Angebot[] = [
     cta: 'Mehr erfahren',
     url: 'https://himmelstosscoaching.de/kontakt',
     note: '⚠️ Ziel-URL festlegen',
+  },
+  {
+    name: 'Intensivcoaching-Woche Zypern',
+    nutzen: 'Eine Woche am Meer, die nachwirkt — ungestört, in eurem Tempo, mit Wirkung, die bleibt.',
+    formatType: 'live-vor-ort',
+    format: 'Retreat vor Ort (Pachyammos) · als Paar oder einzeln · inkl. Unterkunft & Verpflegung',
+    preis: 'einzeln 4.200 € · als Paar 5.700 €',
+    cta: 'Mehr erfahren',
+    url: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
   },
   {
     id: 'einzelcoaching',
@@ -73,7 +73,6 @@ export const kern: Angebot[] = [
 
 // ── Weitere & saisonale Angebote — ordnen sich unter ────────────────────────
 // Sortiert nach Preis: günstiger Einstieg oben → Premium unten.
-// Schätzwert (nicht veröffentlicht, nur zum Sortieren): Notfall-Paar ~500–800 €.
 export const weitere: Angebot[] = [
   {
     name: 'Authentizität-Kongress (Aufzeichnung)',
@@ -89,10 +88,9 @@ export const weitere: Angebot[] = [
     nutzen: 'Zwölf gechannelte Meditationen zu den Themen, die dich gerade bewegen.',
     formatType: 'kurs',
     format: 'Audio-Reihe · monatlich neu',
-    preis: 'auf Anfrage',
+    preis: '88 €',
     cta: 'Mehr erfahren',
     url: 'https://himmelstosscoaching.de/kontakt',
-    note: '⚠️ Preis & Format mit A&H (~80 €?)',
   },
   {
     name: '12 heilige Nächte',
@@ -103,16 +101,6 @@ export const weitere: Angebot[] = [
     cta: 'Mehr erfahren',
     url: 'https://himmelstosscoaching.de/12-heilige-nachte/',
     note: 'Zielseite (alte Website) · später ins neue Format übertragen · führt zur Monatsausrichtung',
-  },
-  {
-    name: 'Notfall-Paar-Coaching',
-    nutzen: 'Wenn ihr nicht mehr weiterwisst — schnelle Hilfe in der Krise. Rückmeldung meist in 30 Minuten, spätestens nach 24 Stunden.',
-    formatType: 'live-online',
-    format: 'Direkt buchen · zeitnahes Zoom-Gespräch · so lange wie nötig',
-    preis: '497 €',
-    cta: 'Mehr erfahren',
-    url: '/notfall',
-    note: '⚠️ Kauf-Button auf /notfall braucht noch ThriveCart-Direktkauf-Link (Diana) · SOS-Bild folgt',
   },
 ];
 
