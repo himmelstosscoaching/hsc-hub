@@ -102,7 +102,6 @@ export const weitere: Angebot[] = [
     preis: '240 € bis 15.11. · 270 € bis 10.12. · 330 € ab 11.12.',
     cta: 'Mehr erfahren',
     url: 'https://himmelstosscoaching.de/12-heilige-nachte/',
-    note: 'Zielseite (alte Website) · später ins neue Format übertragen · führt zur Monatsausrichtung',
   },
   {
     name: 'Notfall-Paar-Coaching',
