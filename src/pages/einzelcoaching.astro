@@ -106,21 +106,31 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
 
         <!-- Spalte 3 — mit deinem Tier -->
         <article id="mit-tier" class="ec-card is-tier reveal-on-scroll">
-          <figure class="ec-foto">
-            <img src="/img/steffi.jpg" alt="Stefanie Sophia (Steffi), Tierkommunikatorin" loading="lazy" />
-          </figure>
+          <!-- IMAGE-SLOT: Foto Steffi (steffi.jpg) — erstmal entfernt, kann wieder rein -->
           <span class="ec-tag ec-tag-tier">Mit deinem Tier</span>
           <h3>Mit Annette, Steffi und deinem Tier</h3>
           <p class="ec-sub">Dein Tier zeigt dir, worum es wirklich geht.</p>
           <p class="ec-text">
-            Dein Tier weiß oft mehr über dich, als dir bewusst ist. Hier wird es zum Schlüssel für
-            dein eigenes Thema. Zu Beginn spricht Steffi mit deinem Tier — was es zeigt, wird zum
-            Einstieg in deinen Prozess mit Annette. Gegen Ende zeigen dir Steffi und dein Tier, wie
-            du das Neue in deinen Alltag trägst.
+            Dein Tier weiß oft mehr über dich, als dir bewusst ist. Es spürt, was du mit dir trägst,
+            und macht sichtbar, was du bei dir selbst leicht übersiehst. Wenn zwischen euch eine tiefe
+            Bindung ist, wird genau das zum Schlüssel: Dein Tier führt dich zu dem, worum es bei deinem
+            Thema wirklich geht.
+          </p>
+          <p class="ec-text">
+            Zu Beginn spricht Steffi mit deinem Tier — was es zeigt, wird zum Einstieg in deinen
+            Prozess mit Annette. Ihr geht dem Thema auf den Grund. Gegen Ende zeigen dir Steffi und
+            dein Tier, wie du das Neue in deinen Alltag trägst. Was Tiere dabei zeigen, ist oft
+            dasselbe, worum es in unserer Arbeit geht: wieder auf dich selbst zu hören und dir zu
+            vertrauen.
+          </p>
+          <p class="ec-text">
+            Am Ende hat sich nicht nur dein Thema gelöst — auch die Beziehung zu deinem Tier ist eine
+            andere.
           </p>
           <p class="ec-steffi">
-            Steffi — Stefanie Sophia — ist Tierkommunikatorin und spricht seit vielen Jahren mit
-            Tieren. Sie arbeitet auch über ein Foto, dein Tier muss nicht vor Ort sein.
+            Steffi — Stefanie Sophia — ist die Tochter von Annette und Herbert: Tierkommunikatorin,
+            mit Tieren aufgewachsen, und spricht seit vielen Jahren mit ihnen. Sie arbeitet auch über
+            ein Foto, dein Tier muss nicht vor Ort sein.
           </p>
           <div class="ec-foot">
             <p class="ec-umfang">6 Sessions mit Annette + 2 Tiergespräche mit Steffi</p>
@@ -129,6 +139,20 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
           </div>
         </article>
 
+      </div>
+
+      <div class="ec-stimmen">
+        <blockquote class="ec-stimme is-allein">
+          <p>Eine Teilnehmerin lebte in der ständigen Angst, ihrem Ex-Partner zu begegnen. Schon nach
+          dem ersten Termin war der Druck weg und sie konnte sich innerlich frei im Ort bewegen. Als
+          er wenige Tage nach dem Termin überraschend anrief, löste das keinen Stress mehr aus.</p>
+          <cite>— Teilnehmerin · Einzelcoaching allein</cite>
+        </blockquote>
+        <blockquote class="ec-stimme is-paar">
+          <p>Vom Nebeneinanderher-Leben wieder zur Wahrnehmung als Ehe- und Liebespaar — trotz aller
+          Alltagsherausforderungen.</p>
+          <cite>— Yvonne &amp; Ralf · Paar-Coaching bei Annette &amp; Herbert</cite>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -150,10 +174,10 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
             <cite>— Annas Hund, über Steffi</cite>
           </blockquote>
           <p>
-            Annas Hund — aus Kettenhaltung gerettet — war immer wieder tagelang weg. Über Steffi
-            sprach er aus, was ihn forttrieb. Während Anna in ihren eigenen Freiheits-Prozess ging,
-            kam der Hund Schritt für Schritt näher — und schließlich erstmals freiwillig durch das
-            offene Tor zurück.
+            Annas Hund — aus Kettenhaltung gerettet — war immer wieder tagelang weg. Über Steffi,
+            die über ein Foto Kontakt zu ihm aufnahm, sprach er aus, was ihn forttrieb. Während Anna
+            mit Annettes Hilfe in ihren eigenen Freiheits-Prozess ging, kam der Hund Schritt für
+            Schritt näher — und schließlich erstmals freiwillig durch das offene Tor zurück.
           </p>
           <!-- LINK-SLOT: URL der Sonntagsgespräch-Aufzeichnung „Was Tiere uns wirklich zeigen" -->
         </div>
@@ -209,11 +233,10 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   }
   .ec-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
   .ec-card::before {
-    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 8px;
     background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite;
   }
   .ec-card.is-tier { border-color: rgba(250, 157, 86, 0.5); }
-  .ec-card.is-tier::before { height: 8px; }
   @media (prefers-reduced-motion: reduce) { .ec-card::before { animation: none; } }
 
   .ec-tag {
@@ -242,6 +265,22 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   .ec-umfang { font-size: 13px; color: var(--ink-light); margin: 0; }
   .ec-preis { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--blue-deep); margin: 0; }
   .ec-cta { margin-top: 6px; text-align: center; }
+
+  /* ── Stimmen unter den Wegen ── */
+  .ec-stimmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 760px; margin: clamp(28px, 4vw, 44px) auto 0; }
+  .ec-stimme {
+    margin: 0; padding: 20px 22px; border-left: 3px solid var(--blue-deep);
+    background: var(--bg-cream); border-radius: 0 10px 10px 0;
+    font-family: var(--font-display); font-style: italic; font-size: 15px; line-height: 1.6; color: var(--ink-soft);
+  }
+  .ec-stimme p { margin: 0; }
+  .ec-stimme cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--font-body); font-size: 13px; color: var(--ink-light); }
+  .ec-stimme.is-paar { border-left-color: var(--rose); }
+  .ec-stimme-slot {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    border-left-style: dashed; background: rgba(200, 116, 120, 0.06);
+    color: var(--ink-light); font-style: normal; font-family: var(--font-body); font-size: 13px; min-height: 96px;
+  }
 
   /* ── Anna-Story ── */
   .ec-story { background: var(--bg-cream); padding: clamp(70px, 9vw, 110px) 0; }
@@ -279,6 +318,7 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   /* ── Responsive ── */
   @media (max-width: 960px) {
     .ec-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    .ec-stimmen { grid-template-columns: 1fr; max-width: 520px; }
     .ec-story-inner { grid-template-columns: 1fr; }
     .ec-story-foto-slot { min-height: 200px; }
   }
