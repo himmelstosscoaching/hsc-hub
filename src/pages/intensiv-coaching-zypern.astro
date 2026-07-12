@@ -101,14 +101,9 @@ const ueberPunkte = [
       <h2>Die Intensiv-Coaching-Woche</h2>
       <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann — egal ob du allein oder ihr als Paar kommt.</p>
 
-      <div class="video-wrap">
-        <img src="/img/annette-herbert-heben.jpg" alt="Annette und Herbert Himmelstoß — Einführungsvideo" loading="lazy" />
-        <a class="play-btn" href="https://vimeo.com/1064697530" target="_blank" rel="noopener" aria-label="Einführungsvideo auf Vimeo ansehen">
-          <svg width="72" height="72" viewBox="0 0 72 72">
-            <circle cx="36" cy="36" r="36" fill="#FA9D56" fill-opacity="0.88"/>
-            <polygon points="29,22 54,36 29,50" fill="#fff"/>
-          </svg>
-        </a>
+      <!-- Einführungs-/Erklärungsvideo — Vimeo 1064697530 -->
+      <div class="video-embed">
+        <iframe src="https://player.vimeo.com/video/1064697530" title="Einführungsvideo zur Intensiv-Coaching-Woche" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
       <a href={gespraech} class="btn btn-primary" target="_blank" rel="noopener">Jetzt Orientierungs-Gespräch buchen →</a>
     </div>
@@ -158,7 +153,8 @@ const ueberPunkte = [
 
     <div class="container ablauf-grid reverse">
       <div class="ablauf-img">
-        <img src="/img/pachy-pergola.jpg" alt="Gästezimmer und Sitzplätze mit Meerblick" loading="lazy" />
+        <!-- IMAGE-SLOT: Foto „Gästezimmer mit Meerblick" (aus ClickFunnels-Archiv) -->
+        <div class="img-slot"><strong>Image-Slot</strong>Gästezimmer mit Meerblick</div>
       </div>
       <div class="ablauf-text">
         <h3>Unterkunft &amp; Verpflegung</h3>
@@ -193,49 +189,71 @@ const ueberPunkte = [
       <p class="acc-eyebrow" style="justify-content:center">Was Teilnehmer erlebt haben</p>
       <h2 class="center">Erfahrungen aus der Woche</h2>
 
-      <div class="testi-grid">
-        <blockquote class="testi">
-          <p class="testi-head">„…das Leben ist schön!"</p>
-          <p>„Ich kam ohne Erwartungen — und ging mit einer Klarheit, die mein Leben verändern wird. Diese Woche war ein Geschenk voller Herzlichkeit, Tiefe und echtem Aufbruch."</p>
-          <a class="testi-video" href="https://vimeo.com/1078217798" target="_blank" rel="noopener">Video ansehen →</a>
-          <cite>Frank M.</cite>
-        </blockquote>
+      <div class="testi-cols">
+        <!-- Spalte 1 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Frank M — Vimeo 1078217798 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1078217798" title="Video-Testimonial Frank M." loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…das Leben ist schön!"</p>
+            <p>„Ich kam ohne Erwartungen — und ging mit einer Klarheit, die mein Leben verändern wird. Diese Woche war ein Geschenk voller Herzlichkeit, Tiefe und echtem Aufbruch."</p>
+            <cite>Frank M.</cite>
+          </blockquote>
 
-        <blockquote class="testi">
-          <p class="testi-head">„…Vertrauen zu finden, aus mir heraus mein Leben zu gestalten"</p>
-          <p>„Diese Woche ist ein Rundum-Paket. Die individuelle Unterstützung von Annette und Herbert ist unglaublich."</p>
-          <a class="testi-video" href="https://vimeo.com/1061932585" target="_blank" rel="noopener">Video ansehen →</a>
-          <cite>Gabriele W.</cite>
-        </blockquote>
+          <blockquote class="testi">
+            <!-- IMAGE-SLOT: Porträtfoto Ingeborg (aus ClickFunnels-Archiv) -->
+            <div class="img-slot testi-portrait"><strong>Image-Slot</strong>Porträtfoto Ingeborg</div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…besonders berührt hat mich die Selbstverständlichkeit, mit der ich aufgenommen wurde"</p>
+            <p>„Ich kam ohne konkrete Fragen, ohne Erwartungen, nur mit dem Gefühl, in einer Sackgasse zu stecken. Und so fingen wir an. Wir sprachen, wir erzählten aus unserem Leben — es war ein Raum voller Vertrauen, in dem ich wirklich alles ansprechen konnte, ohne Scham.</p>
+            <p>Was mich besonders berührt hat, war die Selbstverständlichkeit, mit der ich aufgenommen wurde — in den Alltag, am Tisch, in den Gesprächen. Obwohl ich „im Mittelpunkt" stand, war ich kein Gast, ich war Teil. Das hat mir erlaubt, mich wirklich zu öffnen — so tief, wie ich es selten erlebt habe.</p>
+            <p>Am Ende dieser Woche hatte ich mehr Akzeptanz für mich selbst, mehr Verständnis für meine Phasen. Am letzten Tag kam mir ein Bild, das die Woche zusammenfasst: Ich lag als Kleinkind in der Kuhle eines runden Bettchens, von zwei Seiten liebevoll behütet. Und jetzt kann ich weiter wachsen …"</p>
+            <cite>Ingeborg</cite>
+          </blockquote>
+        </div>
 
-        <blockquote class="testi">
-          <p class="testi-head">„…so intensiv habe ich mir das nicht vorgestellt"</p>
-          <p>„Dieses Coaching ist für Menschen, die den Mut haben, ihr Leben in die Hand zu nehmen und alte Muster und Strukturen, die ihnen dabei im Wege stehen, beiseite räumen wollen."</p>
-          <a class="testi-video" href="https://vimeo.com/1066926357" target="_blank" rel="noopener">Video ansehen →</a>
-          <cite>Heike</cite>
-        </blockquote>
+        <!-- Spalte 2 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Gabriele W — Vimeo 1061932585 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1061932585" title="Video-Testimonial Gabriele W." loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…Vertrauen zu finden, aus mir heraus mein Leben zu gestalten"</p>
+            <p>„Diese Woche ist ein Rundum-Paket. Die individuelle Unterstützung von Annette und Herbert ist unglaublich."</p>
+            <cite>Gabriele W.</cite>
+          </blockquote>
 
-        <blockquote class="testi">
-          <p class="testi-head">„Ich bin richtig, wie ich bin."</p>
-          <p>„In der Coaching-Woche durfte ich zum ersten Mal wirklich alles aussprechen — ohne bewertet zu werden. Tiefe Themen aus meiner Kindheit durften ans Licht kommen. Und plötzlich wurde klar: Es gibt ein Hauptthema — und wenn man da hinschaut, verändert sich so viel. Diese Woche hat mir Zuversicht gegeben und eine neue Haltung mir selbst gegenüber."</p>
-          <a class="testi-video" href="https://vimeo.com/1096279305" target="_blank" rel="noopener">Video ansehen →</a>
-          <cite>Trixi</cite>
-        </blockquote>
+          <blockquote class="testi">
+            <!-- Video-Testimonial Trixi — Vimeo 1096279305 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1096279305" title="Video-Testimonial Trixi" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="testi-head">„Ich bin richtig, wie ich bin."</p>
+            <p>„Diese eine Erkenntnis hat für mich alles verändert. In der Coaching-Woche durfte ich zum ersten Mal wirklich alles aussprechen — ohne bewertet zu werden, ohne Ratschläge, einfach gehört werden. Tiefe Themen aus meiner Kindheit, alte Muster durften ans Licht kommen. Und plötzlich wurde klar: Es gibt ein Hauptthema — und wenn man da hinschaut, verändert sich so viel.</p>
+            <p>Ich habe gelernt, dass meine Reaktionen Sinn machen. Diese Woche hat mir Zuversicht gegeben und eine neue Haltung mir selbst gegenüber. Kein Mangeldenken mehr, kein ständiges Funktionieren. Sondern echte Verbindung — mit mir."</p>
+            <cite>Trixi</cite>
+          </blockquote>
+        </div>
+
+        <!-- Spalte 3 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Heike — Vimeo 1066926357 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1066926357" title="Video-Testimonial Heike" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…so intensiv habe ich mir das nicht vorgestellt"</p>
+            <p>„Dieses Coaching ist für Menschen, die den Mut haben, ihr Leben in die Hand zu nehmen und alte Muster und Strukturen, die ihnen dabei im Wege stehen, beiseite räumen wollen."</p>
+            <cite>Heike</cite>
+          </blockquote>
+
+          <blockquote class="testi">
+            <!-- IMAGE-SLOT: Porträtfoto Christian (aus ClickFunnels-Archiv) -->
+            <div class="img-slot testi-portrait"><strong>Image-Slot</strong>Porträtfoto Christian</div>
+            <p class="testi-head">„…warum haben wir nie gelernt, mit unseren Gefühlen umzugehen?"</p>
+            <p>„Ich habe erkannt, dass mein schlechtes Gewissen nur ein selbst erschaffenes Programm war — niemand leidet, wenn ich auf mich höre. Indem ich meine Emotionen zulasse, statt gegen sie zu kämpfen, haben sich Unruhe und Zweifel in Vertrauen und innere Freiheit verwandelt. Tiefpunkte sind keine Sackgassen mehr, sondern Absprünge für den nächsten Aufstieg. Ich kann meine Realität aktiv gestalten — und das fühlt sich so gut an."</p>
+            <cite>Christian</cite>
+          </blockquote>
+        </div>
       </div>
-
-      <blockquote class="testi testi-long">
-        <p class="testi-head">„…besonders berührt hat mich die Selbstverständlichkeit, mit der ich aufgenommen wurde"</p>
-        <p>„Ich kam ohne konkrete Fragen, ohne Erwartungen, nur mit dem Gefühl, in einer Sackgasse zu stecken. Und so fingen wir an. Wir sprachen, wir erzählten aus unserem Leben — es war ein Raum voller Vertrauen, in dem ich wirklich alles ansprechen konnte, ohne Scham.</p>
-        <p>Was mich besonders berührt hat, war die Selbstverständlichkeit, mit der ich aufgenommen wurde — in den Alltag, am Tisch, in den Gesprächen. Obwohl ich „im Mittelpunkt" stand, war ich kein Gast, ich war Teil. Das hat mir erlaubt, mich wirklich zu öffnen — so tief, wie ich es selten erlebt habe.</p>
-        <p>Am Ende dieser Woche hatte ich mehr Akzeptanz für mich selbst, mehr Verständnis für meine Phasen. Am letzten Tag kam mir ein Bild, das die Woche zusammenfasst: Ich lag als Kleinkind in der Kuhle eines runden Bettchens, von zwei Seiten liebevoll behütet. Und jetzt kann ich weiter wachsen …"</p>
-        <cite>Ingeborg</cite>
-      </blockquote>
-
-      <blockquote class="testi testi-long">
-        <p class="testi-head">„…warum haben wir nie gelernt, mit unseren Gefühlen umzugehen?"</p>
-        <p>„Ich habe erkannt, dass mein schlechtes Gewissen nur ein selbst erschaffenes Programm war — niemand leidet, wenn ich auf mich höre. Indem ich meine Emotionen zulasse, statt gegen sie zu kämpfen, haben sich Unruhe und Zweifel in Vertrauen und innere Freiheit verwandelt. Tiefpunkte sind keine Sackgassen mehr, sondern Absprünge für den nächsten Aufstieg. Ich kann meine Realität aktiv gestalten — und das fühlt sich so gut an."</p>
-        <cite>Christian</cite>
-      </blockquote>
     </div>
     <div class="sun-divider" aria-hidden="true"></div>
   </section>
@@ -338,11 +356,9 @@ const ueberPunkte = [
 /* ── ES GIBT EINEN WEG ────────────────────────────────────── */
 .s-weg { background: var(--bg-cream); }
 .s-weg h2 { margin: 32px 0 12px; }
-.video-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; margin: 36px 0; box-shadow: var(--shadow-card); }
-.video-wrap img { width: 100%; display: block; }
-.video-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(39,131,172,0.55) 0%, rgba(39,131,172,0) 45%), linear-gradient(270deg, rgba(250,157,86,0.55) 0%, rgba(250,157,86,0) 45%); z-index: 1; }
-.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; transition: transform .25s var(--ease); }
-.video-wrap:hover .play-btn { transform: translate(-50%,-50%) scale(1.1); }
+.video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); margin: 36px 0; background: #0d1b2a; }
+.s-weg .video-embed { max-width: 720px; margin-left: auto; margin-right: auto; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* ── CHECK-LIST (Was passiert / Für wen) ──────────────────── */
 .check-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 14px; }
@@ -378,14 +394,15 @@ const ueberPunkte = [
 /* ── TESTIMONIALS ─────────────────────────────────────────── */
 .s-testimonials { background: var(--bg-white); }
 .s-testimonials h2 { margin-bottom: clamp(36px,5vw,52px); }
-.testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.testi { margin: 0 0 22px; padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
-.testi-grid .testi { margin: 0; }
-.testi-head { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
+.testi-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.testi-col { display: flex; flex-direction: column; gap: 22px; }
+.testi { margin: 0; padding: 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.testi .video-embed { margin: 0 0 14px; box-shadow: var(--shadow-soft); }
+.stars { color: var(--orange); font-size: 16px; letter-spacing: 2px; margin: 0 0 8px; }
+.testi-head { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.4vw,19px); color: var(--blue-deep); margin: 0 0 10px; }
 .testi p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 12px; }
-.testi-video { display: inline-block; font-size: 14px; font-weight: 600; color: var(--blue-deep); margin-bottom: 8px; }
 .testi cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
-.testi-long { max-width: 820px; margin: 22px auto 0; }
+.testi-portrait { min-height: 150px; margin-bottom: 12px; }
 
 /* ── HAUPTANGEBOT ─────────────────────────────────────────── */
 .s-angebot { background: var(--sunset-surface); }
@@ -434,7 +451,8 @@ const ueberPunkte = [
   .mit-grid    { grid-template-columns: 1fr; }
   .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
   .ablauf-grid.reverse .ablauf-img { order: -1; }
-  .testi-grid  { grid-template-columns: 1fr; }
+  .testi-cols  { grid-template-columns: 1fr; }
+  .testi-col   { gap: 22px; }
   .ueber-grid  { grid-template-columns: 1fr; }
   .galerie-grid { grid-template-columns: 1fr 1fr; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
