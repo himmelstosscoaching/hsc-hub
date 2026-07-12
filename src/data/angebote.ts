@@ -98,7 +98,7 @@ export const weitere: Angebot[] = [
     format: 'Saisonal · 25.12.–5.1. · täglich ~1¼ Std',
     preis: '240 € bis 15.11. · 270 € bis 10.12. · 330 € ab 11.12.',
     cta: 'Mehr erfahren',
-    url: 'https://himmelstosscoaching.de/12-heilige-nachte/',
+    url: '/12-heilige-naechte',
   },
 ];
 

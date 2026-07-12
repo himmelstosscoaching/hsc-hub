@@ -207,7 +207,7 @@ export const offers: Offer[] = [
     format: 'Saisonal (Dez/Jan)',
     priceFrom: 'auf Anfrage',
     ctaText: 'Mehr erfahren',
-    ctaUrl: 'https://himmelstosscoaching.de/12-heilige-naechte',
+    ctaUrl: '/12-heilige-naechte',
   },
   {
     id: 'community-event-2026',
