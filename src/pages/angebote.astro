@@ -52,7 +52,7 @@ import { kern, weitere, kostenlos } from '../data/angebote';
               <span class="ang-preis">{a.preis}</span>
               <a href={a.url} class="ang-cta" target={a.url.startsWith('http') ? '_blank' : undefined} rel={a.url.startsWith('http') ? 'noopener' : undefined}>{a.cta} →</a>
             </div>
-            {a.note && <p class="ang-note">{a.note}</p>}
+            {a.note && !a.note.startsWith('⚠️') && <p class="ang-note">{a.note}</p>}
           </article>
         ))}
       </div>
@@ -64,7 +64,7 @@ import { kern, weitere, kostenlos } from '../data/angebote';
     alt="Annette und Herbert im Coaching-Gespräch mit einer Klientin"
     side="left"
     bg="cream"
-    eyebrow="Persönlich heißt persönlich"
+    eyebrow="Deine Antwort, nicht unsere"
     quote="Wir geben dir keine fertigen Antworten — sondern den Raum, deine eigene zu finden."
   />
 
@@ -86,7 +86,7 @@ import { kern, weitere, kostenlos } from '../data/angebote';
               <span class="ang-preis">{a.preis}</span>
               <a href={a.url} class="ang-cta" target={a.url.startsWith('http') ? '_blank' : undefined} rel={a.url.startsWith('http') ? 'noopener' : undefined}>{a.cta} →</a>
             </div>
-            {a.note && <p class="ang-note">{a.note}</p>}
+            {a.note && !a.note.startsWith('⚠️') && <p class="ang-note">{a.note}</p>}
           </article>
         ))}
       </div>
@@ -98,7 +98,7 @@ import { kern, weitere, kostenlos } from '../data/angebote';
     alt="Annette und Herbert lachend am Strand"
     side="right"
     bg="cream"
-    eyebrow="Lernen, das bleibt"
+    eyebrow="Wissen verändert nichts"
     quote="Veränderung passiert nicht im Kopf — sondern wenn du anfängst, sie zu leben."
   />
 
