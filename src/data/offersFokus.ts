@@ -75,7 +75,7 @@ export const fokusOffers: Offer[] = [
       'Eine Woche intensives Coaching am Meer — ungestört, in eurem Tempo, mit Wirkung, die bleibt.',
     bullets: ['Eine Woche vor Ort (Pachyammos)', 'Auf Anfrage auch in Deutschland', 'Als Paar oder einzeln'],
     format: 'Retreat vor Ort',
-    priceFrom: 'auf Anfrage',
+    priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
     ctaText: 'Zum Retreat',
     ctaUrl: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
   },

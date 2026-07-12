@@ -193,7 +193,7 @@ export const offers: Offer[] = [
     promise: 'Tiefes Coaching am Meer — für dich allein oder mit deinem Partner. Eingebettet in Pause, Natur und Stille.',
     bullets: ['Privater Standort Pachyammos', 'Tägliche Sessions mit Annette & Herbert', 'Strand, Stille, Raum für dich'],
     format: '1 Woche Retreat · einzeln oder als Paar',
-    priceFrom: 'auf Anfrage',
+    priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
     ctaText: 'Zum Retreat',
     ctaUrl: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
   },
