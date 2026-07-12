@@ -38,6 +38,12 @@ const fuerDich = [
   'einfach dein Leben in die Hand nehmen möchtest.',
 ];
 
+// Galerie — exakte Bilder aus dem ClickFunnels-Archiv (14 Galerie + 4 Paradies)
+const galerie = [
+  ...Array.from({ length: 14 }, (_, i) => `/img/icw/galerie-${String(i + 1).padStart(2, '0')}.jpg`),
+  ...Array.from({ length: 4 }, (_, i) => `/img/icw/paradies-${String(i + 1).padStart(2, '0')}.jpg`),
+];
+
 // Über Annette & Herbert
 const ueberPunkte = [
   'Annette: 24 Jahre als Ärztin für individuelle Gesundheitswege tätig — international aufgesucht für schulmedizinisch austherapierte Patienten.',
@@ -147,14 +153,13 @@ const ueberPunkte = [
         <p>Wir unternehmen mit dir auch kleine Ausflüge in die umliegenden Orte und an den Hafen — so, wie es für dich stimmig ist und deinen Prozess unterstützt. Wir sind während der gesamten Zeit für dich da.</p>
       </div>
       <div class="ablauf-img">
-        <img src="/img/pachy-gespraech.jpg" alt="Annette und Herbert im Gespräch — Haus auf Zypern" loading="lazy" />
+        <img src="/img/icw/haus-zypern.jpg" alt="Annette und Herbert — Haus auf Zypern" loading="lazy" />
       </div>
     </div>
 
     <div class="container ablauf-grid reverse">
       <div class="ablauf-img">
-        <!-- IMAGE-SLOT: Foto „Gästezimmer mit Meerblick" (aus ClickFunnels-Archiv) -->
-        <div class="img-slot"><strong>Image-Slot</strong>Gästezimmer mit Meerblick</div>
+        <img src="/img/icw/verpflegung.jpg" alt="Frische Verpflegung — Vollpension bei Annette und Herbert" loading="lazy" />
       </div>
       <div class="ablauf-text">
         <h3>Unterkunft &amp; Verpflegung</h3>
@@ -202,8 +207,7 @@ const ueberPunkte = [
           </blockquote>
 
           <blockquote class="testi">
-            <!-- IMAGE-SLOT: Porträtfoto Ingeborg (aus ClickFunnels-Archiv) -->
-            <div class="img-slot testi-portrait"><strong>Image-Slot</strong>Porträtfoto Ingeborg</div>
+            <img class="testi-portrait-img" src="/img/icw/ingeborg.jpg" alt="Ingeborg" loading="lazy" />
             <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
             <p class="testi-head">„…besonders berührt hat mich die Selbstverständlichkeit, mit der ich aufgenommen wurde"</p>
             <p>„Ich kam ohne konkrete Fragen, ohne Erwartungen, nur mit dem Gefühl, in einer Sackgasse zu stecken. Und so fingen wir an. Wir sprachen, wir erzählten aus unserem Leben — es war ein Raum voller Vertrauen, in dem ich wirklich alles ansprechen konnte, ohne Scham.</p>
@@ -246,8 +250,7 @@ const ueberPunkte = [
           </blockquote>
 
           <blockquote class="testi">
-            <!-- IMAGE-SLOT: Porträtfoto Christian (aus ClickFunnels-Archiv) -->
-            <div class="img-slot testi-portrait"><strong>Image-Slot</strong>Porträtfoto Christian</div>
+            <img class="testi-portrait-img" src="/img/icw/christian.png" alt="Christian" loading="lazy" />
             <p class="testi-head">„…warum haben wir nie gelernt, mit unseren Gefühlen umzugehen?"</p>
             <p>„Ich habe erkannt, dass mein schlechtes Gewissen nur ein selbst erschaffenes Programm war — niemand leidet, wenn ich auf mich höre. Indem ich meine Emotionen zulasse, statt gegen sie zu kämpfen, haben sich Unruhe und Zweifel in Vertrauen und innere Freiheit verwandelt. Tiefpunkte sind keine Sackgassen mehr, sondern Absprünge für den nächsten Aufstieg. Ich kann meine Realität aktiv gestalten — und das fühlt sich so gut an."</p>
             <cite>Christian</cite>
@@ -283,7 +286,7 @@ const ueberPunkte = [
   <section class="s-ueber">
     <div class="container ueber-grid">
       <div class="ueber-img">
-        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+        <img src="/img/icw/annette-herbert.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
       </div>
       <div class="ueber-text">
         <p class="acc-eyebrow">Wer wir sind</p>
@@ -313,14 +316,8 @@ const ueberPunkte = [
     <div class="container">
       <h2 class="center">Ein paar Eindrücke aus unserem kleinen Paradies</h2>
       <div class="galerie-grid">
-        <img src="/img/paar-strand.jpg" alt="Strand in Pachyammos" loading="lazy" />
-        <img src="/img/pachy-balkon-pano.jpg" alt="Meerblick vom Haus" loading="lazy" />
-        <img src="/img/pachy-umarmung.jpg" alt="Annette und Herbert auf Zypern" loading="lazy" />
-        <img src="/img/familie-felsen-quer.jpg" alt="Küste und Felsen auf Zypern" loading="lazy" />
-        <img src="/img/coaching-tisch.jpg" alt="Sitzplatz für Gespräche" loading="lazy" />
-        <img src="/img/pachy-pergola.jpg" alt="Pergola mit Sitzplatz" loading="lazy" />
+        {galerie.map((g, i) => <img src={g} alt={`Eindruck aus unserem Haus in Pachyammos, Zypern (${i + 1})`} loading="lazy" />)}
       </div>
-      <!-- IMAGE-SLOT: weitere Zypern-/Haus-Fotos aus dem ClickFunnels-Original ergänzen -->
     </div>
   </section>
 
@@ -402,7 +399,7 @@ const ueberPunkte = [
 .testi-head { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.4vw,19px); color: var(--blue-deep); margin: 0 0 10px; }
 .testi p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 12px; }
 .testi cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
-.testi-portrait { min-height: 150px; margin-bottom: 12px; }
+.testi-portrait-img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
 
 /* ── HAUPTANGEBOT ─────────────────────────────────────────── */
 .s-angebot { background: var(--sunset-surface); }
