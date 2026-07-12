@@ -54,10 +54,9 @@ export const kern: Angebot[] = [
     nutzen: 'Jeden Monat neu ausgerichtet — lerne, Botschaften deiner inneren Führung zu empfangen, getragen von einer Gemeinschaft.',
     formatType: 'live-online',
     format: 'Jahresprogramm · monatliches Zoom-Treffen + Meditation + Telegram',
-    preis: '800 € / Jahr',
+    preis: '888 € / Jahr · 88 € / Monat',
     cta: 'Mehr erfahren',
-    url: 'https://himmelstosscoaching.de/kontakt',
-    note: '⚠️ Ziel-URL festlegen',
+    url: '/monatsausrichtung',
   },
   {
     name: 'Ein Thema im Einzelcoaching lösen',
