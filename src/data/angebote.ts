@@ -89,7 +89,7 @@ export const weitere: Angebot[] = [
     format: 'Audio-Reihe · monatlich neu',
     preis: '88 €',
     cta: 'Mehr erfahren',
-    url: 'https://himmelstosscoaching.de/kontakt',
+    url: '/12-meditationen',
   },
   {
     name: '12 heilige Nächte',
