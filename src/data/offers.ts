@@ -136,18 +136,6 @@ export const offers: Offer[] = [
     ctaUrl: 'https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/',
   },
   {
-    id: 'notfall-paar-coaching',
-    cluster: 'F2',
-    eyebrow: '1:1-Hilfe bei akuter Krise',
-    headline: 'Wenn ihr nicht mehr weiterwisst',
-    promise: 'Schnelle, fokussierte Begleitung, wenn die Situation eskaliert und ihr eine neue Perspektive braucht.',
-    bullets: ['Kurzfristige Termine möglich', '1:1 oder 2:2-Format', 'Konkrete Werkzeuge für die akute Lage'],
-    format: '1:1 oder 2:2 · Zoom oder vor Ort',
-    priceFrom: 'auf Anfrage',
-    ctaText: 'Termin anfragen',
-    ctaUrl: 'https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/',
-  },
-  {
     id: 'zweidopzwei-exklusiv',
     cluster: 'F2',
     eyebrow: 'Annette & Herbert + ihr beide',

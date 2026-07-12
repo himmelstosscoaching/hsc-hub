@@ -5,6 +5,45 @@ import FooterFokus from '../components/FooterFokus.astro';
 import FormatBadge from '../components/FormatBadge.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import { kern, weitere, kostenlos } from '../data/angebote';
+
+// Einzelcoaching wird als volle-Breite-Kachel mit 3 Wegen gezeigt → aus dem 2-Spalten-Raster lösen.
+const kernGrid = kern.filter((a) => a.id !== 'einzelcoaching');
+
+// ── Einzelcoaching · volle-Breite-Kachel mit 3 Wegen ──
+// Warme Kurz-Vorschau; jeder Button springt auf das passende Angebot der Salespage /einzelcoaching.
+// Preise final (Annette 2026-07-02): Allein 770 € · Zu zweit 1.370 € · Mit Tier 890 €
+const ecWege = [
+  {
+    tag: 'Allein',
+    variante: 'is-allein',
+    titel: 'Mit Herbert oder Annette',
+    nutzen: 'Ihr löst ein tiefliegendes Muster auf, das dir gerade im Weg steht. Du wählst, mit wem du gehst — mit Herbert oder mit Annette.',
+    format: '3 Doppeltermine · 6 Sessions',
+    preis: '770 €',
+    url: '/einzelcoaching#allein',
+    foto: null,
+  },
+  {
+    tag: 'als Paar',
+    variante: 'is-paar',
+    titel: 'Mit Herbert und Annette',
+    nutzen: 'Ein Thema, das zwischen euch steht — und das ihr zu zweit angeht. Herbert und Annette begleiten euch gemeinsam, mit zwei Blickwinkeln auf das, was euch trennt — um wieder zueinander zu finden.',
+    format: '3 Doppeltermine · zu zweit begleitet',
+    preis: '1.370 €',
+    url: '/einzelcoaching#zu-zweit',
+    foto: null,
+  },
+  {
+    tag: 'Mit deinem Tier',
+    variante: 'is-tier',
+    titel: 'Mit deinem Tier im Gespräch',
+    nutzen: 'Dein Tier weiß oft mehr über dich, als dir bewusst ist. Steffi spricht mit ihm — was es zeigt, wird zum Einstieg in deinen Prozess mit Annette.',
+    format: '6 Sessions mit Annette + 2 Tiergespräche mit Steffi',
+    preis: '890 €',
+    url: '/einzelcoaching#mit-tier',
+    foto: null,
+  },
+];
 ---
 
 <FokusLayout
@@ -42,9 +81,10 @@ import { kern, weitere, kostenlos } from '../data/angebote';
         <p class="kat-intro">Fünf Wege, mit uns zu arbeiten — von zu Hause aus, live über Zoom oder bei uns vor Ort.</p>
       </div>
       <div class="kern-grid">
-        {kern.map((a) => (
+        {kernGrid.map((a, i) => (
           <article id={a.id} class="ang-card is-highlight reveal-on-scroll">
             <FormatBadge type={a.formatType} />
+            <span class="ang-num">{i + 1}</span>
             <h3>{a.name}</h3>
             <p class="ang-nutzen">{a.nutzen}</p>
             <p class="ang-format">{a.format}</p>
@@ -55,6 +95,35 @@ import { kern, weitere, kostenlos } from '../data/angebote';
             {a.note && !a.note.startsWith('⚠️') && <p class="ang-note">{a.note}</p>}
           </article>
         ))}
+
+        {/* ── Einzelcoaching · volle Breite · 3 Wege → springen auf /einzelcoaching ── */}
+        <article id="einzelcoaching" class="ang-card is-highlight ec-full reveal-on-scroll">
+          <div class="ec-head">
+            <FormatBadge type="live-online" />
+            <span class="ang-num">5</span>
+            <h3>Ein Thema im Einzelcoaching lösen</h3>
+            <p class="ang-nutzen">In drei Doppelterminen gehst du einem Thema so weit auf den Grund, bis es sich löst. Du wählst, mit wem du diesen Weg gehst.</p>
+          </div>
+          <div class="ec-wege">
+            {ecWege.map((w) => (
+              <a class={`ec-weg ${w.variante}`} href={w.url}>
+                {w.foto && (
+                  <span class="ec-weg-foto">
+                    <img src={w.foto} alt="Stefanie Sophia (Steffi), Tierkommunikatorin" loading="lazy" />
+                  </span>
+                )}
+                <span class="ec-tag">{w.tag}</span>
+                <h4>{w.titel}</h4>
+                <p class="ec-nutzen">{w.nutzen}</p>
+                <p class="ec-format">{w.format}</p>
+                <div class="ec-foot">
+                  <span class="ec-preis">{w.preis}</span>
+                  <span class="ang-cta">Mehr erfahren →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -126,11 +195,11 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   <section class="ang-final on-dark">
     <div class="sun-strip" aria-hidden="true"></div>
     <div class="container narrow">
-      <h2>Lieber direkt mit uns sprechen?</h2>
-      <p>Wenn du magst, buch dir ein unverbindliches Orientierungsgespräch — oder schreib uns einfach eine Nachricht.</p>
+      <h2>Nicht sicher, was zu dir passt?</h2>
+      <p>Schreib uns oder frag einen Termin an — wir schauen gemeinsam, was für dich stimmig ist.</p>
       <div class="ang-final-ctas">
         <a href="https://orientierungsgespraech-himmelstoss.youcanbook.me" target="_blank" rel="noopener" class="btn btn-primary">Orientierungsgespräch buchen</a>
-        <a href="mailto:kontakt@himmelstosscoaching.de" class="btn ang-final-write">Lieber schreiben</a>
+        <a href="mailto:kontakt@himmelstosscoaching.de" class="btn btn-secondary">Lieber schreiben?</a>
       </div>
     </div>
   </section>
@@ -205,6 +274,89 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   .ang-cta:hover { color: var(--orange); border-color: var(--orange); text-decoration: none; }
   .ang-note { font-size: 11.5px; color: var(--ink-light); font-style: italic; margin: 0; }
 
+  /* Große Angebots-Nummer vor dem Titel */
+  .ang-num {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(34px, 3.6vw, 46px);
+    line-height: 1;
+    color: var(--orange);
+    margin: 8px 0 2px;
+  }
+  .ec-head .ang-num { margin-top: 0; }
+
+  /* ── Einzelcoaching · volle-Breite-Kachel mit 3 Wegen ── */
+  .ec-full {
+    grid-column: 1 / -1;      /* spannt über beide Raster-Spalten */
+    gap: 26px;
+  }
+  .ec-head { max-width: 720px; }
+  .ec-head h3 { margin-top: 4px; }
+  .ec-wege {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: stretch;
+    margin-top: 4px;
+  }
+
+  /* Jede Kachel = klickbarer Link auf das passende Angebot der Salespage */
+  .ec-weg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    overflow: hidden;
+    background: var(--bg-white);
+    border: 1px solid rgba(44, 75, 123, 0.14);
+    border-top: 3px solid var(--blue-deep);
+    border-radius: var(--radius-card);
+    padding: 22px 22px;
+    text-decoration: none;
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+  }
+  .ec-weg:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); text-decoration: none; }
+  .ec-weg:hover .ang-cta { color: var(--orange); border-color: var(--orange); }
+
+  /* 3 Wege klar voneinander abheben — je eigener Akzent */
+  .ec-weg.is-allein { border-top-color: var(--blue-deep); }
+  .ec-weg.is-paar   { border-top-color: var(--rose); }
+  .ec-weg.is-tier   { border-top-color: var(--orange); }
+
+  /* Foto (nur Tier-Kachel) — randlos bis an die Kachelkanten oben */
+  .ec-weg-foto { display: block; margin: -22px -22px 4px; }
+  .ec-weg-foto img { width: 100%; height: 150px; object-fit: cover; display: block; }
+
+  .ec-tag {
+    align-self: flex-start;
+    font-family: var(--font-body); font-weight: 600; font-size: 11.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--blue-deep);
+    background: rgba(44, 75, 123, 0.08); border-radius: var(--radius-pill); padding: 5px 12px;
+  }
+  .ec-weg.is-paar .ec-tag { color: var(--rose); background: rgba(200, 116, 120, 0.12); }
+  .ec-weg.is-tier .ec-tag { color: var(--orange); background: rgba(250, 157, 86, 0.12); }
+
+  .ec-weg h4 {
+    font-family: var(--font-display); font-weight: 700; font-size: 19px;
+    color: var(--blue-deep); margin: 2px 0 0;
+  }
+  .ec-nutzen {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; flex-grow: 1;
+  }
+  .ec-format { font-size: 13px; color: var(--ink-light); margin: 0; }
+  .ec-foot {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px 14px; flex-wrap: wrap;
+    margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(250,157,86,0.25);
+  }
+  .ec-preis { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--blue-deep); }
+
+  @media (max-width: 820px) {
+    .ec-wege { grid-template-columns: 1fr; }
+  }
+
   /* Kompakte Karten (Weitere & saisonal) */
   .ang-card.compact { padding: 24px 24px; gap: 10px; }
   .ang-card.compact h3 { font-size: 19px; }
@@ -235,9 +387,9 @@ import { kern, weitere, kostenlos } from '../data/angebote';
   .ang-final .container { position: relative; z-index: 1; }
   .ang-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
   .ang-final p { color: rgba(255,255,255,0.9); font-size: clamp(16px,1.5vw,19px); margin: 0 auto 32px; max-width: 560px; }
-  .ang-final-ctas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; }
-  .ang-final-write { background: transparent; color: #fff !important; border: 1.5px solid rgba(255,255,255,0.6); min-height: 48px; }
-  .ang-final-write:hover { background: rgba(255,255,255,0.10); border-color: #fff; text-decoration: none; transform: translateY(-2px); }
+  .ang-final-ctas { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .ang-final .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,0.6); }
+  .ang-final .btn-secondary:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
   .ang-final-link { color: rgba(255,255,255,0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
   .ang-final-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
   .ang-final-link .arrow, .frei-card .arrow { display: inline-block; transition: transform .25s var(--ease); }
