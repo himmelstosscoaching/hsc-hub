@@ -1,0 +1,460 @@
+---
+// Intensiv-Coaching-Woche Pachyammos (Zypern) — Sales Page
+// Nachbau der ClickFunnels-Archivseite (workshop.himmelstosscoaching.de/pachyammos-icw)
+// Struktur exakt übernommen, Stil an die Fokus-Seiten angepasst (keine Emojis).
+// ⚠️ Preis 4.200 € / Paar 5.700 € = Stand offers.ts (Single Source of Truth)
+// ⚠️ Gesprächs-Link = Orientierungsgespräch-Kalender (aus FooterFokus); von A&H bestätigen lassen
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+const gespraech = 'https://orientierungsgespraech-himmelstoss.youcanbook.me';
+
+// Ablauf „Was passiert in dieser Woche"
+const woche = [
+  'Wir finden mit dir heraus, was deine wirkliche innere Vision ist — was du dir tief in deinem Inneren für dieses Leben vorgenommen hast.',
+  'Wir lösen mit dir die festgefahrenen Muster und emotionalen Blockaden, die deiner Vision im Weg stehen. Dabei spielen meist Verletzungen aus der Kindheit oder Haltungen aus vorangehenden Leben eine Rolle.',
+  'Am Ende der Woche wirst du nicht nur verstehen, was dich bisher zurückgehalten hat, sondern auch wissen, wie du es dauerhaft veränderst.',
+  'Du bekommst Werkzeuge für dein weiteres Leben. Diese Woche soll kein einmaliger „Schubser" sein, sondern eine nachhaltige Veränderung. Du gewinnst Klarheit, Leichtigkeit und neue Perspektiven.',
+  'Falls du in einer Beziehung bist: Du erkennst, warum ihr immer wieder in Konflikte geratet, wie du es lösen kannst — und wie ihr euch wirklich unterstützen könnt.',
+];
+
+// „Was du aus dieser Woche mitnimmst"
+const mitnehmen = [
+  'Du verstehst, was dich bisher zurückgehalten hat, hast Blockaden gelöst und fühlst dich voller Energie.',
+  'Du hast eine klare Richtung, weißt was du willst — und dadurch ein tiefes Gefühl von Sinnhaftigkeit.',
+  'Veränderte Beziehungen — zu dir selbst, zu deinem Partner, zu deinem Umfeld. Du gehst mit neuer Offenheit und Tiefe auf deine Umgebung zu.',
+  'Du erkennst deinen eigenen Wert und kannst dein Leben nach deinen Wünschen gestalten.',
+  'Praktische Werkzeuge für deine Zukunft, um mit Herausforderungen umzugehen, ohne dich in alten Mustern zu verfangen.',
+  'Falls du in einer Beziehung bist: Du weißt, wie ihr euch gegenseitig unterstützen könnt — statt euch unbewusst zu blockieren.',
+];
+
+// „Diese Woche ist für dich, wenn du …"
+const fuerDich = [
+  'tief sitzende Blockaden endlich lösen willst — statt nur oberflächliche Lösungen zu suchen.',
+  'das Gefühl hast, dass „mehr" in dir steckt, du aber nicht weißt, wie du es freisetzen kannst.',
+  'endlich den roten Faden hinter deinen Problemen erkennen willst — um frei zu sein.',
+  'in einer Beziehung bist und eine tiefere, unterstützende Verbindung erleben möchtest.',
+  'einfach dein Leben in die Hand nehmen möchtest.',
+];
+
+// Galerie — exakte Bilder aus dem ClickFunnels-Archiv (14 Galerie + 4 Paradies)
+const galerie = [
+  ...Array.from({ length: 14 }, (_, i) => `/img/icw/galerie-${String(i + 1).padStart(2, '0')}.jpg`),
+  ...Array.from({ length: 4 }, (_, i) => `/img/icw/paradies-${String(i + 1).padStart(2, '0')}.jpg`),
+];
+
+// Über Annette & Herbert
+const ueberPunkte = [
+  'Annette: 24 Jahre als Ärztin für individuelle Gesundheitswege tätig — international aufgesucht für schulmedizinisch austherapierte Patienten.',
+  'Herbert: Diplom-Kunsttherapeut, Waldorflehrer und Sucht-Experte mit Jahrzehnten Erfahrung.',
+  '33 Jahre Ehe: Wir kennen die Herausforderungen von Beziehungen — und wie man gemeinsam wächst, statt sich zu verlieren.',
+  'Anthroposophischer Ansatz: Wir arbeiten mit den Lehren Rudolf Steiners und beziehen spirituelle Dimensionen mit ein.',
+  'Seit 2021 vollberuflich: Wir haben selbst den Schritt gewagt, unserer Vision zu folgen — und begleiten dich dabei, deinen Weg zu finden.',
+];
+---
+
+<FokusLayout
+  title="Intensiv-Coaching-Woche Zypern — Dein Weg zur tiefgehenden Transformation"
+  description="Eine Woche Zypern, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension am Meer. Für dich allein oder als Paar."
+  canonical="https://himmelstosscoaching.de/intensiv-coaching-zypern"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="s-hero hero-fokus">
+    <img class="hero-bg" src="/img/icw/hero-kueste.jpg" alt="Abendlicht über dem Meer bei Pachyammos, Zypern" loading="eager" />
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Retreat in Pachyammos · Zypern</p>
+        <h1>Intensiv-Coaching-Woche</h1>
+        <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
+        <div class="hero-meta">
+          <span>7 Tage · 6 Nächte</span>
+          <span>Zweimal täglich Coaching</span>
+          <span>Vollpension am Meer</span>
+        </div>
+        <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Orientierungs-Gespräch buchen →</a>
+        <p class="hero-note">kostenfrei &amp; unverbindlich · mit Annette &amp; Herbert Himmelstoß</p>
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="s-problem">
+    <div class="container narrow">
+      <h2 class="center">Fühlst du dich festgefahren, ohne zu wissen, warum?</h2>
+      <p class="lead center">Hast du das Gefühl, dein Leben könnte so viel mehr sein — aber irgendetwas hält dich zurück?</p>
+      <ul class="pain-list">
+        <li>Du spürst eine anhaltende Unzufriedenheit. Vielleicht bist du oft gestresst, fühlst dich müde oder perspektivlos. Du möchtest etwas verändern, doch egal was du versuchst — es klappt einfach nicht.</li>
+        <li>Du fühlst dich innerlich blockiert — aber weißt nicht, woher es kommt. Und du spürst, dass es mehr geben muss.</li>
+        <li>Du hast Wünsche und Träume, die du seit Jahren aufschiebst, weil immer etwas dazwischenkommt.</li>
+        <li>Du funktionierst — aber das Leben fühlt sich an, als würde es an dir vorbeiziehen.</li>
+        <li>Oder du hast sich wiederholende Konflikte in deiner Beziehung, die euch immer wieder in alte Muster zurückwerfen.</li>
+      </ul>
+      <p class="center problem-close"><em>Du versuchst, es mit Willenskraft zu lösen — aber es fühlt sich an, als ob du gegen eine unsichtbare Wand rennst.</em></p>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 3 · LÖSUNG / ES GIBT EINEN WEG -->
+  <section class="s-weg">
+    <div class="container narrow center">
+      <p class="acc-eyebrow" style="justify-content:center">Es gibt einen Weg</p>
+      <p class="lead">Wir sind wie gelenkt durch unbewusste Glaubenssätze, alte Verletzungen und emotionale Blockaden. Sie sorgen dafür, dass du im Kreis läufst, dich immer wieder in denselben Mustern verfängst — und dich fragst, warum du nicht weiterkommst.</p>
+      <h2>Die Intensiv-Coaching-Woche</h2>
+      <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann — egal ob du allein oder ihr als Paar kommt.</p>
+
+      <!-- Einführungs-/Erklärungsvideo — Vimeo 1064697530 -->
+      <div class="video-embed">
+        <iframe src="https://player.vimeo.com/video/1064697530" title="Einführungsvideo zur Intensiv-Coaching-Woche" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <a href={gespraech} class="btn btn-primary" target="_blank" rel="noopener">Jetzt Orientierungs-Gespräch buchen →</a>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 4 · WAS PASSIERT IN DIESER WOCHE -->
+  <section class="s-passiert">
+    <div class="container narrow">
+      <h2 class="center">Was passiert in dieser Woche?</h2>
+      <ul class="check-list">
+        {woche.map((w) => <li>{w}</li>)}
+      </ul>
+      <blockquote class="pull-quote">„Es übertrifft alles, was ich mir vorstellen konnte."<cite>— Heike</cite></blockquote>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 5 · WAS DU MITNIMMST -->
+  <section class="s-mitnehmen">
+    <div class="container">
+      <h2 class="center">Was du aus dieser Woche mitnimmst</h2>
+      <div class="mit-grid">
+        {mitnehmen.map((m) => (
+          <div class="mit-card"><span class="ornament" aria-hidden="true">✦</span><p>{m}</p></div>
+        ))}
+      </div>
+      <blockquote class="pull-quote center">„Ich habe eine Woche erlebt, wie ich sie niemals erwartet hätte."<cite>— Gabriele</cite></blockquote>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 6 · DU STEHST IM MITTELPUNKT / ABLAUF -->
+  <section class="s-ablauf">
+    <div class="container ablauf-grid">
+      <div class="ablauf-text">
+        <p class="acc-eyebrow">Du stehst im Mittelpunkt</p>
+        <h2>Zweimal täglich begleiten wir dich</h2>
+        <p>Zweimal täglich begleiten wir dich mit individuellen Coaching-Prozessen, um dein mitgebrachtes Thema zu lösen und nachhaltige Veränderungen zu ermöglichen.</p>
+        <p>Dazwischen hast du genügend Raum, um das Erlebte nachklingen zu lassen, es zu verankern und die wundervolle Natur Zyperns zu genießen: mit einem Bad im Meer, einem Spaziergang am Strand oder in den Bergen.</p>
+        <p>Wir unternehmen mit dir auch kleine Ausflüge in die umliegenden Orte und an den Hafen — so, wie es für dich stimmig ist und deinen Prozess unterstützt. Wir sind während der gesamten Zeit für dich da.</p>
+      </div>
+      <div class="ablauf-img">
+        <img src="/img/icw/haus-zypern.jpg" alt="Annette und Herbert — Haus auf Zypern" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="container ablauf-grid reverse">
+      <div class="ablauf-img">
+        <img src="/img/icw/verpflegung.jpg" alt="Frische Verpflegung — Vollpension bei Annette und Herbert" loading="lazy" />
+      </div>
+      <div class="ablauf-text">
+        <h3>Unterkunft &amp; Verpflegung</h3>
+        <p>Du genießt während deines Aufenthalts eine liebevolle Rundum-Versorgung mit Vollpension. Herbert ist ein ausgezeichneter Koch — wir besprechen gerne vorab deine Essenswünsche, Unverträglichkeiten oder besonderen Vorlieben mit dir.</p>
+        <p>Du schläfst in einem kleinen Gästezimmer mit Meerblick; zusätzlich stehen dir diverse Sitzplätze in und um das Haus zur Verfügung.</p>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 7 · FÜR WEN / CHANCE -->
+  <section class="s-fuer">
+    <div class="container narrow">
+      <h2 class="center">Diese Woche ist für dich, wenn du …</h2>
+      <ul class="check-list">
+        {fuerDich.map((f) => <li>{f}</li>)}
+      </ul>
+      <div class="chance-box">
+        <p>Das ist deine Chance, dein Leben wirklich zu verändern.</p>
+        <ul>
+          <li>Kein weiteres Jahr, in dem du dich mit denselben Problemen herumschlägst.</li>
+          <li>Kein weiteres Warten, bis sich „irgendwas von selbst ändert".</li>
+          <li>Keine weiteren Versuche, „es allein zu schaffen" — während du dich weiterhin festgefahren fühlst.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · TESTIMONIALS -->
+  <section class="s-testimonials">
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Was Teilnehmer erlebt haben</p>
+      <h2 class="center">Erfahrungen aus der Woche</h2>
+
+      <div class="testi-cols">
+        <!-- Spalte 1 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Frank M — Vimeo 1078217798 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1078217798" title="Video-Testimonial Frank M." loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…das Leben ist schön!"</p>
+            <p>„Ich kam ohne Erwartungen — und ging mit einer Klarheit, die mein Leben verändern wird. Diese Woche war ein Geschenk voller Herzlichkeit, Tiefe und echtem Aufbruch."</p>
+            <cite>Frank M.</cite>
+          </blockquote>
+
+          <blockquote class="testi">
+            <img class="testi-portrait-img" src="/img/icw/ingeborg.jpg" alt="Ingeborg" loading="lazy" />
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…besonders berührt hat mich die Selbstverständlichkeit, mit der ich aufgenommen wurde"</p>
+            <p>„Ich kam ohne konkrete Fragen, ohne Erwartungen, nur mit dem Gefühl, in einer Sackgasse zu stecken. Und so fingen wir an. Wir sprachen, wir erzählten aus unserem Leben — es war ein Raum voller Vertrauen, in dem ich wirklich alles ansprechen konnte, ohne Scham.</p>
+            <p>Was mich besonders berührt hat, war die Selbstverständlichkeit, mit der ich aufgenommen wurde — in den Alltag, am Tisch, in den Gesprächen. Obwohl ich „im Mittelpunkt" stand, war ich kein Gast, ich war Teil. Das hat mir erlaubt, mich wirklich zu öffnen — so tief, wie ich es selten erlebt habe.</p>
+            <p>Am Ende dieser Woche hatte ich mehr Akzeptanz für mich selbst, mehr Verständnis für meine Phasen. Am letzten Tag kam mir ein Bild, das die Woche zusammenfasst: Ich lag als Kleinkind in der Kuhle eines runden Bettchens, von zwei Seiten liebevoll behütet. Und jetzt kann ich weiter wachsen …"</p>
+            <cite>Ingeborg</cite>
+          </blockquote>
+        </div>
+
+        <!-- Spalte 2 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Gabriele W — Vimeo 1061932585 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1061932585" title="Video-Testimonial Gabriele W." loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…Vertrauen zu finden, aus mir heraus mein Leben zu gestalten"</p>
+            <p>„Diese Woche ist ein Rundum-Paket. Die individuelle Unterstützung von Annette und Herbert ist unglaublich."</p>
+            <cite>Gabriele W.</cite>
+          </blockquote>
+
+          <blockquote class="testi">
+            <!-- Video-Testimonial Trixi — Vimeo 1096279305 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1096279305" title="Video-Testimonial Trixi" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="testi-head">„Ich bin richtig, wie ich bin."</p>
+            <p>„Diese eine Erkenntnis hat für mich alles verändert. In der Coaching-Woche durfte ich zum ersten Mal wirklich alles aussprechen — ohne bewertet zu werden, ohne Ratschläge, einfach gehört werden. Tiefe Themen aus meiner Kindheit, alte Muster durften ans Licht kommen. Und plötzlich wurde klar: Es gibt ein Hauptthema — und wenn man da hinschaut, verändert sich so viel.</p>
+            <p>Ich habe gelernt, dass meine Reaktionen Sinn machen. Diese Woche hat mir Zuversicht gegeben und eine neue Haltung mir selbst gegenüber. Kein Mangeldenken mehr, kein ständiges Funktionieren. Sondern echte Verbindung — mit mir."</p>
+            <cite>Trixi</cite>
+          </blockquote>
+        </div>
+
+        <!-- Spalte 3 -->
+        <div class="testi-col">
+          <blockquote class="testi">
+            <!-- Video-Testimonial Heike — Vimeo 1066926357 -->
+            <div class="video-embed"><iframe src="https://player.vimeo.com/video/1066926357" title="Video-Testimonial Heike" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="testi-head">„…so intensiv habe ich mir das nicht vorgestellt"</p>
+            <p>„Dieses Coaching ist für Menschen, die den Mut haben, ihr Leben in die Hand zu nehmen und alte Muster und Strukturen, die ihnen dabei im Wege stehen, beiseite räumen wollen."</p>
+            <cite>Heike</cite>
+          </blockquote>
+
+          <blockquote class="testi">
+            <img class="testi-portrait-img" src="/img/icw/christian.png" alt="Christian" loading="lazy" />
+            <p class="testi-head">„…warum haben wir nie gelernt, mit unseren Gefühlen umzugehen?"</p>
+            <p>„Ich habe erkannt, dass mein schlechtes Gewissen nur ein selbst erschaffenes Programm war — niemand leidet, wenn ich auf mich höre. Indem ich meine Emotionen zulasse, statt gegen sie zu kämpfen, haben sich Unruhe und Zweifel in Vertrauen und innere Freiheit verwandelt. Tiefpunkte sind keine Sackgassen mehr, sondern Absprünge für den nächsten Aufstieg. Ich kann meine Realität aktiv gestalten — und das fühlt sich so gut an."</p>
+            <cite>Christian</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 9 · HAUPTANGEBOT / CTA -->
+  <section class="s-angebot" id="angebot">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Dein Platz</p>
+      <h2 class="angebot-hl">Diese Woche ist ein Schlüssel zur echten Veränderung</h2>
+      <p class="angebot-intro">Wenn du spürst, dass jetzt die richtige Zeit ist, dann laden wir dich herzlich ein, mit uns diese Woche zu erleben.</p>
+
+      <div class="angebot-card">
+        <dl class="angebot-facts">
+          <div><dt>Ort</dt><dd>Unser Haus in Zypern (alternativ eine nahegelegene Unterkunft oder exklusiv im 4-Sterne-Hotel)</dd></div>
+          <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
+          <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
+          <div><dt>Invest</dt><dd><strong>einzeln 4.200 €</strong> · als Paar 5.700 €</dd></div>
+        </dl>
+        <p class="angebot-aufgabe">Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Wir sind für dich da.</p>
+        <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Termin für ein Gespräch aussuchen →</a>
+        <p class="angebot-note">kostenfrei &amp; unverbindlich</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · ÜBER ANNETTE & HERBERT -->
+  <section class="s-ueber">
+    <div class="container ueber-grid">
+      <div class="ueber-img">
+        <img src="/img/icw/annette-herbert.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+      </div>
+      <div class="ueber-text">
+        <p class="acc-eyebrow">Wer wir sind</p>
+        <h2>Wir sind Annette &amp; Herbert Himmelstoß</h2>
+        <p>30 Jahre glücklich verheiratet — und seit 2021 vollberuflich als Coaches für euch da. Wir sind nicht nur eure Begleiter, wir leben, was wir mit euch teilen. Seit drei Jahrzehnten gehen wir gemeinsam durch die Höhen und Tiefen des Lebens und haben dabei gelernt, Krisen als Wachstumschancen zu sehen.</p>
+        <ul class="ueber-list">
+          {ueberPunkte.map((u) => <li>{u}</li>)}
+        </ul>
+        <p>Unsere frühere Tätigkeit als Ärztin für individuelle Wege und als Waldorflehrer sowie unser Familienleben mit unseren drei inzwischen erwachsenen Kindern sind wesentliche Grundlagen für unser heutiges Wirken.</p>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 11 · FRAGEN / ABSCHLUSS-CTA -->
+  <section class="s-final final-fokus">
+    <div class="container narrow center">
+      <h2 class="final-hl">Hast du noch Fragen?</h2>
+      <p class="final-text">Wir nehmen uns sehr gerne Zeit für dich.</p>
+      <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Orientierungs-Gespräch buchen →</a>
+      <p class="final-meta">kostenfrei &amp; unverbindlich</p>
+    </div>
+  </section>
+
+  <!-- 12 · GALERIE -->
+  <section class="s-galerie">
+    <div class="container">
+      <h2 class="center">Ein paar Eindrücke aus unserem kleinen Paradies</h2>
+      <div class="galerie-grid">
+        {galerie.map((g, i) => <img src={g} alt={`Eindruck aus unserem Haus in Pachyammos, Zypern (${i + 1})`} loading="lazy" />)}
+      </div>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+/* ── HERO ─────────────────────────────────────────────────── */
+.s-hero { position: relative; min-height: clamp(520px, 66vh, 680px); display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+.hero-veil { position: absolute; inset: 0; background:
+  linear-gradient(180deg, rgba(18,42,72,0.40) 0%, rgba(18,42,72,0.16) 48%, rgba(18,42,72,0.44) 100%),
+  linear-gradient(90deg, rgba(39,131,172,0.30) 0%, rgba(39,131,172,0) 42%),
+  linear-gradient(270deg, rgba(250,157,86,0.26) 0%, rgba(250,157,86,0) 42%); }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; }
+.hero-text { max-width: 880px; margin: 0 auto; text-align: center; }
+.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin: 0 0 18px; }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.35); margin: 0 0 22px; }
+.hero-sub { font-size: clamp(20px,2vw,25px); color: rgba(255,255,255,0.90); margin: 0 0 24px; line-height: 1.5; }
+.hero-sub strong { color: #fff; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 30px; font-size: clamp(15px,1.4vw,17px); color: rgba(255,255,255,0.82); font-weight: 500; }
+.hero-meta span + span::before { content: '·'; margin-right: 8px; }
+.btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
+.hero-note { margin: 16px 0 0; font-size: 14px; color: rgba(255,255,255,0.80); }
+.s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
+
+/* ── PROBLEM ──────────────────────────────────────────────── */
+.s-problem { background: var(--bg-white); }
+.s-problem h2 { margin-bottom: 18px; }
+.lead { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,1.8vw,24px); line-height: 1.5; color: var(--blue-deep); }
+.pain-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 12px; }
+.pain-list li { padding: 16px 20px 16px 52px; background: var(--bg-cream); border-radius: 8px; position: relative; font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+.pain-list li::before { content: '›'; position: absolute; left: 20px; top: 14px; color: var(--orange); font-size: 22px; font-weight: 700; line-height: 1; }
+.problem-close { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.7vw,22px); color: var(--blue-deep); margin-top: 8px; }
+
+/* ── ES GIBT EINEN WEG ────────────────────────────────────── */
+.s-weg { background: var(--bg-cream); }
+.s-weg h2 { margin: 32px 0 12px; }
+.video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); margin: 36px 0; background: #0d1b2a; }
+.s-weg .video-embed { max-width: 720px; margin-left: auto; margin-right: auto; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ── CHECK-LIST (Was passiert / Für wen) ──────────────────── */
+.check-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 14px; }
+.check-list li { padding: 4px 0 4px 40px; position: relative; font-size: 17px; color: var(--ink-soft); line-height: 1.6; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; top: 3px; color: var(--orange); font-weight: 700; font-size: 20px; }
+.pull-quote { margin: 40px auto 0; padding: 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.4; }
+.pull-quote cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--font-body); font-size: 15px; color: var(--ink-light); }
+.s-passiert { background: var(--bg-white); }
+
+/* ── WAS DU MITNIMMST ─────────────────────────────────────── */
+.s-mitnehmen { background: var(--bg-cream); }
+.s-mitnehmen h2 { margin-bottom: clamp(36px,5vw,52px); }
+.mit-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.mit-card { background: var(--bg-white); border-radius: var(--radius-card); padding: 26px; border-top: 4px solid var(--orange); box-shadow: var(--shadow-soft); }
+.ornament { display: block; font-size: 18px; color: var(--orange); margin-bottom: 12px; }
+.mit-card p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+
+/* ── ABLAUF ───────────────────────────────────────────────── */
+.s-ablauf { background: var(--bg-white); }
+.ablauf-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,6vw,72px); align-items: center; }
+.ablauf-grid + .ablauf-grid { margin-top: clamp(48px,6vw,80px); }
+.ablauf-grid.reverse { grid-template-columns: 1fr 1.1fr; }
+.ablauf-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.ablauf-text h3 { margin-bottom: 12px; }
+
+/* ── FÜR WEN / CHANCE ─────────────────────────────────────── */
+.s-fuer { background: var(--bg-cream); }
+.chance-box { margin-top: 40px; padding: 32px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.chance-box > p { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,1.8vw,24px); color: var(--blue-deep); margin: 0 0 16px; }
+.chance-box ul { margin: 0; padding-left: 22px; color: var(--ink-soft); }
+.chance-box li { margin-bottom: 8px; line-height: 1.55; }
+
+/* ── TESTIMONIALS ─────────────────────────────────────────── */
+.s-testimonials { background: var(--bg-white); }
+.s-testimonials h2 { margin-bottom: clamp(36px,5vw,52px); }
+.testi-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.testi-col { display: flex; flex-direction: column; gap: 22px; }
+.testi { margin: 0; padding: 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.testi .video-embed { margin: 0 0 14px; box-shadow: var(--shadow-soft); }
+.stars { color: var(--orange); font-size: 16px; letter-spacing: 2px; margin: 0 0 8px; }
+.testi-head { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.4vw,19px); color: var(--blue-deep); margin: 0 0 10px; }
+.testi p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 12px; }
+.testi cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
+.testi-portrait-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); margin-bottom: 14px; display: block; }
+
+/* ── HAUPTANGEBOT ─────────────────────────────────────────── */
+.s-angebot { background: var(--sunset-surface); }
+.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: var(--orange); }
+.angebot-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 14px; }
+.angebot-intro { color: var(--bg-cream); margin-bottom: 40px; font-size: clamp(16px,1.5vw,19px); }
+.angebot-card { background: var(--bg-cream); border-radius: 20px; padding: clamp(32px,5vw,52px); max-width: 620px; margin: 0 auto; position: relative; overflow: hidden; text-align: left; }
+.angebot-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+.angebot-facts { margin: 0 0 24px; }
+.angebot-facts > div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--gold-soft); }
+.angebot-facts dt { font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; color: var(--orange); }
+.angebot-facts dd { margin: 0; color: var(--blue-deep); font-size: 16px; line-height: 1.5; }
+.angebot-facts dd strong { font-size: 20px; }
+.angebot-aufgabe { font-family: var(--font-display); font-style: italic; color: var(--blue-deep); font-size: 18px; margin: 0 0 28px; }
+.angebot-card .btn { width: 100%; }
+.angebot-note { text-align: center; font-size: 14px; color: var(--ink-soft); margin: 14px 0 0; }
+
+/* ── ÜBER ─────────────────────────────────────────────────── */
+.s-ueber { background: var(--bg-white); }
+.ueber-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px,6vw,80px); align-items: start; }
+.ueber-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.ueber-list { list-style: none; padding: 0; margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+.ueber-list li { padding-left: 30px; position: relative; font-size: 16px; color: var(--ink-soft); line-height: 1.55; }
+.ueber-list li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--sky-light); font-weight: 700; }
+
+/* ── FINAL ────────────────────────────────────────────────── */
+.s-final { background: var(--bg-cream); }
+.final-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,44px); color: var(--blue-deep); margin-bottom: 16px; }
+.final-text { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 0 auto 32px; max-width: 520px; }
+.final-meta { margin-top: 18px; font-size: 13px; color: var(--ink-light); }
+
+/* ── GALERIE ──────────────────────────────────────────────── */
+.s-galerie { background: var(--bg-white); }
+.s-galerie h2 { margin-bottom: clamp(36px,5vw,52px); }
+.galerie-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.galerie-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .s-hero      { min-height: 600px; align-items: flex-end; }
+  .hero-bg     { object-position: 60% top; }
+  .hero-veil   { background: linear-gradient(180deg, rgba(39,131,172,0.12) 0%, rgba(24,105,150,0.45) 45%, rgba(20,86,122,0.88) 100%); }
+  .hero-inner  { padding-bottom: 60px; }
+  .hero-text   { max-width: 100%; }
+  .mit-grid    { grid-template-columns: 1fr; }
+  .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
+  .ablauf-grid.reverse .ablauf-img { order: -1; }
+  .testi-cols  { grid-template-columns: 1fr; }
+  .testi-col   { gap: 22px; }
+  .ueber-grid  { grid-template-columns: 1fr; }
+  .galerie-grid { grid-template-columns: 1fr 1fr; }
+  .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>

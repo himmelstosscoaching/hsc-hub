@@ -1,0 +1,453 @@
+---
+// Dein Leben lesen lernen — Basic (Online-Videokurs) — Sales Page
+// Nachbau der ClickFunnels-Archivseite (workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic)
+// Struktur exakt übernommen, Stil an die Fokus-Seiten angepasst (keine Emojis).
+// ⚠️ checkout = Platzhalter — ThriveCart-Produkt-ID 21; Checkout-URL von Christian einfügen
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+const checkout = '#preis'; // ← Anker auf Preis-Block; für echten Kauf ThriveCart-URL eintragen
+
+// Beispiel-Lebensfragen
+const fragen = [
+  'Soll ich bleiben oder gehen?',
+  'Will ich ein Kind bekommen?',
+  'Ist diese Krankheit vielleicht eine Botschaft?',
+  'Ziehe ich wirklich um — oder ist das nur ein Impuls von außen?',
+];
+
+// „Warum dieser Kurs anders ist"
+const anders = [
+  'Wir geben keine Ratschläge, sondern vermitteln dir einen Weg, wie du deine Antworten findest.',
+  'Alles, was wir weitergeben, haben wir selbst erlebt, selbst erprobt — und es hat sich in unserem Coaching vielfach bewährt.',
+  'Der Kurs ist nicht starr oder dogmatisch, sondern ein lebendiger Prozess.',
+  'Du bekommst echte Werkzeuge statt noch mehr Wissen — direkt anwendbar und wirksam im Alltag.',
+];
+
+// „Das bekommst du im Seminar" / Kursinhalt
+const inhalt = [
+  { t: '12 Kapitel mit je ca. 10 Lektionen', d: 'Über 120 kompakte Einheiten — sofort anwendbar im Alltag.' },
+  { t: 'Workbooks & geführte Meditationen', d: 'Zum Vertiefen, Reflektieren, Umsetzen.' },
+  { t: 'Lebenslanger Zugriff', d: 'Keine Eile, kein Ablaufdatum — du gehst in deinem Tempo.' },
+  { t: 'Exklusive Telegram-Gruppe', d: 'Für Begleitung, Inspiration und Verbindung zwischen den Treffen.' },
+];
+
+// „Was du lernen wirst"
+const lernen = [
+  'Wie du deine innere Stimme hörst — auch wenn alle im Außen etwas anderes sagen.',
+  'Wie du Verantwortung übernimmst, ohne dich überfordert zu fühlen.',
+  'Wie du Schritt für Schritt Sicherheit in deinen Entscheidungen gewinnst.',
+  'Wie du dich selbst besser verstehst, annimmst und führst.',
+  'Wie du Mut entwickelst — in kleinen und großen Schritten.',
+  'Wie du mit einfachen Mitteln dein Leben neu gestaltest — und dabei nicht nur dir, sondern auch deinem Umfeld etwas Gutes tust.',
+];
+
+// Kurz-Testimonials (Galerie)
+const stimmen = [
+  { t: 'Ute',       img: '/img/dlll/ute.png',       q: 'Ich habe alles verloren — und genau dadurch zu mir selbst gefunden. Vertrauen, Loslassen und innere Ausrichtung haben mein Leben verändert.' },
+  { t: 'Cornelia',  img: '/img/dlll/cornelia.png',  q: 'Ich hätte nie gedacht, dass sich so viel in so kurzer Zeit verändert: 16 Kilo abgenommen, Arbeitszeit reduziert, neuer Nebenjob — und vor allem mehr Verbindung zu mir selbst.' },
+  { t: 'Hans',      img: '/img/dlll/hans.png',      q: 'Ich habe mein altes Leben losgelassen — meine Beziehung, mein Zuhause — und wurde mit einem neuen belohnt. Heute lebe ich in der Nähe meiner Tochter und bin angekommen.' },
+  { t: 'Christian', img: '/img/dlll/christian.png', q: 'Früher habe ich Konfrontationen vermieden. Jetzt habe ich ein Gespräch mit meinem Vater geführt, das ich nie für möglich gehalten hätte. Es war heilsam.' },
+  { t: 'Philomela', img: '/img/dlll/philomela.png', q: 'Ich wirke heute ganz anders — präsenter, strahlender. Außenstehende sprechen mich darauf an. Das gab es früher nie.' },
+  { t: 'Katharina', img: '/img/dlll/katharina.png', q: 'Innerlich hat sich alles verändert. Ich spreche meine Wahrheit — und spüre eine tiefe Zufriedenheit. Heute kann ich ehrlich sagen: Ich wäre gern mit mir selbst befreundet.' },
+  { t: 'Luzia',     img: '/img/dlll/luzia.png',     q: 'Ich war nicht immer live dabei — und trotzdem hat mir der Kurs so viel gegeben. Kleine Impulse haben mir geholfen, zur Ruhe zu kommen, klarer zu entscheiden und dranzubleiben.' },
+];
+
+// FAQ
+const faq = [
+  { q: 'Ich hab keine Zeit für einen großen Kurs …', a: 'Die Lektionen sind bewusst kurz — du kannst sie unterwegs hören oder im Alltag einbauen. Viele Teilnehmer sagen: „Die Inhalte wirken nach — selbst, wenn ich sie nur nebenbei gehört habe."' },
+  { q: 'Ich brauche doch eigentlich einen Experten …', a: 'Der größte Experte für dein Leben bist du selbst. Wir zeigen dir nur, wie du dir selbst wieder vertrauen lernst.' },
+  { q: 'Ich bin mir nicht sicher, ob ich das kann …', a: 'Du musst nichts „können". Alles, was du brauchst, ist bereits in dir. Wir zeigen dir, wie du es findest.' },
+  { q: 'Schon wieder Geld ausgeben … bringt das wirklich etwas?', a: 'Wir hören oft: „Das hätte ich nicht erwartet — dieser Kurs hat mehr verändert als teure Coachings." Es ist eine Investition in dich — und damit in alles, was du bist und tust.' },
+];
+
+// Lange Erfahrungsberichte
+const lang = [
+  { t: 'Ute S.', q: 'Mein Leben ist komplett zusammengebrochen — und genau da begann die eigentliche Reise. Vor einem halben Jahr stand ich vor den Trümmern meines bisherigen Lebens: die Ehe zerbrochen, das Wohnrecht verloren, kein Zuhause mehr. Und doch war genau das der Wendepunkt: Statt im Außen Halt zu suchen, durfte ich lernen, ins Vertrauen zu gehen. Ich habe losgelassen — von Besitz, alten Vorstellungen, selbst von Beziehungen — und plötzlich wurde klar, was wirklich zählt: mein Sein, meine Essenz. Ich lebe jetzt in einem neuen Zuhause, mit Platz, meinem Saxophon — und vor allem mit mir selbst. Loslassen ist der Schlüssel, um neu zu empfangen.' },
+  { t: 'Barbara W.', q: 'Mir ist nochmal tief bewusst geworden, wie viel Mut dieser Prozess wirklich braucht. Es ist nicht nur ein Ausstieg aus äußeren Strukturen, sondern ein kompletter innerer Wandel — mit allen Konsequenzen. Kein Waghalsiges, sondern ein stilles, tiefes Loslassen von alten Sicherheiten. Und der ehrlichste Mut ist vielleicht der, sich selbst ganz ehrlich zu begegnen.' },
+  { t: 'Luzia S.', q: 'Auch wenn ich nicht durchgehend live dabei sein konnte und mein Alltag oft chaotisch war, hat mir der Kurs unglaublich viel gegeben. Immer wieder habe ich Impulse aufgegriffen, die mich in schwierigen Momenten zur Ruhe gebracht oder mir bei Entscheidungen geholfen haben. Ich habe verstanden, dass es nicht darum geht, alles perfekt zu machen, sondern einer Sache wirklich treu zu bleiben. Es ist ein riesiger Schatz, dass wir lebenslangen Zugang zum Kurs haben.' },
+  { t: 'Katharina G.', q: 'Vom ersten Tag an hat mich die tägliche Ausrichtung auf meine Ziele begleitet — das war ein echter Gamechanger. Obwohl sich äußerlich gar nicht so viel verändert hat, hat sich innerlich alles gewandelt. Gerade in meinem langjährigen Trennungsprozess hat sich mein Umgang mit meinen eigenen Bedürfnissen radikal verändert. Ich spüre eine tiefe Zufriedenheit und einen inneren Frieden, wie ich ihn vorher nicht kannte.' },
+  { t: 'Hans L.', q: 'Dieses Kapitel hat mich tief berührt — es war, als würde jemand mein letztes Jahr beschreiben. Ich habe mein altes Leben im Osten Österreichs komplett hinter mir gelassen, mein Haus verlassen und bin in den Westen gezogen — ohne genau zu wissen, was mich erwartet. Und heute weiß ich: Es hat sich gelohnt. Meine Tochter wohnt nur fünf Minuten entfernt, ich bin endlich wieder eingebunden. Ein neues Leben — mit Mut begonnen, mit Herz angenommen.' },
+  { t: 'Elisabeth S.', q: 'Ich habe eine echte Mut-Situation durchlebt. Was mir besonders geholfen hat: dass ich mich bewusst vorbereitet habe, statt einfach durchzurutschen. Besonders das Startthema hat mir gezeigt, wie ich Entscheidungen klarer treffen kann. Und die „Wunder im Alltag" haben mein Denken verändert. Auch die Seelengespräche waren ein Schlüsselmoment: Ich brauche nicht mehr ständig äußere Ratschläge — ich kann mir selbst Antworten geben.' },
+  { t: 'Christian S.', q: 'Ich hätte nie gedacht, wie kraftvoll es sein kann, sich jeden Tag bewusst eine Situation zu suchen, in der ich mutig bin. Ich dachte immer, Mut bedeutet, von irgendwo runterzuspringen. Aber eigentlich sind es die kleinen, alltäglichen Dinge: jemanden ansprechen, eine unbequeme Wahrheit sagen. Dieser Kurs hat mir gezeigt, dass Mut trainierbar ist — und der Schlüssel zu echter Verbindung und Wachstum sein kann.' },
+];
+---
+
+<FokusLayout
+  title="Dein Leben lesen lernen — der Online-Videokurs für innere Klarheit"
+  description="Nicht länger im Außen suchen, sondern im Inneren finden. 12 Kapitel, über 120 Lektionen, Workbooks & geführte Meditationen. Von Annette & Herbert Himmelstoß."
+  canonical="https://himmelstosscoaching.de/dein-leben-lesen-lernen"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="s-hero hero-fokus">
+    <img class="hero-bg" src="/img/dlll/hero-sonnenuntergang.jpg" alt="Sonnenuntergang über dem Meer" loading="eager" />
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Online-Videokurs</p>
+        <h1>Entdecke das wichtigste Werkzeug deines Lebens: <em>dich selbst.</em></h1>
+        <p class="hero-sub">Der Kurs „Dein Leben lesen lernen" — für alle, die nicht länger im Außen suchen, sondern im Inneren finden wollen.</p>
+        <p class="hero-with">mit Annette &amp; Herbert Himmelstoß</p>
+        <a href={checkout} class="btn btn-primary btn-lg">Lerne dein Leben zu verstehen — 197 € →</a>
+      </div>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="s-problem">
+    <div class="container narrow">
+      <h2 class="center">Fällt dir das auch immer häufiger auf?</h2>
+      <ul class="check-list">
+        <li>Ständig wirst du von anderen belehrt, was für dich richtig sei — von Experten, Politikern, Ratgebern?</li>
+        <li>Du fühlst dich unsicher, weil jeder etwas anderes sagt — und du selbst gar nicht mehr weißt, was stimmt?</li>
+        <li>Du suchst nach Klarheit, Orientierung, einem nächsten Schritt — aber niemand scheint dir wirklich helfen zu können?</li>
+      </ul>
+      <p class="problem-close center"><em>Die Antwort liegt in dir. Niemand sonst kennt deinen Weg.</em></p>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 3 · KURS-INTRO -->
+  <section class="s-intro">
+    <div class="container intro-grid">
+      <div class="intro-text">
+        <p class="acc-eyebrow">Dein Leben lesen lernen</p>
+        <h2>Deine Rückverbindung zu dir selbst</h2>
+        <p>Im Videokurs „Dein Leben lesen lernen" erhältst du praxisorientierte Werkzeuge, mit denen du den Zugang zu deiner inneren Klarheit wiederfindest. Keine abstrakte Theorie, keine Fremdanalyse — sondern erprobte Methoden, die dich dabei unterstützen, deinen eigenen stimmigen Weg zu erkennen. Selbst bei grundlegenden Lebensfragen wie:</p>
+        <ul class="fragen-list">
+          {fragen.map((f) => <li>{f}</li>)}
+        </ul>
+        <p>Nur du kannst diese Entscheidungen treffen. Mit diesem Kurs lernst du, wie. Du bekommst kein Konzept von außen, sondern eine Methode, wie du deine eigene innere Wahrheit erkennst. Schritt für Schritt. Still. Kraftvoll. Nachhaltig.</p>
+      </div>
+      <div class="intro-img">
+        <img src="/img/dlll/kurs-mockup.png" alt="Der Videokurs „Dein Leben lesen lernen" am Laptop und Smartphone" loading="lazy" />
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 4 · TESTIMONIAL Julia -->
+  <section class="s-quote">
+    <div class="container narrow quote-photo-wrap">
+      <img class="quote-photo quote-photo--lg" src="/img/dlll/julia.jpg" alt="Julia" loading="lazy" />
+      <blockquote class="big-quote">„Ich bin sicherer geworden, gehe bewusster mit meinem Leben um — und sogar schwierige Themen fühlen sich leichter an. Dieser Kurs verändert wirklich etwas."<cite>— Julia</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- 5 · WARUM DIESER KURS ANDERS IST -->
+  <section class="s-anders">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Warum dieser Kurs anders ist</p>
+      <h2 class="anders-hl">Ein Weg, keine Ratschläge</h2>
+      <div class="anders-grid">
+        {anders.map((a) => (
+          <div class="anders-card"><p>{a}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · TESTIMONIAL Chris -->
+  <section class="s-quote alt">
+    <div class="container narrow quote-photo-wrap">
+      <img class="quote-photo quote-photo--lg" src="/img/dlll/chris.png" alt="Chris" loading="lazy" />
+      <blockquote class="big-quote">„Ich habe gelernt, wie kraftvoll es sein kann, jeden Tag bewusst mutig zu handeln. Der Kurs hat mir gezeigt: Mut ist trainierbar — und verändert mein ganzes Leben."<cite>— Chris</cite></blockquote>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 7 · ÜBER UNS -->
+  <section class="s-ueber">
+    <div class="container narrow">
+      <p class="acc-eyebrow">Wer wir sind</p>
+      <h2>Warum wir diesen Kurs entwickelt haben</h2>
+      <p>Wir sind Annette und Herbert Himmelstoß.</p>
+      <p>Ich, Annette, habe über 20 Jahre in meiner ärztlichen Praxis gearbeitet — und erkannt, dass es bei Gesundheit nicht nur um Medizin geht, sondern um die Beziehung zu sich selbst.</p>
+      <p>Ich, Herbert, habe als Kunsttherapeut und Lehrer mit Tausenden von Jugendlichen und Erwachsenen zu Themen wie Medien, Sucht und Identität gearbeitet. Innere Klarheit war immer der Schlüssel.</p>
+      <p>Gemeinsam haben wir diesen Kurs entwickelt, weil wir erkannt haben, dass es heute nicht noch mehr Bücher, Ratgeber oder Gurus braucht — sondern Menschen, die lernen, ihre eigene innere Führung zu hören und ihr zu vertrauen.</p>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 8 · KURSINHALT -->
+  <section class="s-inhalt">
+    <div class="container inhalt-grid">
+      <div class="inhalt-img">
+        <img src="/img/dlll/annette-herbert-seminar.png" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+      </div>
+      <div class="inhalt-text">
+        <p class="acc-eyebrow">Das bekommst du im Seminar</p>
+        <div class="inhalt-tiles">
+          {inhalt.map((i) => (
+            <div class="inhalt-tile"><span class="feat-icon" aria-hidden="true">✦</span><div><strong>{i.t}</strong><p>{i.d}</p></div></div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <blockquote class="coaches-quote container narrow">
+      „Was uns verbindet, ist der Glaube daran, dass jeder Mensch bereits alles in sich trägt, was er braucht. Man muss nur lernen, wie man es freilegt — und dafür geben wir dir die Werkzeuge an die Hand."
+      <cite>— Annette &amp; Herbert</cite>
+    </blockquote>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 9 · WAS DU LERNEN WIRST -->
+  <section class="s-lernen">
+    <div class="container narrow">
+      <h2 class="center">Was du lernen wirst</h2>
+      <ul class="check-list two-col">
+        {lernen.map((l) => <li>{l}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 · TESTIMONIALS-GALERIE -->
+  <section class="s-stimmen">
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Das sagen unsere Teilnehmer</p>
+      <div class="stimmen-grid">
+        {stimmen.map((s) => (
+          <blockquote class="stimme">
+            <img class="quote-photo quote-photo--sm" src={s.img} alt={s.t} loading="lazy" />
+            <p>„{s.q}"</p>
+            <cite>— {s.t}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 11 · FAQ -->
+  <section class="s-faq">
+    <div class="container narrow">
+      <p class="acc-eyebrow" style="justify-content:center">Typische Fragen</p>
+      <h2 class="center">Und unsere Antwort</h2>
+      <div class="faq-list">
+        {faq.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · PRICING -->
+  <section class="s-preis" id="preis">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Der komplette Online-Videokurs</p>
+      <h2 class="preis-hl">Dein Leben lesen lernen · Basic</h2>
+      <div class="preis-card">
+        <p class="preis-tag">Online-Videokurs</p>
+        <div class="preis-haupt">197 €</div>
+        <p class="preis-rate">Einmaliger Kauf · lebenslanger Zugriff</p>
+        <ul class="preis-features">
+          <li><span>✓</span> 12 Kapitel mit je ca. 10 Lektionen — über 120 kompakte Einheiten</li>
+          <li><span>✓</span> Workbooks &amp; geführte Meditationen</li>
+          <li><span>✓</span> Lebenslanger Zugriff — du gehst in deinem Tempo</li>
+          <li><span>✓</span> Zugang zur exklusiven Telegram-Gruppe</li>
+          <li><span>✓</span> Optional: Gruppenbegleitung — 2× im Monat Live-Zoom mit uns und anderen</li>
+        </ul>
+        <a href={checkout} class="btn btn-primary btn-lg preis-btn">Jetzt buchen — 197 € →</a>
+        <p class="preis-payment">Sicher zahlen · SSL-verschlüsselt</p>
+        <p class="preis-hint">Du möchtest zusätzlich 6 Monate Live-Begleitung? → <a href="https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-intensiv" target="_blank" rel="noopener">Zum Intensiv-Paket mit Masterclass (697 €)</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · ABSCHLUSS-CTA 1 + Veronika -->
+  <section class="s-cta1">
+    <div class="container narrow center">
+      <h2>Jetzt ist der Moment</h2>
+      <p class="cta1-text">Du musst dich nicht verändern, um richtig zu sein. Aber du kannst dich erinnern, wer du wirklich bist. Mit diesem Kurs gehst du deinen Weg — mit Klarheit, Tiefe und Vertrauen.</p>
+      <a href={checkout} class="btn btn-primary">Lerne dein Leben zu verstehen — 197 € →</a>
+      <div class="cta1-testi">
+        <img class="quote-photo quote-photo--sm" src="/img/dlll/veronika.png" alt="Veronika" loading="lazy" />
+        <blockquote class="big-quote cta1-quote">„Ich starte wieder gerne in den Tag. Heute gehe ich mit Freude zur Arbeit, bin kreativer, gelassener — und näher bei dem, was ich wirklich machen will."<cite>— Veronika</cite></blockquote>
+      </div>
+    </div>
+    <div class="sun-divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- 14 · LANGE ERFAHRUNGSBERICHTE -->
+  <section class="s-lang">
+    <div class="container">
+      <h2 class="center">Ausführliche Erfahrungsberichte</h2>
+      <div class="lang-grid">
+        {lang.map((l) => (
+          <blockquote class="lang-card"><p>„{l.q}"</p><cite>— {l.t}</cite></blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 · FINAL CTA -->
+  <section class="s-final final-fokus">
+    <div class="container narrow center">
+      <p class="eyebrow-light">Lerne dein Leben lesen</p>
+      <h2 class="final-hl">Jetzt ist der Moment</h2>
+      <p class="final-text">Du brauchst keinen neuen Ratgeber. Du brauchst keinen neuen Experten. Du brauchst dich. Und genau das lernst du in diesem Kurs.</p>
+      <a href={checkout} class="btn btn-primary btn-lg">Lerne dein Leben zu verstehen — 197 € →</a>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+/* ── HERO ─────────────────────────────────────────────────── */
+.s-hero { position: relative; min-height: clamp(500px, 62vh, 640px); display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.hero-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(44,75,123,0.62) 0%, rgba(44,75,123,0) 46%), linear-gradient(270deg, rgba(248,148,137,0.38) 0%, rgba(248,148,137,0) 40%); }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(72px,9vw,110px) 0; }
+.hero-text { max-width: 620px; }
+.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin: 0 0 18px; }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.4); margin: 0 0 20px; }
+.s-hero h1 em { font-style: italic; color: var(--orange); }
+.hero-sub { font-size: clamp(19px,1.9vw,24px); color: rgba(255,255,255,0.90); margin: 0 0 14px; line-height: 1.5; }
+.hero-with { font-size: 16px; color: rgba(255,255,255,0.80); margin: 0 0 28px; }
+.btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
+.s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
+
+/* ── shared ───────────────────────────────────────────────── */
+.check-list { list-style: none; padding: 0; margin: 32px 0; display: flex; flex-direction: column; gap: 14px; }
+.check-list li { padding: 4px 0 4px 40px; position: relative; font-size: 17px; color: var(--ink-soft); line-height: 1.6; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; top: 3px; color: var(--orange); font-weight: 700; font-size: 20px; }
+.check-list.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; }
+.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: var(--orange); }
+
+/* ── PROBLEM ──────────────────────────────────────────────── */
+.s-problem { background: var(--bg-white); }
+.problem-close { font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,26px); color: var(--blue-deep); margin-top: 8px; }
+
+/* ── KURS-INTRO ───────────────────────────────────────────── */
+.s-intro { background: var(--bg-cream); }
+.intro-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px,6vw,72px); align-items: center; }
+.fragen-list { list-style: none; padding: 0; margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
+.fragen-list li { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.7vw,22px); color: var(--blue-deep); padding-left: 26px; position: relative; }
+.fragen-list li::before { content: '„'; position: absolute; left: 0; top: -2px; color: var(--orange); font-size: 26px; font-family: var(--font-display); }
+.intro-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+
+/* ── BIG QUOTE ────────────────────────────────────────────── */
+.s-quote { background: var(--bg-white); padding: clamp(56px,8vw,96px) 0; }
+.s-quote.alt { background: var(--bg-cream); }
+.big-quote { margin: 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,30px); color: var(--blue-deep); line-height: 1.45; }
+.big-quote cite { display: block; margin-top: 16px; font-style: normal; font-family: var(--font-body); font-size: 15px; color: var(--ink-light); }
+.quote-photo { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.quote-photo--sm { width: 66px; height: 66px; }
+.quote-photo--lg { width: 128px; height: 128px; box-shadow: var(--shadow-card); }
+.quote-photo-wrap { display: flex; align-items: center; gap: clamp(24px,4vw,44px); }
+.quote-photo-wrap .big-quote { text-align: left; }
+
+/* ── WARUM ANDERS ─────────────────────────────────────────── */
+.s-anders { background: var(--sunset-surface); }
+.s-anders .eyebrow-light { color: var(--rose-soft); }
+.s-anders .eyebrow-light::before { background: var(--rose-soft); }
+.anders-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 40px; }
+.anders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
+.anders-card { background: var(--bg-cream); border-radius: var(--radius-card); padding: 26px 28px; border-top: 4px solid var(--orange); }
+.anders-card p { margin: 0; font-size: 16px; color: var(--blue-deep); line-height: 1.6; }
+
+/* ── ÜBER UNS ─────────────────────────────────────────────── */
+.s-ueber { background: var(--bg-white); }
+.s-ueber p { color: var(--ink-soft); font-size: 17px; }
+
+/* ── KURSINHALT ───────────────────────────────────────────── */
+.s-inhalt { background: var(--bg-cream); }
+.inhalt-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px,6vw,72px); align-items: center; }
+.inhalt-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.inhalt-tiles { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
+.inhalt-tile { display: flex; align-items: flex-start; gap: 16px; }
+.feat-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--bg-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--orange); border: 1.5px solid var(--orange); }
+.inhalt-tile strong { display: block; color: var(--blue-deep); font-size: 17px; margin-bottom: 2px; }
+.inhalt-tile p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
+.coaches-quote { margin: clamp(48px,6vw,72px) auto 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.8vw,24px); color: var(--blue-deep); line-height: 1.55; }
+.coaches-quote cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--font-body); font-size: 15px; color: var(--ink-light); }
+
+/* ── LERNEN ───────────────────────────────────────────────── */
+.s-lernen { background: var(--bg-white); }
+.s-lernen h2 { margin-bottom: 12px; }
+
+/* ── STIMMEN ──────────────────────────────────────────────── */
+.s-stimmen { background: var(--bg-cream); }
+.stimmen-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+.stimme { margin: 0; padding: 26px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--rose); box-shadow: var(--shadow-soft); }
+.stimme .quote-photo { margin-bottom: 14px; }
+.stimme p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 12px; }
+.stimme cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+/* ── FAQ ──────────────────────────────────────────────────── */
+.s-faq { background: var(--bg-white); }
+.s-faq h2 { margin-bottom: 40px; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--bg-cream); border-radius: var(--radius-card); overflow: hidden; }
+.faq-item summary { list-style: none; padding: 20px 24px; font-weight: 600; font-size: 17px; color: var(--blue-deep); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 22px; color: var(--orange); font-weight: 400; flex-shrink: 0; transition: transform .25s var(--ease); }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 24px 20px; margin: 0; font-size: 16px; color: var(--ink-soft); line-height: 1.7; }
+
+/* ── PREIS ────────────────────────────────────────────────── */
+.s-preis { background: var(--sunset-surface); }
+.s-preis .eyebrow-light { color: var(--orange); }
+.preis-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 36px; }
+.preis-card { position: relative; overflow: hidden; background: var(--bg-cream); border-radius: 20px; padding: clamp(32px,5vw,56px); max-width: 560px; margin: 0 auto; }
+.preis-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+.preis-tag { display: inline-block; background: var(--orange); color: #fff; padding: 5px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 18px; }
+.preis-haupt { font-family: var(--font-display); font-size: clamp(52px,7vw,76px); font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: 6px; }
+.preis-rate { font-size: 15px; color: var(--ink-soft); margin-bottom: 32px; }
+.preis-features { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.preis-features li { display: flex; gap: 12px; font-size: 16px; color: var(--blue-deep); line-height: 1.45; }
+.preis-features span { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+.preis-btn { width: 100% !important; margin-bottom: 16px !important; }
+.preis-payment { font-size: 13px; color: var(--ink-soft); margin: 0 0 18px; }
+.preis-hint { font-size: 14px; color: var(--ink-soft); margin: 0; border-top: 1px solid var(--gold-soft); padding-top: 18px; }
+
+/* ── CTA 1 ────────────────────────────────────────────────── */
+.s-cta1 { background: var(--bg-cream); }
+.s-cta1 h2 { margin-bottom: 16px; }
+.cta1-text { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); max-width: 560px; margin: 0 auto 32px; }
+.cta1-testi { margin-top: clamp(48px,6vw,72px); display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.cta1-testi .cta1-quote { margin-top: 0; }
+
+/* ── LANGE BERICHTE ───────────────────────────────────────── */
+.s-lang { background: var(--bg-white); }
+.s-lang h2 { margin-bottom: clamp(36px,5vw,52px); }
+.lang-grid { columns: 2; column-gap: 24px; }
+.lang-card { break-inside: avoid; margin: 0 0 24px; padding: 28px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--sky-light); }
+.lang-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin: 0 0 12px; }
+.lang-card cite { font-style: normal; font-size: 13px; font-weight: 600; color: var(--blue-deep); letter-spacing: 0.04em; }
+
+/* ── FINAL ────────────────────────────────────────────────── */
+.s-final { background: var(--sunset-surface); }
+.s-final .eyebrow-light { color: var(--rose-soft); }
+.s-final .eyebrow-light::before { background: var(--rose-soft); }
+.final-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,44px); color: #fff; margin-bottom: 18px; }
+.final-text { font-size: clamp(17px,1.5vw,20px); color: var(--bg-cream); margin: 0 auto 32px; max-width: 540px; }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .s-hero      { min-height: 560px; align-items: flex-end; }
+  .hero-bg     { object-position: 62% top; }
+  .hero-veil   { background: linear-gradient(180deg, rgba(44,75,123,0.15) 0%, rgba(44,75,123,0.5) 45%, rgba(30,55,95,0.9) 100%); }
+  .hero-inner  { padding-bottom: 56px; }
+  .hero-text   { max-width: 100%; }
+  .intro-grid  { grid-template-columns: 1fr; }
+  .intro-img   { order: -1; }
+  .anders-grid { grid-template-columns: 1fr; }
+  .inhalt-grid { grid-template-columns: 1fr; }
+  .inhalt-img  { order: -1; }
+  .check-list.two-col { grid-template-columns: 1fr; }
+  .stimmen-grid { grid-template-columns: 1fr; }
+  .lang-grid   { columns: 1; }
+  .quote-photo-wrap { flex-direction: column; text-align: center; gap: 20px; }
+  .quote-photo-wrap .big-quote { text-align: center; }
+}
+</style>

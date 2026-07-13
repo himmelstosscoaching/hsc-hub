@@ -27,7 +27,7 @@ export const kern: Angebot[] = [
     format: 'Online-Jahreskurs · 12 Kapitel über 12 Monate · 220-Seiten-Workbook · Telegram-Gruppe',
     preis: 'ab 197 €',
     cta: 'Mehr erfahren',
-    url: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic',
+    url: '/dein-leben-lesen-lernen',
     note: '⚠️ Preise (Basic/Intensiv) mit A&H bestätigen',
   },
   {
@@ -47,7 +47,7 @@ export const kern: Angebot[] = [
     format: 'Retreat vor Ort (Pachyammos) · als Paar oder einzeln · inkl. Unterkunft & Verpflegung',
     preis: 'einzeln 4.200 € · als Paar 5.700 €',
     cta: 'Mehr erfahren',
-    url: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
+    url: '/intensiv-coaching-zypern',
   },
   {
     name: 'Monatsausrichtung',
