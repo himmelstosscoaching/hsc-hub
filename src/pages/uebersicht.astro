@@ -1,0 +1,182 @@
+---
+// Seiten-Übersicht — interne Landkarte aller Seiten dieser Website.
+// Liest AUTOMATISCH alle .astro-Seiten aus src/pages/ aus (import.meta.glob),
+// sodass neue Seiten von selbst hier auftauchen. Kopier-Button je Seite.
+// noindex, damit die Übersicht nicht bei Google landet.
+
+const files = Object.keys(import.meta.glob('./*.astro'));
+
+// Klartext-Namen + Gruppierung je Slug. Fehlt ein Slug hier, wird der
+// Dateiname als Fallback-Name genommen (Seite erscheint trotzdem).
+const meta: Record<string, { label: string; group: string; note?: string }> = {
+  'index':                   { label: 'Startseite',                          group: 'Haupt' },
+  'angebote':                { label: 'Angebote — die 5 Kernangebote',       group: 'Haupt' },
+  'einzelcoaching':          { label: 'Einzel-Coaching',                     group: 'Angebote' },
+  'intensiv-coaching-zypern':{ label: 'Intensiv-Coaching-Woche Zypern (ICW)',group: 'Angebote' },
+  'dein-leben-lesen-lernen': { label: 'Dein Leben lesen lernen (DLLL)',      group: 'Angebote' },
+  'monatsausrichtung':       { label: 'Monatsausrichtung',                   group: 'Angebote' },
+  '12-meditationen':         { label: '12 Meditationen',                     group: 'Angebote' },
+  '12-heilige-naechte':      { label: '12 Heilige Nächte',                   group: 'Angebote' },
+  'schatz':                  { label: 'Schatz, coachst du mich? (Paarkurs)', group: 'Angebote' },
+  'buch':                    { label: 'Buch',                                group: 'Angebote' },
+  'fokus':                   { label: 'Fokus (Layout-Variante)',             group: 'Varianten / Entwürfe' },
+  'fokus2b':                 { label: 'Fokus 2b (Layout-Variante)',          group: 'Varianten / Entwürfe' },
+  'datenschutz':             { label: 'Datenschutz',                         group: 'Rechtliches' },
+  'impressum':               { label: 'Impressum',                           group: 'Rechtliches' },
+};
+
+const groupOrder = ['Haupt', 'Angebote', 'Varianten / Entwürfe', 'Rechtliches', 'Sonstiges'];
+
+type Page = { slug: string; path: string; label: string; group: string };
+
+const pages: Page[] = files
+  .map((f) => f.replace('./', '').replace('.astro', ''))
+  .filter((slug) => slug !== 'uebersicht') // sich selbst nicht listen
+  .map((slug) => {
+    const m = meta[slug];
+    return {
+      slug,
+      path: slug === 'index' ? '/' : `/${slug}`,
+      label: m?.label ?? slug,
+      group: m?.group ?? 'Sonstiges',
+    };
+  })
+  .sort((a, b) => a.label.localeCompare(b.label, 'de'));
+
+const grouped = groupOrder
+  .map((g) => ({ group: g, items: pages.filter((p) => p.group === g) }))
+  .filter((g) => g.items.length > 0);
+
+const total = pages.length;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Seiten-Übersicht — Himmelstoß Coaching</title>
+    <style>
+      :root {
+        --blue: #186996;
+        --blue-light: #2783ac;
+        --ink: #1f2a30;
+        --muted: #6b7a82;
+        --line: #e3e9ec;
+        --bg: #f6f8f9;
+        --card: #ffffff;
+        --ok: #2e8b57;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.5;
+      }
+      .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+      header h1 { font-size: 1.9rem; margin: 0 0 6px; }
+      header p { color: var(--muted); margin: 0 0 4px; }
+      .count { font-size: 0.85rem; color: var(--muted); }
+      .group { margin-top: 34px; }
+      .group h2 {
+        font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--blue); margin: 0 0 12px; padding-bottom: 6px;
+        border-bottom: 2px solid var(--line);
+      }
+      .row {
+        display: flex; align-items: center; gap: 12px;
+        background: var(--card); border: 1px solid var(--line);
+        border-radius: 12px; padding: 12px 14px; margin-bottom: 10px;
+      }
+      .row .info { flex: 1 1 auto; min-width: 0; }
+      .row .label { font-weight: 600; }
+      .row a.url {
+        display: inline-block; font-size: 0.85rem; color: var(--blue-light);
+        text-decoration: none; word-break: break-all;
+      }
+      .row a.url:hover { text-decoration: underline; }
+      .actions { display: flex; gap: 8px; flex: 0 0 auto; }
+      .btn {
+        border: 1px solid var(--line); background: #fff; color: var(--ink);
+        border-radius: 8px; padding: 8px 12px; font-size: 0.85rem; cursor: pointer;
+        white-space: nowrap; transition: background 0.15s, border-color 0.15s;
+      }
+      .btn:hover { background: #f0f4f6; border-color: var(--blue-light); }
+      .btn.open { text-decoration: none; color: var(--blue); display: inline-flex; align-items: center; }
+      .btn.copied { background: var(--ok); border-color: var(--ok); color: #fff; }
+      footer { margin-top: 44px; font-size: 0.8rem; color: var(--muted); }
+      @media (max-width: 560px) {
+        .row { flex-wrap: wrap; }
+        .actions { width: 100%; }
+        .btn { flex: 1 1 0; text-align: center; justify-content: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Seiten-Übersicht</h1>
+        <p>Alle Seiten dieser Website — mit Direktlink und Kopier-Button.</p>
+        <p class="count">{total} Seiten · aktualisiert sich automatisch bei neuen Seiten</p>
+      </header>
+
+      {grouped.map((g) => (
+        <section class="group">
+          <h2>{g.group}</h2>
+          {g.items.map((p) => (
+            <div class="row">
+              <div class="info">
+                <div class="label">{p.label}</div>
+                <a class="url" href={p.path} data-path={p.path}>{p.path}</a>
+              </div>
+              <div class="actions">
+                <a class="btn open" href={p.path} target="_blank" rel="noopener">Öffnen ↗</a>
+                <button class="btn copy" type="button" data-path={p.path}>Link kopieren</button>
+              </div>
+            </div>
+          ))}
+        </section>
+      ))}
+
+      <footer>
+        Interne Übersicht · nicht bei Google gelistet (noindex).
+      </footer>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var origin = window.location.origin;
+        // Angezeigte Links auf volle URL setzen (rename-sicher)
+        document.querySelectorAll('a.url').forEach(function (a) {
+          var path = a.getAttribute('data-path');
+          a.textContent = origin + path;
+        });
+        // Kopier-Buttons
+        document.querySelectorAll('button.copy').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var url = origin + btn.getAttribute('data-path');
+            var done = function () {
+              var old = btn.textContent;
+              btn.textContent = 'Kopiert ✓';
+              btn.classList.add('copied');
+              setTimeout(function () { btn.textContent = old; btn.classList.remove('copied'); }, 1600);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(url).then(done).catch(function () { fallback(url); done(); });
+            } else { fallback(url); done(); }
+          });
+        });
+        function fallback(text) {
+          var ta = document.createElement('textarea');
+          ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      })();
+    </script>
+  </body>
+</html>
