@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Impressum — Himmelstoß Coaching" description="Impressum der Skypush Ltd / Himmelstoß Coaching.">
+  <main class="legal narrow">
+    <h1>Impressum</h1>
+
+    <h2>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</h2>
+    <p>
+      Skypush Ltd<br />
+      (Private Company Limited by Shares nach zypriotischem Recht)<br />
+      Polis-Pyrgos Road<br />
+      2961 Pachyammos<br />
+      Zypern
+    </p>
+
+    <p>
+      Vertreten durch die Geschäftsführer:<br />
+      Annette Himmelstoß und Herbert Himmelstoß
+    </p>
+
+    <p>
+      Handelsregister: Registrar of Companies, Nikosia (Zypern)<br />
+      Registernummer: HE&nbsp;455116<br />
+      Umsatzsteuer-Identifikationsnummer: CY60045226U
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Telefon: +357&nbsp;94494887<br />
+      E-Mail: kontakt@himmelstosscoaching.de
+    </p>
+
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>
+      Annette und Herbert Himmelstoß<br />
+      Anschrift wie oben
+    </p>
+
+    <h2>Bildnachweise</h2>
+    <p>
+      Hannes Magerstädt · Tanja Vasiliuk · Simon Himmelstoß · Gabriel Wieland · freepik.com
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die
+      Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch
+      keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG
+      für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+      verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch
+      nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu
+      überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+      Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der
+      Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon
+      unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+      Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von
+      entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend
+      entfernen.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren
+      Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden
+      Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten
+      ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+      Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+      Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
+      Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der
+      verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
+      Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen
+      werden wir derartige Links umgehend entfernen.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
+      Seiten unterliegen dem Urheberrecht. Beiträge Dritter sind als solche
+      gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+      der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen unserer
+      schriftlichen Zustimmung.
+    </p>
+
+    <h2>Verbraucherstreitbeilegung</h2>
+    <p>
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor
+      einer Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal {
+    padding: 120px 24px 80px;
+    color: var(--text, #2b2b2b);
+  }
+  .legal h1 {
+    font-family: 'Fontin', serif;
+    color: var(--blue-deep, #2C4B7B);
+    margin-bottom: 40px;
+  }
+  .legal h2 {
+    font-family: 'League Spartan', sans-serif;
+    color: var(--blue-deep, #2C4B7B);
+    font-size: 18px;
+    margin: 36px 0 10px;
+  }
+  .legal p {
+    line-height: 1.7;
+    color: var(--text-soft, #4a4a4a);
+    margin: 0 0 8px;
+  }
+  @media (max-width: 540px) {
+    .legal { padding: 90px 20px 60px; }
+  }
+</style>

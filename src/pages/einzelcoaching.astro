@@ -1,0 +1,325 @@
+---
+// Einzelcoaching — Salespage (drei Wege: allein · zu zweit · mit deinem Tier)
+// Quelle: 01_Angebote/Einzel-Coaching/Landingpage-Salespage/04-Sektion-Einzelcoachings-3-Spalten-V01.md
+// Preise final (Annette 2026-07-02): Solo 770 € · Paare 1.370 € · Tiere 890 €
+// Buchung = Kontakt (Outlook-Bookings, wie die übrigen Coaching-Angebote)
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+const kontakt = 'https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/';
+const mail = 'mailto:kontakt@himmelstosscoaching.de';
+---
+
+<FokusLayout
+  title="Einzelcoaching — ein Thema wirklich lösen | Annette & Herbert Himmelstoß"
+  description="Einzelcoaching in drei Doppelterminen: ein Thema so weit auf den Grund gehen, bis es sich löst. Allein, als Paar oder mit deinem Tier im Gespräch."
+  canonical="https://himmelstosscoaching.de/einzelcoaching"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="ec-hero hero-fokus">
+    <div class="ec-halo" aria-hidden="true"></div>
+    <div class="container narrow">
+      <p class="acc-eyebrow">Einzelcoaching</p>
+      <h1>Ein Thema wirklich lösen — nicht nur lindern.</h1>
+      <p class="ec-hero-sub">
+        In drei Doppelterminen gehst du einem Thema so weit auf den Grund, bis es sich auflöst.
+        Du wählst, mit wem du diesen Weg gehst.
+      </p>
+      <p class="ec-hero-doppel">
+        Jeder Termin ist ein <em>Doppeltermin</em>: ein kurzer Abend, um dein Thema zu setzen —
+        und am nächsten Tag geht es in die Tiefe. Die Nacht dazwischen arbeitet mit.
+      </p>
+    </div>
+    <div class="sun-divider thick" aria-hidden="true"></div>
+  </section>
+
+  <!-- 2 · DREI SPALTEN -->
+  <section class="ec-wege">
+    <div class="container">
+      <div class="ec-wege-head">
+        <p class="acc-eyebrow">Drei Wege</p>
+        <h2>Such dir aus, mit wem du gehst.</h2>
+      </div>
+
+      <div class="ec-grid">
+
+        <!-- Spalte 1 — allein -->
+        <article id="allein" class="ec-card reveal-on-scroll">
+          <span class="ec-tag">Allein</span>
+          <h3>Mit Annette oder Herbert</h3>
+          <p class="ec-sub">Im 1:1 in die Tiefe gehen.</p>
+          <p class="ec-text">
+            Du bringst ein Thema mit, das dich wirklich bewegt — und wir sehen genau hin, statt es zu
+            umschreiben. Ein altes Muster, das sich immer wiederholt. Ein Mensch, der dich innerlich
+            nicht loslässt. Eine Angst, die dich klein hält. Ein Schritt, den du längst gehen willst
+            und doch nicht schaffst. Oder etwas, das dich seit Jahren festhält, ohne dass du benennen
+            kannst, was es ist.
+          </p>
+          <p class="ec-text">
+            Wir bleiben nicht am Symptom. In einem geführten inneren Prozess gehen wir mit dir unter
+            das Thema — dorthin, wo es entstanden ist. Oft liegt die Wurzel weiter zurück, als der
+            Verstand vermutet: in einer frühen Prägung, in etwas, das du übernommen hast, manchmal in
+            dem, was deine Seele aus einem anderen Leben mitträgt. Wir gehen so weit, bis sich das Alte
+            wirklich löst — nicht nur eine Weile ruhig ist. Das ist die Arbeit, die wir seit Jahren tun.
+          </p>
+          <p class="ec-text">
+            Du wählst nach Gefühl, mit wem du diesen Weg gehst — mit Annette oder mit Herbert.
+          </p>
+          <div class="ec-foot">
+            <p class="ec-umfang">3 Doppeltermine · 6 Sessions</p>
+            <p class="ec-preis">770 €</p>
+            <a href={kontakt} target="_blank" rel="noopener" class="btn btn-primary ec-cta">Termin anfragen</a>
+          </div>
+        </article>
+
+        <!-- Spalte 2 — zu zweit -->
+        <article id="zu-zweit" class="ec-card is-paar reveal-on-scroll">
+          <span class="ec-tag">Als Paar</span>
+          <h3>Mit Annette und Herbert</h3>
+          <p class="ec-sub">Von Paar zu Paar.</p>
+          <p class="ec-text">
+            Für ein Thema, das euch beide betrifft — eines, das immer wiederkehrt, obwohl ihr längst
+            darüber geredet habt. Ein Streit, der sich in Schleifen dreht. Eine Distanz, die gewachsen
+            ist, ohne dass ihr sagen könnt, wann. Eine alte Verletzung, die zwischen euch steht. Oder
+            die Frage, ob ihr euren Weg noch gemeinsam gehen wollt.
+          </p>
+          <p class="ec-text">
+            Wir begleiten euch von Paar zu Paar. Herbert und Annette sind beide dabei — ihr bekommt
+            zwei Blickwinkel auf das, was zwischen euch steht: seinen und ihren. Wir bleiben nicht bei
+            dem, worüber ihr streitet, sondern gehen darunter: zu dem, was jeder von euch mitbringt,
+            oft aus früher, manchmal aus weit zurück. Meist trägt jeder ein eigenes Thema, das sich am
+            anderen entzündet. Wir gehen mit euch dahin, bis sich löst, was euch trennt — statt dass
+            ihr es weiter umgeht.
+          </p>
+          <p class="ec-text">
+            Ihr geht denselben Weg in drei Runden, gemeinsam und in eurem Tempo.
+          </p>
+          <div class="ec-foot">
+            <p class="ec-umfang">3 Doppeltermine · zu zweit begleitet</p>
+            <p class="ec-preis">1.370 €</p>
+            <a href={kontakt} target="_blank" rel="noopener" class="btn btn-primary ec-cta">Termin anfragen</a>
+          </div>
+        </article>
+
+        <!-- Spalte 3 — mit deinem Tier -->
+        <article id="mit-tier" class="ec-card is-tier reveal-on-scroll">
+          <!-- IMAGE-SLOT: Foto Steffi (steffi.jpg) — erstmal entfernt, kann wieder rein -->
+          <span class="ec-tag ec-tag-tier">Mit deinem Tier</span>
+          <h3>Mit Annette, Steffi und deinem Tier</h3>
+          <p class="ec-sub">Dein Tier zeigt dir, worum es wirklich geht.</p>
+          <p class="ec-text">
+            Dein Tier weiß oft mehr über dich, als dir bewusst ist. Es spürt, was du mit dir trägst,
+            und macht sichtbar, was du bei dir selbst leicht übersiehst. Wenn zwischen euch eine tiefe
+            Bindung ist, wird genau das zum Schlüssel: Dein Tier führt dich zu dem, worum es bei deinem
+            Thema wirklich geht.
+          </p>
+          <p class="ec-text">
+            Zu Beginn spricht Steffi mit deinem Tier — was es zeigt, wird zum Einstieg in deinen
+            Prozess mit Annette. Ihr geht dem Thema auf den Grund. Gegen Ende zeigen dir Steffi und
+            dein Tier, wie du das Neue in deinen Alltag trägst. Was Tiere dabei zeigen, ist oft
+            dasselbe, worum es in unserer Arbeit geht: wieder auf dich selbst zu hören und dir zu
+            vertrauen.
+          </p>
+          <p class="ec-text">
+            Am Ende hat sich nicht nur dein Thema gelöst — auch die Beziehung zu deinem Tier ist eine
+            andere.
+          </p>
+          <p class="ec-steffi">
+            Steffi — Stefanie Sophia — ist die Tochter von Annette und Herbert: Tierkommunikatorin,
+            mit Tieren aufgewachsen, und spricht seit vielen Jahren mit ihnen. Sie arbeitet auch über
+            ein Foto, dein Tier muss nicht vor Ort sein.
+          </p>
+          <div class="ec-foot">
+            <p class="ec-umfang">6 Sessions mit Annette + 2 Tiergespräche mit Steffi</p>
+            <p class="ec-preis">890 €</p>
+            <a href={kontakt} target="_blank" rel="noopener" class="btn btn-primary ec-cta">Termin anfragen</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="ec-stimmen">
+        <blockquote class="ec-stimme is-allein">
+          <p>Eine Teilnehmerin lebte in der ständigen Angst, ihrem Ex-Partner zu begegnen. Schon nach
+          dem ersten Termin war der Druck weg und sie konnte sich innerlich frei im Ort bewegen. Als
+          er wenige Tage nach dem Termin überraschend anrief, löste das keinen Stress mehr aus.</p>
+          <cite>— Teilnehmerin · Einzelcoaching allein</cite>
+        </blockquote>
+        <blockquote class="ec-stimme is-paar">
+          <p>Vom Nebeneinanderher-Leben wieder zur Wahrnehmung als Ehe- und Liebespaar — trotz aller
+          Alltagsherausforderungen.</p>
+          <cite>— Yvonne &amp; Ralf · Paar-Coaching bei Annette &amp; Herbert</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · ANNA-STORY (Beleg für die Tier-Variante) -->
+  <section class="ec-story">
+    <div class="container">
+      <div class="ec-story-inner">
+        <!-- IMAGE-SLOT: Foto Steffi & Annette mit Tieren (kommt noch) — ersetzt diesen Platzhalter -->
+        <figure class="ec-story-foto ec-story-foto-slot" aria-hidden="true">
+          <span>Foto Steffi &amp; Annette mit Tieren folgt</span>
+        </figure>
+        <div class="ec-story-text">
+          <p class="acc-eyebrow">Was möglich ist</p>
+          <h2>Anna und ihr Hund</h2>
+          <blockquote class="ec-story-quote">
+            „Tief in mir sitzt die Angst, festgehalten zu werden. Vertrau unserer Beziehung und lass
+            die Kontrolle los."
+            <cite>— Annas Hund, über Steffi</cite>
+          </blockquote>
+          <p>
+            Annas Hund — aus Kettenhaltung gerettet — war immer wieder tagelang weg. Über Steffi,
+            die über ein Foto Kontakt zu ihm aufnahm, sprach er aus, was ihn forttrieb. Während Anna
+            mit Annettes Hilfe in ihren eigenen Freiheits-Prozess ging, kam der Hund Schritt für
+            Schritt näher — und schließlich erstmals freiwillig durch das offene Tor zurück.
+          </p>
+          <!-- LINK-SLOT: URL der Sonntagsgespräch-Aufzeichnung „Was Tiere uns wirklich zeigen" -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ABSCHLUSS -->
+  <section class="ec-final on-dark">
+    <div class="sun-strip" aria-hidden="true"></div>
+    <div class="container narrow">
+      <h2>Nicht sicher, welcher Weg zu dir passt?</h2>
+      <p>Schreib uns oder frag einen Termin an — wir schauen gemeinsam, was für dich stimmig ist.</p>
+      <div class="ec-final-ctas">
+        <a href={kontakt} target="_blank" rel="noopener" class="btn btn-primary">Termin anfragen</a>
+        <a href={mail} class="ec-final-link">Lieber schreiben? <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  /* ── Hero ── */
+  .ec-hero { position: relative; background: var(--bg-white); padding: clamp(90px, 11vw, 140px) 0 0; overflow: hidden; text-align: center; }
+  .ec-halo { position: absolute; inset: 0; background: var(--hero-halo); pointer-events: none; }
+  .ec-hero .container { position: relative; z-index: 1; padding-bottom: clamp(70px, 9vw, 110px); }
+  .ec-hero .acc-eyebrow { justify-content: center; font-size: 20px; }
+  .ec-hero h1 { color: var(--blue-deep); font-size: clamp(26px, 3vw, 38px); margin: 0 0 24px; }
+  .ec-hero-sub { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.65; color: var(--ink-soft); margin: 0 auto; max-width: 640px; }
+  .ec-hero-doppel { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.6; color: var(--ink-light); margin: 20px auto 0; max-width: 600px; }
+  .ec-hero-doppel em { font-style: italic; font-weight: 600; color: var(--blue-deep); }
+
+  /* ── Drei Wege ── */
+  .ec-wege { background: var(--bg-white); padding: clamp(70px, 9vw, 120px) 0; }
+  .ec-wege-head { text-align: center; max-width: 640px; margin: 0 auto clamp(40px, 6vw, 60px); }
+  .ec-wege-head .acc-eyebrow { justify-content: center; font-size: 20px; }
+  .ec-wege-head h2 { color: var(--blue-deep); font-size: clamp(26px, 3vw, 38px); margin: 0; }
+
+  .ec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+
+  .ec-card {
+    position: relative; overflow: hidden;
+    scroll-margin-top: 96px;
+    background: var(--bg-cream);
+    border: 1px solid rgba(250, 157, 86, 0.18);
+    border-radius: var(--radius-card);
+    padding: 30px;
+    display: flex; flex-direction: column; gap: 12px;
+    box-shadow: var(--shadow-soft);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .ec-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+  .ec-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 8px;
+    background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite;
+  }
+  .ec-card.is-tier { border-color: rgba(250, 157, 86, 0.5); }
+  @media (prefers-reduced-motion: reduce) { .ec-card::before { animation: none; } }
+
+  .ec-tag {
+    align-self: flex-start;
+    font-family: var(--font-body); font-weight: 600; font-size: 11.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--blue-deep);
+    background: rgba(44, 75, 123, 0.08); border-radius: var(--radius-pill); padding: 5px 12px;
+  }
+  .ec-card.is-paar .ec-tag { color: var(--rose); background: rgba(200, 116, 120, 0.12); }
+  .ec-tag-tier { color: var(--orange); background: rgba(250, 157, 86, 0.12); }
+
+  .ec-foto { margin: -30px -30px 4px; }
+  .ec-foto img { width: 100%; height: 240px; object-fit: cover; display: block; }
+
+  .ec-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--blue-deep); margin: 4px 0 0; }
+  .ec-sub { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: var(--rose); margin: 0; }
+  .ec-text { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
+  .ec-steffi { font-size: 14px; line-height: 1.6; color: var(--ink-light); margin: 0; }
+  .ec-beleg {
+    margin: 4px 0 0; padding: 14px 16px; border-left: 3px solid var(--orange);
+    background: rgba(255, 255, 255, 0.6); border-radius: 0 8px 8px 0;
+    font-family: var(--font-display); font-style: italic; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft);
+  }
+
+  .ec-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(250, 157, 86, 0.25); display: flex; flex-direction: column; gap: 8px; }
+  .ec-umfang { font-size: 13px; color: var(--ink-light); margin: 0; }
+  .ec-preis { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--blue-deep); margin: 0; }
+  .ec-cta { margin-top: 6px; text-align: center; }
+
+  /* ── Stimmen unter den Wegen ── */
+  .ec-stimmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 760px; margin: clamp(28px, 4vw, 44px) auto 0; }
+  .ec-stimme {
+    margin: 0; padding: 20px 22px; border-left: 3px solid var(--blue-deep);
+    background: var(--bg-cream); border-radius: 0 10px 10px 0;
+    font-family: var(--font-display); font-style: italic; font-size: 15px; line-height: 1.6; color: var(--ink-soft);
+  }
+  .ec-stimme p { margin: 0; }
+  .ec-stimme cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--font-body); font-size: 13px; color: var(--ink-light); }
+  .ec-stimme.is-paar { border-left-color: var(--rose); }
+  .ec-stimme-slot {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    border-left-style: dashed; background: rgba(200, 116, 120, 0.06);
+    color: var(--ink-light); font-style: normal; font-family: var(--font-body); font-size: 13px; min-height: 96px;
+  }
+
+  /* ── Anna-Story ── */
+  .ec-story { background: var(--bg-cream); padding: clamp(70px, 9vw, 110px) 0; }
+  .ec-story-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+  .ec-story-foto { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
+  .ec-story-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ec-story-foto-slot {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    min-height: 300px; background: rgba(44, 75, 123, 0.06);
+    border: 2px dashed rgba(44, 75, 123, 0.25); box-shadow: none;
+    color: var(--ink-light); font-size: 14px; padding: 20px;
+  }
+  .ec-story-text h2 { color: var(--blue-deep); font-size: clamp(26px, 3vw, 38px); margin: 0 0 18px; }
+  .ec-story-quote {
+    margin: 0 0 18px; padding: 0 0 0 20px; border-left: 3px solid var(--orange);
+    font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.5; color: var(--blue-deep);
+  }
+  .ec-story-quote cite { display: block; margin-top: 10px; font-style: normal; font-size: 14px; color: var(--ink-light); }
+  .ec-story-text p { font-size: clamp(15px, 1.4vw, 17px); line-height: 1.7; color: var(--ink-soft); margin: 0; }
+
+  /* ── Abschluss ── */
+  .ec-final { position: relative; background: var(--sunset-surface); padding: clamp(90px, 11vw, 130px) 0; text-align: center; overflow: hidden; }
+  .ec-final::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,75,123,0.5) 0%, rgba(44,75,123,0) 70%); pointer-events: none; }
+  .ec-final .sun-strip { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); z-index: 2; }
+  .ec-final .container { position: relative; z-index: 1; }
+  .ec-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
+  .ec-final p { color: rgba(255, 255, 255, 0.9); font-size: clamp(16px, 1.5vw, 19px); margin: 0 auto 32px; max-width: 560px; }
+  .ec-final-ctas { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .ec-final-link { color: rgba(255, 255, 255, 0.85); font-family: var(--font-body); font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
+  .ec-final-link:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.6); }
+  .ec-final-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
+  .ec-final-link:hover .arrow { transform: translateX(4px); }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .ec-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    .ec-stimmen { grid-template-columns: 1fr; max-width: 520px; }
+    .ec-story-inner { grid-template-columns: 1fr; }
+    .ec-story-foto-slot { min-height: 200px; }
+  }
+</style>

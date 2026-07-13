@@ -1,7 +1,7 @@
 // Annettes Fokus-Konzept V02 — 5 Hauptangebote für die Startseite
 // Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md + 02-Konzept/02-Konzept-V02-Fokus.md
 // Reihenfolge laut Konzept: Dein Leben lesen → Schatz → Einzelcoaching → Monatsausrichtung → Zypern
-// ⚠️ = Preis/URL mit A&H bzw. Christian/Diana noch zu bestätigen
+// ⚠️ = Preis/URL mit A&H bzw. Christian noch zu bestätigen
 
 import type { Offer } from './offers';
 
@@ -62,10 +62,9 @@ export const fokusOffers: Offer[] = [
       'Monatliche Treffen, Meditationen und eine Gemeinschaft, die dich trägt, während du lernst, dir selbst zu vertrauen.',
     bullets: ['Monatliches Zoom-Treffen + Meditation', '12 gechannelte Meditationen pro Jahr', 'Einstieg meist über „12 heilige Nächte"'],
     format: 'Jahresprogramm',
-    priceFrom: '800 € / Jahr',
+    priceFrom: '888 € / Jahr · 88 € / Monat',
     ctaText: 'Mehr erfahren',
-    ctaUrl: 'https://himmelstosscoaching.de/monatsausrichtung',
-    note: '⚠️ Ziel-URL festlegen · Einstieg 12 heilige Nächte 270/340 €',
+    ctaUrl: '/monatsausrichtung',
   },
   {
     id: 'intensiv-coaching-zypern',
@@ -76,7 +75,7 @@ export const fokusOffers: Offer[] = [
       'Eine Woche intensives Coaching am Meer — ungestört, in eurem Tempo, mit Wirkung, die bleibt.',
     bullets: ['Eine Woche vor Ort (Pachyammos)', 'Auf Anfrage auch in Deutschland', 'Als Paar oder einzeln'],
     format: 'Retreat vor Ort',
-    priceFrom: 'auf Anfrage',
+    priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
     ctaText: 'Zum Retreat',
     ctaUrl: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
   },
