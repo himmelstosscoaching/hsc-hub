@@ -66,18 +66,18 @@ export const offers: Offer[] = [
     format: 'Online-Videokurs (+ Masterclass beim Intensiv-Paket)',
     priceFrom: 'ab 197 €',
     ctaText: 'Zum Kurs',
-    ctaUrl: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic',
+    ctaUrl: '/dein-leben-lesen-lernen',
     tiers: [
       {
         name: 'Basic',
         price: '197 €',
-        url: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic',
+        url: '/dein-leben-lesen-lernen',
         includes: ['12 Kapitel Videokurs', 'Workbook digital & physisch', 'Geführte Meditationen', 'Lebenslanger Zugriff'],
       },
       {
         name: 'Intensiv',
         price: '697 €',
-        url: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-intensiv',
+        url: '/dein-leben-lesen-lernen',
         includes: ['Alles aus Basic', '6 Monate Masterclass', '2 Live-Zoom-Sessions/Monat', 'Telegram-Gruppe'],
       },
     ],
@@ -183,7 +183,7 @@ export const offers: Offer[] = [
     format: '1 Woche Retreat · einzeln oder als Paar',
     priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
     ctaText: 'Zum Retreat',
-    ctaUrl: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
+    ctaUrl: '/intensiv-coaching-zypern',
   },
   {
     id: 'karma-konkret',

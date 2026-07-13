@@ -17,10 +17,10 @@ export const fokusOffers: Offer[] = [
     format: 'Online-Jahreskurs',
     priceFrom: 'ab 197 €',
     ctaText: 'Zum Kurs',
-    ctaUrl: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic',
+    ctaUrl: '/dein-leben-lesen-lernen',
     tiers: [
-      { name: 'Basic', price: '197 €', url: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic', includes: ['Kurs + Workbook + Telegram'] },
-      { name: 'Intensiv', price: '697 €', url: 'https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-intensiv', includes: ['+ monatliche Gruppencalls'] },
+      { name: 'Basic', price: '197 €', url: '/dein-leben-lesen-lernen', includes: ['Kurs + Workbook + Telegram'] },
+      { name: 'Intensiv', price: '697 €', url: '/dein-leben-lesen-lernen', includes: ['+ monatliche Gruppencalls'] },
     ],
     highlight: true,
     note: '⚠️ Preise mit A&H bestätigen',
@@ -77,6 +77,6 @@ export const fokusOffers: Offer[] = [
     format: 'Retreat vor Ort',
     priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
     ctaText: 'Zum Retreat',
-    ctaUrl: 'https://workshop.himmelstosscoaching.de/pachyammos-icw',
+    ctaUrl: '/intensiv-coaching-zypern',
   },
 ];
