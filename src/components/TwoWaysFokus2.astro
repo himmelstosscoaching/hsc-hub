@@ -16,7 +16,7 @@
 
     <div class="tw2-ways">
       <article class="tw2-way reveal-on-scroll">
-        <span class="tw2-num">01</span>
+        <span class="tw2-bar tw2-bar--solo" aria-hidden="true"></span>
         <h3>Allein für dich.</h3>
         <p class="tw2-lead">Du lernst, die Sprache zu hören, in der dein Leben zu dir spricht.</p>
         <p>Du beginnst, deiner inneren Stimme zu vertrauen — und ihr zu folgen, statt den Erwartungen der anderen.</p>
@@ -24,7 +24,7 @@
       </article>
 
       <article class="tw2-way reveal-on-scroll">
-        <span class="tw2-num">02</span>
+        <span class="tw2-bar tw2-bar--paar" aria-hidden="true"></span>
         <h3>Gemeinsam als Paar.</h3>
         <p class="tw2-lead">Ihr seht einander wieder — nicht den Alltagspartner, sondern den Menschen.</p>
         <p>Ihr lernt, euch gegenseitig zu coachen — zuhören, fragen, nicht bewerten — und gestaltet eure Beziehung selbst.</p>
@@ -56,13 +56,14 @@
     box-shadow: 0 18px 44px rgba(44, 75, 123, 0.16);
   }
   .tw2-ways { display: flex; flex-direction: column; gap: 36px; }
-  .tw2-num {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: 13px; font-weight: 700;
-    color: var(--orange); letter-spacing: 0.1em;
-    margin-bottom: 10px;
+  .tw2-bar {
+    display: block;
+    width: 44px; height: 4px;
+    border-radius: 999px;
+    margin-bottom: 16px;
   }
+  .tw2-bar--solo { background: var(--orange); }
+  .tw2-bar--paar { background: var(--rose); }
   .tw2-way h3 {
     font-family: var(--font-display);
     font-weight: 700;

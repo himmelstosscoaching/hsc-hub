@@ -11,25 +11,19 @@
 
   <div class="container pillars2-grid">
     <article class="pillar2 reveal-on-scroll">
-      <span class="p2-icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 27s-10-6.5-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 6.5-10 13-10 13z" stroke-linejoin="round"/></svg>
-      </span>
+      <span class="p2-num" aria-hidden="true">1</span>
       <h3>Wir hören wirklich zu.</h3>
       <p>Ohne dich in eine Schublade zu stecken, ohne fertige Lösung im Kopf. Wir stellen die Fragen, die dich weiterführen — und helfen dir, <em>deine eigene Antwort zu finden.</em></p>
     </article>
 
     <article class="pillar2 reveal-on-scroll">
-      <span class="p2-icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 14a7 7 0 0 1 14 0c0 4-3 5-3 8H12c0-3-3-4-3-8z" stroke-linejoin="round"/><path d="M13 25h6"/></svg>
-      </span>
+      <span class="p2-num" aria-hidden="true">2</span>
       <h3>Du entdeckst, was dir entspricht.</h3>
       <p>Im Gespräch spürst du, was wirklich zu dir gehört — und fängst an, dem zu vertrauen. <em>So wirst du selbst dein bester Ratgeber.</em></p>
     </article>
 
     <article class="pillar2 reveal-on-scroll">
-      <span class="p2-icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="11"/><path d="M16 11l3 5-3 5-3-5z" fill="currentColor" stroke="none"/></svg>
-      </span>
+      <span class="p2-num" aria-hidden="true">3</span>
       <h3>Wir helfen dir, es umzusetzen.</h3>
       <p>Erkennen ist der Anfang. Damit lassen wir dich nicht allein: Wir begleiten dich, bis aus dem, was du fühlst, dein nächster Schritt wird — und sich in deinem Alltag <em>wirklich etwas verändert.</em></p>
     </article>
@@ -59,16 +53,21 @@
     transition: transform .35s var(--ease), box-shadow .35s var(--ease);
   }
   .pillar2:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(250,157,86,0.12); }
-  .p2-icon {
+  .p2-num {
     display: inline-flex;
-    width: 56px; height: 56px;
+    width: 58px; height: 58px;
     align-items: center; justify-content: center;
     border-radius: 50%;
-    background: var(--bg-cream);
-    color: var(--orange);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1;
+    color: #fff;
     margin-bottom: 18px;
   }
-  .p2-icon svg { width: 30px; height: 30px; }
+  .pillars2-grid .pillar2:nth-child(1) .p2-num { background: var(--orange);    box-shadow: 0 10px 22px rgba(250, 157, 86, 0.38); }
+  .pillars2-grid .pillar2:nth-child(2) .p2-num { background: var(--rose);      box-shadow: 0 10px 22px rgba(248, 148, 137, 0.38); }
+  .pillars2-grid .pillar2:nth-child(3) .p2-num { background: var(--blue-deep); box-shadow: 0 10px 22px rgba(44, 75, 123, 0.32); }
   .pillar2 h3 {
     font-family: var(--font-display);
     font-weight: 700;
