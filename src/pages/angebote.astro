@@ -75,7 +75,7 @@ const ecWege = [
   </section>
 
   <!-- Kernangebote -->
-  <section class="ang-kat bg-white">
+  <section class="ang-kat bg-white pad-b-sm">
     <div class="container">
       <div class="kat-head">
         <span class="kat-label">Unsere 5 Kernangebote</span>
@@ -141,7 +141,7 @@ const ecWege = [
   />
 
   <!-- Weitere & saisonale Angebote -->
-  <section class="ang-kat bg-white">
+  <section class="ang-kat bg-white pad-y-sm">
     <div class="container">
       <div class="kat-head">
         <span class="kat-label">Weitere &amp; saisonale Angebote</span>
@@ -177,7 +177,7 @@ const ecWege = [
   />
 
   <!-- Kostenlos reinschnuppern -->
-  <section id="frei" class="ang-frei">
+  <section id="frei" class="ang-frei pad-t-sm">
     <div class="container">
       <div class="kat-head center">
         <span class="kat-label">Kostenlos reinschnuppern</span>
@@ -230,6 +230,10 @@ const ecWege = [
 
   /* Sektion */
   .ang-kat { padding: clamp(70px, 9vw, 120px) 0; }
+  /* Abschnitte, die an ein Foto-Band grenzen: Abstand zum Band hin verkleinern */
+  .ang-kat.pad-b-sm { padding-bottom: clamp(34px, 5vw, 58px); }
+  .ang-kat.pad-y-sm { padding-top: clamp(34px, 5vw, 58px); padding-bottom: clamp(34px, 5vw, 58px); }
+  .ang-frei.pad-t-sm { padding-top: clamp(34px, 5vw, 58px); }
   .bg-white { background: var(--bg-white); }
   .bg-cream { background: var(--bg-cream); }
   .kat-head { max-width: 640px; margin: 0 0 48px; }
