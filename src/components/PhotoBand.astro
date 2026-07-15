@@ -9,12 +9,14 @@ interface Props {
   eyebrow?: string;
   quote: string;             // großes Statement (Fontin)
   text?: string;             // optionaler kleiner Begleittext
+  compact?: boolean;         // kleineres Foto-Band (niedrigere Höhe)
+  author?: string;           // optionale Namensnennung (Kundenstimme)
 }
-const { image, alt, side = 'left', bg = 'cream', eyebrow, quote, text } = Astro.props;
+const { image, alt, side = 'left', bg = 'cream', eyebrow, quote, text, compact = false, author } = Astro.props;
 const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
 ---
 
-<section class={`photoband ${bgClass} ${side === 'right' ? 'img-right' : 'img-left'}`}>
+<section class={`photoband ${bgClass} ${side === 'right' ? 'img-right' : 'img-left'}${compact ? ' pb-compact' : ''}`}>
   <div class="pb-photo">
     <img src={image} alt={alt} loading="lazy" />
   </div>
@@ -22,6 +24,7 @@ const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
     <div class="pb-text reveal-on-scroll">
       {eyebrow && <span class="acc-eyebrow">{eyebrow}</span>}
       <p class="pb-quote">{quote}</p>
+      {author && <p class="pb-cite">— {author}</p>}
       {text && <p class="pb-body">{text}</p>}
     </div>
   </div>
@@ -35,6 +38,7 @@ const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
     min-height: clamp(420px, 52vh, 600px);
     position: relative;
   }
+  .photoband.pb-compact { min-height: clamp(280px, 34vh, 400px); }
   .pb-cream { background: var(--bg-cream); }
   .pb-white { background: var(--bg-white); }
 
@@ -52,6 +56,14 @@ const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
     color: var(--blue-deep);
     margin: 0;
     letter-spacing: -0.01em;
+  }
+  .pb-cite {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin: 18px 0 0;
   }
   .pb-body {
     font-family: var(--font-body);
