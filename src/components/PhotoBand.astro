@@ -13,12 +13,15 @@ interface Props {
   author?: string;           // optionale Namensnennung (Kundenstimme)
   uncropped?: boolean;       // Bild komplett zeigen (nicht ins 3:2 beschneiden)
   cropTop?: boolean;         // nur oben beschneiden, unten komplett zeigen
+  largeQuote?: boolean;      // im kompakten Modus das Zitat etwas größer lassen
+  imageLarge?: boolean;      // im kompakten Modus ein größeres Bild (Einzelfall)
+  centerText?: boolean;      // Text zentrieren (statt am Bild-Rand ausgerichtet)
 }
-const { image, alt, side = 'left', bg = 'cream', eyebrow, quote, text, compact = false, author, uncropped = false, cropTop = false } = Astro.props;
+const { image, alt, side = 'left', bg = 'cream', eyebrow, quote, text, compact = false, author, uncropped = false, cropTop = false, largeQuote = false, imageLarge = false, centerText = false } = Astro.props;
 const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
 ---
 
-<section class={`photoband ${bgClass} ${side === 'right' ? 'img-right' : 'img-left'}${compact ? ' pb-compact' : ''}${uncropped ? ' pb-img-natural' : ''}${cropTop ? ' pb-crop-top' : ''}`}>
+<section class={`photoband ${bgClass} ${side === 'right' ? 'img-right' : 'img-left'}${compact ? ' pb-compact' : ''}${uncropped ? ' pb-img-natural' : ''}${cropTop ? ' pb-crop-top' : ''}${largeQuote ? ' pb-quote-lg' : ''}${imageLarge ? ' pb-img-lg' : ''}${centerText ? ' pb-center' : ''}`}>
   <div class="pb-photo">
     <img src={image} alt={alt} loading="lazy" />
   </div>
@@ -44,6 +47,7 @@ const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
   .photoband.pb-compact { min-height: 0; padding: 0; }
   .pb-compact .pb-textwrap { padding: clamp(26px, 3.5vw, 46px); }
   .pb-compact .pb-quote { font-size: clamp(20px, 2.1vw, 27px); line-height: 1.3; }
+  .pb-compact.pb-quote-lg .pb-quote { font-size: clamp(22px, 2.6vw, 34px); line-height: 1.3; }
   .pb-compact .pb-photo {
     aspect-ratio: auto;
     align-self: center;
@@ -53,12 +57,19 @@ const bgClass = bg === 'cream' ? 'pb-cream' : 'pb-white';
   }
   .pb-compact .pb-photo img {
     width: clamp(300px, 32vw, 440px);
+    max-width: 100%;
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-sm);
   }
+  /* Größeres Bild (Einzelfall, z.B. Startseite) */
+  .pb-compact.pb-img-lg .pb-photo img { width: clamp(360px, 42vw, 620px); }
+  /* Text zentrieren (klebt sonst am Bild-Rand) */
+  .pb-center .pb-textwrap { justify-content: center; }
+  .pb-center .pb-text { text-align: center; }
+  .pb-center .acc-eyebrow { justify-content: center; }
   /* Bild 1: komplett im Originalformat (nichts beschneiden) */
   .pb-compact.pb-img-natural .pb-photo img {
     aspect-ratio: auto;

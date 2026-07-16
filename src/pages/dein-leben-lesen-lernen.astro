@@ -15,6 +15,7 @@ const fragen = [
   'Will ich ein Kind bekommen?',
   'Ist diese Krankheit vielleicht eine Botschaft?',
   'Ziehe ich wirklich um — oder ist das nur ein Impuls von außen?',
+  'Passt mein Job noch zu mir — oder ist es Zeit für Neues?',
 ];
 
 // „Warum dieser Kurs anders ist"
@@ -88,8 +89,8 @@ const lang = [
     <div class="container hero-inner">
       <div class="hero-text">
         <p class="hero-eyebrow">Online-Videokurs</p>
-        <h1>Entdecke das wichtigste Werkzeug deines Lebens: <em>dich selbst.</em></h1>
-        <p class="hero-sub">Der Kurs „Dein Leben lesen lernen" — für alle, die nicht länger im Außen suchen, sondern im Inneren finden wollen.</p>
+        <h1>Entdecke das wichtigste Werkzeug deines Lebens: <em>Dich selbst.</em></h1>
+        <p class="hero-sub">Der Kurs <span class="kursname">„Dein Leben lesen lernen"</span> — für alle, die nicht länger im Außen suchen, sondern im Inneren finden wollen.</p>
         <p class="hero-with">mit Annette &amp; Herbert Himmelstoß</p>
         <a href={checkout} class="btn btn-primary btn-lg">Lerne dein Leben zu verstehen — 197 € →</a>
       </div>
@@ -183,7 +184,7 @@ const lang = [
         <p class="acc-eyebrow">Das bekommst du im Seminar</p>
         <div class="inhalt-tiles">
           {inhalt.map((i) => (
-            <div class="inhalt-tile"><span class="feat-icon" aria-hidden="true">✦</span><div><strong>{i.t}</strong><p>{i.d}</p></div></div>
+            <div class="inhalt-tile"><span class="feat-icon" aria-hidden="true"></span><div><strong>{i.t}</strong><p>{i.d}</p></div></div>
           ))}
         </div>
       </div>
@@ -199,9 +200,11 @@ const lang = [
   <section class="s-lernen">
     <div class="container narrow">
       <h2 class="center">Was du lernen wirst</h2>
-      <ul class="check-list two-col">
-        {lernen.map((l) => <li>{l}</li>)}
-      </ul>
+      <div class="lernen-cards">
+        {lernen.map((l) => (
+          <div class="lernen-card"><p>{l}</p></div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -303,13 +306,17 @@ const lang = [
 <style>
 /* ── HERO ─────────────────────────────────────────────────── */
 .s-hero { position: relative; min-height: clamp(500px, 62vh, 640px); display: flex; align-items: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
-.hero-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(44,75,123,0.62) 0%, rgba(44,75,123,0) 46%), linear-gradient(270deg, rgba(248,148,137,0.38) 0%, rgba(248,148,137,0) 40%); }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; transform: rotate(1.8deg) scale(1.08); transform-origin: center; }
+/* Blauschleier von links, Orange-Lachs von rechts; Sonne (Mitte-rechts) bleibt frei, weiche Übergänge */
+.hero-veil { position: absolute; inset: 0; background:
+  linear-gradient(90deg, rgba(44,75,123,0.80) 0%, rgba(44,75,123,0.42) 24%, rgba(44,75,123,0) 47%),
+  linear-gradient(270deg, rgba(250,157,86,0.62) 0%, rgba(250,157,86,0.24) 13%, rgba(250,157,86,0) 27%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(72px,9vw,110px) 0; }
 .hero-text { max-width: 620px; }
-.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin: 0 0 18px; }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.4); margin: 0 0 20px; }
-.s-hero h1 em { font-style: italic; color: var(--orange); }
+.hero-eyebrow { font-family: var(--font-body); font-size: clamp(13px,1.2vw,15px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin: 0 0 16px; }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.4); margin: 0 0 20px; font-size: clamp(30px, 3.9vw, 52px); line-height: 1.12; }
+.s-hero h1 em { font-style: italic; color: var(--orange); font-size: clamp(42px, 5.6vw, 78px); white-space: nowrap; display: inline-block; }
+.hero-sub .kursname { color: var(--orange); font-weight: 700; font-size: 1.12em; }
 .hero-sub { font-size: clamp(19px,1.9vw,24px); color: rgba(255,255,255,0.90); margin: 0 0 14px; line-height: 1.5; }
 .hero-with { font-size: 16px; color: rgba(255,255,255,0.80); margin: 0 0 28px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
@@ -365,7 +372,7 @@ const lang = [
 .inhalt-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
 .inhalt-tiles { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
 .inhalt-tile { display: flex; align-items: flex-start; gap: 16px; }
-.feat-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--bg-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--orange); border: 1.5px solid var(--orange); }
+.feat-icon { flex-shrink: 0; width: 16px; height: 16px; margin-top: 5px; background: var(--orange); border-radius: 50%; }
 .inhalt-tile strong { display: block; color: var(--blue-deep); font-size: 17px; margin-bottom: 2px; }
 .inhalt-tile p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
 .coaches-quote { margin: clamp(48px,6vw,72px) auto 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.8vw,24px); color: var(--blue-deep); line-height: 1.55; }
@@ -374,6 +381,18 @@ const lang = [
 /* ── LERNEN ───────────────────────────────────────────────── */
 .s-lernen { background: var(--bg-white); }
 .s-lernen h2 { margin-bottom: 12px; }
+.lernen-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+.lernen-card { position: relative; overflow: hidden; border-radius: var(--radius-card); padding: 22px 28px; box-shadow: var(--shadow-sm); }
+.lernen-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; }
+.lernen-card p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--blue-deep); font-weight: 500; }
+/* ein durchgehender, sanfter Verlauf über die 6 Felder (Sonnenuntergang -> Meer) */
+.lernen-card:nth-child(1) { background: rgba(250,157,86,0.14); }
+.lernen-card:nth-child(2) { background: rgba(249,153,106,0.14); }
+.lernen-card:nth-child(3) { background: rgba(248,150,127,0.14); }
+.lernen-card:nth-child(4) { background: rgba(222,157,153,0.14); }
+.lernen-card:nth-child(5) { background: rgba(169,174,186,0.14); }
+.lernen-card:nth-child(6) { background: rgba(117,191,218,0.15); }
+@media (prefers-reduced-motion: reduce) { .lernen-card::before { animation: none; } }
 
 /* ── STIMMEN ──────────────────────────────────────────────── */
 .s-stimmen { background: var(--bg-cream); }
@@ -387,7 +406,10 @@ const lang = [
 .s-faq { background: var(--bg-white); }
 .s-faq h2 { margin-bottom: 40px; }
 .faq-list { display: flex; flex-direction: column; gap: 10px; }
-.faq-item { background: var(--bg-cream); border-radius: var(--radius-card); overflow: hidden; }
+.faq-item { position: relative; background: var(--bg-cream); border-radius: var(--radius-card); overflow: hidden; }
+.faq-item::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+.faq-item summary { padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { .faq-item::before { animation: none; } }
 .faq-item summary { list-style: none; padding: 20px 24px; font-weight: 600; font-size: 17px; color: var(--blue-deep); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: '+'; font-size: 22px; color: var(--orange); font-weight: 400; flex-shrink: 0; transition: transform .25s var(--ease); }
