@@ -46,26 +46,26 @@ const fuerDich = [
 // `gross` = halbe Rasterbreite (zwei nebeneinander) · `klein` = Palmen-Größe (269x600)
 // `schnitt` = zugeschnitten auf 3/4 der Höhe
 const galerie = [
-  // ── Querstreifen 1000x447 · acht Stück, paarweise nebeneinander ──────────────
+  // ── Reihe 1–2: vier Querstreifen ─────────────────────────────────────────────
   { src: '/img/icw/galerie-08.jpg',  gross: true },              // Blau 44 % — stärkstes Blau
   { src: '/img/icw/galerie-05.jpg',  gross: true },              // Blau 39 %, hell
   { src: '/img/icw/galerie-06.jpg',  gross: true },              // Blau 25 % / Grün 19 %
   { src: '/img/icw/galerie-07.jpg',  gross: true },              // Blau 19 % / Grün 16 %
-  { src: '/img/icw/galerie-04.jpg',  gross: true },              // entsättigt — Brücke
-  { src: '/img/icw/galerie-03.jpg',  gross: true },              // warm 36 %, dunkel   (von Platz 8 auf 6)
-  { src: '/img/icw/galerie-10.jpg',  gross: true },              // warm 20 %           (von Platz 6 auf 7)
-  { src: '/img/icw/galerie-09.jpg',  gross: true },              // warm 36 %           (von Platz 7 auf 8)
-  // ── Beschnitten 1000x1675 · zwei Stück, eine Zeile ───────────────────────────
-  { src: '/img/icw/galerie-14.jpg',  schnitt: 'obenZehn' },      // Blau 42 % — Fels ab 38 %: 10 % oben, 15 % unten
-  { src: '/img/icw/galerie-13.jpg',  schnitt: 'unten' },         // Blau 41 % — ¼ von unten
-  // ── Palmen-Format 1000x2233 · drei Stück, eine Zeile ─────────────────────────
-  { src: '/img/icw/paradies-01.jpg', klein: true, neueZeile: true }, // Die Palme — Blau 42 %
-  { src: '/img/icw/paradies-03.jpg', klein: true },              // Türkis 180°
-  { src: '/img/icw/galerie-12.jpg',  klein: true },              // warm 17 % + Rosé (716x1600 = dasselbe Verhältnis)
-  // Rausgenommen, Dateien bleiben liegen (Hinterhand): paradies-04, paradies-02, galerie-11
-  // ── Fast quadratisch 1000x666 · zwei Stück ───────────────────────────────────
-  { src: '/img/icw/galerie-01.jpg', neueZeile: true },           // Blau 18 %, grünstichig
+  // ── Reihe 3: die drei 3:2-Bilder (frühere letzte drei) — nach oben geholt ─────
+  { src: '/img/icw/galerie-13.jpg',  schnitt: 'format32' },      // Himmel über Berg bleibt, Wiese unten gekürzt
+  { src: '/img/icw/galerie-01.jpg' },                            // Blau 18 %, grünstichig
   { src: '/img/icw/galerie-02.jpg' },                            // Brücke (steht auch auf einer anderen Seite)
+  // ── Reihe 4–5: die restlichen vier Querstreifen ──────────────────────────────
+  { src: '/img/icw/galerie-04.jpg',  gross: true },              // entsättigt — Brücke
+  { src: '/img/icw/galerie-03.jpg',  gross: true },              // warm 36 %, dunkel
+  { src: '/img/icw/galerie-10.jpg',  gross: true },              // warm 20 %
+  { src: '/img/icw/galerie-09.jpg',  gross: true },              // warm 36 %
+  // ── Reihe 6: alle vier Hochformate in EINER Reihe · galerie-12 (vorher unterste) zuerst
+  { src: '/img/icw/galerie-12.jpg',  klein: true },              // warm 17 % + Rosé
+  { src: '/img/icw/galerie-14.jpg',  klein: true },              // Blau 42 % — volles Hochformat
+  { src: '/img/icw/paradies-01.jpg', klein: true },              // Die Palme — Blau 42 %
+  { src: '/img/icw/paradies-03.jpg', klein: true },              // Türkis 180°
+  // Rausgenommen, Dateien bleiben liegen (Hinterhand): paradies-04, paradies-02, galerie-11
 ];
 
 // Über Annette & Herbert
@@ -542,25 +542,22 @@ const ueberPunkte = [
 /* Zum Aussortieren: JEDES Bild vollständig, kein Zuschnitt. Die Bilder haben sehr
    verschiedene Formate (1:2,2-Türme neben 2,2:1-Streifen) — die Reihen werden dadurch
    ungleich hoch. Das ist beabsichtigt, damit Annette sehen kann, was da wirklich ist. */
-/* Sechs Spalten statt drei — nur als Rechenraster: normale Bilder nehmen zwei Spalten
-   (unverändert drei pro Zeile), große nehmen drei, also exakt die halbe Breite.
-   Dadurch passen genau zwei große nebeneinander. */
-.galerie-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; align-items: start; }
-.galerie-grid img { grid-column: span 2; width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
-.galerie-grid img.g-gross { grid-column: span 3; }
-/* Erzwingt einen Zeilenanfang — sonst füllt das nächste Format die Restlücke der
-   vorherigen Gruppe auf und die Formate mischen sich wieder. */
-.galerie-grid img.g-neuezeile { grid-column-start: 1; grid-column-end: span 2; }
-/* Kleiner, Schnitt unverändert: Höhe begrenzt, Breite folgt dem Seitenverhältnis. */
-.galerie-grid img.g-klein { max-height: 600px; width: auto; margin-inline: auto; }
+/* Zwölf Spalten als Rechenraster — teilbar durch 2, 3 UND 4:
+   3:2-Bilder span 4 (drei pro Zeile), große span 6 (zwei pro Zeile),
+   Hochformate span 3 (VIER pro Zeile — alle vier passen in eine Reihe). */
+.galerie-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; align-items: start; }
+.galerie-grid img { grid-column: span 4; width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.galerie-grid img.g-gross { grid-column: span 6; }
+/* Kleiner (Hochformat), Schnitt unverändert: vier pro Zeile, Höhe begrenzt, Breite folgt dem Verhältnis. */
+.galerie-grid img.g-klein { grid-column: span 3; max-height: 600px; width: auto; margin-inline: auto; }
 /* Zuschnitte: 3/4 der Höhe bleiben stehen (1000x2233 → 1000x1675).
    „unten" schneidet ein Viertel unten weg (Ankerpunkt oben).
    „obenZehn" nimmt 10 % oben (Fels beginnt erst bei 38 % — der Himmel bleibt rein)
    und die restlichen 15 % unten. */
-.galerie-grid img.g-schnitt-unten,
-.galerie-grid img.g-schnitt-obenZehn { aspect-ratio: 1000 / 1675; object-fit: cover; height: auto; }
-.galerie-grid img.g-schnitt-unten     { object-position: center top; }
-.galerie-grid img.g-schnitt-obenZehn  { object-position: center 40%; }
+/* 3:2 wie die beiden quadratischeren Bilder. galerie-13 ist ein Hochformat (1000x2233);
+   sichtbar bleiben ~40–70 % der Höhe: Streifen blauer Himmel über dem Berg, der Berg
+   selbst, etwas Vordergrund — die untere Wiese wird abgeschnitten. */
+.galerie-grid img.g-schnitt-format32 { aspect-ratio: 3 / 2; object-fit: cover; height: auto; object-position: center 56%; }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
@@ -577,9 +574,11 @@ const ueberPunkte = [
   .testi-cols  { grid-template-columns: 1fr; }
   .testi-col   { gap: 22px; }
   .ueber-grid  { grid-template-columns: 1fr; }
-  /* Mobil: 4 Rechenspalten → normale Bilder zwei nebeneinander, große über die volle Breite */
+  /* Mobil: 4 Rechenspalten → 3:2 zwei nebeneinander, große volle Breite, Hochformate zwei nebeneinander */
   .galerie-grid { grid-template-columns: repeat(4,1fr); }
+  .galerie-grid img { grid-column: span 2; }
   .galerie-grid img.g-gross { grid-column: span 4; }
+  .galerie-grid img.g-klein { grid-column: span 2; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
 }
 </style>
