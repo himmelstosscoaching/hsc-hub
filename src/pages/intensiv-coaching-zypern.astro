@@ -10,13 +10,13 @@ import FooterFokus from '../components/FooterFokus.astro';
 
 const gespraech = 'https://orientierungsgespraech-himmelstoss.youcanbook.me';
 
-// Ablauf „Was passiert in dieser Woche"
+// Ablauf „Was passiert in dieser Woche" — Farbleiter Blau → Lachs-Orange (Stufen aus der Schatz-Kapitelleiter)
 const woche = [
-  'Wir finden mit dir heraus, was deine wirkliche innere Vision ist — was du dir tief in deinem Inneren für dieses Leben vorgenommen hast.',
-  'Wir lösen mit dir die festgefahrenen Muster und emotionalen Blockaden, die deiner Vision im Weg stehen. Dabei spielen meist Verletzungen aus der Kindheit oder Haltungen aus vorangehenden Leben eine Rolle.',
-  'Am Ende der Woche wirst du nicht nur verstehen, was dich bisher zurückgehalten hat, sondern auch wissen, wie du es dauerhaft veränderst.',
-  'Du bekommst Werkzeuge für dein weiteres Leben. Diese Woche soll kein einmaliger „Schubser" sein, sondern eine nachhaltige Veränderung. Du gewinnst Klarheit, Leichtigkeit und neue Perspektiven.',
-  'Falls du in einer Beziehung bist: Du erkennst, warum ihr immer wieder in Konflikte geratet, wie du es lösen kannst — und wie ihr euch wirklich unterstützen könnt.',
+  { c: '#2C4B7B', t: 'Wir finden mit dir heraus, was deine wirkliche innere Vision ist — was du dir tief in deinem Inneren für dieses Leben vorgenommen hast.' },
+  { c: '#5AA0C4', t: 'Wir lösen mit dir die festgefahrenen Muster und emotionalen Blockaden, die deiner Vision im Weg stehen. Dabei spielen meist Verletzungen aus der Kindheit oder Haltungen aus vorangehenden Leben eine Rolle.' },
+  { c: '#E9B9C0', t: 'Am Ende der Woche wirst du nicht nur verstehen, was dich bisher zurückgehalten hat, sondern auch wissen, wie du es dauerhaft veränderst.' },
+  { c: '#F89489', t: 'Du bekommst Werkzeuge für dein weiteres Leben. Diese Woche soll kein einmaliger „Schubser" sein, sondern eine nachhaltige Veränderung. Du gewinnst Klarheit, Leichtigkeit und neue Perspektiven.' },
+  { c: '#FA9D56', t: 'Falls du in einer Beziehung bist: Du erkennst, warum ihr immer wieder in Konflikte geratet, wie du es lösen kannst — und wie ihr euch wirklich unterstützen könnt.' },
 ];
 
 // „Was du aus dieser Woche mitnimmst"
@@ -29,28 +29,54 @@ const mitnehmen = [
   'Falls du in einer Beziehung bist: Du weißt, wie ihr euch gegenseitig unterstützen könnt — statt euch unbewusst zu blockieren.',
 ];
 
-// „Diese Woche ist für dich, wenn du …"
+// „Diese Woche ist für dich, wenn du …" — Kernwörter fett (Muster: Eignungs-Panel der Schatz-Seite)
 const fuerDich = [
-  'tief sitzende Blockaden endlich lösen willst — statt nur oberflächliche Lösungen zu suchen.',
-  'das Gefühl hast, dass „mehr" in dir steckt, du aber nicht weißt, wie du es freisetzen kannst.',
-  'endlich den roten Faden hinter deinen Problemen erkennen willst — um frei zu sein.',
-  'in einer Beziehung bist und eine tiefere, unterstützende Verbindung erleben möchtest.',
-  'einfach dein Leben in die Hand nehmen möchtest.',
+  '<strong>tief sitzende Blockaden</strong> endlich lösen willst — statt nur oberflächliche Lösungen zu suchen.',
+  'das Gefühl hast, dass <strong>„mehr"</strong> in dir steckt, du aber nicht weißt, wie du es freisetzen kannst.',
+  'endlich den <strong>roten Faden</strong> hinter deinen Problemen erkennen willst — um frei zu sein.',
+  'in einer Beziehung bist und eine <strong>tiefere, unterstützende Verbindung</strong> erleben möchtest.',
+  'einfach <strong>dein Leben in die Hand nehmen</strong> möchtest.',
 ];
 
-// Galerie — exakte Bilder aus dem ClickFunnels-Archiv (14 Galerie + 4 Paradies)
+// Galerie — 18 Bilder aus dem ClickFunnels-Archiv (14 Galerie + 4 Paradies).
+// Reihenfolge NICHT mehr durchnummeriert, sondern nach gemessenem Farbanteil sortiert:
+// Blau → Türkis → Grün → entsättigte Brücke → Warm. Folgt dem Sun-Strip der Marke.
+// Gemessen 2026-07-17 im Browser (Durchschnitts-HSL + dominante Farbtonanteile pro Bild).
+// Nach FORMAT gruppiert — innerhalb jeder Gruppe läuft der Farbverlauf Blau → Warm weiter.
+// `gross` = halbe Rasterbreite (zwei nebeneinander) · `klein` = Palmen-Größe (269x600)
+// `schnitt` = zugeschnitten auf 3/4 der Höhe
 const galerie = [
-  ...Array.from({ length: 14 }, (_, i) => `/img/icw/galerie-${String(i + 1).padStart(2, '0')}.jpg`),
-  ...Array.from({ length: 4 }, (_, i) => `/img/icw/paradies-${String(i + 1).padStart(2, '0')}.jpg`),
+  // ── Querstreifen 1000x447 · acht Stück, paarweise nebeneinander ──────────────
+  { src: '/img/icw/galerie-08.jpg',  gross: true },              // Blau 44 % — stärkstes Blau
+  { src: '/img/icw/galerie-05.jpg',  gross: true },              // Blau 39 %, hell
+  { src: '/img/icw/galerie-06.jpg',  gross: true },              // Blau 25 % / Grün 19 %
+  { src: '/img/icw/galerie-07.jpg',  gross: true },              // Blau 19 % / Grün 16 %
+  { src: '/img/icw/galerie-04.jpg',  gross: true },              // entsättigt — Brücke
+  { src: '/img/icw/galerie-03.jpg',  gross: true },              // warm 36 %, dunkel   (von Platz 8 auf 6)
+  { src: '/img/icw/galerie-10.jpg',  gross: true },              // warm 20 %           (von Platz 6 auf 7)
+  { src: '/img/icw/galerie-09.jpg',  gross: true },              // warm 36 %           (von Platz 7 auf 8)
+  // ── Beschnitten 1000x1675 · zwei Stück, eine Zeile ───────────────────────────
+  { src: '/img/icw/galerie-14.jpg',  schnitt: 'obenZehn' },      // Blau 42 % — Fels ab 38 %: 10 % oben, 15 % unten
+  { src: '/img/icw/galerie-13.jpg',  schnitt: 'unten' },         // Blau 41 % — ¼ von unten
+  // ── Palmen-Format 1000x2233 · drei Stück, eine Zeile ─────────────────────────
+  { src: '/img/icw/paradies-01.jpg', klein: true, neueZeile: true }, // Die Palme — Blau 42 %
+  { src: '/img/icw/paradies-03.jpg', klein: true },              // Türkis 180°
+  { src: '/img/icw/galerie-12.jpg',  klein: true },              // warm 17 % + Rosé (716x1600 = dasselbe Verhältnis)
+  // Rausgenommen, Dateien bleiben liegen (Hinterhand): paradies-04, paradies-02, galerie-11
+  // ── Fast quadratisch 1000x666 · zwei Stück ───────────────────────────────────
+  { src: '/img/icw/galerie-01.jpg', neueZeile: true },           // Blau 18 %, grünstichig
+  { src: '/img/icw/galerie-02.jpg' },                            // Brücke (steht auch auf einer anderen Seite)
 ];
 
 // Über Annette & Herbert
+// Jahreszahlen stehen je genau EINMAL — keine Dauerangaben („30 Jahre"), die jedes Jahr veralten.
+// Annette ist WEITERHIN Ärztin; beendet ist nur die Praxis (2021).
 const ueberPunkte = [
-  'Annette: 24 Jahre als Ärztin für individuelle Gesundheitswege tätig — international aufgesucht für schulmedizinisch austherapierte Patienten.',
-  'Herbert: Diplom-Kunsttherapeut, Waldorflehrer und Sucht-Experte mit Jahrzehnten Erfahrung.',
-  '33 Jahre Ehe: Wir kennen die Herausforderungen von Beziehungen — und wie man gemeinsam wächst, statt sich zu verlieren.',
-  'Anthroposophischer Ansatz: Wir arbeiten mit den Lehren Rudolf Steiners und beziehen spirituelle Dimensionen mit ein.',
-  'Seit 2021 vollberuflich: Wir haben selbst den Schritt gewagt, unserer Vision zu folgen — und begleiten dich dabei, deinen Weg zu finden.',
+  '<strong>Annette:</strong> Ärztin seit 1997 — bis 2021 mit eigener Praxis für individuelle Gesundheitswege, international aufgesucht: von traumatisierten Menschen bis zu schulmedizinisch austherapierten Patienten. Dieses Wissen ist nicht weg, es steckt heute im Coaching.',
+  '<strong>Herbert:</strong> Vom Waffengeschäft über die Kunsttherapie zum Waldorflehrer — heute Sucht-Experte, mit einem Ansatz, den er selbst entwickelt hat: nicht Verbote, sondern die Frage dahinter — <em>Was sucht ein Mensch hinter der Droge?</em> Über zwanzigtausend Menschen hat er so begleitet.',
+  '<strong>Seit 1992 verheiratet, drei inzwischen erwachsene Kinder:</strong> Wir kennen die Herausforderungen von Beziehungen und Familie — und wie man gemeinsam wächst, statt sich zu verlieren.',
+  '<strong>Anthroposophische Grundlage:</strong> Wir arbeiten mit den Lehren Rudolf Steiners und beziehen spirituelle Dimensionen mit ein — immer mit dem Blick darauf, wie das im konkreten Alltag wirksam wird.',
+  '<strong>Seit 2021:</strong> Wir haben unser Leben komplett verändert und sind unserer Vision gefolgt — und begleiten dich dabei, deinen Weg zu finden.',
 ];
 ---
 
@@ -63,20 +89,25 @@ const ueberPunkte = [
 
   <!-- 1 · HERO -->
   <section class="s-hero hero-fokus">
-    <img class="hero-bg" src="/img/icw/hero-kueste.jpg" alt="Abendlicht über dem Meer bei Pachyammos, Zypern" loading="eager" />
+    <img class="hero-bg" src="/img/icw/hero-pomos.jpg" alt="Sonnenuntergang über dem Meer bei Pomos, Zypern — die Sonne steht auf dem Horizont, eine goldene Lichtbahn läuft über das Wasser" loading="eager" />
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="hero-eyebrow">Retreat in Pachyammos · Zypern</p>
-        <h1>Intensiv-Coaching-Woche</h1>
-        <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
-        <div class="hero-meta">
-          <span>7 Tage · 6 Nächte</span>
-          <span>Zweimal täglich Coaching</span>
-          <span>Vollpension am Meer</span>
+        <div class="hero-oben">
+          <p class="hero-eyebrow">Retreat in Pachyammos · Zypern</p>
+          <h1>Intensiv-Coaching-Woche</h1>
         </div>
-        <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Orientierungs-Gespräch buchen →</a>
-        <p class="hero-note">kostenfrei &amp; unverbindlich · mit Annette &amp; Herbert Himmelstoß</p>
+        {/* Freiraum — hier steht im Foto die Sonne (gemessen: x 56%, y 52%). Bleibt leer. */}
+        <div class="hero-sonnenfeld" aria-hidden="true"></div>
+        <div class="hero-unten">
+          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
+          <div class="hero-meta">
+            <span>7 Tage · 6 Nächte</span>
+            <span>Zweimal täglich Coaching</span>
+            <span>Vollpension am Meer</span>
+          </div>
+          <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
+        </div>
       </div>
     </div>
     <div class="sun-divider thick" aria-hidden="true"></div>
@@ -120,8 +151,8 @@ const ueberPunkte = [
   <section class="s-passiert">
     <div class="container narrow">
       <h2 class="center">Was passiert in dieser Woche?</h2>
-      <ul class="check-list">
-        {woche.map((w) => <li>{w}</li>)}
+      <ul class="check-list woche-list">
+        {woche.map((w) => <li style={`--wc: ${w.c}`}>{w.t}</li>)}
       </ul>
       <blockquote class="pull-quote">„Es übertrifft alles, was ich mir vorstellen konnte."<cite>— Heike</cite></blockquote>
     </div>
@@ -134,7 +165,7 @@ const ueberPunkte = [
       <h2 class="center">Was du aus dieser Woche mitnimmst</h2>
       <div class="mit-grid">
         {mitnehmen.map((m) => (
-          <div class="mit-card"><span class="ornament" aria-hidden="true">✦</span><p>{m}</p></div>
+          <div class="mit-card"><p>{m}</p></div>
         ))}
       </div>
       <blockquote class="pull-quote center">„Ich habe eine Woche erlebt, wie ich sie niemals erwartet hätte."<cite>— Gabriele</cite></blockquote>
@@ -147,19 +178,19 @@ const ueberPunkte = [
     <div class="container ablauf-grid">
       <div class="ablauf-text">
         <p class="acc-eyebrow">Du stehst im Mittelpunkt</p>
-        <h2>Zweimal täglich begleiten wir dich</h2>
+        <h2>Wir sind die ganze Woche für dich da</h2>
         <p>Zweimal täglich begleiten wir dich mit individuellen Coaching-Prozessen, um dein mitgebrachtes Thema zu lösen und nachhaltige Veränderungen zu ermöglichen.</p>
         <p>Dazwischen hast du genügend Raum, um das Erlebte nachklingen zu lassen, es zu verankern und die wundervolle Natur Zyperns zu genießen: mit einem Bad im Meer, einem Spaziergang am Strand oder in den Bergen.</p>
-        <p>Wir unternehmen mit dir auch kleine Ausflüge in die umliegenden Orte und an den Hafen — so, wie es für dich stimmig ist und deinen Prozess unterstützt. Wir sind während der gesamten Zeit für dich da.</p>
+        <p>Wir unternehmen mit dir auch kleine Ausflüge in die umliegenden Orte und an den Hafen — so, wie es für dich stimmig ist und deinen Prozess unterstützt.</p>
       </div>
-      <div class="ablauf-img">
-        <img src="/img/icw/haus-zypern.jpg" alt="Annette und Herbert — Haus auf Zypern" loading="lazy" />
+      <div class="ablauf-img ablauf-img--haus">
+        <img src="/img/icw/haus-zypern.jpg" alt="Terrasse mit Engelsbrunnen, Bougainvillea und blauen Stühlen — unser Haus in Pachyammos" loading="lazy" />
       </div>
     </div>
 
     <div class="container ablauf-grid reverse">
-      <div class="ablauf-img">
-        <img src="/img/icw/verpflegung.jpg" alt="Frische Verpflegung — Vollpension bei Annette und Herbert" loading="lazy" />
+      <div class="ablauf-img ablauf-img--essen">
+        <img src="/img/icw/verpflegung.jpg" alt="Tisch voller frischer Früchte: Orangen, Zitronen, Mandarinen, Granatäpfel und Pflaumen" loading="lazy" />
       </div>
       <div class="ablauf-text">
         <h3>Unterkunft &amp; Verpflegung</h3>
@@ -174,9 +205,11 @@ const ueberPunkte = [
   <section class="s-fuer">
     <div class="container narrow">
       <h2 class="center">Diese Woche ist für dich, wenn du …</h2>
-      <ul class="check-list">
-        {fuerDich.map((f) => <li>{f}</li>)}
-      </ul>
+      <div class="fuer-panel">
+        <ul class="fuer-list">
+          {fuerDich.map((f) => <li set:html={f} />)}
+        </ul>
+      </div>
       <div class="chance-box">
         <p>Das ist deine Chance, dein Leben wirklich zu verändern.</p>
         <ul>
@@ -291,11 +324,10 @@ const ueberPunkte = [
       <div class="ueber-text">
         <p class="acc-eyebrow">Wer wir sind</p>
         <h2>Wir sind Annette &amp; Herbert Himmelstoß</h2>
-        <p>30 Jahre glücklich verheiratet — und seit 2021 vollberuflich als Coaches für euch da. Wir sind nicht nur eure Begleiter, wir leben, was wir mit euch teilen. Seit drei Jahrzehnten gehen wir gemeinsam durch die Höhen und Tiefen des Lebens und haben dabei gelernt, Krisen als Wachstumschancen zu sehen.</p>
+        <p>Wir sind nicht nur deine Begleiter — wir leben, was wir mit dir teilen. Gemeinsam sind wir durch die Höhen und Tiefen des Lebens gegangen und haben dabei gelernt, Krisen als Wachstumschancen zu sehen.</p>
         <ul class="ueber-list">
-          {ueberPunkte.map((u) => <li>{u}</li>)}
+          {ueberPunkte.map((u) => <li set:html={u} />)}
         </ul>
-        <p>Unsere frühere Tätigkeit als Ärztin für individuelle Wege und als Waldorflehrer sowie unser Familienleben mit unseren drei inzwischen erwachsenen Kindern sind wesentliche Grundlagen für unser heutiges Wirken.</p>
       </div>
     </div>
     <div class="sun-divider" aria-hidden="true"></div>
@@ -316,7 +348,14 @@ const ueberPunkte = [
     <div class="container">
       <h2 class="center">Ein paar Eindrücke aus unserem kleinen Paradies</h2>
       <div class="galerie-grid">
-        {galerie.map((g, i) => <img src={g} alt={`Eindruck aus unserem Haus in Pachyammos, Zypern (${i + 1})`} loading="lazy" />)}
+        {galerie.map((g, i) => (
+          <img
+            src={g.src}
+            class:list={[g.gross && 'g-gross', g.klein && 'g-klein', g.schnitt && `g-schnitt-${g.schnitt}`, g.neueZeile && 'g-neuezeile']}
+            alt={`Eindruck aus unserem Haus in Pachyammos, Zypern (${i + 1})`}
+            loading="lazy"
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -326,22 +365,54 @@ const ueberPunkte = [
 
 <style>
 /* ── HERO ─────────────────────────────────────────────────── */
-.s-hero { position: relative; min-height: clamp(520px, 66vh, 680px); display: flex; align-items: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+/* padding: 0 — die globale section-Regel gibt 160px oben/unten. Die fressen genau den
+   Raum, den der Freiraum um die Sonne braucht; der Hero polstert über .hero-inner selbst. */
+.s-hero { position: relative; min-height: clamp(600px, 82vh, 880px); display: flex; align-items: stretch; overflow: hidden; padding: 0; }
+/* hero-pomos.jpg ist 4000x1792 — im Hero voll sichtbar (100% Höhe, 90% Breite) und
+   auf 0.52x verkleinert, also scharf. Der Bildverlauf Blau→Gold entspricht dem Sun-Strip. */
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+/* Kein dunkler Schleier — Blau von links, Lachs-Orange von rechts.
+   Dazu ein warmes AUFhellen des unteren Bildrandes: Das Wasser ist nur in der
+   Sonnenbahn hell, an den Rändern dunkel — dort stehen aber die beiden Textzeilen.
+   Hellt auf statt abzudunkeln, das Bild bleibt leuchtend. */
 .hero-veil { position: absolute; inset: 0; background:
-  linear-gradient(180deg, rgba(18,42,72,0.40) 0%, rgba(18,42,72,0.16) 48%, rgba(18,42,72,0.44) 100%),
-  linear-gradient(90deg, rgba(39,131,172,0.30) 0%, rgba(39,131,172,0) 42%),
-  linear-gradient(270deg, rgba(250,157,86,0.26) 0%, rgba(250,157,86,0) 42%); }
-.hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; }
-.hero-text { max-width: 880px; margin: 0 auto; text-align: center; }
-.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin: 0 0 18px; }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(20,35,60,0.35); margin: 0 0 22px; }
-.hero-sub { font-size: clamp(20px,2vw,25px); color: rgba(255,255,255,0.90); margin: 0 0 24px; line-height: 1.5; }
-.hero-sub strong { color: #fff; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 30px; font-size: clamp(15px,1.4vw,17px); color: rgba(255,255,255,0.82); font-weight: 500; }
+  linear-gradient(180deg, rgba(255,248,236,0) 60%, rgba(255,246,232,0.52) 88%, rgba(255,245,230,0.62) 100%),
+  linear-gradient(90deg, rgba(39,131,172,0.42) 0%, rgba(39,131,172,0) 46%),
+  linear-gradient(270deg, rgba(250,157,86,0.38) 0%, rgba(250,157,86,0) 46%); }
+/* Der Text weicht der Sonne aus (gemessen bei 52% der Hero-Höhe): eine Gruppe oben,
+   eine unten, der Freiraum dazwischen dehnt sich auf den Rest. Kein fester Wert —
+   so bleibt die Mitte frei, egal wie hoch der Hero durch Textlänge oder Fenster wird. */
+/* Die untere Gruppe hängt am unteren Rand. Sie muss in dem schmalen Band liegen, das
+   unter der Felsgruppe (bis ~62 %) beginnt und über dem dunklen Wasser (ab ~85 %) endet.
+   Das Polster unten hält sie in diesem Fenster. */
+.hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
+.hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.hero-sonnenfeld { flex: 1 1 auto; min-height: 80px; }
+/* Schrift dunkel statt weiß: Das Foto ist in der Mitte hell (L67–79). Gemessen kommt
+   Weiß dort auf Kontrast 1,25 — unlesbar (nötig: 3,0). Marken-Blau erreicht 7,01.
+   Der zarte helle Schimmer hebt die Schrift vom Goldton ab, ohne das Bild abzudunkeln. */
+.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-deep); margin: 0 0 18px; text-shadow: 0 1px 14px rgba(255,252,245,0.75); }
+.s-hero h1 { color: var(--blue-deep); text-shadow: 0 2px 20px rgba(255,252,245,0.70), 0 0 50px rgba(255,250,240,0.55); margin: 0 0 22px; }
+/* Dunkler als die Überschrift: Die Zeile steht auf dem Wasser, das nur in der schmalen
+   Sonnenbahn hell ist — an ihren Enden reicht --blue-deep nicht (gemessen 2,49). */
+/* Einzeilig: Die Zeile ist ~930px breit — deshalb .hero-text auf 980px und die Größe
+   so gedeckelt, dass sie hineinpasst. Auf schmalen Fenstern darf sie wieder umbrechen. */
+.hero-sub { font-size: clamp(23px,2.4vw,29px); color: var(--hero-ink-dunkel); margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(255,252,245,0.85); }
+@media (min-width: 1100px) { .hero-sub { white-space: nowrap; } }
+.hero-sub strong { color: var(--blue-deep); font-weight: 700; }
+/* Die beiden kleinen Zeilen unten stehen auf dem Wasser, das nach unten dunkler wird.
+   Dort schafft weder Weiß (3,2) noch --blue-deep (2,7) die nötigen 4,5 — daher ein
+   dunklerer Ton, einmal definiert und zweimal benutzt statt zwei Sonderfarben. */
+.hero-text { --hero-ink-dunkel: #14263F; }
+/* 19px fett = zählt als große Schrift, braucht damit Kontrast 3,0 statt 4,5.
+   Bei 17px kam sie auf 3,95 und wäre durchgefallen — dieselbe dunkle Wasserkante. */
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 26px; font-size: 19px; color: var(--hero-ink-dunkel); font-weight: 700; text-shadow: 0 1px 12px rgba(255,252,245,0.85); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
-.hero-note { margin: 16px 0 0; font-size: 14px; color: rgba(255,255,255,0.80); }
+/* Im Hero bewusst zurückgenommen — der Button war zu dominant. Die btn-lg weiter
+   unten auf der Seite (Angebot, Abschluss) bleiben groß. */
+.hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
+.hero-note { margin: 16px 0 0; font-size: 14px; font-weight: 600; color: var(--hero-ink-dunkel); text-shadow: 0 1px 12px rgba(255,252,245,0.85); }
 .s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── PROBLEM ──────────────────────────────────────────────── */
@@ -349,8 +420,11 @@ const ueberPunkte = [
 .s-problem h2 { margin-bottom: 18px; }
 .lead { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,1.8vw,24px); line-height: 1.5; color: var(--blue-deep); }
 .pain-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 12px; }
-.pain-list li { padding: 16px 20px 16px 52px; background: var(--bg-cream); border-radius: 8px; position: relative; font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
-.pain-list li::before { content: '›'; position: absolute; left: 20px; top: 14px; color: var(--orange); font-size: 22px; font-weight: 700; line-height: 1; }
+/* Sun-Strip oben, unten zart abgerundet (Muster: .faq-item auf der DLLL-Seite).
+   Der Pfeil sitzt deshalb auf ::after — ::before gehört jetzt dem Streifen. */
+.pain-list li { padding: 26px 20px 16px 52px; background: var(--bg-cream); border-radius: 8px; position: relative; overflow: hidden; font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+.pain-list li::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+.pain-list li::after { content: '›'; position: absolute; left: 20px; top: 24px; color: var(--orange); font-size: 22px; font-weight: 700; line-height: 1; }
 .problem-close { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,1.7vw,22px); color: var(--blue-deep); margin-top: 8px; }
 
 /* ── ES GIBT EINEN WEG ────────────────────────────────────── */
@@ -360,10 +434,20 @@ const ueberPunkte = [
 .s-weg .video-embed { max-width: 720px; margin-left: auto; margin-right: auto; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* ── CHECK-LIST (Was passiert / Für wen) ──────────────────── */
+/* Vorzeile größer — bewusst nur auf DIESER Seite.
+   Global steht sie in brand-v02.css auf 15px und gilt für die ganze Website. */
+.acc-eyebrow { font-size: 19px; }
+
+/* ── CHECK-LIST (Was passiert) ────────────────────────────── */
 .check-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 14px; }
 .check-list li { padding: 4px 0 4px 40px; position: relative; font-size: 17px; color: var(--ink-soft); line-height: 1.6; }
 .check-list li::before { content: '✓'; position: absolute; left: 0; top: 3px; color: var(--orange); font-weight: 700; font-size: 20px; }
+
+/* Woche-Felder: sanft getönt, gestuft von Blau ins Lachs-Orange (--wc je Feld inline).
+   Muster: .kapitel-card der Schatz-Seite. */
+.woche-list { gap: 12px; }
+.woche-list li { padding: 20px 24px 20px 56px; background: color-mix(in srgb, var(--wc) 12%, var(--bg-white)); border-top: 4px solid var(--wc); border-radius: var(--radius-card); color: var(--ink); }
+.woche-list li::before { content: '✓'; left: 22px; top: 21px; color: var(--wc); }
 .pull-quote { margin: 40px auto 0; padding: 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.4; }
 .pull-quote cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--font-body); font-size: 15px; color: var(--ink-light); }
 .s-passiert { background: var(--bg-white); }
@@ -372,8 +456,9 @@ const ueberPunkte = [
 .s-mitnehmen { background: var(--bg-cream); }
 .s-mitnehmen h2 { margin-bottom: clamp(36px,5vw,52px); }
 .mit-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.mit-card { background: var(--bg-white); border-radius: var(--radius-card); padding: 26px; border-top: 4px solid var(--orange); box-shadow: var(--shadow-soft); }
-.ornament { display: block; font-size: 18px; color: var(--orange); margin-bottom: 12px; }
+/* position/overflow nötig, damit der ::before-Streifen die runden Ecken respektiert */
+.mit-card { background: var(--bg-white); border-radius: var(--radius-card); padding: 32px 26px 26px; position: relative; overflow: hidden; box-shadow: var(--shadow-soft); }
+.mit-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
 .mit-card p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
 
 /* ── ABLAUF ───────────────────────────────────────────────── */
@@ -381,11 +466,27 @@ const ueberPunkte = [
 .ablauf-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,6vw,72px); align-items: center; }
 .ablauf-grid + .ablauf-grid { margin-top: clamp(48px,6vw,80px); }
 .ablauf-grid.reverse { grid-template-columns: 1fr 1.1fr; }
-.ablauf-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.ablauf-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); width: 100%; object-fit: cover; }
+/* haus-zypern.jpg ist 952×2953 (1:3,1) und wird VOLLSTÄNDIG gezeigt — kein Zuschnitt.
+   Gesteuert über die Höhe; die Breite ergibt sich daraus (660px hoch → ~213px breit).
+   Das Bild wird dadurch schmal — das ist der Preis dafür, das ganze Motiv zu sehen. */
+.ablauf-img--haus img { aspect-ratio: auto; object-fit: contain; width: auto; max-width: 100%; max-height: 660px; margin-inline: auto; }
+/* verpflegung.jpg ist eine Panorama-Aufnahme über den Tisch (1000×229) — die Fülle
+   in der Breite IST das Motiv. Höher zuschneiden hieße: eine Schüssel statt der Tafel.
+   3:1 macht es spürbar größer und opfert nur die äußeren Ränder. */
+.ablauf-img--essen img { aspect-ratio: 3 / 1; object-position: center center; }
 .ablauf-text h3 { margin-bottom: 12px; }
 
 /* ── FÜR WEN / CHANCE ─────────────────────────────────────── */
+/* Blau getöntes Panel — Muster: .eignung-ja der Schatz-Seite, aber nur die Ja-Seite
+   (kein „Nicht für dich"-Gegenstück). Innere Überschrift entfällt: die H2 sagt es schon. */
 .s-fuer { background: var(--bg-cream); }
+.fuer-panel { background: rgba(117,191,218,0.16); border-radius: var(--radius-card); padding: clamp(28px,3.2vw,40px); box-shadow: var(--shadow-soft); margin: 36px 0 0; }
+.fuer-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.fuer-list li { padding-left: 42px; position: relative; font-size: 17px; color: var(--ink); line-height: 1.55; }
+.fuer-list li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--sky-light); color: #fff; font-size: 14px; font-weight: 700; }
+/* :global nötig — die <strong> kommen per set:html und tragen Astros Scope-Attribut nicht */
+.fuer-list li :global(strong) { font-weight: 700; color: #2E7CA6; }
 .chance-box { margin-top: 40px; padding: 32px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
 .chance-box > p { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,1.8vw,24px); color: var(--blue-deep); margin: 0 0 16px; }
 .chance-box ul { margin: 0; padding-left: 22px; color: var(--ink-soft); }
@@ -438,14 +539,36 @@ const ueberPunkte = [
 /* ── GALERIE ──────────────────────────────────────────────── */
 .s-galerie { background: var(--bg-white); }
 .s-galerie h2 { margin-bottom: clamp(36px,5vw,52px); }
-.galerie-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.galerie-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+/* Zum Aussortieren: JEDES Bild vollständig, kein Zuschnitt. Die Bilder haben sehr
+   verschiedene Formate (1:2,2-Türme neben 2,2:1-Streifen) — die Reihen werden dadurch
+   ungleich hoch. Das ist beabsichtigt, damit Annette sehen kann, was da wirklich ist. */
+/* Sechs Spalten statt drei — nur als Rechenraster: normale Bilder nehmen zwei Spalten
+   (unverändert drei pro Zeile), große nehmen drei, also exakt die halbe Breite.
+   Dadurch passen genau zwei große nebeneinander. */
+.galerie-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; align-items: start; }
+.galerie-grid img { grid-column: span 2; width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.galerie-grid img.g-gross { grid-column: span 3; }
+/* Erzwingt einen Zeilenanfang — sonst füllt das nächste Format die Restlücke der
+   vorherigen Gruppe auf und die Formate mischen sich wieder. */
+.galerie-grid img.g-neuezeile { grid-column-start: 1; grid-column-end: span 2; }
+/* Kleiner, Schnitt unverändert: Höhe begrenzt, Breite folgt dem Seitenverhältnis. */
+.galerie-grid img.g-klein { max-height: 600px; width: auto; margin-inline: auto; }
+/* Zuschnitte: 3/4 der Höhe bleiben stehen (1000x2233 → 1000x1675).
+   „unten" schneidet ein Viertel unten weg (Ankerpunkt oben).
+   „obenZehn" nimmt 10 % oben (Fels beginnt erst bei 38 % — der Himmel bleibt rein)
+   und die restlichen 15 % unten. */
+.galerie-grid img.g-schnitt-unten,
+.galerie-grid img.g-schnitt-obenZehn { aspect-ratio: 1000 / 1675; object-fit: cover; height: auto; }
+.galerie-grid img.g-schnitt-unten     { object-position: center top; }
+.galerie-grid img.g-schnitt-obenZehn  { object-position: center 40%; }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
   .s-hero      { min-height: 600px; align-items: flex-end; }
   .hero-bg     { object-position: 60% top; }
-  .hero-veil   { background: linear-gradient(180deg, rgba(39,131,172,0.12) 0%, rgba(24,105,150,0.45) 45%, rgba(20,86,122,0.88) 100%); }
+  /* Mobil sitzt der Text unten IM Bild. Die Schrift ist jetzt dunkel, also wird hier
+     AUFgehellt statt abgedunkelt — der alte dunkelblaue Schleier würde sie verschlucken. */
+  .hero-veil   { background: linear-gradient(180deg, rgba(255,250,240,0) 35%, rgba(255,249,238,0.55) 70%, rgba(255,248,236,0.82) 100%); }
   .hero-inner  { padding-bottom: 60px; }
   .hero-text   { max-width: 100%; }
   .mit-grid    { grid-template-columns: 1fr; }
@@ -454,7 +577,9 @@ const ueberPunkte = [
   .testi-cols  { grid-template-columns: 1fr; }
   .testi-col   { gap: 22px; }
   .ueber-grid  { grid-template-columns: 1fr; }
-  .galerie-grid { grid-template-columns: 1fr 1fr; }
+  /* Mobil: 4 Rechenspalten → normale Bilder zwei nebeneinander, große über die volle Breite */
+  .galerie-grid { grid-template-columns: repeat(4,1fr); }
+  .galerie-grid img.g-gross { grid-column: span 4; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
 }
 </style>
