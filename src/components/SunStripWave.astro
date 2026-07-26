@@ -1,0 +1,45 @@
+---
+// Dünnes, wellenförmiges Band mit dem BESTEHENDEN Sun-Strip-Verlauf
+// (Blau → Türkis → Orange → Rosé) — ersetzt eine gerade Akzentlinie 1:1,
+// nur in Wellenform statt gerade. Reiner Deko-Balken, kein Farbfeld-Übergang
+// wie bei WaveDivider — daher kein "fill"/"accent"-Prop, sondern der volle Verlauf.
+// ⚠️ Die Farbstopps unten sind eine Kopie von --sun-strip (brand-v02.css) — SVG-Gradients
+// können keine CSS-Gradient-Variable referenzieren. Bei Änderung an --sun-strip hier nachziehen.
+interface Props { flip?: boolean }
+const { flip = false } = Astro.props;
+
+const gradId = `sunstrip-wave-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class={`sunstrip-wave${flip ? ' flip' : ''}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#2C4B7B" />
+        <stop offset="18%" stop-color="#3D7AAB" />
+        <stop offset="38%" stop-color="#75BFDA" />
+        <stop offset="70%" stop-color="#FA9D56" />
+        <stop offset="100%" stop-color="#F89489" />
+      </linearGradient>
+    </defs>
+    <path d="M0,32 C220,68 400,4 720,30 C1040,56 1220,0 1440,28 L1440,70 L0,70 Z" fill={`url(#${gradId})`} />
+  </svg>
+</div>
+
+<style>
+  .sunstrip-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px; /* Sub-Pixel-Lücken schließen */
+    line-height: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .sunstrip-wave svg {
+    display: block;
+    width: 100%;
+    height: clamp(10px, 1.6vw, 16px);
+  }
+  .sunstrip-wave.flip svg { transform: scaleY(-1); }
+</style>

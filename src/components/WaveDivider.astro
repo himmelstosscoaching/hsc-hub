@@ -1,0 +1,44 @@
+---
+// Weicher Übergang zwischen zwei Farbfeldern statt harter Kante.
+// fill = Hintergrundfarbe der NÄCHSTEN Sektion (die Welle "gehört" schon zu ihr).
+// Der Kamm der Welle trägt einen warmen Farbakzent (Sonnenuntergangs-Ton), der
+// zart nach unten in die reine Hintergrundfarbe übergeht — übernimmt damit
+// selbst den Job der geraden Sun-Strip-Linie, die an dieser Stelle entfällt.
+// Sitzt absolut am unteren Rand der aktuellen Sektion — die Sektion braucht
+// position:relative (Standard in brand-v02.css) und genug padding-bottom.
+interface Props { fill: string; accent?: string; flip?: boolean }
+const { fill, accent = 'var(--orange)', flip = false } = Astro.props;
+
+// Eindeutige Gradient-ID — mehrere WaveDivider können auf derselben Seite stehen,
+// SVG-IDs müssen eindeutig sein, sonst greifen Browser auf die erste gefundene ID zurück.
+const gradId = `wave-grad-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class={`wave-divider${flip ? ' flip' : ''}`} style={`--wave-fill: ${fill}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color={accent} />
+        <stop offset="42%" stop-color={fill} />
+      </linearGradient>
+    </defs>
+    <path d="M0,32 C220,68 400,4 720,30 C1040,56 1220,0 1440,28 L1440,70 L0,70 Z" fill={`url(#${gradId})`} />
+  </svg>
+</div>
+
+<style>
+  .wave-divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px; /* Sub-Pixel-Lücken schließen */
+    line-height: 0;
+    pointer-events: none;
+  }
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+    height: clamp(34px, 5vw, 60px);
+  }
+  .wave-divider.flip svg { transform: scaleY(-1); }
+</style>

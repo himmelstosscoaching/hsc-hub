@@ -1,8 +1,10 @@
 ---
 // Footer V03 — ruhiger Newsletter-Streifen oben, klare Navigation, YouTube als Icon
+import SunStripWave from './SunStripWave.astro';
 ---
 
 <footer class="footer-fokus">
+  <SunStripWave />
   <!-- Newsletter-Streifen: ein ruhiger Block, Text links / Feld rechts -->
   <div class="footer-news-strip">
     <div class="container footer-news-inner">
@@ -70,15 +72,6 @@
     color: var(--ink-soft);
     position: relative;
   }
-  .footer-fokus::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--sun-strip);
-    opacity: 0.5;
-  }
-
   /* Newsletter-Streifen */
   .footer-news-strip {
     padding: 44px 0;

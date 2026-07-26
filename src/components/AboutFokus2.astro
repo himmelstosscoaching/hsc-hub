@@ -1,6 +1,7 @@
 ---
 // About V2.1 — gekürzt: Auftakt + Annette|Herbert (Portraits) + 1 Schlusssatz
 // Zone 3 (Methoden/Schema/Verantwortung) entfernt — wandert in Pillars (Dopplung aufgelöst)
+import WaveDivider from './WaveDivider.astro';
 ---
 
 <section id="wer-wir-sind" class="about2">
@@ -12,6 +13,7 @@
       dankbar für unsere drei Kinder. Dazu eine Arztpraxis, viele Klassenzimmer,
       schwere Stunden, große Geschenke, herzliches Lachen — an allem sind wir gewachsen.
     </p>
+
     <figure class="about2-family reveal-on-scroll">
       <img src="/img/familie-felsen-quer.jpg" alt="Annette und Herbert mit ihren drei erwachsenen Kindern am Meer" loading="lazy" />
       <figcaption>Wir fünf — Annette, Herbert und unsere drei erwachsenen Kinder.</figcaption>
@@ -47,7 +49,7 @@
     <em>wir haben es miteinander gelebt.</em>
   </p>
 
-  <div class="sun-divider" aria-hidden="true"></div>
+  <WaveDivider fill="var(--bg-cream)" />
 </section>
 
 <style>

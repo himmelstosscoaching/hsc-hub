@@ -1,0 +1,63 @@
+---
+// Breites, wanderndes Farbband — der bestehende Sun-Strip-Verlauf (Blau→Türkis→Orange→Rosé),
+// schimmernd wie die dünnen Akzentlinien überall sonst, aber deutlich breiter UND als organische
+// Welle statt Rechteck: die Kontur variiert bewusst ungleichmäßig in der Breite (zwei unterschiedlich
+// große, unregelmäßig verteilte Schwünge statt eines mechanisch-repetitiven Sinus) — ruhig, aber lebendig.
+// Technik: SVG-<mask> (objectBoundingBox → skaliert responsiv) auf einem Div mit echtem
+// CSS-Verlaufshintergrund, damit der bewährte background-position-Shimmer (sun-shimmer) weiterläuft.
+interface Props { flip?: boolean }
+const { flip = false } = Astro.props;
+
+const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class={`tidal-wave${flip ? ' flip' : ''}`} aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <mask id={maskId} maskContentUnits="objectBoundingBox" maskUnits="objectBoundingBox">
+        <path
+          d="M0,0.55 C0.12,0.15 0.22,0.15 0.33,0.42 C0.45,0.7 0.52,0.75 0.62,0.5 C0.72,0.22 0.85,0.03 1,0.35 L1,1 L0,1 Z"
+          fill="#fff"
+        />
+      </mask>
+    </defs>
+  </svg>
+  <div class="tidal-wave-fill" style={`mask: url(#${maskId}); -webkit-mask: url(#${maskId});`}></div>
+</div>
+
+<style>
+  .tidal-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    line-height: 0;
+    pointer-events: none;
+  }
+  .tidal-wave-fill {
+    width: 100%;
+    height: clamp(54px, 7vw, 100px);
+    /* Eigener Verlauf statt --sun-strip: der direkte Sprung Türkis→Orange erzeugt beim
+       naiven RGB-Übergang einen schmutzig-braunen Zwischenton — hier per pastelliger
+       Apricot-Brücke bei ~54% vermieden, bevor es weiter zu kräftigem Orange geht.
+       Zwei weiße Verlaufsebenen drüber: kräftig nur oben in der Mitte (Wellenkämme),
+       löst sich nach unten UND zu beiden Seiten hin ins Weiß auf — kein harter Schnitt am Rand. */
+    background:
+      linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, #fff 100%),
+      linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, #fff 92%),
+      linear-gradient(90deg,
+        #2C4B7B 0%,
+        #3D7AAB 18%,
+        #75BFDA 38%,
+        #F7C9A0 54%,
+        #FA9D56 72%,
+        #F89489 100%
+      );
+    background-size: 100% 100%, 100% 100%, 200% 100%;
+    animation: sun-shimmer 14s ease-in-out infinite;
+  }
+  .tidal-wave.flip .tidal-wave-fill { transform: scaleY(-1); }
+  @media (prefers-reduced-motion: reduce) {
+    .tidal-wave-fill { animation: none; }
+  }
+</style>

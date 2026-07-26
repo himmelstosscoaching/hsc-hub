@@ -10,8 +10,9 @@ import FooterFokus from '../components/FooterFokus.astro';
 // 🔴 TODO (Christian): Digistore-Checkout für Edition 2026/2027 NEU anlegen — es existiert nur die 2025er-Version.
 //    Produkt 577723 (alter Link) ist die MONATSAUSRICHTUNG, NICHT die Heiligen Nächte → darf NICHT live gehen.
 //    Sobald das neue Produkt steht: Checkout-Link hier eintragen, Gutschein (z. B. „weihnachten-2026“) im Produkt anlegen.
-//    Bis dahin stillgelegt: Buttons sind sichtbar, führen aber bewusst nirgendwohin (kein falsches Produkt).
-const buchenUrl = '#';
+// Zwischenlösung (bis der echte Checkout steht): Buttons führen zu einer vorbereiteten
+//    Anmelde-Mail statt ins Leere — kein falsches Produkt, aber Interessenten können sich melden.
+const buchenUrl = 'mailto:kontakt@himmelstosscoaching.de?subject=12%20heilige%20N%C3%A4chte%202026%2F2027%20%E2%80%94%20ich%20bin%20dabei';
 
 // Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links)
 const bloecke = [

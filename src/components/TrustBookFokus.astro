@@ -8,9 +8,9 @@
   <div class="container narrow">
     <ul class="stats" aria-label="Was uns trägt">
       <li><span class="stat-num">seit 1992</span><span class="stat-label">ein Paar</span></li>
-      <li><span class="stat-num">20 Jahre</span><span class="stat-label">Privatarztpraxis</span></li>
-      <li><span class="stat-num">20.000+</span><span class="stat-label">Menschen begleitet</span></li>
-      <li><span class="stat-num">20+</span><span class="stat-label">Kongresse</span></li>
+      <li><span class="stat-num"><span class="stat-count" data-count-to="20">0</span> Jahre</span><span class="stat-label">Privatarztpraxis</span></li>
+      <li><span class="stat-num"><span class="stat-count" data-count-to="20">0</span>.000+</span><span class="stat-label">Menschen begleitet</span></li>
+      <li><span class="stat-num"><span class="stat-count" data-count-to="20">0</span>+</span><span class="stat-label">Kongresse</span></li>
       <li><span class="stat-num">Bestseller</span><span class="stat-label">Amazon, mehrere Kategorien</span></li>
     </ul>
 
@@ -54,6 +54,36 @@
   <div class="sun-divider" aria-hidden="true"></div>
 </section>
 
+<script>
+  // Kennzahlen zählen beim Scrollen hoch — respektiert prefers-reduced-motion.
+  const counts = document.querySelectorAll<HTMLElement>('.trust-fokus .stat-count');
+  if (counts.length) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animate = (el: HTMLElement) => {
+      const target = Number(el.dataset.countTo || '0');
+      if (reduce) { el.textContent = String(target); return; }
+      const duration = 1300;
+      const start = performance.now();
+      const step = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // ease-out
+        el.textContent = String(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target as HTMLElement);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counts.forEach((n) => io.observe(n));
+  }
+</script>
+
 <style>
   .trust-fokus {
     background: var(--bg-white);
@@ -82,6 +112,7 @@
     font-size: clamp(24px, 2.6vw, 34px);
     line-height: 1.1;
     color: var(--orange);
+    font-variant-numeric: tabular-nums;
   }
   .stat-label {
     margin-top: 6px;

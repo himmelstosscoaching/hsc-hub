@@ -4,6 +4,7 @@ import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import FormatBadge from '../components/FormatBadge.astro';
 import PhotoBand from '../components/PhotoBand.astro';
+import PathFinder from '../components/PathFinder.astro';
 import { kern, weitere, kostenlos } from '../data/angebote';
 
 // Einzelcoaching wird als volle-Breite-Kachel mit 3 Wegen gezeigt → aus dem 2-Spalten-Raster lösen.
@@ -73,6 +74,8 @@ const ecWege = [
     </div>
     <div class="sun-divider thick" aria-hidden="true"></div>
   </section>
+
+  <PathFinder />
 
   <!-- Kernangebote -->
   <section class="ang-kat bg-white pad-b-sm">
@@ -261,9 +264,13 @@ const ecWege = [
     padding: 30px 30px;
     display: flex; flex-direction: column; gap: 12px;
     box-shadow: var(--shadow-soft);
-    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
   }
-  .ang-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+  .ang-card:hover {
+    transform: translateY(-6px) scale(1.012);
+    box-shadow: 0 20px 44px rgba(44, 75, 123, 0.14);
+    border-color: rgba(250, 157, 86, 0.5);
+  }
   /* Alle Angebots-Karten: oberer Streifen als animierter Sun-Strip (durchgängiger Hinweis aufs Angebot) */
   .ang-card::before {
     content: "";
@@ -331,10 +338,17 @@ const ecWege = [
     border-radius: var(--radius-card);
     padding: 22px 22px;
     text-decoration: none;
-    transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
   }
-  .ec-weg:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); text-decoration: none; }
+  .ec-weg:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 18px 40px rgba(44, 75, 123, 0.16);
+    text-decoration: none;
+  }
   .ec-weg:hover .ang-cta { color: var(--orange); border-color: var(--orange); }
+  /* Foto der Tier-Kachel zoomt beim Drüberfahren ganz leicht */
+  .ec-weg-foto img { transition: transform .4s var(--ease); }
+  .ec-weg:hover .ec-weg-foto img { transform: scale(1.06); }
 
   /* 3 Wege klar voneinander abheben — je eigener Akzent */
   .ec-weg.is-allein { border-top-color: var(--blue-deep); }
@@ -387,6 +401,12 @@ const ecWege = [
     background: var(--bg-white); border-radius: var(--radius-card); padding: 32px 28px;
     display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(250,157,86,0.18);
     position: relative; overflow: hidden;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  }
+  .frei-card:hover {
+    transform: translateY(-6px) scale(1.012);
+    box-shadow: 0 20px 44px rgba(44, 75, 123, 0.14);
+    border-color: rgba(250, 157, 86, 0.5);
   }
   .frei-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--sun-strip); background-size: 200% 100%; animation: sun-shimmer 14s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce) {
