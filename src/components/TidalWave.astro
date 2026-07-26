@@ -37,6 +37,7 @@ const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
   .tidal-wave-fill {
     width: 100%;
     height: clamp(54px, 7vw, 100px);
+    opacity: 0.6; /* insgesamt zarter/durchsichtiger, nicht nur an Rand/Boden */
     /* Eigener Verlauf statt --sun-strip: der direkte Sprung Türkis→Orange erzeugt beim
        naiven RGB-Übergang einen schmutzig-braunen Zwischenton — hier per pastelliger
        Apricot-Brücke bei ~54% vermieden, bevor es weiter zu kräftigem Orange geht.
