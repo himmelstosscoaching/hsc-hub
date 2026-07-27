@@ -112,7 +112,6 @@ const ueberPunkte = [
         </div>
       </div>
     </div>
-    <TidalWave />
   </section>
 
   <!-- 2 · PROBLEM -->
@@ -347,6 +346,7 @@ const ueberPunkte = [
 
   <!-- 12 · GALERIE -->
   <section class="s-galerie">
+    <TidalWave top />
     <div class="container">
       <h2 class="center">Ein paar Eindrücke aus unserem kleinen Paradies</h2>
       <div class="galerie-grid">
@@ -532,7 +532,7 @@ const ueberPunkte = [
 .ueber-list li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--sky-light); font-weight: 700; }
 
 /* ── FINAL ────────────────────────────────────────────────── */
-.s-final { background: var(--bg-cream); }
+.s-final { background: var(--bg-cream); padding: clamp(50px,6vw,80px) 0; }
 .final-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,44px); color: var(--blue-deep); margin-bottom: 16px; }
 .final-text { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 0 auto 32px; max-width: 520px; }
 .final-meta { margin-top: 18px; font-size: 13px; color: var(--ink-light); }

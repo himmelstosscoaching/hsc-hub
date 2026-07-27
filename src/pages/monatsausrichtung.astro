@@ -122,7 +122,6 @@ const stimmen: { text: string; name: string }[] = [];
       <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt dabei sein →</a>
       <p class="ma-hero-note">Einstieg jederzeit möglich.</p>
     </div>
-    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 2 · ABWECHSELNDE BILD-TEXT-BLÖCKE (Grundgedanke · Nutzen · Hintergrund) -->
@@ -235,6 +234,7 @@ const stimmen: { text: string; name: string }[] = [];
 
   <!-- 7 · WARUM UNS DAS WICHTIG IST — Annette & Herbert getrennt (wie /12-heilige-naechte) -->
   <section class="ma-about">
+    <TidalWave top />
     <div class="container narrow">
       <p class="ma-about-eyebrow center">Warum uns das wichtig ist</p>
       <figure class="ma-voice">
@@ -406,7 +406,7 @@ const stimmen: { text: string; name: string }[] = [];
   .ma-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: #6f9db3; }
   .ma-final-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(180deg, #1c4062 0%, #2783ac 24%, #4f9fc4 38%, #75bfda 48%, #a9bcbf 56%, #d3a98c 70%, #ef9f66 84%, #f2917f 100%);
+    background: linear-gradient(180deg, #1c4062 0%, #2783ac 14%, #4f9fc4 26%, #75bfda 42%, #75bfda 60%, #a9bcbf 68%, #d3a98c 78%, #ef9f66 90%, #f2917f 100%);
     filter: saturate(0.55);
   }
   .ma-final .container { position: relative; z-index: 2; }
