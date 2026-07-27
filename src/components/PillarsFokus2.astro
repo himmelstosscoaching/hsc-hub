@@ -1,10 +1,20 @@
 ---
 // Pillars V2.1 — 3 Säulen (statt 4: Spiritualität-Säule entfernt) + Methoden-Trias
 // kleine Linien-Symbole pro Säule für visuelle Auflockerung
-import WaveDivider from './WaveDivider.astro';
+// Creme-Feld ist an Ober- und Unterkante selbst gewellt (clip-path) statt einer
+// aufgelegten Wellen-Grafik vor einer geraden Kante — dazu ein oranger Farbakzent,
+// der direkt im Hintergrund der Sektion sitzt und nach innen in Creme ausläuft.
+const clipId = `pillars-curve-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<section id="was-uns-auszeichnet" class="pillars2">
+<section id="was-uns-auszeichnet" class="pillars2" style={`clip-path: url(#${clipId});`}>
+  <svg width="0" height="0" style="position:absolute">
+    <clipPath id={clipId} clipPathUnits="objectBoundingBox">
+      <path d="M0,0.032 C0.153,0.068 0.278,0.004 0.5,0.030 C0.722,0.056 0.847,0 1,0.028
+               L1,0.972
+               C0.847,1 0.722,0.944 0.5,0.970 C0.278,0.996 0.153,0.932 0,0.968 Z" />
+    </clipPath>
+  </svg>
   <div class="container narrow section-head">
     <h2>So arbeiten wir mit dir.</h2>
     <p>Drei Schritte, die in jedem Gespräch mit uns ineinandergreifen.</p>
@@ -29,12 +39,21 @@ import WaveDivider from './WaveDivider.astro';
       <p>Erkennen ist der Anfang. Damit lassen wir dich nicht allein: Wir begleiten dich, bis aus dem, was du fühlst, dein nächster Schritt wird — und sich in deinem Alltag <em>wirklich etwas verändert.</em></p>
     </article>
   </div>
-
-  <WaveDivider fill="var(--bg-white)" />
 </section>
 
 <style>
-  .pillars2 { background: var(--bg-cream); padding-bottom: clamp(56px, 7vw, 90px); }
+  /* padding-top eigens gesetzt: Standard-Sektionsabstand (bis 160px) stapelte sich mit dem
+     Bodenabstand von About2 zu einer zu großen Lücke nach der Welle — verkleinert.
+     Oranger Akzent oben UND unten direkt im Hintergrund (statt aufgelegter Welle) — schmal
+     und leicht transparent gehalten, damit er zart bleibt statt klobig zu wirken. */
+  .pillars2 {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--orange) 65%, transparent) 0, transparent 32px),
+      linear-gradient(0deg, color-mix(in srgb, var(--orange) 65%, transparent) 0, transparent 32px),
+      var(--bg-cream);
+    padding-top: clamp(64px, 8vw, 107px);
+    padding-bottom: clamp(56px, 7vw, 90px);
+  }
   .section-head { text-align: center; margin-bottom: clamp(48px, 6vw, 64px); }
   .section-head h2 { color: var(--blue-deep); margin: 0 0 14px; }
   .section-head p { color: var(--ink-soft); font-size: clamp(17px, 1.5vw, 19px); margin: 0; }
@@ -56,7 +75,7 @@ import WaveDivider from './WaveDivider.astro';
   .pillar2:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(250,157,86,0.12); }
   .p2-num {
     display: inline-flex;
-    width: 58px; height: 58px;
+    width: 96px; height: 52px;
     align-items: center; justify-content: center;
     border-radius: 50%;
     font-family: var(--font-display);
@@ -66,9 +85,9 @@ import WaveDivider from './WaveDivider.astro';
     color: #fff;
     margin-bottom: 18px;
   }
-  .pillars2-grid .pillar2:nth-child(1) .p2-num { background: var(--orange);    box-shadow: 0 10px 22px rgba(250, 157, 86, 0.38); }
-  .pillars2-grid .pillar2:nth-child(2) .p2-num { background: var(--rose);      box-shadow: 0 10px 22px rgba(248, 148, 137, 0.38); }
-  .pillars2-grid .pillar2:nth-child(3) .p2-num { background: var(--blue-deep); box-shadow: 0 10px 22px rgba(44, 75, 123, 0.32); }
+  .pillars2-grid .pillar2:nth-child(1) .p2-num { background: radial-gradient(ellipse at center, var(--orange) 0%, var(--orange) 45%, var(--bg-white) 100%); }
+  .pillars2-grid .pillar2:nth-child(2) .p2-num { background: radial-gradient(ellipse at center, var(--rose) 0%, var(--rose) 45%, var(--bg-white) 100%); }
+  .pillars2-grid .pillar2:nth-child(3) .p2-num { background: radial-gradient(ellipse at center, var(--blue-deep) 0%, var(--blue-deep) 45%, var(--bg-white) 100%); }
   .pillar2 h3 {
     font-family: var(--font-display);
     font-weight: 700;

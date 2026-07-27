@@ -5,6 +5,7 @@ import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import PhotoBand from '../components/PhotoBand.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 
 const amazon = 'https://www.amazon.de/keinem-nicht-einer-gl%C3%BCcklichen-Beziehung/dp/3911174012/';
 ---
@@ -30,7 +31,7 @@ const amazon = 'https://www.amazon.de/keinem-nicht-einer-gl%C3%BCcklichen-Bezieh
         <a href={amazon} class="btn btn-primary" target="_blank" rel="noopener">Bei Amazon ansehen →</a>
       </div>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <section class="buch-text">

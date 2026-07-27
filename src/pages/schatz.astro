@@ -5,6 +5,8 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import TidalWave from '../components/TidalWave.astro';
 
 const checkout = '#'; // ← ThriveCart-Checkout-URL hier eintragen
 
@@ -51,7 +53,7 @@ const kapitel = [
         </ul>
       </div>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 2 · WILLKOMMEN -->
@@ -76,7 +78,7 @@ const kapitel = [
         <cite>— Annette &amp; Herbert</cite>
       </blockquote>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 3 · PROBLEM — ruhig, Creme, blaue Zitate -->
@@ -89,7 +91,7 @@ const kapitel = [
         <blockquote class="problem-quote">„Ich habe eine Mauer aufgebaut."</blockquote>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 4 · TESTIMONIALS -->
@@ -168,7 +170,7 @@ const kapitel = [
 
   <!-- 7 · NACH DEM KURS — mit Streifen oben -->
   <section class="s-nach">
-    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <WaveDivider top fill="var(--bg-white)" />
     <div class="container narrow">
       <h2 class="center">Nach dem Kurs könnt ihr …</h2>
       <ul class="nach-list">
@@ -185,12 +187,12 @@ const kapitel = [
         <p>Viele Teilnehmer berichten, dass sich durch diese Arbeit etwas Entscheidendes verändert hat. Nicht durch große dramatische Erkenntnisse — sondern durch etwas viel Einfacheres: <em>Neugier.</em> Plötzlich entstehen wieder Fragen. Die Beziehung beginnt wieder zu leben.</p>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 8 · KAPITEL — Creme, Streifen oben, Kapitelnummern in Kapitelfarben -->
   <section class="s-kapitel">
-    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <WaveDivider top fill="var(--bg-cream)" />
     <div class="container">
       <p class="acc-eyebrow" style="justify-content:center">Was euch erwartet</p>
       <h2 class="center">Neun Kapitel, die euch verändern</h2>
@@ -205,7 +207,7 @@ const kapitel = [
         ))}
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 9 · WAS SICH VERÄNDERT — Verlauf -->
@@ -242,7 +244,7 @@ const kapitel = [
         <p class="ueber-sig"><em>— Annette &amp; Herbert</em></p>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 11 · EIGNUNG — kein Verlauf -->
@@ -273,7 +275,7 @@ const kapitel = [
         </div>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 12 · FAQ -->
@@ -312,7 +314,7 @@ const kapitel = [
         </details>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 13 · PREIS — Verlauf -->
@@ -407,7 +409,6 @@ const kapitel = [
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
 .trust-badges { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: clamp(14px,1.3vw,16px); color: rgba(255,255,255,0.78); }
-.s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── WELCOME ──────────────────────────────────────────────── */
 .s-welcome { background: var(--bg-white); text-align: left; }
@@ -468,8 +469,8 @@ const kapitel = [
 .kurs-img::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-card); background: linear-gradient(90deg, rgba(39,131,172,0.38) 0%, rgba(39,131,172,0) 32%), linear-gradient(270deg, rgba(250,157,86,0.72) 0%, rgba(250,157,86,0) 38%); pointer-events: none; }
 
 /* ── NACH DEM KURS ────────────────────────────────────────── */
-.s-nach { background: var(--bg-white); padding-top: 0; }
-.strip-top { margin-top: 0 !important; margin-bottom: clamp(56px,7vw,96px); }
+/* padding-top statt 0: die WaveDivider oben bringt (anders als die frühere Linie) keinen eigenen Fluss-Abstand mehr mit. */
+.s-nach { background: var(--bg-white); padding-top: clamp(64px, 8vw, 96px); }
 .nach-list { list-style: none; padding: 0; margin: 32px 0; display: flex; flex-direction: column; gap: 12px; }
 .nach-list li { padding: 24px 20px 16px 64px; background: var(--bg-cream); border-radius: 8px; position: relative; overflow: hidden; font-size: 17px; color: var(--ink-soft); }
 .nach-list li::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--sun-strip); border-radius: 0 0 4px 4px; }
@@ -480,7 +481,7 @@ const kapitel = [
 .nach-deep em { color: var(--orange); font-style: italic; }
 
 /* ── KAPITEL ──────────────────────────────────────────────── */
-.s-kapitel { background: var(--bg-cream); padding-top: 0; }
+.s-kapitel { background: var(--bg-cream); padding-top: clamp(64px, 8vw, 96px); }
 .kapitel-intro { max-width: 640px; margin: 0 auto 52px; font-size: clamp(15px,1.4vw,17px); color: var(--ink-soft); }
 .kapitel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .kapitel-card { background: color-mix(in srgb, var(--kc, var(--sky-light)) 12%, var(--bg-white)); border-radius: var(--radius-card); padding: 26px; border-top: 4px solid var(--kc, var(--sky-light)); box-shadow: var(--shadow-soft); }

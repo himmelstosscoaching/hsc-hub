@@ -6,6 +6,8 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import TidalWave from '../components/TidalWave.astro';
 
 const checkout = '#preis'; // ← Anker auf Preis-Block; für echten Kauf ThriveCart-URL eintragen
 
@@ -95,7 +97,7 @@ const lang = [
         <a href={checkout} class="btn btn-primary btn-lg">Lerne dein Leben zu verstehen — 197 € →</a>
       </div>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 2 · PROBLEM -->
@@ -109,7 +111,7 @@ const lang = [
       </ul>
       <p class="problem-close center"><em>Die Antwort liegt in dir. Niemand sonst kennt deinen Weg.</em></p>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 3 · KURS-INTRO -->
@@ -128,7 +130,7 @@ const lang = [
         <img src="/img/dlll/kurs-mockup.png" alt="Der Videokurs „Dein Leben lesen lernen" am Laptop und Smartphone" loading="lazy" />
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 4 · TESTIMONIAL Julia -->
@@ -158,7 +160,7 @@ const lang = [
       <img class="quote-photo quote-photo--lg" src="/img/dlll/chris.png" alt="Chris" loading="lazy" />
       <blockquote class="big-quote">„Ich habe gelernt, wie kraftvoll es sein kann, jeden Tag bewusst mutig zu handeln. Der Kurs hat mir gezeigt: Mut ist trainierbar — und verändert mein ganzes Leben."<cite>— Chris</cite></blockquote>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 7 · ÜBER UNS -->
@@ -171,7 +173,7 @@ const lang = [
       <p>Ich, Herbert, habe als Kunsttherapeut und Lehrer mit Tausenden von Jugendlichen und Erwachsenen zu Themen wie Medien, Sucht und Identität gearbeitet. Innere Klarheit war immer der Schlüssel.</p>
       <p>Gemeinsam haben wir diesen Kurs entwickelt, weil wir erkannt haben, dass es heute nicht noch mehr Bücher, Ratgeber oder Gurus braucht — sondern Menschen, die lernen, ihre eigene innere Führung zu hören und ihr zu vertrauen.</p>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 8 · KURSINHALT -->
@@ -193,7 +195,7 @@ const lang = [
       „Was uns verbindet, ist der Glaube daran, dass jeder Mensch bereits alles in sich trägt, was er braucht. Man muss nur lernen, wie man es freilegt — und dafür geben wir dir die Werkzeuge an die Hand."
       <cite>— Annette &amp; Herbert</cite>
     </blockquote>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 9 · WAS DU LERNEN WIRST -->
@@ -222,7 +224,7 @@ const lang = [
         ))}
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 11 · FAQ -->
@@ -275,7 +277,7 @@ const lang = [
         <blockquote class="big-quote cta1-quote">„Ich starte wieder gerne in den Tag. Heute gehe ich mit Freude zur Arbeit, bin kreativer, gelassener — und näher bei dem, was ich wirklich machen will."<cite>— Veronika</cite></blockquote>
       </div>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-white)" />
   </section>
 
   <!-- 14 · LANGE ERFAHRUNGSBERICHTE -->
@@ -320,7 +322,6 @@ const lang = [
 .hero-sub { font-size: clamp(19px,1.9vw,24px); color: rgba(255,255,255,0.90); margin: 0 0 14px; line-height: 1.5; }
 .hero-with { font-size: 16px; color: rgba(255,255,255,0.80); margin: 0 0 28px; }
 .btn-lg { font-size: 16px !important; padding: 18px 36px !important; }
-.s-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── shared ───────────────────────────────────────────────── */
 .check-list { list-style: none; padding: 0; margin: 32px 0; display: flex; flex-direction: column; gap: 14px; }

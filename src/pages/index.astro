@@ -16,7 +16,7 @@ import TrustBookFokus from '../components/TrustBookFokus.astro';
 import FinalFokus2 from '../components/FinalFokus2.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import PhotoBand from '../components/PhotoBand.astro';
-import WaveDivider from '../components/WaveDivider.astro';
+import TidalWave from '../components/TidalWave.astro';
 ---
 
 <FokusLayout
@@ -45,6 +45,7 @@ import WaveDivider from '../components/WaveDivider.astro';
   <StoriesFokus2 />
   <TrustBookFokus />
   <section class="strand-breather">
+    <TidalWave top />
     <div class="container credo-wrap">
       <p class="credo-line">„Riskiere das Leben.</p>
       <p class="credo-line">Du kannst nicht scheitern, du kannst nur nicht leben.“</p>
@@ -54,15 +55,15 @@ import WaveDivider from '../components/WaveDivider.astro';
       <img src="/img/paar-strand.jpg" alt="Annette und Herbert eng beieinander am Strand, beide lachen" loading="lazy" />
       <figcaption>Annette und Herbert</figcaption>
     </figure>
-    <WaveDivider fill="var(--blue-deep)" />
   </section>
   <FinalFokus2 />
   <FooterFokus />
 </FokusLayout>
 
 <style>
-  /* Strand-Stimmungsbild (IMG_9167) — kleines, warmes Abschiedsbild vor dem Schluss-Aufruf. */
-  .strand-breather { background: var(--bg-white); padding: clamp(48px, 7vw, 84px) 0 clamp(40px, 6vw, 64px); }
+  /* Strand-Stimmungsbild (IMG_9167) — kleines, warmes Abschiedsbild vor dem Schluss-Aufruf.
+     padding-top vergrößert: Platz für die breite TidalWave oben. */
+  .strand-breather { background: var(--bg-white); padding: clamp(88px, 10vw, 124px) 0 clamp(40px, 6vw, 64px); }
   .credo-wrap { text-align: center; max-width: 760px; margin-bottom: clamp(40px, 6vw, 64px); }
   .credo-line {
     font-family: var(--font-display);

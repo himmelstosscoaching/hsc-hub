@@ -2,9 +2,11 @@
 // Sektion D — Trust-Streifen
 // Quelle: hsc-website/03-Inhalte/01-Startseite-Texte-V01.md (Sektion D)
 // Bilder/Cover-Slot raus auf User-Wunsch
+import TidalWave from './TidalWave.astro';
 ---
 
 <section id="trust" class="trust-fokus">
+  <TidalWave top />
   <div class="container narrow">
     <ul class="stats" aria-label="Was uns trägt">
       <li><span class="stat-num">seit 1992</span><span class="stat-label">ein Paar</span></li>
@@ -51,7 +53,6 @@
       </blockquote>
     </div>
   </div>
-  <div class="sun-divider" aria-hidden="true"></div>
 </section>
 
 <script>
@@ -87,6 +88,9 @@
 <style>
   .trust-fokus {
     background: var(--bg-white);
+    /* padding-top eigens gesetzt: Platz für die breite TidalWave oben, aber ohne den
+       vollen Standard-Sektionsabstand (bis 160px), der die Lücke über „seit 1992" sonst sprengt. */
+    padding-top: clamp(88px, 10vw, 124px);
     padding-bottom: clamp(80px, 10vw, 130px);
   }
   .stats {

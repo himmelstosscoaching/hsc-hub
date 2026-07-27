@@ -6,6 +6,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import TidalWave from '../components/TidalWave.astro';
 
 const kontakt = 'https://outlook.office365.com/owa/calendar/HimmelstoCoaching1@himmelstosscoaching.de/bookings/';
 const mail = 'mailto:kontakt@himmelstosscoaching.de';
@@ -33,7 +34,7 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
         und am nächsten Tag geht es in die Tiefe. Die Nacht dazwischen arbeitet mit.
       </p>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <TidalWave />
   </section>
 
   <!-- 2 · DREI SPALTEN -->
@@ -218,7 +219,6 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
 
   <!-- 5 · ABSCHLUSS -->
   <section class="ec-final on-dark">
-    <div class="sun-strip" aria-hidden="true"></div>
     <div class="container narrow">
       <h2>Nicht sicher, welcher Weg zu dir passt?</h2>
       <p>Schreib uns oder frag einen Termin an — wir schauen gemeinsam, was für dich stimmig ist.</p>
@@ -363,7 +363,6 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   /* ── Abschluss ── */
   .ec-final { position: relative; background: var(--sunset-surface); padding: clamp(90px, 11vw, 130px) 0; text-align: center; overflow: hidden; }
   .ec-final::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,75,123,0.5) 0%, rgba(44,75,123,0) 70%); pointer-events: none; }
-  .ec-final .sun-strip { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--sun-strip); z-index: 2; }
   .ec-final .container { position: relative; z-index: 1; }
   .ec-final h2 { color: #fff; margin: 0 0 16px; font-weight: 600; }
   .ec-final p { color: rgba(255, 255, 255, 0.9); font-size: clamp(16px, 1.5vw, 19px); margin: 0 auto 32px; max-width: 560px; }

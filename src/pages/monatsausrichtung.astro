@@ -7,6 +7,8 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import TidalWave from '../components/TidalWave.astro';
 
 // Kauf per Rechnung — bewusst so bei allen höherpreisigen Produkten (kein Online-Checkout).
 //    Der CTA führt zur Kontakt-Mail; A&H schicken dann die Rechnung und richten den Platz ein.
@@ -120,7 +122,7 @@ const stimmen: { text: string; name: string }[] = [];
       <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt dabei sein →</a>
       <p class="ma-hero-note">Einstieg jederzeit möglich.</p>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 2 · ABWECHSELNDE BILD-TEXT-BLÖCKE (Grundgedanke · Nutzen · Hintergrund) -->
@@ -188,14 +190,14 @@ const stimmen: { text: string; name: string }[] = [];
 
   <!-- 4 · LEISTUNGEN -->
   <section class="ma-leistungen">
-    <div class="sun-divider strip-top" aria-hidden="true"></div>
+    <TidalWave top />
     <div class="container narrow">
       <h2 class="center">Was dabei ist</h2>
       <ul class="ma-facts">
         {leistungen.map((l) => <li>{l}</li>)}
       </ul>
     </div>
-    <div class="sun-divider" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 5 · PREISE -->
@@ -272,6 +274,7 @@ const stimmen: { text: string; name: string }[] = [];
 
   <!-- 9 · FINAL CTA -->
   <section class="ma-final">
+    <div class="ma-final-bg" aria-hidden="true"></div>
     <div class="container narrow center">
       <h2 class="ma-final-hl">Geh dein Jahr mit einem roten Faden.</h2>
       <p class="ma-final-sub">Jeden Monat neu ausgerichtet, getragen von einer Gemeinschaft. Einstieg jederzeit.</p>
@@ -294,7 +297,6 @@ const stimmen: { text: string; name: string }[] = [];
   .ma-hero h1 { color: #fff; font-size: clamp(44px,7vw,86px); line-height: 1.02; letter-spacing: -0.01em; margin: 0 0 22px; text-shadow: 0 2px 22px rgba(35,24,12,0.7); }
   .ma-sub { font-family: var(--font-body); font-size: clamp(18px,1.9vw,24px); color: rgba(255,255,255,0.96); line-height: 1.55; max-width: 660px; margin: 0 auto 30px; text-shadow: 0 1px 14px rgba(35,24,12,0.65); }
   .ma-hero-note { font-family: var(--font-display); font-style: italic; font-size: clamp(15px,1.5vw,18px); color: rgba(255,255,255,0.9); margin: 16px 0 0; text-shadow: 0 1px 12px rgba(35,24,12,0.6); }
-  .ma-hero .sun-divider { position: absolute; bottom: 0; left: 0; right: 0; }
   /* CTA-Button auf den Verlauf-Flächen in Markenblau */
   .ma-hero .btn-primary, .ma-final .btn-primary { background: var(--blue-deep); }
   .ma-hero .btn-primary:hover, .ma-final .btn-primary:hover { background: var(--blue-deep-soft); }
@@ -350,7 +352,8 @@ const stimmen: { text: string; name: string }[] = [];
   .ma-ablauf-text { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; margin: 0; }
 
   /* ── LEISTUNGEN ───────────────────────────────────────────── */
-  .ma-leistungen { background: var(--bg-white); padding-top: 0; padding-bottom: clamp(60px,8vw,100px); }
+  /* padding-top statt 0: die TidalWave oben bringt (anders als die frühere Linie) keinen eigenen Fluss-Abstand mehr mit. */
+  .ma-leistungen { background: var(--bg-white); padding-top: clamp(64px, 8vw, 96px); padding-bottom: clamp(60px,8vw,100px); }
   .ma-leistungen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); line-height: 1.2; margin: clamp(48px,7vw,88px) 0 36px; }
   .ma-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 680px; display: grid; gap: 12px; }
   .ma-facts li { position: relative; overflow: hidden; padding: 20px 20px 16px 56px; border-radius: var(--radius-card); background: var(--bg-cream); box-shadow: var(--shadow-soft); font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.55; }
@@ -398,7 +401,14 @@ const stimmen: { text: string; name: string }[] = [];
   .ma-stimme cite { font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink-light); letter-spacing: 0.04em; }
 
   /* ── FINAL CTA — HSC-Marken-Farbverlauf (dunkelblau→türkis→warm), wie /12-heilige-naechte ── */
-  .ma-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #2783ac 24%, #4f9fc4 38%, #75bfda 48%, #a9bcbf 56%, #d3a98c 70%, #ef9f66 84%, #f2917f 100%); }
+  /* Verlauf saß auf .ma-final selbst zu knallig/gesättigt — läuft jetzt über ein eigenes
+     Hintergrund-Element mit reduzierter Sättigung, Text/Button bleiben unangetastet. */
+  .ma-final { position: relative; overflow: hidden; padding: clamp(72px,9vw,120px) 0; text-align: center; background: #6f9db3; }
+  .ma-final-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(180deg, #1c4062 0%, #2783ac 24%, #4f9fc4 38%, #75bfda 48%, #a9bcbf 56%, #d3a98c 70%, #ef9f66 84%, #f2917f 100%);
+    filter: saturate(0.55);
+  }
   .ma-final .container { position: relative; z-index: 2; }
   .ma-final-hl { font-family: var(--font-display); font-weight: 400; color: #fff; font-size: clamp(26px,3vw,42px); line-height: 1.2; margin: 0 0 12px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
   .ma-final-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,20px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,0.6); }

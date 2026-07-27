@@ -6,15 +6,15 @@
 // selbst den Job der geraden Sun-Strip-Linie, die an dieser Stelle entfällt.
 // Sitzt absolut am unteren Rand der aktuellen Sektion — die Sektion braucht
 // position:relative (Standard in brand-v02.css) und genug padding-bottom.
-interface Props { fill: string; accent?: string; flip?: boolean }
-const { fill, accent = 'var(--orange)', flip = false } = Astro.props;
+interface Props { fill: string; accent?: string; flip?: boolean; top?: boolean }
+const { fill, accent = 'var(--orange)', flip = false, top = false } = Astro.props;
 
 // Eindeutige Gradient-ID — mehrere WaveDivider können auf derselben Seite stehen,
 // SVG-IDs müssen eindeutig sein, sonst greifen Browser auf die erste gefundene ID zurück.
 const gradId = `wave-grad-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<div class={`wave-divider${flip ? ' flip' : ''}`} style={`--wave-fill: ${fill}`} aria-hidden="true">
+<div class={`wave-divider${flip ? ' flip' : ''}${top ? ' top' : ''}`} style={`--wave-fill: ${fill}`} aria-hidden="true">
   <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
     <defs>
       <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
@@ -41,4 +41,5 @@ const gradId = `wave-grad-${Math.random().toString(36).slice(2, 9)}`;
     height: clamp(34px, 5vw, 60px);
   }
   .wave-divider.flip svg { transform: scaleY(-1); }
+  .wave-divider.top { top: -1px; bottom: auto; }
 </style>

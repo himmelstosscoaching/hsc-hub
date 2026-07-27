@@ -5,6 +5,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 
 // ThriveCart-Direktkauf (Produkt 15, 88 € Festpreis)
 const buchenUrl = 'https://kasse.himmelstosscoaching.de/meditation--monatsausrichtung/';
@@ -109,7 +110,7 @@ const kachelGradient = 'linear-gradient(135deg, ' + kachelStops + ')';
         <a href={buchenUrl} class="btn btn-primary">Jetzt buchen · 88 €</a>
       </div>
     </div>
-    <div class="sun-divider thick" aria-hidden="true"></div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <section class="md-intro">
