@@ -1,14 +1,14 @@
 ---
 // Schatz, coachst du mich? — Sales Page
 // Deployed to: beziehung.himmelstosscoaching.de
-// ⚠️ checkout = Platzhalter — ThriveCart-URL von Christian einfügen
+// checkout = Sprung auf #preis (Preis-Block mit eingebettetem ThriveCart-Checkout, Produkt 14)
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 
-const checkout = '#'; // ← ThriveCart-Checkout-URL hier eintragen
+const checkout = '#preis';
 
 const kapitel = [
   { nr: 1,  color: '#2C4B7B', titel: 'Präsenz — Einander wirklich begegnen',       text: 'Stellt euch vor, ihr sitzt abends auf dem Sofa und schaut euch an — und etwas ist anders. Ihr seid wirklich da. Ihr entdeckt wieder etwas an eurem Partner, das ihr am Anfang so geliebt habt.' },
@@ -319,7 +319,7 @@ const kapitel = [
   </section>
 
   <!-- 13 · PREIS — Verlauf -->
-  <section class="s-preis">
+  <section class="s-preis" id="preis">
     <div class="container narrow center">
       <p class="eyebrow-light">Euer Weg beginnt hier</p>
       <h2 class="preis-hl">Schatz, coachst du mich?</h2>
@@ -340,10 +340,16 @@ const kapitel = [
           „Wir haben dunkle Kapitel unserer Ehe geöffnet, über die wir noch nie gesprochen hatten. Und das Wunderbarste: Unsere Tochter ist seitdem sichtbar glücklicher."
           <cite>Heike und Frank · Teilnehmer 2025</cite>
         </blockquote>
-        <a href={checkout} class="btn btn-primary btn-lg preis-btn">Jetzt bestellen ↓</a>
+        <a href="#checkout" class="btn btn-primary btn-lg preis-btn">Jetzt bestellen ↓</a>
         <p class="garantie-hl">14 Tage Rückgabe­garantie — ohne Diskussion</p>
         <p class="garantie-text">Schaut euch den Kurs in Ruhe an. Wenn ihr nach 14 Tagen spürt, dass es nicht der richtige Weg für euch ist, schreibt uns eine Mail. Ihr bekommt euer Geld zurück. Ohne Begründung, ohne Frage.</p>
         <p class="preis-payment">Sicher zahlen mit Stripe oder PayPal · SSL-verschlüsselt</p>
+      </div>
+
+      <!-- ThriveCart-Checkout Produkt 14 (Schatz, coachst du mich?) -->
+      <div class="tc-embed" id="checkout" style="margin-top:32px;">
+        <div class="tc-v2-embeddable-target" data-thrivecart-account="himmelstosscoaching" data-thrivecart-tpl="v2" data-thrivecart-product="14" data-thrivecart-embeddable="tc-himmelstosscoaching-14-ZOZF3C"></div>
+        <script is:inline async src="//tinder.thrivecart.com/embed/v2/thrivecart.js" id="tc-himmelstosscoaching-14-ZOZF3C"></script>
       </div>
     </div>
   </section>
