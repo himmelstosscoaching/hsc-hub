@@ -4,12 +4,14 @@ interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 const {
   title = 'Annette & Herbert Himmelstoß — Coaches für ein lebendiges Leben',
   description = 'Online-Kurse, Retreats und Begleitung mit Annette & Herbert Himmelstoß. Seit 1992 ein Paar, seit über 30 Jahren begleiten wir Menschen — als Ärztin, Lehrer, Coaches.',
   canonical = 'https://himmelstosscoaching.de/',
   ogImage = '/img/og-default.jpg',
+  noindex = false,
 } = Astro.props;
 
 import '../styles/brand-v02.css';
@@ -81,7 +83,7 @@ const websiteSchema = {
   <!-- Primary SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large'} />
   <link rel="canonical" href={canonical} />
 
   <!-- Open Graph -->
