@@ -2,7 +2,7 @@
 // Dein Leben lesen lernen — Basic (Online-Videokurs) — Sales Page
 // Nachbau der ClickFunnels-Archivseite (workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-basic)
 // Struktur exakt übernommen, Stil an die Fokus-Seiten angepasst (keine Emojis).
-// ⚠️ checkout = Platzhalter — ThriveCart-Produkt-ID 21; Checkout-URL von Christian einfügen
+// checkout = Sprung auf #preis (Preis-Block mit eingebettetem ThriveCart-Checkout, Produkt 21)
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
@@ -258,9 +258,15 @@ const lang = [
           <li><span>✓</span> Zugang zur exklusiven Telegram-Gruppe</li>
           <li><span>✓</span> Optional: Gruppenbegleitung — 2× im Monat Live-Zoom mit uns und anderen</li>
         </ul>
-        <a href={checkout} class="btn btn-primary btn-lg preis-btn">Jetzt buchen — 197 € →</a>
+        <a href="#checkout" class="btn btn-primary btn-lg preis-btn">Jetzt buchen — 197 € →</a>
         <p class="preis-payment">Sicher zahlen · SSL-verschlüsselt</p>
         <p class="preis-hint">Du möchtest zusätzlich 6 Monate Live-Begleitung? → <a href="https://workshop.himmelstosscoaching.de/dein-leben-lesen-lernen-intensiv" target="_blank" rel="noopener">Zum Intensiv-Paket mit Masterclass (697 €)</a></p>
+      </div>
+
+      <!-- ThriveCart-Checkout Produkt 21 (DLLL Basic) -->
+      <div class="tc-embed" id="checkout" style="margin-top:32px;">
+        <div data-thrivecart-account="himmelstosscoaching" data-thrivecart-tpl="v2" data-thrivecart-product="21" class="thrivecart-embeddable" data-thrivecart-embeddable="tc-himmelstosscoaching-21-WKPNF3"></div>
+        <script is:inline async src="//tinder.thrivecart.com/embed/v1/thrivecart.js" id="tc-himmelstosscoaching-21-WKPNF3"></script>
       </div>
     </div>
   </section>
