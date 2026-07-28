@@ -9,6 +9,7 @@ import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
+import FounderTrust from '../components/FounderTrust.astro';
 
 // Kauf per Rechnung — bewusst so bei allen höherpreisigen Produkten (kein Online-Checkout).
 //    Der CTA führt zur Kontakt-Mail; A&H schicken dann die Rechnung und richten den Platz ein.
@@ -198,6 +199,8 @@ const stimmen: { text: string; name: string }[] = [];
     </div>
     <WaveDivider fill="var(--bg-cream)" />
   </section>
+
+  <FounderTrust />
 
   <!-- 5 · PREISE -->
   <section class="ma-preise">
