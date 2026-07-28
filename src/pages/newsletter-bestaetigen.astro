@@ -1,0 +1,101 @@
+---
+// Newsletter-Bestätigungs-Seite — Ziel der Weiterleitung NACH dem Absenden des Quentn-Formulars.
+// „Bitte E-Mail checken und Bestätigungslink klicken." (Double-Opt-In Schritt 1)
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+---
+
+<FokusLayout
+  title="Fast geschafft — bitte bestätige deine E-Mail | Himmelstoß Coaching"
+  description="Nur noch ein Klick: Bitte bestätige deine E-Mail-Adresse über den Link, den wir dir gerade geschickt haben."
+  canonical="https://himmelstosscoaching.de/newsletter-bestaetigen"
+  noindex={true}
+>
+  <HeaderFokus />
+
+  <section class="nl-hero">
+    <div class="nl-halo" aria-hidden="true"></div>
+    <div class="container narrow center">
+      <div class="nl-mark" aria-hidden="true">✉</div>
+      <p class="nl-eyebrow">Fast geschafft</p>
+      <h1>Bitte bestätige deine <em>E-Mail-Adresse</em>.</h1>
+      <p class="nl-lead">
+        Wir haben dir gerade eine E-Mail geschickt. Öffne sie und klicke auf den
+        <strong>Bestätigungslink</strong> — erst dann bist du wirklich dabei.
+      </p>
+
+      <ol class="nl-steps">
+        <li><span>1</span> Öffne dein E-Mail-Postfach.</li>
+        <li><span>2</span> Suche die Mail von <strong>Himmelstoß Coaching</strong>.</li>
+        <li><span>3</span> Klicke auf den Bestätigungslink darin.</li>
+      </ol>
+
+      <p class="nl-hint">
+        Keine E-Mail gefunden? Schau bitte kurz im <strong>Spam- oder Werbe-Ordner</strong> nach —
+        manchmal landet die erste Nachricht dort.
+      </p>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  .nl-hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: clamp(90px, 12vw, 150px) 0 clamp(70px, 9vw, 110px);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(250,157,86,0.16), transparent 60%),
+      var(--bg-cream);
+  }
+  .nl-halo {
+    position: absolute; inset: 0;
+    background: radial-gradient(600px 300px at 50% 0%, rgba(39,131,172,0.10), transparent 70%);
+    pointer-events: none;
+  }
+  .nl-mark {
+    width: 74px; height: 74px; margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px; color: #fff;
+    background: linear-gradient(135deg, var(--blue-mid), var(--orange));
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(44,75,123,0.22);
+  }
+  .nl-eyebrow {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--orange); font-weight: 700; margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(30px, 4.4vw, 50px); line-height: 1.12;
+    color: var(--blue-deep); margin: 0 0 20px; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--orange); }
+  .nl-lead {
+    font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft);
+    max-width: 40ch; margin: 0 auto 40px; line-height: 1.55;
+  }
+  .nl-steps {
+    list-style: none; padding: 0; margin: 0 auto 36px; max-width: 420px;
+    display: flex; flex-direction: column; gap: 14px; text-align: left;
+  }
+  .nl-steps li {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 16px; color: var(--blue-deep);
+    background: #fff; border: 1px solid var(--gold-soft);
+    border-radius: 14px; padding: 14px 18px;
+  }
+  .nl-steps span {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--blue-deep); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 15px;
+  }
+  .nl-hint {
+    font-size: 14.5px; color: var(--ink-light); max-width: 44ch;
+    margin: 0 auto; line-height: 1.55;
+  }
+</style>

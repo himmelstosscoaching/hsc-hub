@@ -1,0 +1,138 @@
+---
+// Newsletter-Willkommens-/Danke-Seite — Ziel NACH Klick auf den Bestätigungslink (Double-Opt-In Schritt 2).
+// „Schön, dass du dabei bist." + was wir anbieten + Sonntagsgespräch/YouTube.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+
+const youtube = 'https://www.youtube.com/@himmelstosscoaching/streams';
+---
+
+<FokusLayout
+  title="Schön, dass du dabei bist! | Himmelstoß Coaching"
+  description="Deine Anmeldung ist bestätigt. Willkommen bei den Impulsen von Annette & Herbert Himmelstoß."
+  canonical="https://himmelstosscoaching.de/newsletter-willkommen"
+  noindex={true}
+>
+  <HeaderFokus />
+
+  <section class="nw-hero">
+    <div class="nw-halo" aria-hidden="true"></div>
+    <div class="container narrow center">
+      <div class="nw-mark" aria-hidden="true">♥</div>
+      <p class="nw-eyebrow">Bestätigt — willkommen</p>
+      <h1>Schön, dass du <em>dabei bist</em>.</h1>
+      <p class="nw-lead">
+        Deine Anmeldung ist bestätigt. Ab jetzt bekommst du von uns Impulse fürs echte Leben —
+        offen, persönlich und aus dem, was wir selbst leben.
+      </p>
+      <p class="nw-sign">— Annette &amp; Herbert</p>
+    </div>
+  </section>
+
+  <section class="nw-offer">
+    <div class="container">
+      <div class="nw-offer-head center">
+        <p class="nw-eyebrow">Womit wir dich begleiten</p>
+        <h2>Ein guter Moment, uns kennenzulernen.</h2>
+      </div>
+      <div class="nw-cards">
+        <a class="nw-card nw-card-live" href={youtube} target="_blank" rel="noopener">
+          <span class="nw-tag">Jeden Sonntag · kostenlos</span>
+          <h3>Unser Sonntagsgespräch</h3>
+          <p>Jede Woche ein Gespräch von uns auf YouTube — Gedanken fürs echte Leben. Offen, auch über unsere eigenen Brüche. Ohne Anmeldung.</p>
+          <span class="nw-link">Auf YouTube ansehen <span class="arrow">→</span></span>
+        </a>
+        <a class="nw-card" href="/angebote">
+          <span class="nw-tag">Kurse · Coaching · Retreats</span>
+          <h3>Unsere Angebote</h3>
+          <p>Vom günstigen Einstieg bis zur intensiven Begleitung — für alle, die ihr Leben lesen lernen und tiefer gehen wollen.</p>
+          <span class="nw-link">Angebote ansehen <span class="arrow">→</span></span>
+        </a>
+      </div>
+      <p class="nw-ps">
+        Und keine Sorge — wir überschütten dich nicht mit E-Mails. Nur das, was wirklich trägt.
+      </p>
+    </div>
+  </section>
+
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  .nw-hero {
+    position: relative; overflow: hidden; text-align: center;
+    padding: clamp(90px, 12vw, 150px) 0 clamp(60px, 8vw, 96px);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(248,148,137,0.18), transparent 60%),
+      var(--bg-cream);
+  }
+  .nw-halo {
+    position: absolute; inset: 0;
+    background: radial-gradient(600px 300px at 50% 0%, rgba(250,157,86,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .nw-mark {
+    width: 74px; height: 74px; margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; color: #fff;
+    background: linear-gradient(135deg, var(--rose), var(--orange));
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(248,148,137,0.30);
+  }
+  .nw-eyebrow {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--orange); font-weight: 700; margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(32px, 5vw, 54px); line-height: 1.1;
+    color: var(--blue-deep); margin: 0 0 20px; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--orange); }
+  .nw-lead {
+    font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft);
+    max-width: 46ch; margin: 0 auto 20px; line-height: 1.55;
+  }
+  .nw-sign {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 19px; color: var(--blue-deep); margin: 0;
+  }
+
+  .nw-offer { background: #fff; padding: clamp(56px, 8vw, 100px) 0; }
+  .nw-offer-head { margin-bottom: 44px; }
+  .nw-offer-head h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(26px, 3.4vw, 40px); color: var(--blue-deep);
+    margin: 6px 0 0; text-wrap: balance;
+  }
+  .nw-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    max-width: 860px; margin: 0 auto;
+  }
+  .nw-card {
+    display: block; text-align: left;
+    background: var(--bg-cream); border: 1px solid var(--gold-soft);
+    border-radius: 18px; padding: 30px 30px 26px;
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .nw-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(44,75,123,0.12); }
+  .nw-card-live { border-color: var(--orange); }
+  .nw-tag {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .05em;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+  }
+  .nw-card h3 {
+    font-family: var(--font-display); font-weight: 400; font-size: 24px;
+    color: var(--blue-deep); margin: 0 0 12px;
+  }
+  .nw-card p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 18px; }
+  .nw-link { font-weight: 600; color: var(--blue-deep); font-size: 15px; }
+  .nw-link .arrow { transition: transform .2s var(--ease); display: inline-block; }
+  .nw-card:hover .nw-link .arrow { transform: translateX(4px); }
+  .nw-ps {
+    text-align: center; font-size: 14.5px; color: var(--ink-light);
+    max-width: 44ch; margin: 40px auto 0; line-height: 1.55;
+  }
+  @media (max-width: 680px) { .nw-cards { grid-template-columns: 1fr; } }
+</style>
