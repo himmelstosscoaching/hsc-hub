@@ -121,8 +121,8 @@ export const kostenlos: Angebot[] = [
     format: 'Gratis-Freebie · per E-Mail',
     preis: 'kostenlos',
     cta: 'Impulse holen',
-    url: '#freebie-paar',
-    note: '⚠️ PDF fertig, Opt-in-Page/Quentn-Flow noch nicht live',
+    url: 'https://beziehung.himmelstosscoaching.de/3-tage/',
+    note: 'Verlinkt auf die Live-3-Tage-Seite (hsc-web) mit Quentn-Opt-in (Form 1061).',
   },
   {
     name: 'Sonntagsgespräche',

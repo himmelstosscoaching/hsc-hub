@@ -192,7 +192,7 @@ const ecWege = [
             <h3>{a.name}</h3>
             <p>{a.nutzen}</p>
             <span class="frei-format">{a.format}</span>
-            <a href={a.url} class="btn-link">{a.cta} <span class="arrow">→</span></a>
+            <a href={a.url} class="btn-link" target={a.url.startsWith('http') ? '_blank' : undefined} rel={a.url.startsWith('http') ? 'noopener' : undefined}>{a.cta} <span class="arrow">→</span></a>
           </article>
         ))}
       </div>
