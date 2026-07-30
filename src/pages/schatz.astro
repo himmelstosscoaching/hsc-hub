@@ -33,7 +33,7 @@ const kapitel = [
 
   <!-- 1 · HERO -->
   <section class="s-hero hero-fokus">
-    <img class="hero-bg" src="/img/hero-paar-sonnenuntergang.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
+    <img class="hero-bg" src="/img/hero-paar-schatz.jpg" alt="Annette und Herbert Himmelstoß" loading="eager" />
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-text">
@@ -382,14 +382,27 @@ const kapitel = [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  /* Bild ist quer gebaut: Paar rechts, links weiche Meeresflaeche fuer den Text.
+     Rechte Kante ist der Fixpunkt — ist die Hero-Box schmaler als das Bild, wird links
+     (leerer Hintergrund) beschnitten statt des Paares. 20% vertikal schuetzt die Koepfe. */
+  object-position: 100% 20%;
 }
+/* Schleier links kraeftig (Textlesbarkeit, wie Startseiten-Hero), warmer Lachs-Hauch ueber dem Paar */
 .hero-veil {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,  rgba(39,131,172,0.52) 0%, rgba(39,131,172,0) 38%),
-    linear-gradient(270deg, rgba(248,148,137,0.42) 0%, rgba(248,148,137,0) 38%);
+    linear-gradient(90deg,
+      rgba(20, 86, 122, 0.92) 0%,
+      rgba(24, 105, 150, 0.70) 26%,
+      rgba(39, 131, 172, 0.34) 46%,
+      rgba(39, 131, 172, 0.08) 60%,
+      rgba(39, 131, 172, 0) 72%),
+    linear-gradient(270deg,
+      rgba(208, 102, 88, 0.58) 0%,
+      rgba(230, 128, 112, 0.34) 20%,
+      rgba(248, 148, 137, 0.12) 32%,
+      rgba(248, 148, 137, 0) 44%);
 }
 .hero-inner {
   position: relative;
@@ -575,7 +588,7 @@ const kapitel = [
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
   .s-hero          { min-height: 600px; align-items: flex-end; }
-  .hero-bg         { object-position: 70% top; }
+  .hero-bg         { object-position: 95% center; }
   .hero-veil       {
     background: linear-gradient(180deg,
       rgba(39, 131, 172, 0.12) 0%,
