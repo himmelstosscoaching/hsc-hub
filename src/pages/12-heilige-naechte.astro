@@ -378,4 +378,8 @@ const stimmen = [
     .hn-voice--rev img { order: 0; }
     .hn-stimmen-grid { grid-template-columns: 1fr; }
   }
+
+  /* Nur auf dieser Seite: FounderTrust-Textblock sitzt hier zu weit oben (Überlappung mit
+     der Kopfzeile) — lokal wieder etwas nach unten schieben, ohne die anderen Seiten zu ändern. */
+  :global(.founder-trust) { padding-top: 128px !important; }
 </style>

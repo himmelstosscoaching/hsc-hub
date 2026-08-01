@@ -5,13 +5,14 @@
 // große, unregelmäßig verteilte Schwünge statt eines mechanisch-repetitiven Sinus) — ruhig, aber lebendig.
 // Technik: SVG-<mask> (objectBoundingBox → skaliert responsiv) auf einem Div mit echtem
 // CSS-Verlaufshintergrund, damit der bewährte background-position-Shimmer (sun-shimmer) weiterläuft.
-interface Props { flip?: boolean; top?: boolean; fadeTo?: string }
-const { flip = false, top = false, fadeTo = '#fff' } = Astro.props;
+interface Props { flip?: boolean; top?: boolean; fadeTo?: string; offset?: number; opacity?: number }
+const { flip = false, top = false, fadeTo = '#fff', offset = -1, opacity = 0.6 } = Astro.props;
 
 const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
+const offsetStyle = top ? `top: ${offset}px;` : `bottom: ${offset}px;`;
 ---
 
-<div class={`tidal-wave${flip ? ' flip' : ''}${top ? ' top' : ''}`} aria-hidden="true">
+<div class={`tidal-wave${flip ? ' flip' : ''}${top ? ' top' : ''}`} style={offsetStyle} aria-hidden="true">
   <svg width="0" height="0" style="position:absolute">
     <defs>
       <mask id={maskId} maskContentUnits="objectBoundingBox" maskUnits="objectBoundingBox">
@@ -22,7 +23,7 @@ const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
       </mask>
     </defs>
   </svg>
-  <div class="tidal-wave-fill" style={`mask: url(#${maskId}); -webkit-mask: url(#${maskId}); --tidal-fade-to: ${fadeTo};`}></div>
+  <div class="tidal-wave-fill" style={`mask: url(#${maskId}); -webkit-mask: url(#${maskId}); --tidal-fade-to: ${fadeTo}; opacity: ${opacity};`}></div>
 </div>
 
 <style>

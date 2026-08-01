@@ -346,7 +346,7 @@ const ueberPunkte = [
 
   <!-- 12 · GALERIE -->
   <section class="s-galerie">
-    <TidalWave top />
+    <TidalWave top flip fadeTo="var(--bg-cream)" opacity={1} />
     <div class="container">
       <h2 class="center">Ein paar Eindrücke aus unserem kleinen Paradies</h2>
       <div class="galerie-grid">
@@ -454,7 +454,8 @@ const ueberPunkte = [
 .woche-list li::before { content: '✓'; left: 22px; top: 21px; color: var(--wc); }
 .pull-quote { margin: 40px auto 0; padding: 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.4; }
 .pull-quote cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--font-body); font-size: 15px; color: var(--ink-light); }
-.s-passiert { background: var(--bg-white); }
+.s-passiert { background: var(--bg-white); padding-top: clamp(64px,12vw,128px); }
+.s-testimonials .acc-eyebrow { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 
 /* ── WAS DU MITNIMMST ─────────────────────────────────────── */
 .s-mitnehmen { background: var(--bg-cream); }

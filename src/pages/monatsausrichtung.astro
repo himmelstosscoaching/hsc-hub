@@ -237,7 +237,7 @@ const stimmen: { text: string; name: string }[] = [];
 
   <!-- 7 · WARUM UNS DAS WICHTIG IST — Annette & Herbert getrennt (wie /12-heilige-naechte) -->
   <section class="ma-about">
-    <TidalWave top />
+    <TidalWave top flip fadeTo="var(--bg-cream)" />
     <div class="container narrow">
       <p class="ma-about-eyebrow center">Warum uns das wichtig ist</p>
       <figure class="ma-voice">
@@ -387,8 +387,8 @@ const stimmen: { text: string; name: string }[] = [];
   .ma-facts li::before { content: '✓'; position: absolute; left: 22px; top: 26px; color: var(--orange); font-weight: 700; font-size: 18px; }
 
   /* ── PREISE ───────────────────────────────────────────────── */
-  .ma-preise { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
-  .ma-preise .eyebrow-light { font-family: var(--font-body); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 10px; }
+  .ma-preise { background: var(--bg-cream); padding: clamp(32px,8vw,78px) 0 clamp(64px,8vw,110px); }
+  .ma-preise .eyebrow-light { font-family: var(--font-body); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 10px; }
   .ma-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 44px; }
   .ma-preis-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 0 auto 36px; max-width: 500px; align-items: stretch; }
   .ma-preis-card { position: relative; background: var(--bg-white); border-radius: 16px; padding: 26px 22px; box-shadow: var(--shadow-soft); }
