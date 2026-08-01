@@ -58,7 +58,7 @@ const ecWege = [
   <section class="ang-hero">
     <div class="container narrow">
       <p class="acc-eyebrow ang-eyebrow">Unsere Angebote im Überblick</p>
-      <h1>Such dir aus, was zu dir passt.</h1>
+      <h1>Such dir aus, was zu<br>dir passt.</h1>
       <p class="ang-sub">
         Online oder vor Ort. Für dich allein oder als Paar.
         Ein erster kostenloser Schritt — oder tiefe Zeit am Meer.
@@ -78,7 +78,7 @@ const ecWege = [
   <!-- Kernangebote -->
   <section class="ang-kat bg-white pad-b-sm">
     <div class="container">
-      <div class="kat-head">
+      <div class="kat-head kat-head--wide">
         <span class="kat-label">Unsere 5 Kernangebote</span>
         <p class="kat-intro">Fünf Wege, mit uns zu arbeiten — von zu Hause aus, live über Zoom oder bei uns vor Ort.</p>
       </div>
@@ -239,6 +239,7 @@ const ecWege = [
   .bg-cream { background: var(--bg-cream); }
   .kat-head { max-width: 640px; margin: 0 0 48px; }
   .kat-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kat-head--wide { max-width: 780px; }
   .kat-label {
     display: inline-block;
     font-family: var(--font-display); font-weight: 700;
@@ -267,6 +268,12 @@ const ecWege = [
     box-shadow: 0 20px 44px rgba(44, 75, 123, 0.14);
     border-color: rgba(250, 157, 86, 0.5);
   }
+  /* Ganze Karte klickbar machen: unsichtbare Trefferfläche über den bestehenden „Mehr erfahren"-Link legen */
+  .ang-card .ang-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
   /* Alle Angebots-Karten: oberer Streifen als animierter Sun-Strip (durchgängiger Hinweis aufs Angebot) */
   .ang-card::before {
     content: "";
@@ -285,7 +292,7 @@ const ecWege = [
     flex-wrap: wrap;
     margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(250,157,86,0.25);
   }
-  .ang-preis { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--blue-deep); }
+  .ang-preis { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--blue-deep); white-space: pre-line; }
   .ang-cta {
     font-family: var(--font-body); font-weight: 600; font-size: 13px; letter-spacing: 0.06em;
     color: var(--blue-deep); border-bottom: 1.5px solid var(--blue-deep); padding-bottom: 2px;

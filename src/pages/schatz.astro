@@ -148,7 +148,7 @@ const kapitel = [
 
   <!-- 6 · KURS-FEATURES — Creme -->
   <section class="s-kurs">
-    <TidalWave top />
+    <TidalWave top flip fadeTo="var(--bg-cream)" />
     <div class="container">
       <div class="kurs-grid">
         <div class="kurs-text">
@@ -171,7 +171,6 @@ const kapitel = [
 
   <!-- 7 · NACH DEM KURS — mit Streifen oben -->
   <section class="s-nach">
-    <WaveDivider top fill="var(--bg-white)" />
     <div class="container narrow">
       <h2 class="center">Nach dem Kurs könnt ihr …</h2>
       <ul class="nach-list">
@@ -188,12 +187,11 @@ const kapitel = [
         <p>Viele Teilnehmer berichten, dass sich durch diese Arbeit etwas Entscheidendes verändert hat. Nicht durch große dramatische Erkenntnisse — sondern durch etwas viel Einfacheres: <em>Neugier.</em> Plötzlich entstehen wieder Fragen. Die Beziehung beginnt wieder zu leben.</p>
       </div>
     </div>
-    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <!-- 8 · KAPITEL — Creme, Streifen oben, Kapitelnummern in Kapitelfarben -->
   <section class="s-kapitel">
-    <WaveDivider top fill="var(--bg-cream)" />
+    <WaveDivider top flip fill="var(--bg-cream)" accent="var(--bg-white)" />
     <div class="container">
       <p class="acc-eyebrow" style="justify-content:center">Was euch erwartet</p>
       <h2 class="center">Neun Kapitel, die euch verändern</h2>
@@ -208,7 +206,6 @@ const kapitel = [
         ))}
       </div>
     </div>
-    <TidalWave />
   </section>
 
   <!-- 9 · WAS SICH VERÄNDERT — Verlauf -->
@@ -238,7 +235,7 @@ const kapitel = [
       </div>
       <div class="ueber-text">
         <p class="acc-eyebrow">Wer wir sind</p>
-        <h2>Wir haben das alles selbst durchlebt.</h2>
+        <h2>Wir haben das alles selbst durchlebt</h2>
         <p>Wir, Annette und Herbert, sind seit 1992 verheiratet. Und wir haben in unserer Beziehung jede Phase erlebt, die ihr vielleicht gerade durchmacht: das große Verliebtsein. Die ersten Streits. Die Zeit, in der wir geglaubt haben, wir hätten uns verloren.</p>
         <p>Was uns gerettet hat, war keine Therapie und kein Buch. Es war die Entscheidung, einander auf eine neue Art zu begegnen — als Begleiter durch das eigene innere Erleben. Aus dieser Erfahrung ist „Schatz, coachst du mich?" entstanden.</p>
         <p>Wir sind keine Experten von außen, die euch erklären, wie Liebe funktioniert. Wir sind ein Paar wie ihr — das einen Weg gefunden hat und ihn mit euch teilen möchte.</p>
@@ -410,7 +407,7 @@ const kapitel = [
   width: 100%;
   padding: clamp(80px,10vw,120px) 0;
 }
-.hero-text { max-width: 480px; }
+.hero-text { max-width: 480px; margin-top: -91px; }
 .hero-eyebrow {
   font-family: var(--font-body);
   font-size: clamp(16px, 1.5vw, 20px);
@@ -464,8 +461,10 @@ const kapitel = [
 
 /* ── ANDERE IDEE — hell, kein Verlauf ────────────────────── */
 .s-idee { background: var(--bg-white); }
+.s-idee .eyebrow-light { margin-top: -32px; }
 .eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 18px; }
-.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: var(--gold-line, var(--orange)); }
+.eyebrow-light::before,
+.eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--gold-line, var(--orange)); }
 .idee-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,42px); color: var(--blue-deep); line-height: 1.2; margin: 0 0 24px; }
 .idee-intro { font-size: clamp(16px,1.5vw,20px); color: var(--ink-soft); max-width: 640px; margin: 0 auto 52px; line-height: 1.7; }
 .idee-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 48px; text-align: left; }
@@ -502,6 +501,7 @@ const kapitel = [
 
 /* ── KAPITEL ──────────────────────────────────────────────── */
 .s-kapitel { background: var(--bg-cream); padding-top: clamp(64px, 8vw, 96px); }
+.s-kapitel .acc-eyebrow { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 .kapitel-intro { max-width: 640px; margin: 0 auto 52px; font-size: clamp(15px,1.4vw,17px); color: var(--ink-soft); }
 .kapitel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .kapitel-card { background: color-mix(in srgb, var(--kc, var(--sky-light)) 12%, var(--bg-white)); border-radius: var(--radius-card); padding: 26px; border-top: 4px solid var(--kc, var(--sky-light)); box-shadow: var(--shadow-soft); }
@@ -512,6 +512,8 @@ const kapitel = [
 /* ── WAS SICH VERÄNDERT ───────────────────────────────────── */
 .s-veraendert { background: var(--sunset-surface); }
 .s-veraendert .eyebrow-light { color: #fff; font-size: 17px; }
+.s-veraendert .eyebrow-light::before,
+.s-veraendert .eyebrow-light::after { background: #fff; }
 .veraendert-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,40px); color: var(--bg-cream); margin-bottom: 48px; }
 .veraendert-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; text-align: left; }
 .veraendert-item { background: var(--bg-cream); border-radius: var(--radius-card); padding: 28px; border-top: 4px solid var(--orange); }
@@ -526,7 +528,7 @@ const kapitel = [
 .ueber-sig { font-family: var(--font-display); font-size: 20px; color: var(--blue-deep); margin-top: 24px; margin-bottom: 0; }
 
 /* ── EIGNUNG ──────────────────────────────────────────────── */
-.s-eignung { background: var(--bg-cream); }
+.s-eignung { background: var(--bg-cream); padding-top: clamp(64px, 12vw, 128px); }
 .s-eignung h2 { margin-bottom: clamp(40px,5vw,60px); }
 .eignung-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; align-items: start; }
 .eignung-ja, .eignung-nein { border-radius: var(--radius-card); padding: clamp(28px,3.2vw,40px); box-shadow: var(--shadow-soft); }

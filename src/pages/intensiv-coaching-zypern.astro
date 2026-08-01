@@ -205,7 +205,7 @@ const ueberPunkte = [
   <!-- 7 · FÜR WEN / CHANCE -->
   <section class="s-fuer">
     <div class="container narrow">
-      <h2 class="center">Diese Woche ist für dich, wenn du …</h2>
+      <h2 class="center">Diese Woche ist für dich,<br>wenn du …</h2>
       <div class="fuer-panel">
         <ul class="fuer-list">
           {fuerDich.map((f) => <li set:html={f} />)}
@@ -430,7 +430,10 @@ const ueberPunkte = [
 
 /* ── ES GIBT EINEN WEG ────────────────────────────────────── */
 .s-weg { background: var(--bg-cream); }
-.s-weg h2 { margin: 32px 0 12px; }
+.s-weg .acc-eyebrow { margin-bottom: 50px; }
+.s-weg h2 { margin: 64px 0 12px; }
+.s-weg .video-embed { margin-top: 68px; }
+.s-weg > .container > a.btn { margin-top: 32px; }
 .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); margin: 36px 0; background: #0d1b2a; }
 .s-weg .video-embed { max-width: 720px; margin-left: auto; margin-right: auto; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -509,7 +512,8 @@ const ueberPunkte = [
 /* ── HAUPTANGEBOT ─────────────────────────────────────────── */
 .s-angebot { background: var(--sunset-surface); }
 .eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
-.eyebrow-light::before { content: ""; width: 28px; height: 1px; background: var(--orange); }
+.eyebrow-light::before,
+.eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
 .angebot-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 14px; }
 .angebot-intro { color: var(--bg-cream); margin-bottom: 40px; font-size: clamp(16px,1.5vw,19px); }
 .angebot-card { background: var(--bg-cream); border-radius: 20px; padding: clamp(32px,5vw,52px); max-width: 620px; margin: 0 auto; position: relative; overflow: hidden; text-align: left; }

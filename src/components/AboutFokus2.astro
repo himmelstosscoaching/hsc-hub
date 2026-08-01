@@ -15,7 +15,7 @@
 
     <figure class="about2-family reveal-on-scroll">
       <img src="/img/familie-felsen-quer.jpg" alt="Annette und Herbert mit ihren drei erwachsenen Kindern am Meer" loading="lazy" />
-      <figcaption>Wir fünf — Annette, Herbert und unsere drei erwachsenen Kinder.</figcaption>
+      <figcaption>Wir fünf — Annette, Herbert und unsere drei erwachsenen Kinder</figcaption>
     </figure>
   </div>
 
@@ -55,10 +55,10 @@
     padding-top: clamp(80px, 10vw, 120px);
     padding-bottom: clamp(80px, 10vw, 120px);
   }
-  .about2-intro { text-align: center; margin-bottom: clamp(48px, 6vw, 70px); }
+  .about2-intro { text-align: center; margin-bottom: 117px; }
   .about2-family {
     margin: clamp(32px, 4vw, 44px) auto 0;
-    max-width: 420px;
+    max-width: 100%;
   }
   .about2-family img {
     width: 100%;
@@ -69,7 +69,7 @@
   }
   .about2-family figcaption {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 19px;
     color: var(--ink-light);
     margin-top: 10px;
     text-align: center;
@@ -113,7 +113,7 @@
   }
   .person2 p {
     font-family: var(--font-body);
-    font-size: clamp(16px, 1.3vw, 17px);
+    font-size: clamp(15px, 1.3vw, 18px);
     line-height: 1.75;
     color: var(--ink-soft);
     margin: 0;
@@ -131,7 +131,7 @@
     font-size: clamp(19px, 1.7vw, 24px);
     line-height: 1.5;
     color: var(--blue-deep);
-    padding-top: clamp(36px, 4vw, 50px);
+    padding-top: clamp(68px, 4vw, 82px);
     border-top: 1px solid rgba(184, 149, 107, 0.25);
     margin: 0 auto;
   }
@@ -139,6 +139,7 @@
 
   @media (max-width: 760px) {
     .about2-family { max-width: 320px; }
+    .about2-family figcaption { font-size: 13px; white-space: normal; }
     .about2-persons { grid-template-columns: 1fr; gap: 44px; }
     .person2 p { text-align: center; }
   }

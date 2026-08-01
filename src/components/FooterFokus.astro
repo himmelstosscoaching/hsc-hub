@@ -45,7 +45,7 @@
       </ul>
     </div>
 
-    <div class="footer-col">
+    <div class="footer-col footer-col--folgen">
       <h4>Folgen</h4>
       <a class="footer-yt" href="https://www.youtube.com/@himmelstosscoaching/streams" target="_blank" rel="noopener" aria-label="Unser YouTube-Kanal mit den Sonntagsgesprächen">
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
@@ -70,13 +70,14 @@
 
 <style>
   .footer-fokus {
-    background: var(--bg-cream-deeper);
+    background: var(--bg-white);
     color: var(--ink-soft);
     position: relative;
   }
   /* Newsletter-Streifen */
   .footer-news-strip {
     padding: 44px 0;
+    background: var(--bg-cream);
     border-bottom: 1px solid rgba(184, 149, 107, 0.28);
   }
   .footer-news-inner {
@@ -85,20 +86,22 @@
     justify-content: space-between;
     gap: 36px;
     flex-wrap: wrap;
+    padding-left: 60px;
+    padding-right: 60px;
   }
   .footer-news-text { max-width: 480px; }
   .footer-news-text h4 {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 17px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--orange);
     margin: 0 0 8px;
-    font-weight: 600;
+    font-weight: 700;
   }
   .footer-news-text p {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.55;
     color: var(--ink-soft);
   }
@@ -142,10 +145,10 @@
     display: grid;
     grid-template-columns: 1.8fr 1fr 1.4fr 1.1fr;
     gap: 50px;
-    padding: 84px 0 64px;
+    padding: 84px 60px 64px;
   }
-  .footer-logo { height: 44px; width: auto; margin-bottom: 16px; }
-  .footer-brand p { margin: 0; font-size: 14px; font-weight: 700; color: var(--ink-soft); line-height: 1.55; }
+  .footer-logo { height: 59px; width: auto; margin-bottom: 16px; }
+  .footer-brand p { margin: 0; font-size: 14px; font-weight: 700; color: var(--blue-deep); line-height: 1.55; }
   .footer-yt {
     display: inline-flex;
     align-items: center;
@@ -172,6 +175,7 @@
   .footer-col li { margin-bottom: 10px; font-size: 15px; }
   .footer-col a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
   .footer-col a:hover { color: var(--blue-deep); text-decoration: none; }
+  .footer-col--folgen { width: fit-content; margin-left: auto; }
 
   .footer-bottom {
     border-top: 1px solid rgba(184, 149, 107, 0.3);

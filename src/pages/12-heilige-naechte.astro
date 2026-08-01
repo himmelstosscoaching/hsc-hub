@@ -184,7 +184,7 @@ const stimmen = [
   <!-- 5 · PREISE -->
   <section class="hn-preise">
     <div class="container narrow center">
-      <p class="eyebrow-light">Einmal bezahlen und als Familie dabei</p>
+      <p class="eyebrow-light hn-eyebrow-light">Einmal bezahlen und als Familie dabei</p>
       <h2 class="hn-preis-hl">Sei dabei – wähle deinen Zeitpunkt</h2>
       <div class="hn-preis-grid">
         {preise.map((p) => (
@@ -274,7 +274,7 @@ const stimmen = [
   .hn-hero-snow--left { left: 0;
     -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%);
     mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%); }
-  .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; }
+  .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; margin-top: -160px; }
   .hn-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,0.92); margin: 0 0 18px; text-shadow: 0 1px 12px rgba(20,35,60,0.55); }
   .hn-hero h1 { color: #fff; font-size: clamp(36px,5.4vw,66px); line-height: 1.08; margin: 0 0 18px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
   .hn-hero h1 em { display: block; font-style: italic; color: var(--orange); font-size: 0.68em; margin-top: 12px; text-shadow: 0 2px 18px rgba(15,28,50,0.6); }
@@ -322,6 +322,8 @@ const stimmen = [
 
   /* ── PREISE ───────────────────────────────────────────────── */
   .hn-preise { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .hn-eyebrow-light { display: flex; align-items: center; justify-content: center; gap: 14px; font-family: var(--font-body); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 10px; }
+  .hn-eyebrow-light::before, .hn-eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
   .hn-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 44px; }
   .hn-preis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 0 0 40px; }
   .hn-preis-card { position: relative; background: var(--bg-white); border-radius: 20px; padding: 36px 24px; box-shadow: var(--shadow-soft); border-top: 4px solid var(--orange); }
@@ -348,6 +350,7 @@ const stimmen = [
 
   /* ── TEILNEHMERSTIMMEN ────────────────────────────────────── */
   .hn-stimmen { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .hn-stimmen .acc-eyebrow { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
   .hn-stimmen h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 40px; }
   .hn-stimmen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
   .hn-stimme { margin: 0; padding: 28px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--orange); box-shadow: var(--shadow-soft); }

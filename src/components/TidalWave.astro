@@ -5,8 +5,8 @@
 // große, unregelmäßig verteilte Schwünge statt eines mechanisch-repetitiven Sinus) — ruhig, aber lebendig.
 // Technik: SVG-<mask> (objectBoundingBox → skaliert responsiv) auf einem Div mit echtem
 // CSS-Verlaufshintergrund, damit der bewährte background-position-Shimmer (sun-shimmer) weiterläuft.
-interface Props { flip?: boolean; top?: boolean }
-const { flip = false, top = false } = Astro.props;
+interface Props { flip?: boolean; top?: boolean; fadeTo?: string }
+const { flip = false, top = false, fadeTo = '#fff' } = Astro.props;
 
 const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
 ---
@@ -22,7 +22,7 @@ const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
       </mask>
     </defs>
   </svg>
-  <div class="tidal-wave-fill" style={`mask: url(#${maskId}); -webkit-mask: url(#${maskId});`}></div>
+  <div class="tidal-wave-fill" style={`mask: url(#${maskId}); -webkit-mask: url(#${maskId}); --tidal-fade-to: ${fadeTo};`}></div>
 </div>
 
 <style>
@@ -44,8 +44,8 @@ const maskId = `tidal-mask-${Math.random().toString(36).slice(2, 9)}`;
        Zwei weiße Verlaufsebenen drüber: kräftig nur oben in der Mitte (Wellenkämme),
        löst sich nach unten UND zu beiden Seiten hin ins Weiß auf — kein harter Schnitt am Rand. */
     background:
-      linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, #fff 100%),
-      linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, #fff 92%),
+      linear-gradient(90deg, var(--tidal-fade-to, #fff) 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, var(--tidal-fade-to, #fff) 100%),
+      linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, var(--tidal-fade-to, #fff) 92%),
       linear-gradient(90deg,
         #2C4B7B 0%,
         #3D7AAB 18%,

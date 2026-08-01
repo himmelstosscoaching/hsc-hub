@@ -96,7 +96,7 @@ export const weitere: Angebot[] = [
     nutzen: 'Ein geführter Jahreswechsel: zwölf Tage, zwölf Impulse, ein klarerer Start ins neue Jahr.',
     formatType: 'live-online',
     format: 'Saisonal · 25.12.–5.1. · täglich ~1¼ Std',
-    preis: '240 € bis 15.11. · 270 € bis 10.12. · 330 € ab 11.12.',
+    preis: '240 € bis 15.11. · 270 € bis 10.12. · 330 €\nab 11.12.',
     cta: 'Mehr erfahren',
     url: '/12-heilige-naechte',
   },

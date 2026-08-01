@@ -17,9 +17,10 @@ import TidalWave from './TidalWave.astro';
     </ul>
 
     <div class="book-block">
+      <h2 class="book-heading">Unser Bestsellerbuch</h2>
       <p class="book-eyebrow">Partnerschaft als Turbo in der eigenen Entwicklung</p>
       <img class="book-cover" src="/img/buch-mockup-vorn-hinten.png" alt="Buch von Annette und Herbert Himmelstoß — Vorder- und Rückseite" loading="lazy" />
-      <h3 class="book-title">Die Macht zu bekommen, was beide wollen</h3>
+      <h3 class="book-title">Die Macht zu bekommen, was<br>beide wollen</h3>
       <p class="book-from">aus unserem Buch „Trau keinem, der nicht in einer glücklichen Beziehung ist"</p>
       <p class="book-desc">Unsere Sicht auf Partnerschaft, Krise und das, was beide tragen kann.</p>
       <a href="/buch" class="btn-link">Mehr zum Buch <span class="arrow">→</span></a>
@@ -90,25 +91,34 @@ import TidalWave from './TidalWave.astro';
     background: var(--bg-white);
     /* padding-top eigens gesetzt: Platz für die breite TidalWave oben, aber ohne den
        vollen Standard-Sektionsabstand (bis 160px), der die Lücke über „seit 1992" sonst sprengt. */
-    padding-top: clamp(88px, 10vw, 124px);
+    padding-top: clamp(184px, 10vw, 220px);
     padding-bottom: clamp(80px, 10vw, 130px);
   }
   .stats {
     list-style: none;
-    margin: 0 auto 64px;
+    margin: 0 auto 128px;
     padding: 0;
-    max-width: 860px;
+    max-width: 900px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: clamp(28px, 4vw, 56px);
+    gap: clamp(24px, 4vw, 48px);
   }
   .stats li {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 120px;
+    min-width: 0;
+  }
+  .stat-num { white-space: nowrap; }
+  @media (min-width: 721px) {
+    .stats {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   .stat-num {
     font-family: var(--font-display);
@@ -134,8 +144,16 @@ import TidalWave from './TidalWave.astro';
     width: 100%;
     max-width: 420px;
     height: auto;
-    margin: 0 auto 24px;
+    margin: 0 auto 57px;
     display: block;
+  }
+  .book-heading {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.2;
+    color: var(--blue-deep);
+    margin: 0 0 14px;
   }
   .book-eyebrow {
     font-family: var(--font-display);
@@ -143,7 +161,7 @@ import TidalWave from './TidalWave.astro';
     font-size: clamp(18px, 1.6vw, 22px);
     line-height: 1.35;
     color: var(--blue-deep);
-    margin: 0 0 26px;
+    margin: 0 0 57px;
   }
   .book-title {
     font-family: var(--font-display);
@@ -155,7 +173,7 @@ import TidalWave from './TidalWave.astro';
   }
   .book-from {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 0.01em;
     color: var(--ink-light);
     margin: 0 0 14px;
@@ -164,9 +182,10 @@ import TidalWave from './TidalWave.astro';
     font-family: var(--font-display);
     font-style: italic;
     color: var(--ink-soft);
-    font-size: 16px;
+    font-size: 18px;
     margin: 0 0 22px;
   }
+  .book-block .btn-link { font-size: 18px; }
 
   .voices-eyebrow {
     text-align: center;
@@ -206,5 +225,7 @@ import TidalWave from './TidalWave.astro';
 
   @media (max-width: 720px) {
     .voices { grid-template-columns: 1fr; gap: 24px; }
+    .stats { flex-wrap: wrap; gap: clamp(20px, 5vw, 32px); }
+    .stats li { min-width: 120px; }
   }
 </style>
