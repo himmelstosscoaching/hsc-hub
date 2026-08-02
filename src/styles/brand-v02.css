@@ -72,6 +72,9 @@
   --font-display: 'Fontin', Georgia, serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
+  /* Eyebrow — eine Groesse fuer alle orangen Vorzeilen auf allen Seiten */
+  --eyebrow-size: clamp(17px, 2vw, 22px);
+
   /* Spacing */
   --s-section:   clamp(96px, 12vw, 160px);
   --s-container: 1180px;
@@ -150,7 +153,7 @@ p { margin: 0 0 1em; }
   align-items: center;
   gap: 14px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--eyebrow-size);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;

@@ -438,9 +438,9 @@ const ueberPunkte = [
 .s-weg .video-embed { max-width: 720px; margin-left: auto; margin-right: auto; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* Vorzeile größer — bewusst nur auf DIESER Seite.
-   Global steht sie in brand-v02.css auf 15px und gilt für die ganze Website. */
-.acc-eyebrow { font-size: 19px; }
+/* Vorzeile: einheitliche Größe für die ganze Website — Wert steht als
+   --eyebrow-size in brand-v02.css. */
+.acc-eyebrow { font-size: var(--eyebrow-size); }
 
 /* ── CHECK-LIST (Was passiert) ────────────────────────────── */
 .check-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 14px; }
@@ -512,7 +512,7 @@ const ueberPunkte = [
 
 /* ── HAUPTANGEBOT ─────────────────────────────────────────── */
 .s-angebot { background: var(--sunset-surface); }
-.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+.eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: var(--eyebrow-size); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
 .eyebrow-light::before,
 .eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
 .angebot-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,42px); color: #fff; margin-bottom: 14px; }
