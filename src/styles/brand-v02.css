@@ -167,6 +167,15 @@ p { margin: 0 0 1em; }
   height: 1px;
   background: var(--orange);
 }
+/* Vorzeile bleibt einzeilig: bricht sie um, sitzen die Striche mittig
+   neben zwei Zeilen statt sauber links und rechts daneben.
+   Auf Handy-Breite darf sie umbrechen, sonst laeuft sie aus dem Bild. */
+@media (min-width: 721px) {
+  .acc-eyebrow,
+  .eyebrow-light,
+  .hn-eyebrow-light,
+  .ft-eyebrow { white-space: nowrap; }
+}
 
 /* Section base */
 section { padding: var(--s-section) 0; position: relative; }

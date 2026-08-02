@@ -5,6 +5,7 @@ import FooterFokus from '../components/FooterFokus.astro';
 import FormatBadge from '../components/FormatBadge.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import PathFinder from '../components/PathFinder.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import { kern, weitere, kostenlos } from '../data/angebote';
 
 // Einzelcoaching wird als volle-Breite-Kachel mit 3 Wegen gezeigt → aus dem 2-Spalten-Raster lösen.
@@ -71,6 +72,7 @@ const ecWege = [
         <FormatBadge type="live-vor-ort" />
       </div>
     </div>
+    <WaveDivider fill="var(--bg-cream)" />
   </section>
 
   <PathFinder />
