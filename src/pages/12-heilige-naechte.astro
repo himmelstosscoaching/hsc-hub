@@ -69,11 +69,22 @@ const leistungen = [
   'Du bekommst ein Workbook, das dich das ganze Jahr 2027 begleitet',
 ];
 
-const preise = [
-  { tag: 'Frühbucher', preis: '240 €', frist: 'bei Anmeldung bis 15. November', highlight: false },
-  { tag: 'Aktionspreis', preis: '270 €', frist: 'gültig bis 10. Dezember', highlight: true },
-  { tag: 'Regulärer Preis', preis: '330 €', frist: 'ab 11. Dezember', highlight: false },
+// Preisstufen als Zeitleiste: sichtbar ist immer nur der Preis, der heute gilt.
+// „bis“ = letzter Tag der Stufe (ISO). Die letzte Stufe laeuft ohne Ende.
+const preisstufen = [
+  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-15', frist: 'Nur bis 15. November', ab: '' },
+  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-10', frist: 'Nur bis 10. Dezember', ab: 'Ab 16. November' },
+  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 11. Dezember' },
 ];
+
+const heute = new Date().toISOString().slice(0, 10);
+const aktivIndex = Math.max(0, preisstufen.findIndex((p) => !p.bis || heute <= p.bis));
+const aktiv = preisstufen[aktivIndex];
+// Ruhige Zeile darunter: was danach kommt — Transparenz ohne Vergleichsarbeit.
+const staffelText = preisstufen
+  .slice(aktivIndex + 1)
+  .map((p) => `${p.ab} ${p.preis}`)
+  .join(' · ');
 
 const stimmen = [
   {
@@ -185,22 +196,14 @@ const stimmen = [
   <section class="hn-preise">
     <div class="container narrow center">
       <p class="eyebrow-light hn-eyebrow-light">Einmal bezahlen und als Familie dabei</p>
-      <h2 class="hn-preis-hl">Sei dabei – wähle deinen Zeitpunkt</h2>
-      <div class="hn-preis-grid">
-        {preise.map((p) => (
-          <div class:list={['hn-preis-card', { 'hn-preis-card--hl': p.highlight }]}>
-            {p.highlight && <span class="hn-preis-badge">Beliebt</span>}
-            <p class="hn-preis-tag">{p.tag}</p>
-            <div class="hn-preis-haupt">{p.preis}</div>
-            <p class="hn-preis-frist">{p.frist}</p>
-          </div>
-        ))}
+      <h2 class="hn-preis-hl">Sei dabei</h2>
+      <div class="hn-preis-jetzt" data-preisblock data-stufen={JSON.stringify(preisstufen)}>
+        <p class="hn-preis-tag" data-preis-tag>{aktiv.tag}</p>
+        <div class="hn-preis-haupt" data-preis-wert>{aktiv.preis}</div>
+        <p class="hn-preis-frist" data-preis-frist>{aktiv.frist}</p>
       </div>
+      <p class="hn-preis-staffel" data-preis-staffel>{staffelText}</p>
       <a href={buchenUrl} class="btn btn-primary btn-lg hn-preis-btn">Ja, ich bin dabei →</a>
-      <p class="hn-preis-note">
-        Falls der Link bei dir nicht funktioniert, schreib uns eine E-Mail mit dem Betreff
-        „Ja, ich bin dabei“ an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a>.
-      </p>
     </div>
   </section>
 
@@ -263,6 +266,31 @@ const stimmen = [
 
   <FooterFokus />
 </FokusLayout>
+
+<script>
+  // Der Preis wird beim Build gesetzt. Ohne neuen Build waere er nach dem
+  // 15.11. bzw. 10.12. falsch — deshalb hier im Browser noch einmal anhand
+  // des heutigen Datums nachgezogen.
+  const block = document.querySelector('[data-preisblock]');
+  if (block instanceof HTMLElement && block.dataset.stufen) {
+    const stufen = JSON.parse(block.dataset.stufen);
+    const heute = new Date().toISOString().slice(0, 10);
+    let i = stufen.findIndex((s) => !s.bis || heute <= s.bis);
+    if (i < 0) i = stufen.length - 1;
+    const aktiv = stufen[i];
+    const setzen = (sel, text) => {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = text;
+    };
+    setzen('[data-preis-tag]', aktiv.tag);
+    setzen('[data-preis-wert]', aktiv.preis);
+    setzen('[data-preis-frist]', aktiv.frist);
+    setzen(
+      '[data-preis-staffel]',
+      stufen.slice(i + 1).map((s) => `${s.ab} ${s.preis}`).join(' · ')
+    );
+  }
+</script>
 
 <style>
   /* ── HERO ─────────────────────────────────────────────────── */
@@ -327,15 +355,15 @@ const stimmen = [
   .hn-eyebrow-light { display: flex; align-items: center; justify-content: center; gap: 14px; font-family: var(--font-body); font-size: var(--eyebrow-size); letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 10px; }
   .hn-eyebrow-light::before, .hn-eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
   .hn-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 44px; }
-  .hn-preis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 0 0 40px; }
-  .hn-preis-card { position: relative; background: var(--bg-white); border-radius: 20px; padding: 36px 24px; box-shadow: var(--shadow-soft); border-top: 4px solid var(--orange); }
-  .hn-preis-card--hl { transform: translateY(-8px); box-shadow: var(--shadow-card); border-top-width: 6px; }
-  .hn-preis-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
-  .hn-preis-tag { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 12px; }
-  .hn-preis-haupt { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px,5vw,60px); color: var(--blue-deep); line-height: 1; margin: 0 0 10px; }
-  .hn-preis-frist { font-size: 15px; color: var(--ink-soft); margin: 0; }
-  .hn-preis-btn { margin-bottom: 18px; }
-  .hn-preis-note { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin: 0 auto; max-width: 520px; }
+  /* Ein Preis — der, der heute gilt. Die Staffel steht als ruhige Zeile darunter. */
+  .hn-preis-jetzt { background: var(--bg-white); border-radius: 20px; border-top: 4px solid var(--orange); box-shadow: var(--shadow-card); padding: clamp(32px,4vw,44px) 32px; max-width: 400px; margin: 0 auto 18px; }
+  .hn-preis-tag { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 14px; }
+  .hn-preis-haupt { font-family: var(--font-display); font-weight: 700; font-size: clamp(52px,6.5vw,76px); color: var(--blue-deep); line-height: 1; margin: 0 0 12px; }
+  .hn-preis-frist { font-size: 16px; color: var(--ink-soft); margin: 0; }
+  .hn-preis-frist:empty { display: none; }
+  .hn-preis-staffel { font-size: 14px; color: var(--ink-light); margin: 0 0 32px; }
+  .hn-preis-staffel:empty { display: none; }
+  .hn-preis-btn { margin-bottom: 0; }
 
   /* ── PERSÖNLICHE ERFAHRUNGEN ──────────────────────────────── */
   .hn-erfahrung { background: var(--bg-white); padding: clamp(64px,8vw,110px) 0; }
