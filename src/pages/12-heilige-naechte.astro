@@ -266,7 +266,9 @@ const stimmen = [
 
 <style>
   /* ── HERO ─────────────────────────────────────────────────── */
-  .hn-hero { position: relative; min-height: clamp(300px, 36vh, 420px); display: flex; align-items: center; overflow: hidden; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
+  /* Hero: oben gekuerzt (weniger Blau vor dem Text), Schriftblock sitzt tiefer
+     im Bild — der leere Verlauf unter dem Button wird dafuer kleiner. */
+  .hn-hero { position: relative; min-height: clamp(300px, 36vh, 420px); padding: clamp(48px,5vw,64px) 0 clamp(64px,8vw,96px); display: flex; align-items: center; overflow: hidden; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
   .hn-hero-snow { position: absolute; top: 0; height: 100%; width: clamp(260px, 40%, 580px); object-fit: cover; object-position: center; opacity: 0.32; pointer-events: none; mix-blend-mode: screen; }
   .hn-hero-snow--right { right: 0;
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%);
@@ -274,7 +276,7 @@ const stimmen = [
   .hn-hero-snow--left { left: 0;
     -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%);
     mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,0.4) 40%, #000 100%); }
-  .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0; margin-top: -160px; }
+  .hn-hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(80px,10vw,120px) 0 clamp(40px,6vw,60px); margin-top: 0; }
   .hn-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,0.92); margin: 0 0 18px; text-shadow: 0 1px 12px rgba(20,35,60,0.55); }
   .hn-hero h1 { color: #fff; font-size: clamp(36px,5.4vw,66px); line-height: 1.08; margin: 0 0 18px; text-shadow: 0 2px 22px rgba(15,28,50,0.65); }
   .hn-hero h1 em { display: block; font-style: italic; color: var(--orange); font-size: 0.68em; margin-top: 12px; text-shadow: 0 2px 18px rgba(15,28,50,0.6); }
