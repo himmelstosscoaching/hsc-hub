@@ -1,0 +1,219 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/webinar.css';
+import '../styles/lead-magnet.css';
+// Korrekturschicht: Farben und Stil wie auf der Website (muss zuletzt stehen)
+import '../styles/3-tage-hsc-look.css';
+
+// Quentn-Form-URL für den Lead Magnet (Form ID 1061)
+const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public/forms/1061/raw/submit";
+---
+
+<FunnelLayout
+  title="3 Tage, die euch wieder näher bringen — Workbook für Paare"
+  description="Drei Übungen. Drei Abende. Jeweils nur 10–15 Minuten. Ein kostenfreies PDF-Workbook für Paare, die spüren: Da geht noch mehr."
+  canonical="https://himmelstosscoaching.de/3-tage"
+>
+
+<!-- A — HEADER -->
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- B — HERO (Conversion-Layout: Form direkt im Hero + PDF-Cover-Mockup) -->
+<section class="lm-hero atm-lm-hero">
+  <div class="lm-hero-content">
+    <span class="lm-pdf-badge">Kostenfreies Workbook · 17 Seiten</span>
+    <h1>3 Tage, die euch <em>wieder näher</em> bringen.</h1>
+    <p class="lm-hero-sub">
+      Drei Übungen. Drei Abende. Jeweils nur 10–15 Minuten.<br>
+      <strong>Für Paare, die spüren: Da geht noch mehr.</strong>
+    </p>
+
+    <form class="lm-hero-form" action={QUENTN_FORM_URL} method="post">
+      <div class="form-row">
+        <label for="lf-firstname-hero">Vorname</label>
+        <input id="lf-firstname-hero" type="text" name="first_name" required autocomplete="given-name" />
+      </div>
+      <div class="form-row">
+        <label for="lf-mail-hero">E-Mail</label>
+        <input id="lf-mail-hero" type="email" name="mail" required autocomplete="email" />
+      </div>
+      <button type="submit">Workbook jetzt holen →</button>
+    </form>
+    <p class="lm-hero-form-disclaimer">
+      Sofort per E-Mail · Kein Spam · Jederzeit abbestellbar ·
+      <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+    </p>
+  </div>
+
+  <div class="lm-hero-cover">
+    <div class="lm-cover-mockup">
+      <img src="/img/lead-magnet-cover.png" alt="Workbook-Cover: 3 Tage, die eure Beziehung verändern" loading="eager" />
+      <span class="lm-cover-meta">Vorschau · Cover wird noch finalisiert</span>
+    </div>
+  </div>
+</section>
+
+<!-- C — WELCOME -->
+<section class="welcome lm-tinted-soft">
+  <div class="narrow">
+    <h2>Wir waren auch mal an diesem Punkt.</h2>
+    <span class="welcome-divider"></span>
+    <p>Über 30 Jahre miteinander — da gab es viele Phasen. Auch die, in denen wir uns gefragt haben: <em>Wo ist das eigentlich alles hin?</em> Diese Neugier am Anfang. Dieses Brennen. Dieses Gefühl, dass uns die Welt offen steht.</p>
+    <p>Stattdessen saßen wir nebeneinander. Der Alltag lief, das Team funktionierte. Aber etwas war leise geworden. Und das hat uns nicht losgelassen.</p>
+    <p>Wir haben dann angefangen, etwas zu verändern. Nicht groß. Klein. Bei uns selbst — nicht beim anderen. Und genau das geben wir euch hier weiter.</p>
+
+    <blockquote class="welcome-quote">
+      <p>„Das hat sich verändert — dass ich das jetzt sagen kann und ich weiß, da passiert nichts. Im Gegenteil, da kommt Verständnis dafür."</p>
+      <cite>— Kursteilnehmerin</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- D — MIRROR (Sätze aus den Coaching-Gruppen) -->
+<section class="lm-mirror atm-lm-mirror atm-on-dark">
+  <div class="container">
+    <div class="lm-mirror-intro">
+      <span class="eyebrow">Drei Sätze aus unseren Coaching-Gruppen</span>
+      <h2>Das, was tief verbindet,<br>ist leiser geworden.</h2>
+    </div>
+    <div class="lm-mirror-quotes">
+      <div class="lm-mirror-quote">„Wir reden über Termine. Über die Kinder. Über den Einkauf. Aber nicht mehr wirklich miteinander."</div>
+      <div class="lm-mirror-quote">„Wir streiten immer wieder denselben Streit. Ich weiß schon vorher, wie er ausgeht."</div>
+      <div class="lm-mirror-quote">„Ich sehe meinen Partner jeden Tag. Und sehe ihn doch nicht mehr."</div>
+    </div>
+  </div>
+</section>
+
+<!-- E — DIE DREI TAGE (Workbook-Look mit Tag-Nummern) -->
+<section class="lm-tage">
+  <div class="container">
+    <div class="lm-tage-intro">
+      <span class="eyebrow" style="color: var(--wb-gold);">Was im Workbook steckt</span>
+      <h2>Drei Tage. <em>Drei Übungen.</em><br>Jeweils 10–15 Minuten am Abend.</h2>
+      <p>Keine Theorie, die ihr verstehen müsst. Keine Technik, die ihr lernen müsst. Sondern drei Impulse, die ihr gemeinsam erlebt — und die etwas in Bewegung bringen können.</p>
+    </div>
+
+    <div class="lm-tage-grid">
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">1</div>
+        <div class="lm-tag-eyebrow">Tag 1</div>
+        <h3>Wirklich <em>hinsehen</em></h3>
+        <p><strong>Euren Partner neu wahrnehmen</strong> — nicht durch den Filter aus Gewohnheit. Eine Übung, die einen ganzen Abend zwischen euch verändern kann.</p>
+      </div>
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">2</div>
+        <div class="lm-tag-eyebrow">Tag 2</div>
+        <h3>Euer Muster <em>erkennen</em></h3>
+        <p><strong>Den Streit sehen</strong>, der sich immer wiederholt. Woher er kommt — und warum er deshalb auch zu verändern ist. Nicht analysieren. Sehen.</p>
+      </div>
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">3</div>
+        <div class="lm-tag-eyebrow">Tag 3</div>
+        <h3>Einmal <em>anders reagieren</em></h3>
+        <p><strong>Mach es einfach einmal anders.</strong> Eine kleine Veränderung im Alltag. Drei Sekunden innehalten, bevor ihr reagiert. Mehr braucht es nicht für den Anfang.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- F — WAS DRIN IST (Workbook-"Notebook"-Box mit Spiralbindung-Akzent) -->
+<section class="lm-content-preview">
+  <div class="container">
+    <div class="lm-content-card">
+      <h2>Ein Blick ins Workbook</h2>
+      <ul class="lm-content-list">
+        <li><strong>Drei klare Übungen</strong> mit Anleitung, die euch Schritt für Schritt durch jeden Abend führt. Keine Vorbereitung nötig.</li>
+        <li><strong>Schreibimpulse für jeden Tag</strong> — Felder zum Aufschreiben dessen, was zwischen euch passiert.</li>
+        <li><strong>Inspirationsseiten</strong> zwischen den Tagen — kurze Sätze, die nachklingen dürfen.</li>
+        <li><strong>Der Reset-Knopf</strong> — eine kleine Geste aus unserer eigenen Ehe. Wenn es zwischen euch knistert: einmal drücken — und alles fängt neu an.</li>
+        <li><strong>„Was jetzt passieren kann"</strong> — Reflexionen am Ende jedes Tages, was die Übung in Bewegung gebracht haben könnte.</li>
+      </ul>
+      <p class="lm-content-meta">17 Seiten · PDF · Sofort einsetzbar</p>
+    </div>
+  </div>
+</section>
+
+<!-- G — ABOUT -->
+<section class="about lm-tinted">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Wer wir sind</span>
+        <h2>Annette &amp; Herbert.</h2>
+        <p>Über 30 Jahre verheiratet — mit allem, was dazu gehört. Nähe und Distanz, Krisen und Durchbrüche, Alltagsstreit und Momente, die alles verändert haben.</p>
+        <p>Irgendwann haben wir aufgehört, den anderen verändern zu wollen — und angefangen, bei uns selbst hinzuschauen. Mit dem anderen an unserer Seite. Was dabei entstanden ist, geben wir heute weiter.</p>
+        <p>Diese drei Tage sind kein Programm. Es sind drei Impulse aus unserem Leben — die bei uns funktioniert haben. Vielleicht funktionieren sie auch bei euch.</p>
+        <p class="about-signature">— Annette &amp; Herbert Himmelstoß</p>
+      </div>
+      <div class="about-image">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- H — STIMME -->
+<section class="welcome lm-tinted">
+  <div class="narrow">
+    <blockquote class="welcome-quote">
+      <p>„Dieses Selbstverständnis, das man über Jahrzehnte mitnimmt — der Partner weiß eigentlich, wie ich mich fühle. Das war so eine Erkenntnis: Das ist eben nicht so. Daraus können ganz andere Dialoge entstehen."</p>
+      <cite>— Kursteilnehmer, 42 Jahre verheiratet</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- I — ANMELDE-FORMULAR -->
+<section class="webinar-anmeldung atm-lm-anmeldung atm-on-dark" id="anmeldung">
+  <div class="container">
+    <span class="eyebrow">Holt es euch jetzt</span>
+    <h2 class="anmeldung-title">3 Tage, die euch wieder näher bringen.</h2>
+    <p class="anmeldung-sub">Trag dich hier ein — du bekommst sofort eine E-Mail mit dem Workbook als PDF.</p>
+
+    <div class="anmeldung-card">
+      <form class="webinar-form" action={QUENTN_FORM_URL} method="post">
+        <div class="form-row">
+          <label for="lf-firstname">Vorname</label>
+          <input id="lf-firstname" type="text" name="first_name" required autocomplete="given-name" />
+        </div>
+        <div class="form-row">
+          <label for="lf-mail">E-Mail</label>
+          <input id="lf-mail" type="email" name="mail" required autocomplete="email" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-large form-submit">
+          Jetzt das Workbook holen →
+        </button>
+      </form>
+      <p class="form-disclaimer">
+        Du bekommst das Workbook und in den nächsten Tagen ein paar begleitende Mails von Annette &amp; Herbert. Kein Spam, jederzeit abbestellbar.
+        <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a>.
+      </p>
+    </div>
+
+    <p class="anmeldung-meta">Kein langes Überlegen. Drei Abende, 10–15 Minuten. Mehr braucht es nicht — nur euch beide.</p>
+  </div>
+</section>
+
+<!-- J — FINAL CTA -->
+<section class="final-cta atm-lm-final atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Für euch</span>
+    <h2 class="lm-final-cta-headline">Da geht noch mehr.<br><em>Fangt damit an.</em></h2>
+    <p class="final-cta-lead">Wenn euer Partner gerade nicht mitziehen mag — fangt einfach an. Es reicht, wenn einer von euch den ersten Schritt macht. Spannenderweise verändert sich dann oft das Miteinander ganz von selbst.</p>
+    <CTAButton href="#anmeldung" label="Jetzt das Workbook holen →" large={true} meta="Kostenfrei · Sofort per E-Mail · 17 Seiten" />
+  </div>
+</section>
+
+<FunnelFooter />
+
+</FunnelLayout>
+

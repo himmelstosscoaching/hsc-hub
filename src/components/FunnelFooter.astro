@@ -1,0 +1,61 @@
+---
+// Schlanker Footer für Funnel-Seiten (aus hsc-web übernommen) —
+// bewusst ohne Newsletter-Block: Funnel-Seiten haben ihr eigenes Opt-in.
+interface Props {
+  brandName?: string;
+  brandSub?: string;
+}
+const { brandName = 'Himmelstoß', brandSub = 'COACHING' } = Astro.props;
+---
+
+<footer class="atm-stripes">
+  <div class="footer-content">
+    <div class="container">
+      <div class="footer-brand">{brandName}<small>{brandSub}</small></div>
+      <ul class="footer-links">
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="mailto:kontakt@himmelstosscoaching.de">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer.atm-stripes { position: relative; padding-top: 0; color: #fff; }
+  .footer-content {
+    background: #2C4B7B;
+    padding: 60px 0 50px;
+    margin-top: 60px;
+  }
+  .footer-content .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-brand {
+    font-family: 'Fontin', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .footer-brand small {
+    display: block;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--rose-soft);
+    margin-top: 4px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    list-style: none;
+    padding: 0; margin: 0;
+  }
+  .footer-links a { color: rgba(255,255,255,0.8); }
+  .footer-links a:hover { color: #fff; }
+</style>

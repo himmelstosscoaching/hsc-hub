@@ -1,0 +1,117 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/lead-magnet.css';
+
+// TODO: PDF-Download-URL einsetzen, sobald das finale PDF auf dem CDN liegt
+const PDF_DOWNLOAD_URL = "/downloads/Lead-Magnet-3-Tage-Challenge.pdf";
+---
+
+<FunnelLayout
+  title="Hier ist euer Workbook — 3 Tage, die euch wieder näher bringen"
+  description="Anmeldung bestätigt. Hier ist dein PDF-Workbook und alles, was du wissen musst, um loszulegen."
+  noindex={true}
+>
+
+<!-- HEADER -->
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO — warm, feierlich, mit Gold-Akzent (Belohnungs-Charakter) -->
+<section class="atm-lm-thanks-hero lm-hero-narrow">
+  <div class="narrow">
+    <span class="eyebrow">Schön, dass ihr dabei seid</span>
+    <h1>Hier ist <em>euer Workbook.</em></h1>
+    <p class="lm-hero-sub-narrow">
+      Die Bestätigung ist da — und das PDF wartet auf euch.<br>
+      Drei Tage, drei Übungen, drei Abende. Ihr könnt heute schon starten.
+    </p>
+    <p class="danke-hero-sig">— Annette &amp; Herbert</p>
+
+    <div style="margin-top: 36px;">
+      <CTAButton href={PDF_DOWNLOAD_URL} label="Workbook jetzt herunterladen ↓" large={true} meta="PDF · 17 Seiten · sofort einsetzbar" />
+    </div>
+  </div>
+</section>
+
+<!-- SO GEHT'S WEITER (mit Gold-Akzent) -->
+<section class="lm-steps-section lm-steps-thanks">
+  <div class="container">
+    <div class="lm-steps-grid">
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">1</div>
+        <span class="lm-step-icon">&#9759;</span>
+        <h3>PDF herunterladen</h3>
+        <p>Klick auf den Button oben oder schau in deine E-Mails — das Workbook ist auch dort als Anhang. <em>Speichert es euch lokal</em>, dann habt ihr es immer griffbereit.</p>
+      </div>
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">2</div>
+        <span class="lm-step-icon">&#9201;</span>
+        <h3>Einen Abend reservieren</h3>
+        <p>Sucht euch einen ruhigen Abend aus. Handys weg. <em>10–15 Minuten</em> reichen für Tag 1. Lest die Übung gemeinsam — und dann legt einfach los.</p>
+      </div>
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">3</div>
+        <span class="lm-step-icon">&#10084;</span>
+        <h3>Drei Tage, drei Impulse</h3>
+        <p>An den nächsten zwei Abenden geht ihr zu Tag 2 und Tag 3. Wir schreiben euch zwischendurch ein paar begleitende Mails — kurz, persönlich, mit Anregungen, die das Erlebte vertiefen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERSÖNLICHE NACHRICHT -->
+<section class="lm-message-section">
+  <div class="container">
+    <div class="lm-message-grid">
+      <div class="lm-message-image">
+        <img src="/img/annette-herbert-mallorca.jpg" alt="Annette und Herbert Himmelstoß" />
+      </div>
+      <div class="lm-message-text">
+        <span class="eyebrow">Bevor ihr loslegt</span>
+        <h2>Eine <em>Bitte</em> von uns:</h2>
+        <p>Macht die Übungen wirklich. Lest sie nicht nur. Das Geheimnis liegt nicht im Verstehen — es liegt im Tun.</p>
+        <p>Es ist wie beim Schach: Ihr könnt zehn Bücher darüber lesen — aber erst wenn ihr anfangt zu spielen, merkt ihr, was damit gemeint ist. <em>Genauso ist es hier.</em> Fangt an — und das Verstehen kommt beim Erleben.</p>
+        <p>Falls dein Partner gerade nicht mitziehen mag: Fang einfach an. Es reicht, wenn einer von euch den ersten Schritt macht. Spannenderweise verändert sich dann oft das Miteinander ganz von selbst.</p>
+        <p>Wir sind gespannt, was ihr erlebt.</p>
+        <p class="lm-sig">— Annette &amp; Herbert</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A HINWEIS — wärmerer Lachs, Conversion-Pull zum nächsten Schritt -->
+<section class="atm-lm-thanks-cta atm-on-dark" style="padding: 90px 24px;">
+  <div class="container" style="max-width: 720px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow">Wenn ihr mehr wollt</span>
+    <h2 style="color:#fff; font-size: clamp(28px, 3vw, 38px); margin: 14px 0 22px;">Wir treffen uns regelmäßig per Zoom.</h2>
+    <p style="color: rgba(255,255,255,0.95); font-size: 18px; line-height: 1.6;">Wenn ihr nach den drei Tagen merkt: <em>Da geht noch mehr</em> — dann kommt zum nächsten Q&amp;A-Call dazu. Eine kleine Runde mit Paaren, die wie ihr diese drei Tage gemacht haben. Kein Vortrag, kein Webinar. Einfach ein offener Austausch. Persönlich, ehrlich, kostenlos.</p>
+    <p style="color: rgba(255,255,255,0.85); font-size: 15px; margin-top: 22px; font-style: italic;">
+      Den Termin schicken wir euch in den nächsten Tagen per Mail.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER NOTE -->
+<div class="lm-footer-note">
+  <div class="container">
+    <p>Fragen? Schreib uns jederzeit an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a></p>
+  </div>
+</div>
+
+<FunnelFooter />
+
+</FunnelLayout>
+

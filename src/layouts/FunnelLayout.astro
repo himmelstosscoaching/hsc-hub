@@ -1,0 +1,31 @@
+---
+// Schlankes Layout für Funnel-/Lead-Magnet-Seiten (aus hsc-web übernommen).
+// Bewusst ohne Site-Header/-Navigation: Funnel-Seiten führen zum Opt-in, nicht in die Website.
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const { title, description = '', canonical, noindex = false } = Astro.props;
+
+import '../styles/brand.css';
+import '../styles/atmospheres.css';
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  {canonical && <link rel="canonical" href={canonical} />}
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
