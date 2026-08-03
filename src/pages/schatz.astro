@@ -62,13 +62,7 @@ const kapitel = [
       <p class="welcome-feeling"><em>Und doch entsteht mit den Jahren ein stilles Gefühl: da geht noch mehr.</em></p>
 
       <div class="video-wrap">
-        <img src="/img/HP3A4197.jpg" alt="Annette und Herbert — Willkommensvideo" loading="lazy" />
-        <div class="play-btn" aria-hidden="true">
-          <svg width="72" height="72" viewBox="0 0 72 72">
-            <circle cx="36" cy="36" r="36" fill="#FA9D56" fill-opacity="0.88"/>
-            <polygon points="29,22 54,36 29,50" fill="#fff"/>
-          </svg>
-        </div>
+        <img src="/img/HP3A4197.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
       </div>
 
       <blockquote class="ah-quote">
@@ -434,12 +428,11 @@ const kapitel = [
 .welcome-feeling { font-family: var(--font-display); font-style: italic; font-size: clamp(22px,2.2vw,28px); color: var(--blue-deep); line-height: 1.5; }
 .welcome-bridge { margin: 8px 0 18px; }
 .welcome-feeling { margin: 0 0 40px; }
-.video-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; cursor: pointer; margin: 0 0 40px; }
+/* Bildblock im Willkommens-Abschnitt (früher Video-Platzhalter mit Play-Button —
+   Button entfernt, da kein Video hinterlegt war; Farbschleier bleibt als Look) */
+.video-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; margin: 0 0 40px; }
 .video-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(39,131,172,0.72) 0%, rgba(39,131,172,0) 42%), linear-gradient(270deg, rgba(250,157,86,0.72) 0%, rgba(250,157,86,0) 42%); z-index: 1; }
-.play-btn { z-index: 2; }
 .video-wrap img { width: 100%; display: block; }
-.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform .25s var(--ease); }
-.video-wrap:hover .play-btn { transform: translate(-50%,-50%) scale(1.1); }
 .ah-quote { position: relative; overflow: hidden; margin: 0; padding: 32px 32px 28px; background: var(--bg-cream); border-radius: var(--radius-card); box-shadow: 0 6px 24px rgba(44,75,123,0.10); font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); line-height: 1.6; color: var(--blue-deep); }
 .ah-quote::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--sun-strip); }
 .ah-quote cite { display: block; margin-top: 14px; font-style: normal; font-family: var(--font-body); font-size: 14px; color: var(--ink-light); }
