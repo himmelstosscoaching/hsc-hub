@@ -1,0 +1,97 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/lead-magnet.css';
+---
+
+<FunnelLayout
+  title="Fast da — bitte bestätige kurz deine E-Mail"
+  description="Ein letzter kleiner Schritt: Bestätige deine E-Mail-Adresse, dann schicken wir dir das Workbook."
+  noindex={true}
+>
+
+<!-- HEADER -->
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO — heller, ruhig, cremig -->
+<section class="atm-lm-confirm-hero lm-hero-narrow">
+  <div class="narrow">
+    <span class="eyebrow">Fast geschafft</span>
+    <h1>Ein <em>kleiner Schritt</em> fehlt noch.</h1>
+    <p class="lm-hero-sub-narrow">
+      Wir haben dir gerade eine E-Mail geschickt.<br>
+      Klick einmal kurz auf den Bestätigungs-Link darin —<br>
+      und das Workbook ist auf dem Weg zu dir.
+    </p>
+    <p class="danke-hero-sig">— Annette &amp; Herbert</p>
+  </div>
+</section>
+
+<!-- WAS JETZT TUN -->
+<section class="lm-steps-section lm-steps-confirm">
+  <div class="container">
+    <div class="lm-steps-grid">
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">1</div>
+        <span class="lm-step-icon">&#9993;</span>
+        <h3>Postfach öffnen</h3>
+        <p>In deinem Posteingang liegt eine E-Mail von uns. Betreff: <em>„Bitte bestätige deine Anmeldung"</em>. Schau auch kurz im Spam-Ordner nach, falls sie sich dort versteckt.</p>
+      </div>
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">2</div>
+        <span class="lm-step-icon">&#10003;</span>
+        <h3>Bestätigen</h3>
+        <p>Ein Klick auf den Link in der Mail genügt. Damit weiß unser System, dass du es bist — und dass wir dir das Workbook und unsere Mails schicken dürfen.</p>
+      </div>
+
+      <div class="lm-step-card">
+        <div class="lm-step-num">3</div>
+        <span class="lm-step-icon">&#10084;</span>
+        <h3>Workbook bekommen</h3>
+        <p>Sofort danach bekommst du das PDF mit der 3-Tage-Challenge — und kannst <em>noch heute Abend</em> mit Tag 1 starten, wenn du magst.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WARUM DAS SO IST -->
+<section class="lm-message-section">
+  <div class="container">
+    <div class="lm-message-grid">
+      <div class="lm-message-image">
+        <img src="/img/annette-herbert-mallorca.jpg" alt="Annette und Herbert Himmelstoß" />
+      </div>
+      <div class="lm-message-text">
+        <span class="eyebrow">Warum dieser Zwischenschritt</span>
+        <h2>Damit nur die Post bei dir ankommt, die du auch wirklich willst.</h2>
+        <p>Wir verschicken keine Mails an Adressen, von denen wir nicht sicher wissen, dass sie auch der Person gehören, die sich angemeldet hat. Das ist ein bisschen lästig — aber es ist uns wichtig.</p>
+        <p>Dein Klick auf den Link in der Mail ist also dein <em>„Ja, das bin ich"</em>. Sobald du das gemacht hast, bekommst du das Workbook und kannst loslegen.</p>
+        <p>Falls keine E-Mail bei dir angekommen ist, schau bitte zuerst in den Spam-Ordner. Wenn auch dort nichts liegt, schreib uns einfach kurz — dann kümmern wir uns von Hand darum.</p>
+        <p class="lm-sig">— Annette &amp; Herbert</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER NOTE -->
+<div class="lm-footer-note">
+  <div class="container">
+    <p>Keine E-Mail bekommen? Schreib uns an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a> — wir helfen dir kurz weiter.</p>
+  </div>
+</div>
+
+<FunnelFooter />
+
+</FunnelLayout>
+

@@ -10,7 +10,13 @@ const SITE = 'https://himmelstosscoaching.de';
 
 // Seiten, die NICHT zu Google sollen (noindex / interne Entwürfe).
 // Deckungsgleich mit den noindex-Seiten halten.
-const EXCLUDE = new Set(['uebersicht', 'fokus', 'fokus2b']);
+const EXCLUDE = new Set([
+  'uebersicht', 'fokus', 'fokus2b',
+  // Funnel-Zwischenseiten (noindex):
+  '3-tage-danke', '3-tage-fast-dabei',
+  // Newsletter-Zwischenseiten (noindex):
+  'newsletter-bestaetigen', 'newsletter-willkommen',
+]);
 
 // Prioritäten je Seite (Default 0.7). Startseite oben, Rechtliches unten.
 const PRIORITY: Record<string, number> = {

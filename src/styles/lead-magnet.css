@@ -1,0 +1,851 @@
+/* ============================================================
+   Lead Magnet — "3 Tage, die euch wieder näher bringen"
+   Durchgängige Rosé/Lachston-Atmosphäre — klar abgegrenzt vom
+   Webinar-Look (Sunset/Yellow-Reise-Vibes)
+   ============================================================ */
+
+/* WORKBOOK-FARBEN (Anlehnung ans PDF-Workbook) */
+:root {
+  --wb-rose: #f89489;
+  --wb-rose-deep: #e07a70;
+  --wb-rose-soft: #f5b3a8;
+  --wb-rose-light: #fce8e6;
+  --wb-rose-bg: #fdf0ee;
+  --wb-rose-haze: #fbe4dc;
+  --wb-gold: #c4956a;
+  --wb-darkblue: #2C4B7B;
+  --wb-cream: #faf3eb;
+  --wb-cream-warm: #fbe9dc;
+}
+
+/* ============================================================
+   EIGENE LEAD-MAGNET-ATMOSPHÄREN — durchgängiger Rosé-Look
+   ============================================================ */
+
+/* Hero — warmer Lachston-Verlauf (oben heller, unten tiefer) */
+.atm-lm-hero {
+  background:
+    linear-gradient(180deg,
+      #f5b3a8 0%,
+      #f89489 35%,
+      #ec8074 70%,
+      #d96e63 100%);
+}
+
+/* ============================================================
+   LEAD-MAGNET HEADER — schmaler, dezenter als der Webinar-Header
+   ============================================================ */
+.site-header.lm-header {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.site-header.lm-header .logo-img {
+  height: 48px;
+}
+.site-header.lm-header .logo-coaching {
+  font-size: 9px;
+  letter-spacing: 0.32em;
+}
+
+/* ============================================================
+   LEAD-MAGNET HERO — Conversion-Layout (Form direkt im Hero,
+   PDF-Cover als Mockup) — überschreibt das webinar Hero-Layout
+   ============================================================ */
+.lm-hero {
+  min-height: 92vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 60px;
+  padding: 100px 60px 80px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.lm-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+  margin-left: auto;
+}
+.lm-hero-content .lm-pdf-badge {
+  margin-bottom: 26px;
+}
+.lm-hero-content h1 {
+  color: #fff;
+  font-size: clamp(36px, 4.6vw, 60px);
+  line-height: 1.1;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 24px rgba(120, 30, 30, 0.18);
+}
+.lm-hero-content h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+}
+.lm-hero-sub {
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.55;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 28px;
+}
+.lm-hero-sub strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Inline-Form direkt im Hero */
+.lm-hero-form {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255,255,255,0.96);
+  border-radius: 14px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 16px 48px rgba(120, 30, 30, 0.18);
+  margin-bottom: 18px;
+}
+.lm-hero-form .form-row {
+  margin-bottom: 14px;
+}
+.lm-hero-form label {
+  display: block;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wb-darkblue);
+  margin-bottom: 6px;
+}
+.lm-hero-form input[type="text"],
+.lm-hero-form input[type="email"] {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(44, 75, 123, 0.15);
+  border-radius: 8px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  color: #2a2a2a;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.lm-hero-form input[type="text"]:focus,
+.lm-hero-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--wb-rose);
+}
+.lm-hero-form button {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--wb-darkblue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Fontin', 'Georgia', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+.lm-hero-form button:hover {
+  background: #1f3a63;
+  transform: translateY(-1px);
+}
+.lm-hero-form-disclaimer {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.85);
+  max-width: 480px;
+  margin: 0;
+  text-align: center;
+}
+.lm-hero-form-disclaimer a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: underline;
+}
+
+/* PDF-Cover-Mockup */
+.lm-hero-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.lm-cover-mockup {
+  position: relative;
+  max-width: 380px;
+  width: 100%;
+  transform: rotate(-2.5deg);
+  transition: transform 0.4s ease;
+}
+.lm-cover-mockup:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.lm-cover-mockup img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  box-shadow:
+    0 30px 70px rgba(60, 20, 20, 0.35),
+    0 12px 28px rgba(60, 20, 20, 0.25);
+}
+.lm-cover-mockup::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 10px;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Cover-Hinweis (Platzhalter-Markierung) */
+.lm-cover-meta {
+  position: absolute;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 980px) {
+  .lm-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 70px 24px 60px;
+    text-align: center;
+  }
+  .lm-hero-content {
+    align-items: center;
+    margin: 0 auto;
+  }
+  .lm-hero-cover {
+    order: -1;
+  }
+  .lm-cover-mockup {
+    max-width: 240px;
+  }
+  .lm-hero-form {
+    margin: 0 auto 18px;
+  }
+}
+
+/* Mirror — dunklerer Rosé-Ton (für die "Vielleicht kennt ihr das"-Sektion) */
+.atm-lm-mirror {
+  background:
+    linear-gradient(180deg,
+      #d96e63 0%,
+      #c8554a 100%);
+}
+
+/* Anmeldungs-Sektion — kräftiger Lachston (CTA-Aufmerksamkeit) */
+.atm-lm-anmeldung {
+  background:
+    linear-gradient(180deg,
+      #f89489 0%,
+      #ec8074 100%);
+}
+
+/* Final-CTA — tiefer Lachston */
+.atm-lm-final {
+  background:
+    linear-gradient(180deg,
+      #ec8074 0%,
+      #c8554a 100%);
+}
+
+/* Helle Sektionen (zwischen den Rosé-Bereichen) */
+.atm-lm-cream {
+  background: linear-gradient(180deg, #fff 0%, var(--wb-rose-bg) 100%);
+}
+.atm-lm-haze {
+  background: linear-gradient(180deg, var(--wb-rose-bg) 0%, var(--wb-rose-haze) 100%);
+}
+
+/* ============================================================
+   BESTÄTIGUNGS-SEITE — heller, ruhiger (cremig, nicht satt)
+   ============================================================ */
+.atm-lm-confirm-hero {
+  background: linear-gradient(180deg,
+    var(--wb-cream-warm) 0%,
+    var(--wb-rose-haze) 60%,
+    var(--wb-rose-bg) 100%);
+  color: var(--wb-darkblue);
+  position: relative;
+}
+.atm-lm-confirm-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--wb-rose), var(--wb-gold), var(--wb-rose));
+}
+.atm-lm-confirm-hero h1 { color: var(--wb-darkblue); }
+.atm-lm-confirm-hero h1 em {
+  color: var(--wb-rose-deep);
+  font-style: italic;
+  font-weight: 400;
+}
+.atm-lm-confirm-hero p { color: #4a4a4a; }
+.atm-lm-confirm-hero .eyebrow { color: var(--wb-gold); }
+
+/* Steps-Section auf Bestätigungs-Seite — sehr hell */
+.lm-steps-confirm {
+  background: #fff;
+  padding: 100px 0;
+}
+.lm-steps-confirm .lm-step-card {
+  background: var(--wb-rose-bg);
+  border: 1px solid var(--wb-rose-light);
+}
+
+/* ============================================================
+   DANKE-SEITE — warm + feierlich, mit Gold-Akzent
+   ============================================================ */
+.atm-lm-thanks-hero {
+  background: linear-gradient(135deg,
+    #fbe9dc 0%,
+    var(--wb-rose-soft) 50%,
+    var(--wb-rose) 100%);
+  color: var(--wb-darkblue);
+  position: relative;
+}
+.atm-lm-thanks-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wb-gold) 0%, #FFD800 50%, var(--wb-gold) 100%);
+}
+.atm-lm-thanks-hero h1 { color: var(--wb-darkblue); }
+.atm-lm-thanks-hero h1 em {
+  color: var(--wb-rose-deep);
+  font-style: italic;
+  font-weight: 400;
+}
+.atm-lm-thanks-hero p { color: #4a4a4a; }
+.atm-lm-thanks-hero .eyebrow { color: var(--wb-gold); }
+.atm-lm-thanks-hero .danke-hero-sig {
+  color: var(--wb-rose-deep);
+}
+
+/* Q&A-Section auf Danke-Seite — wärmerer Lachs-Hintergrund (Conversion-Pull) */
+.atm-lm-thanks-cta {
+  background: linear-gradient(180deg, var(--wb-rose) 0%, var(--wb-rose-deep) 100%);
+}
+
+/* ============================================================
+   STEP-CARDS — Workbook-Stil mit Tag-Nummern (für beide Seiten)
+   ============================================================ */
+.lm-steps-section {
+  padding: 100px 0;
+}
+
+.lm-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.lm-step-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 44px 28px 32px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(44, 75, 123, 0.06);
+  text-align: center;
+}
+.lm-step-card::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: var(--wb-darkblue);
+  border-radius: 50%;
+  z-index: 1;
+}
+.lm-step-card .lm-step-num {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fontin', 'Georgia', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 2;
+}
+.lm-step-card .lm-step-icon {
+  font-size: 28px;
+  color: var(--wb-rose);
+  margin: 8px 0 14px;
+  display: block;
+}
+.lm-step-card h3 {
+  font-family: 'Fontin', 'Georgia', serif;
+  font-size: 21px;
+  color: var(--wb-darkblue);
+  margin-bottom: 12px;
+}
+.lm-step-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #4a4a4a;
+  margin: 0;
+}
+.lm-step-card p em {
+  font-style: italic;
+  color: var(--wb-rose-deep);
+}
+
+/* Variante mit Gold-Akzent (für Danke-Seite) */
+.lm-steps-thanks .lm-step-card::before {
+  background: linear-gradient(135deg, var(--wb-gold), #FFD800);
+}
+.lm-steps-thanks .lm-step-card .lm-step-num {
+  color: #fff;
+}
+.lm-steps-thanks .lm-step-card .lm-step-icon {
+  color: var(--wb-gold);
+}
+
+/* Personal-Message-Sektion (warm, persönlich) */
+.lm-message-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--wb-rose-bg) 0%, var(--wb-rose-haze) 100%);
+}
+.lm-message-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.lm-message-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(60, 20, 20, 0.15);
+}
+.lm-message-text .eyebrow { color: var(--wb-gold); }
+.lm-message-text h2 {
+  font-family: 'Fontin', 'Georgia', serif;
+  color: var(--wb-darkblue);
+  font-size: clamp(28px, 3vw, 38px);
+  margin: 14px 0 24px;
+  line-height: 1.2;
+}
+.lm-message-text h2 em {
+  font-style: italic;
+  color: var(--wb-rose-deep);
+}
+.lm-message-text p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #2a2a2a;
+  margin-bottom: 18px;
+}
+.lm-message-text p em {
+  font-style: italic;
+  color: var(--wb-rose-deep);
+}
+.lm-message-text .lm-sig {
+  font-family: 'Fontin', 'Georgia', serif;
+  font-style: italic;
+  color: var(--wb-rose-deep);
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+@media (max-width: 880px) {
+  .lm-message-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .lm-message-image {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .lm-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero-Wrapper für die kleineren Seiten (Bestätigung & Danke) */
+.lm-hero-narrow {
+  padding: 100px 24px 90px;
+  text-align: center;
+}
+.lm-hero-narrow .narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.lm-hero-narrow h1 {
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.1;
+  margin: 18px 0 24px;
+}
+.lm-hero-narrow .lm-hero-sub-narrow {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.lm-hero-narrow .danke-hero-sig {
+  font-family: 'Fontin', 'Georgia', serif;
+  font-style: italic;
+  font-size: 19px;
+}
+
+/* Footer-Note (cream, nicht weiß) */
+.lm-footer-note {
+  background: var(--wb-rose-bg);
+  padding: 30px 24px;
+  text-align: center;
+  border-top: 1px solid var(--wb-rose-light);
+}
+.lm-footer-note p {
+  margin: 0;
+  font-size: 15px;
+  color: #4a4a4a;
+}
+.lm-footer-note a {
+  color: var(--wb-rose-deep);
+  text-decoration: underline;
+}
+
+/* WORKBOOK-AKZENT — schmaler vertikaler Farbverlauf am linken Bildschirmrand
+   (wie die Spiral-Bindung im Workbook selbst) */
+.wb-page-edge {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, #2C4B7B, #75BFDA, #f89489, #FA9D56);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* HERO — Lead-Magnet-spezifisch (warmer + intimer als Webinar) */
+.lm-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  justify-content: center;
+  margin: 28px 0 36px;
+}
+.lm-hero-trust span {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lm-hero-trust span::before {
+  content: "✦";
+  color: #FFD800;
+  font-size: 14px;
+}
+
+/* WORKBOOK-BADGE im Hero (sofort klar: das ist ein PDF) */
+.lm-pdf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.lm-pdf-badge::before {
+  content: "📄";
+  font-size: 16px;
+}
+
+/* DIE 3 TAGE — Workbook-Look mit Tag-Nummern statt Stern-Cards */
+.lm-tage {
+  padding: 110px 0;
+  background: linear-gradient(180deg, #fff 0%, var(--wb-rose-bg) 100%);
+  position: relative;
+}
+.lm-tage-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 70px;
+}
+.lm-tage-intro h2 {
+  color: var(--wb-darkblue);
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 18px;
+}
+.lm-tage-intro h2 em {
+  font-style: italic;
+  color: var(--wb-rose);
+  font-weight: 400;
+}
+.lm-tage-intro p {
+  font-size: 19px;
+  line-height: 1.65;
+  color: #4a4a4a;
+}
+
+.lm-tage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.lm-tag-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 36px 40px;
+  position: relative;
+  box-shadow: 0 8px 28px rgba(44, 75, 123, 0.08);
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, var(--wb-darkblue), var(--wb-rose), var(--wb-gold)) 1;
+}
+.lm-tag-card::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 36px;
+  width: 44px;
+  height: 44px;
+  background: var(--wb-darkblue);
+  border-radius: 50%;
+  z-index: 1;
+}
+.lm-tag-card .lm-tag-num {
+  position: absolute;
+  top: -22px;
+  left: 36px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fontin', 'Georgia', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 0.05em;
+}
+
+.lm-tag-card .lm-tag-eyebrow {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wb-gold);
+  margin-bottom: 12px;
+}
+.lm-tag-card h3 {
+  font-family: 'Fontin', 'Georgia', serif;
+  font-size: 26px;
+  color: var(--wb-darkblue);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.lm-tag-card h3 em {
+  font-style: italic;
+  color: var(--wb-rose);
+  font-weight: 400;
+}
+.lm-tag-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+/* WAS DRIN IST — Workbook-Style "Notebook"-Box */
+.lm-content-preview {
+  padding: 110px 0;
+  background: linear-gradient(180deg, var(--wb-rose-bg) 0%, var(--wb-rose-haze) 100%);
+}
+.lm-content-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 56px 60px;
+  box-shadow: 0 12px 40px rgba(44, 75, 123, 0.08);
+  position: relative;
+}
+.lm-content-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  bottom: 30px;
+  width: 5px;
+  background: linear-gradient(180deg, var(--wb-darkblue), #75BFDA, var(--wb-rose), #FA9D56);
+  border-radius: 0 4px 4px 0;
+}
+.lm-content-card h2 {
+  font-family: 'Fontin', 'Georgia', serif;
+  color: var(--wb-darkblue);
+  font-size: 32px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.lm-content-card .lm-content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lm-content-card .lm-content-list li {
+  padding: 14px 0 14px 36px;
+  position: relative;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #2a2a2a;
+  border-bottom: 1px dashed rgba(248, 148, 137, 0.3);
+}
+.lm-content-card .lm-content-list li:last-child {
+  border-bottom: none;
+}
+.lm-content-card .lm-content-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  color: var(--wb-rose);
+  font-size: 17px;
+}
+.lm-content-card .lm-content-list li strong {
+  color: var(--wb-darkblue);
+  font-weight: 700;
+}
+
+.lm-content-meta {
+  text-align: center;
+  margin-top: 36px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wb-gold);
+  font-weight: 600;
+}
+
+/* MIRROR-Quotes — etwas wärmer als die Webinar-Variante */
+.lm-mirror {
+  padding: 110px 0;
+}
+.lm-mirror-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.lm-mirror-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.lm-mirror-quote {
+  font-family: 'Fontin', 'Georgia', serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.95);
+  text-align: center;
+  padding: 28px 24px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
+}
+
+/* WELCOME / ABOUT — Lead-Magnet-spezifische Tönung */
+.welcome.lm-tinted {
+  background: linear-gradient(180deg, var(--wb-rose-haze) 0%, #fff 100%);
+}
+.welcome.lm-tinted-soft {
+  background: linear-gradient(180deg, #fff 0%, var(--wb-rose-bg) 100%);
+}
+.about.lm-tinted {
+  background: linear-gradient(180deg, var(--wb-rose-haze) 0%, var(--wb-rose-bg) 100%);
+}
+
+/* welcome-quote dezent rosé tönen */
+.lm-tinted .welcome-quote {
+  background: rgba(248, 148, 137, 0.08);
+  border-left: 3px solid var(--wb-rose);
+  padding: 28px 32px;
+  border-radius: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .lm-tage-grid,
+  .lm-mirror-quotes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .lm-content-card {
+    padding: 40px 28px;
+  }
+  .lm-hero-trust {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* FINAL-CTA & ABOUT — kleinere Anpassungen */
+.lm-final-cta-headline em {
+  font-style: italic;
+  color: #FFD800;
+  font-weight: 400;
+}
