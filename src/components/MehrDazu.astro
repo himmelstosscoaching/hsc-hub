@@ -1,0 +1,114 @@
+---
+// Klappt lange Textblöcke AUF DEM HANDY ein — auf dem Desktop bleibt alles offen.
+//
+// Warum: Auf 375px sind Seiten wie /schatz oder /einzelcoaching über 20 Bildschirme
+// lang, weil alles untereinander rutscht, was auf dem Desktop nebeneinander steht.
+// Niemand liest am Telefon zwölf Kapitelbeschreibungen am Stück. Eingeklappt sieht
+// man die Überschrift plus den Aufhänger und öffnet, was einen interessiert.
+//
+// Aufbau: Das <details> steht ABSICHTLICH mit `open` im HTML.
+//   · Desktop      → bleibt offen, der Auslöser ist per CSS ausgeblendet.
+//   · Handy mit JS → das Skript unten nimmt `open` beim Laden weg.
+//   · Handy ohne JS→ bleibt offen, also der alte Zustand. Nichts geht verloren,
+//                    und Suchmaschinen sehen den Text ohnehin immer.
+//
+// `label`      Beschriftung im zugeklappten Zustand
+// `labelOffen` Beschriftung im aufgeklappten Zustand
+interface Props {
+  label?: string;
+  labelOffen?: string;
+  class?: string;
+}
+const { label = 'Mehr dazu', labelOffen = 'Weniger anzeigen', class: extra = '' } = Astro.props;
+---
+
+<details class:list={['mehr', extra]} open>
+  <summary>
+    <span class="mehr-wort mehr-zu">{label}</span>
+    <span class="mehr-wort mehr-auf">{labelOffen}</span>
+    <span class="mehr-pfeil" aria-hidden="true"></span>
+  </summary>
+  <div class="mehr-inhalt"><slot /></div>
+</details>
+
+<script>
+  // Auf dem Handy zuklappen. Läuft einmal beim Laden und noch einmal, wenn sich
+  // die Breite über die Grenze bewegt (Drehen des Geräts, Fenster ziehen).
+  // Was der Besucher selbst geöffnet hat, bleibt offen — deshalb der Merker.
+  const SCHMAL = '(max-width: 720px)';
+  const mq = window.matchMedia(SCHMAL);
+
+  function anpassen(vonHand = false) {
+    document.querySelectorAll<HTMLDetailsElement>('details.mehr').forEach((d) => {
+      if (mq.matches) {
+        if (!d.dataset.vomBesucher) d.open = false;
+      } else {
+        d.open = true;
+        if (vonHand) delete d.dataset.vomBesucher;
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLDetailsElement>('details.mehr').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (mq.matches && d.open) d.dataset.vomBesucher = 'ja';
+    });
+  });
+
+  anpassen();
+  mq.addEventListener('change', () => anpassen(true));
+</script>
+
+<style>
+  .mehr {
+    margin-top: 14px;
+  }
+  .mehr > summary {
+    display: none;   /* Desktop: kein Auslöser, alles steht offen da */
+  }
+  .mehr-inhalt > :global(:first-child) { margin-top: 0; }
+  .mehr-inhalt > :global(:last-child)  { margin-bottom: 0; }
+
+  @media (max-width: 720px) {
+    .mehr > summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      /* Tap-Ziel: mindestens 44px hoch (Daumenbreite) */
+      min-height: 44px;
+      padding: 4px 2px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--blue-deep);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mehr > summary::-webkit-details-marker { display: none; }
+    .mehr > summary::marker { content: ''; }
+
+    /* Nur das jeweils passende Wort zeigen */
+    .mehr:not([open]) .mehr-auf { display: none; }
+    .mehr[open] .mehr-zu { display: none; }
+
+    .mehr-pfeil {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translate(-2px, -2px);
+      transition: transform .22s var(--ease);
+    }
+    .mehr[open] .mehr-pfeil {
+      transform: rotate(-135deg) translate(-3px, -3px);
+    }
+
+    .mehr-inhalt { padding-top: 10px; }
+  }
+
+  /* Auf hellen Flächen mit dunklem Grund heller Auslöser (z.B. dunkle Karten) */
+  :global(.auf-dunkel) .mehr > summary { color: #fff; }
+</style>

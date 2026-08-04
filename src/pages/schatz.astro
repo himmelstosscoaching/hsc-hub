@@ -6,6 +6,7 @@ import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
+import MehrDazu from '../components/MehrDazu.astro';
 
 const checkout = '#preis';
 
@@ -194,7 +195,7 @@ const kapitel = [
           <div class="kapitel-card" style={`--kc: ${k.color}`}>
             <span class="kapitel-nr">{k.bonus ? 'Bonus' : k.nr}</span>
             <h3 class="kapitel-titel">{k.titel}</h3>
-            <p class="kapitel-text">{k.text}</p>
+            <MehrDazu label="Worum es geht"><p class="kapitel-text">{k.text}</p></MehrDazu>
           </div>
         ))}
       </div>
