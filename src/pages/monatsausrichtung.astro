@@ -7,6 +7,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 import FounderTrust from '../components/FounderTrust.astro';
@@ -285,6 +286,13 @@ const stimmen: { text: string; name: string }[] = [];
     </div>
   </section>
 
+  <StickyCTA
+    label="Monatsausrichtung"
+    preis="ab 88 € / Monat"
+    href={buchenUrl}
+    knopf="Dabei sein"
+    verstecke=".ma-preise, .ma-final"
+  />
   <FooterFokus />
 </FokusLayout>
 

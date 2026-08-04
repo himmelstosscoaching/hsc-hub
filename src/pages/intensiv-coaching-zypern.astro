@@ -7,6 +7,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 
@@ -362,6 +363,14 @@ const ueberPunkte = [
     </div>
   </section>
 
+  <StickyCTA
+    label="Intensiv-Coaching-Woche"
+    preis="ab 4.200 €"
+    href={gespraech}
+    knopf="Gespräch buchen"
+    extern
+    verstecke=".s-final"
+  />
   <FooterFokus />
 </FokusLayout>
 

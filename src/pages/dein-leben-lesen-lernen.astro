@@ -6,6 +6,7 @@
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 
@@ -307,6 +308,13 @@ const lang = [
     </div>
   </section>
 
+  <StickyCTA
+    label="Dein Leben lesen lernen"
+    preis="197 €"
+    href="#preis"
+    knopf="Jetzt buchen"
+    verstecke=".s-preis, .s-final"
+  />
   <FooterFokus />
 </FokusLayout>
 

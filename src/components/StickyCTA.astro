@@ -1,0 +1,178 @@
+---
+// Mitwandernde Handlungs-Leiste am unteren Rand — NUR auf dem Handy.
+//
+// Warum: Eine Salespage ist auf dem Handy 8-21 Bildschirme lang. Wer irgendwo
+// in der Mitte überzeugt ist, findet den Knopf nicht mehr — er liegt weit oben
+// oder weit unten. Die Leiste ist die Tür, die immer da ist.
+//
+// Wann sie NICHT da ist, damit sie nicht nervt:
+//   · ganz oben, solange der Hero mit seinem eigenen Knopf noch im Bild ist
+//   · sobald ein Abschnitt im Bild ist, der den gleichen Knopf schon zeigt
+//     (Preisblock, Schluss-Aufruf) — sonst steht derselbe Knopf doppelt da
+//
+// Bewusst über die Scroll-Position gelöst — weder IntersectionObserver noch
+// requestAnimationFrame. Beide feuern in einem Tab, den das System als „hidden"
+// führt, gar nicht; damit liesse sich das Verhalten beim Bauen nicht nachmessen.
+// Die Leiste schreibt nur, wenn sich der Zustand wirklich ändert — deshalb
+// kostet der Scroll-Zuhörer trotzdem nichts.
+//
+// `label`     kurzer Name des Angebots (links)
+// `preis`     optional, steht unter dem Namen
+// `href`      Ziel des Knopfs
+// `knopf`     Beschriftung des Knopfs
+// `extern`    true = in neuem Tab öffnen
+// `verstecke` Selektoren (kommagetrennt): ist einer davon im Bild, geht die Leiste weg
+interface Props {
+  label: string;
+  preis?: string;
+  href: string;
+  knopf?: string;
+  extern?: boolean;
+  verstecke?: string;
+}
+const {
+  label,
+  preis,
+  href,
+  knopf = 'Jetzt buchen',
+  extern = false,
+  verstecke = '',
+} = Astro.props;
+---
+
+<div class="sticky-cta" data-verstecke={verstecke} hidden>
+  <div class="sticky-cta-text">
+    <span class="sticky-cta-label">{label}</span>
+    {preis && <span class="sticky-cta-preis">{preis}</span>}
+  </div>
+  <a
+    href={href}
+    class="sticky-cta-btn"
+    {...extern ? { target: '_blank', rel: 'noopener' } : {}}
+  >{knopf}</a>
+</div>
+
+<script>
+  const leiste = document.querySelector<HTMLElement>('.sticky-cta');
+  if (leiste) {
+    const SCHMAL = window.matchMedia('(max-width: 720px)');
+    const verstecke = (leiste.dataset.verstecke || '')
+      .split(',').map((s) => s.trim()).filter(Boolean);
+
+    // Der Hero ist immer der erste Abschnitt der Seite — keine Klassenliste,
+    // die man beim Anlegen einer neuen Seite vergessen kann.
+    const hero = document.querySelector<HTMLElement>('section');
+    let schwelle = 0;
+    function schwelleMessen() {
+      schwelle = hero
+        ? hero.offsetTop + hero.offsetHeight
+        : Math.round(window.innerHeight * 0.8);
+    }
+
+    let zuletzt: boolean | null = null;
+
+    function pruefen() {
+      let zeigen = SCHMAL.matches;
+
+      // 1. Erst zeigen, wenn der Hero mit seinem eigenen Knopf durch ist.
+      if (zeigen && window.scrollY < schwelle) zeigen = false;
+
+      // 2. Weg, sobald ein Abschnitt im Bild ist, der denselben Knopf zeigt.
+      if (zeigen) {
+        const hoehe = window.innerHeight;
+        for (const sel of verstecke) {
+          const el = document.querySelector(sel);
+          if (!el) continue;
+          const r = el.getBoundingClientRect();
+          if (r.top < hoehe && r.bottom > 0) { zeigen = false; break; }
+        }
+      }
+
+      // Nur schreiben, wenn sich wirklich etwas ändert.
+      if (zeigen !== zuletzt) {
+        leiste.hidden = !zeigen;
+        zuletzt = zeigen;
+      }
+    }
+
+    schwelleMessen();
+    pruefen();
+    window.addEventListener('scroll', pruefen, { passive: true });
+    window.addEventListener('resize', () => { schwelleMessen(); pruefen(); }, { passive: true });
+    SCHMAL.addEventListener('change', () => { schwelleMessen(); pruefen(); });
+    // Bilder verschieben die Hero-Höhe, wenn sie nachladen.
+    window.addEventListener('load', () => { schwelleMessen(); pruefen(); });
+  }
+</script>
+
+<style>
+  .sticky-cta { display: none; }   /* Desktop: gar nicht erst da */
+
+  @media (max-width: 720px) {
+    .sticky-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;               /* unter dem Header (100), über dem Inhalt */
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(184, 149, 107, 0.28);
+      box-shadow: 0 -6px 20px rgba(44, 75, 123, 0.10);
+      animation: ctaRein .28s var(--ease);
+    }
+    .sticky-cta[hidden] { display: none; }
+
+    @keyframes ctaRein {
+      from { transform: translateY(100%); }
+      to   { transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sticky-cta { animation: none; }
+    }
+
+    .sticky-cta-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;              /* erlaubt das Kürzen langer Namen */
+      line-height: 1.25;
+    }
+    .sticky-cta-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-cta-preis {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue-deep);
+    }
+    .sticky-cta-btn {
+      margin-left: auto;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;          /* Tap-Ziel */
+      padding: 0 20px;
+      border-radius: var(--radius-pill, 999px);
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .sticky-cta-btn:hover { text-decoration: none; }
+  }
+</style>

@@ -8,6 +8,7 @@ import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 import FounderTrust from '../components/FounderTrust.astro';
 
 // 🔴 TODO (Christian): Digistore-Checkout für Edition 2026/2027 NEU anlegen — es existiert nur die 2025er-Version.
@@ -264,6 +265,13 @@ const stimmen = [
     </div>
   </section>
 
+  <StickyCTA
+    label="12 heilige Nächte"
+    preis={aktiv.preis}
+    href={buchenUrl}
+    knopf="Dabei sein"
+    verstecke=".hn-preise, .hn-final"
+  />
   <FooterFokus />
 </FokusLayout>
 

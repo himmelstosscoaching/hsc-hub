@@ -7,6 +7,7 @@ import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 import MehrDazu from '../components/MehrDazu.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 
 const checkout = '#preis';
 
@@ -355,6 +356,13 @@ const kapitel = [
     </div>
   </section>
 
+  <StickyCTA
+    label="Schatz, coachst du mich?"
+    preis="397 €"
+    href="#preis"
+    knopf="Jetzt buchen"
+    verstecke=".s-preis, .s-final"
+  />
   <FooterFokus />
 </FokusLayout>
 
