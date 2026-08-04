@@ -90,7 +90,9 @@ const { label = 'Mehr dazu', labelOffen = 'Weniger anzeigen', class: extra = '' 
     .mehr > summary::-webkit-details-marker { display: none; }
     .mehr > summary::marker { content: ''; }
 
-    /* Nur das jeweils passende Wort zeigen */
+    /* Nur das jeweils passende Wort zeigen. `display:none` nimmt es auch
+       aus der Vorlesereihenfolge — sonst hoert ein Screenreader beide
+       Beschriftungen hintereinander ("Mehr dazu Weniger anzeigen"). */
     .mehr:not([open]) .mehr-auf { display: none; }
     .mehr[open] .mehr-zu { display: none; }
 
