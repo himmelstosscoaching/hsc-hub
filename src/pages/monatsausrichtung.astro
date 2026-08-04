@@ -441,15 +441,32 @@ const stimmen: { text: string; name: string }[] = [];
 
   /* ── RESPONSIVE ───────────────────────────────────────────── */
   @media (max-width: 860px) {
-    /* Auf schmalen Schirmen ist links neben der Sonne kein Platz: Text wieder mittig und unter die
-       Sonne gelegt, Bild mittig ausgerichtet, Schleier von oben/unten statt von den Seiten. */
-    .ma-hero { text-align: center; align-items: flex-end; }
-    .ma-hero-bg { object-position: center 34%; }
-    .ma-hero-inner { padding: clamp(230px,58vw,300px) 0 clamp(48px,9vw,72px); }
+    /* Handy/Tablet: Grafik und Text UNTEREINANDER statt uebereinander.
+       Vorher lag der Text zwar schon tiefer, aber immer noch IM Bild — und vom
+       Tierkreis-Band (1440x861) waren nur ~34 % der Breite sichtbar. */
+    .ma-hero { display: block; min-height: 0; overflow: visible; text-align: center; background: none; }
+    /* 5:3 ist genau das Seitenverhaeltnis der Grafik — sie ist damit vollstaendig
+       zu sehen, nichts wird angeschnitten. */
+    .ma-hero-bg {
+      position: static; width: 100%; height: auto;
+      aspect-ratio: 5 / 3; object-position: center center; display: block;
+    }
+    .ma-hero::after { display: none; }
+    /* Textflaeche im dunkelsten Ton DIESER Grafik (#4A3C32, aus dem Bild ausgelesen).
+       Kontrast Weiss darauf: 10,5:1. Unten der Sun-Strip als Kante. */
+    .ma-hero-inner {
+      padding: 26px 0 34px;
+      background:
+        linear-gradient(90deg,
+          #2C4B7B 0%, #3D7AAB 18%, #75BFDA 38%, #FA9D56 70%, #F89489 100%)
+          bottom / 100% 6px no-repeat,
+        linear-gradient(180deg, #3A2E26 0%, #4A3C32 50%, #5A4A3D 100%);
+      box-shadow: 0 -20px 26px -12px rgba(58, 46, 38, 0.8);
+    }
     .ma-hero-inner > * { max-width: none; }
     .ma-sub { margin-left: auto; margin-right: auto; }
-    .ma-hero::after { background:
-      linear-gradient(180deg, rgba(24,58,90,0.52) 0%, rgba(28,64,98,0.14) 22%, rgba(45,30,18,0) 34%, rgba(45,30,18,0.30) 46%, rgba(45,30,18,0.36) 62%, rgba(45,30,18,0.50) 100%); }
+    .ma-hero h1, .ma-hero-note { text-shadow: none; }
+    .ma-hero h1 { margin-bottom: 16px; }
     .ma-block { grid-template-columns: 1fr; gap: 24px; }
     .ma-block--rev .ma-block-img { order: 0; }
     .ma-ablauf-grid { grid-template-columns: 1fr; }

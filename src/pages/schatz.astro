@@ -581,16 +581,34 @@ const kapitel = [
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero          { min-height: 600px; align-items: flex-end; }
-  .hero-bg         { object-position: 95% center; }
-  .hero-veil       {
-    background: linear-gradient(180deg,
-      rgba(39, 131, 172, 0.12) 0%,
-      rgba(24, 105, 150, 0.42) 45%,
-      rgba(20, 86, 122, 0.88) 100%);
+  /* Handy/Tablet: Bild und Text UNTEREINANDER statt uebereinander.
+     Im hochkanten Hero blieben vom Querformat (1920x861) nur ~26 % der
+     Bildbreite sichtbar — und der Text lag mitten auf uns beiden. */
+  .s-hero          { display: block; min-height: 0; overflow: visible; padding: 0; }
+  /* 1:1 zeigt ~45 % der Bildbreite. Das Paar steht ganz rechts im Bild,
+     deshalb rechte Kante als Fixpunkt — der leere Meeresteil faellt weg. */
+  .hero-bg         {
+    position: static; width: 100%; height: auto;
+    aspect-ratio: 1 / 1; object-position: 100% center; display: block;
   }
-  .hero-inner      { padding-bottom: 60px; }
-  .hero-text       { max-width: 100%; }
+  .hero-veil       { display: none; }   /* kein Schleier — es liegt nichts mehr auf dem Foto */
+  /* Textflaeche im dunkelsten Ton DIESES Fotos (#19292F, aus dem Bild ausgelesen).
+     Kontrast: Weiss 15,1:1 · Orange 7,2:1. Unten der Sun-Strip als Kante. */
+  .hero-inner      {
+    padding: 26px 0 34px;
+    background:
+      linear-gradient(90deg,
+        #2C4B7B 0%, #3D7AAB 18%, #75BFDA 38%, #FA9D56 70%, #F89489 100%)
+        bottom / 100% 6px no-repeat,
+      linear-gradient(180deg, #141F24 0%, #19292F 48%, #22383F 100%);
+    box-shadow: 0 -20px 26px -12px rgba(20, 31, 36, 0.8);
+  }
+  .hero-text       { max-width: 640px; margin-top: 0; }
+  .hero-eyebrow    { margin-bottom: 12px; }
+  .s-hero h1       { margin-bottom: 16px; text-shadow: none; }
+  .hero-sub        { margin-bottom: 18px; text-shadow: none; }
+  .hero-sub strong { color: #75BFDA; text-shadow: none; }   /* #3D7AAB waere auf Dunkel zu dunkel */
+  .hero-meta       { margin-bottom: 24px; }
   .problem-quotes  { grid-template-columns: 1fr; }
   .testi-grid      { grid-template-columns: 1fr; }
   .idee-pillars    { grid-template-columns: 1fr; }

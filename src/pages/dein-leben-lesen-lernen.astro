@@ -466,11 +466,29 @@ const lang = [
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero      { min-height: 560px; align-items: flex-end; }
-  .hero-bg     { object-position: 62% top; }
-  .hero-veil   { background: linear-gradient(180deg, rgba(44,75,123,0.15) 0%, rgba(44,75,123,0.5) 45%, rgba(30,55,95,0.9) 100%); }
-  .hero-inner  { padding-bottom: 56px; }
-  .hero-text   { max-width: 100%; }
+  /* Handy/Tablet: Bild und Text UNTEREINANDER statt uebereinander. */
+  .s-hero      { display: block; min-height: 0; overflow: visible; padding: 0; }
+  /* Dieses Bild ist fast quadratisch (1800x1922) — im 4:3-Kasten ist es in
+     voller Breite zu sehen. Die leichte Schraeglage ist eine Desktop-Geste und
+     wuerde gestapelt nur Luecken an den Ecken erzeugen: hier aus. */
+  .hero-bg     {
+    position: static; width: 100%; height: auto;
+    aspect-ratio: 4 / 3; object-position: center 40%;
+    transform: none; display: block;
+  }
+  .hero-veil   { display: none; }
+  /* Textflaeche im dunkelsten Ton DIESES Fotos (#281A04, aus dem Bild ausgelesen).
+     Kontrast: Weiss 17,0:1 · Orange 8,1:1. Unten der Sun-Strip als Kante. */
+  .hero-inner  {
+    padding: 26px 0 34px;
+    background:
+      linear-gradient(90deg,
+        #2C4B7B 0%, #3D7AAB 18%, #75BFDA 38%, #FA9D56 70%, #F89489 100%)
+        bottom / 100% 6px no-repeat,
+      linear-gradient(180deg, #1E1303 0%, #281A04 50%, #382709 100%);
+    box-shadow: 0 -20px 26px -12px rgba(30, 19, 3, 0.8);
+  }
+  .hero-text   { max-width: 640px; margin-top: 0; }
   .intro-grid  { grid-template-columns: 1fr; }
   .intro-img   { order: -1; }
   .anders-grid { grid-template-columns: 1fr; }

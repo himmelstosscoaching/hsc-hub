@@ -567,13 +567,37 @@ const ueberPunkte = [
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero      { min-height: 600px; align-items: flex-end; }
-  .hero-bg     { object-position: 60% top; }
-  /* Mobil sitzt der Text unten IM Bild. Die Schrift ist jetzt dunkel, also wird hier
-     AUFgehellt statt abgedunkelt — der alte dunkelblaue Schleier würde sie verschlucken. */
-  .hero-veil   { background: linear-gradient(180deg, rgba(255,250,240,0) 35%, rgba(255,249,238,0.55) 70%, rgba(255,248,236,0.82) 100%); }
-  .hero-inner  { padding-bottom: 60px; }
-  .hero-text   { max-width: 100%; }
+  /* Handy/Tablet: Bild und Text UNTEREINANDER statt uebereinander.
+     Vom Querformat (4000x1792) blieben im hochkanten Hero nur ~25 % der
+     Bildbreite sichtbar — Sonne und Felsen wurden angeschnitten. Gestapelt
+     entfaellt auch das Ausweichen um die Sonne herum. */
+  .s-hero      { display: block; min-height: 0; overflow: visible; padding: 0; }
+  /* 3:2 zeigt ~67 % der Bildbreite: Sonne (bei 56 %) und Felsgruppe (bei 75 %) drin. */
+  .hero-bg     {
+    position: static; width: 100%; height: auto;
+    aspect-ratio: 3 / 2; object-position: 65% center; display: block;
+  }
+  .hero-veil   { display: none; }
+  /* Hier die HELLE Variante: Der Text dieser Seite ist dunkelblau (nicht weiss wie
+     sonst), also bekommt er den hellen Sandton AUS DEM FOTO (#E6D3B8) als Flaeche.
+     Kontrast Marken-Blau darauf: 6,0:1. Unten der Sun-Strip als Kante. */
+  .hero-inner  {
+    display: block;
+    padding: 26px 0 34px;
+    background:
+      linear-gradient(90deg,
+        #2C4B7B 0%, #3D7AAB 18%, #75BFDA 38%, #FA9D56 70%, #F89489 100%)
+        bottom / 100% 6px no-repeat,
+      linear-gradient(180deg, #F4E7D6 0%, #EBDAC3 55%, #E6D3B8 100%);
+    box-shadow: 0 -20px 26px -12px rgba(230, 211, 184, 0.9);
+  }
+  .hero-text   { display: block; max-width: 640px; margin: 0 auto; }
+  /* Die Sonne ist nicht mehr hinter dem Text — der Ausweich-Freiraum entfaellt. */
+  .hero-sonnenfeld { display: none; }
+  /* Auf ruhiger Flaeche braucht nichts mehr einen Aufhell-Schimmer. */
+  .hero-eyebrow, .s-hero h1, .hero-sub, .hero-meta, .hero-note { text-shadow: none; }
+  .s-hero h1   { margin-bottom: 16px; }
+  .hero-meta   { margin-bottom: 20px; }
   .mit-grid    { grid-template-columns: 1fr; }
   .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
   .ablauf-grid.reverse .ablauf-img { order: -1; }

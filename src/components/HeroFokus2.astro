@@ -163,16 +163,60 @@
   .hero2-link .arrow { transition: transform .25s var(--ease); display: inline-block; }
   .hero2-link:hover .arrow { transform: translateX(4px); }
 
-  @media (max-width: 760px) {
-    .hero2 { min-height: 600px; align-items: flex-end; }
-    .hero2-bg { object-position: 70% top; }
-    .hero2-veil {
-      background: linear-gradient(180deg,
-        rgba(39, 131, 172, 0.12) 0%,
-        rgba(24, 105, 150, 0.42) 45%,
-        rgba(20, 86, 122, 0.88) 100%);
+  /* ── Handy: Bild und Text UNTEREINANDER statt übereinander ──────────────
+     Grund: Das Foto ist ein Panorama (1920×861). Im hochkanten Handy-Hero
+     blieben davon nur ~26 % der Bildbreite sichtbar — und der Textblock lag
+     auf 81 % der Höhe, also mitten auf uns beiden. Gestapelt bekommt das Foto
+     ein eigenes, breites Format, der Text eine eigene Farbfläche. */
+  @media (max-width: 860px) {
+    .hero2 {
+      display: block;
+      min-height: 0;
+      overflow: visible;
+      padding: 0;   /* globale Sektions-Polsterung hier weg: Foto sitzt direkt unterm Header */
     }
-    .hero2-inner { padding-bottom: 60px; }
-    .hero2-text { max-width: 100%; }
+    /* Foto als eigener Block. 3:2 zeigt ~67 % der Bildbreite —
+       Sonne links und wir beide rechts sind zusammen drin. */
+    .hero2-bg {
+      position: static;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-position: 82% center;
+      animation: none;   /* auf dem Handy ruhig: kein Ken-Burns */
+      display: block;
+    }
+    /* Kein Schleier mehr — es liegt ja nichts mehr auf dem Foto. */
+    .hero2-veil { display: none; }
+
+    /* Textfläche im dunkelsten Ton DIESES Fotos (#134255 — das Tiefteal des
+       Himmels oben links, aus dem Bild ausgelesen). Dadurch wirkt die Fläche
+       wie eine Fortsetzung des Fotos statt wie ein fremder Farbblock.
+       Kontrast: Weiß 10,9:1 · Orange 5,2:1 — beides klar lesbar.
+       Unten schließt der Sun-Strip als Kante zur cremefarbenen Sektion ab. */
+    .hero2-inner {
+      background:
+        linear-gradient(90deg,
+          #2C4B7B 0%, #3D7AAB 18%, #75BFDA 38%, #FA9D56 70%, #F89489 100%)
+          bottom / 100% 6px no-repeat,
+        linear-gradient(180deg, #0F3646 0%, #134255 48%, #1A5468 100%);
+      padding-top: 26px;
+      padding-bottom: 34px;
+      /* weicher Übergang: die Fläche haucht nach oben aufs Foto */
+      box-shadow: 0 -20px 26px -12px rgba(15, 54, 70, 0.8);
+    }
+    .hero2-text {
+      max-width: 640px;   /* Handy: wirkungslos; Tablet: hält die Zeilen lesbar kurz */
+      margin-top: 0;      /* Desktop-Hochschiebung (−64px) hier zurücknehmen */
+    }
+    /* Ohne Foto im Rücken braucht nichts mehr einen Schlagschatten,
+       und die Abstände dürfen enger stehen als auf dem Desktop. */
+    .hero2-eyebrow { margin-bottom: 10px; }
+    .hero2 h1 { margin-bottom: 18px; text-shadow: none; }
+    .hero2 h1 .hl-aside { margin-top: 10px; }
+    .hero2 h1 .hl-invite { margin-top: 16px; text-shadow: none; }
+    .hero2-sub { margin-bottom: 24px; }
+    .hero2-cat { text-shadow: none; }
+    .hero2-ctas { gap: 14px 20px; }
   }
 </style>
