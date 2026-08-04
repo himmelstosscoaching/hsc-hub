@@ -99,4 +99,10 @@ import TidalWave from '../components/TidalWave.astro';
     text-align: center;
     margin-top: 12px;
   }
+
+  /* Handy: engere Polster. Oben bleibt genug Platz für die breite TidalWave. */
+  @media (max-width: 720px) {
+    .strand-breather { padding: 62px 0 28px; }
+    .credo-wrap { margin-bottom: 32px; }
+  }
 </style>

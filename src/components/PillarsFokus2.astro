@@ -115,4 +115,12 @@ const clipId = `pillars-curve-${Math.random().toString(36).slice(2, 9)}`;
     .pillars2-grid { grid-template-columns: 1fr; gap: 16px; max-width: 480px; margin-left: auto; margin-right: auto; }
     .trias-words { flex-direction: column; gap: 2px; }
   }
+
+  /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+     Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+     Rund ein Drittel weniger senkrechter Abstand. Desktop unveraendert. */
+  @media (max-width: 720px) {
+    .pillars2 { padding-top: 44px; padding-bottom: 38px; }
+    .trias { padding-top: 28px; }
+  }
 </style>

@@ -143,4 +143,11 @@
     .about2-persons { grid-template-columns: 1fr; gap: 44px; }
     .person2 p { text-align: center; }
   }
+
+  /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+     Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+     Rund ein Drittel weniger senkrechter Abstand. Desktop unveraendert. */
+  @media (max-width: 720px) {
+    .about2 { padding-top: 54px; padding-bottom: 54px; }
+  }
 </style>

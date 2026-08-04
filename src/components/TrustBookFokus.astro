@@ -227,5 +227,9 @@ import TidalWave from './TidalWave.astro';
     .voices { grid-template-columns: 1fr; gap: 24px; }
     .stats { flex-wrap: wrap; gap: clamp(20px, 5vw, 32px); }
     .stats li { min-width: 120px; }
+    /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+       Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+       Das Polster oben bleibt gross genug fuer die TidalWave (54px). */
+    .trust-fokus { padding-top: 116px; padding-bottom: 54px; }
   }
 </style>

@@ -142,5 +142,12 @@ import TidalWave from './TidalWave.astro';
   }
   .kids-quote figcaption { font-size: clamp(13px, 1.1vw, 15px); color: var(--rose); }
 
-  @media (max-width: 720px) { .story2 { padding-left: 20px; } }
+  @media (max-width: 720px) {
+    .story2 { padding-left: 20px; }
+    /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+       Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+       Das Polster oben bleibt gross genug fuer die TidalWave (54px). */
+    .stories2 { padding-top: 104px; padding-bottom: 54px; }
+    .kids { margin-top: 38px; padding-top: 26px; }
+  }
 </style>

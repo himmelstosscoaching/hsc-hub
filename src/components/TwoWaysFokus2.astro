@@ -102,4 +102,11 @@
     .twoways2-grid { grid-template-columns: 1fr; gap: 40px; }
     .tw2-photo { order: -1; }
   }
+
+  /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+     Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+     Rund ein Drittel weniger senkrechter Abstand. Desktop unveraendert. */
+  @media (max-width: 720px) {
+    .twoways2 { padding-top: 44px; padding-bottom: 44px; }
+  }
 </style>

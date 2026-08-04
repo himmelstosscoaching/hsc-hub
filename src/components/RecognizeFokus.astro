@@ -107,5 +107,8 @@ const clipId = `recognize-curve-${Math.random().toString(36).slice(2, 9)}`;
 
   @media (max-width: 720px) {
     .recognize-line br { display: none; }
+    /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+       Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff. */
+    .recognize-fokus { padding-top: 50px; padding-bottom: 50px; }
   }
 </style>

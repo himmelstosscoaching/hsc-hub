@@ -305,6 +305,11 @@ section { padding: var(--s-section) 0; position: relative; }
   h1 { line-height: 1.15; }
   .container, .narrow { padding: 0 20px; }
   body { padding-bottom: 80px; } /* Platz für Sticky CTA */
+  /* Handy: engere Sektions-Polster. Der Wert oben (Minimum 64px) ist für den
+     Desktop-Rhythmus gebaut — auf einem 375px-Schirm wirken 64px oben UND unten
+     zwischen jedem Abschnitt schlaff. Rund ein Drittel weniger.
+     Sektionen mit eigenem Polster regeln das in ihrem eigenen Bauteil. */
+  section { padding: 44px 0; }
 }
 @media (max-width: 540px) {
   body { font-size: 16px; }

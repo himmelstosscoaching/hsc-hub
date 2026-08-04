@@ -55,4 +55,11 @@ const clipId = `final2-curve-${Math.random().toString(36).slice(2, 9)}`;
   .final2-link:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.6); text-decoration: none; }
   .final2-link .arrow { display: inline-block; transition: transform .25s var(--ease); }
   .final2-link:hover .arrow { transform: translateX(4px); }
+
+  /* Handy: engere Sektions-Polster. Die clamp()-Minima oben sind fuer den
+     Desktop-Rhythmus gebaut und wirken auf einem 375px-Schirm schlaff.
+     Rund ein Drittel weniger senkrechter Abstand. Desktop unveraendert. */
+  @media (max-width: 720px) {
+    .final2 { padding: 60px 0 46px; }
+  }
 </style>
