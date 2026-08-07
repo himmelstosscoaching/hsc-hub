@@ -201,9 +201,15 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   <section class="ec-story">
     <div class="container">
       <div class="ec-story-inner">
-        <!-- IMAGE-SLOT: Foto Steffi & Annette mit Tieren (kommt noch) — ersetzt diesen Platzhalter -->
-        <figure class="ec-story-foto ec-story-foto-slot" aria-hidden="true">
-          <span>Foto Steffi &amp; Annette mit Tieren folgt</span>
+        <figure class="ec-story-foto">
+          <img
+            src="/img/anna-hund-collage.jpg"
+            alt="Drei Fotos untereinander: Anna sitzt auf der Wiese und schaut zum offenen Tor · der Hund liegt im Grün und wartet · Anna und der Hund begegnen sich."
+            width="1000"
+            height="1711"
+            loading="lazy"
+            decoding="async"
+          />
         </figure>
         <div class="ec-story-text">
           <p class="acc-eyebrow">Was möglich ist</p>
@@ -352,15 +358,16 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
 
   /* ── Anna-Story ── */
   .ec-story { background: var(--bg-cream); padding: clamp(38px, 9vw, 78px) 0 clamp(70px, 9vw, 110px); }
-  .ec-story-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
-  .ec-story-foto { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
-  .ec-story-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .ec-story-foto-slot {
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    min-height: 300px; background: rgba(44, 75, 123, 0.06);
-    border: 2px dashed rgba(44, 75, 123, 0.25); box-shadow: none;
-    color: var(--ink-light); font-size: 14px; padding: 20px;
+  /* Bildspalte schmaler als der Text — die Collage ist hochkant (3 Fotos untereinander) */
+  .ec-story-inner {
+    display: grid; grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.32fr);
+    gap: clamp(28px, 5vw, 60px); align-items: center;
   }
+  .ec-story-foto {
+    margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card);
+    max-width: 380px; justify-self: center; width: 100%;
+  }
+  .ec-story-foto img { width: 100%; height: auto; display: block; }
   .ec-story-text h2 { color: var(--blue-deep); font-size: clamp(26px, 3vw, 38px); margin: 0 0 18px; }
   .ec-story-quote {
     margin: 0 0 18px; padding: 0 0 0 20px; border-left: 3px solid var(--orange);
@@ -387,7 +394,10 @@ const mail = 'mailto:kontakt@himmelstosscoaching.de';
   @media (max-width: 960px) {
     .ec-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
     .ec-stimmen { grid-template-columns: 1fr; max-width: 520px; }
+    /* einspaltig: Collage UNTER die Geschichte und kleiner — sonst schiebt der hohe
+       Streifen den Text nach unten und man liest die Geschichte erst nach den Bildern */
     .ec-story-inner { grid-template-columns: 1fr; }
-    .ec-story-foto-slot { min-height: 200px; }
+    .ec-story-text { order: 1; }
+    .ec-story-foto { order: 2; max-width: min(260px, 62vw); margin-top: 6px; }
   }
 </style>
