@@ -2,8 +2,11 @@
 // Intensiv-Coaching-Woche Vogesen — Sales Page
 // Zweiter Standort desselben Produkts wie intensiv-coaching-zypern.astro
 // (gleicher Preis/Ablauf, andere Kulisse — Entscheidung Christian, 2026-08-25).
-// Struktur von der Zypern-Seite übernommen; Video & Testimonials bewusst
-// weggelassen, da für Vogesen noch keine vorhanden sind (nicht erfinden).
+// Struktur von der Zypern-Seite übernommen; Video bewusst weggelassen.
+// Testimonials: ECHTE Stimmen von der Zypern-Woche (gleiches Produkt, anderer Ort),
+// in der Einleitung ehrlich als solche gekennzeichnet — kein Vogesen-Testimonial
+// erfunden. Sobald das erste Vogesen-Testimonial aufgezeichnet ist, ersetzt/ergänzt
+// es diese Sektion.
 //
 // ⚠️ PLATZHALTER — noch mit Annette/Herbert zu bestätigen:
 //   - Preis (vorläufig identisch zu Zypern übernommen)
@@ -52,6 +55,60 @@ const fuerDich = [
   'endlich den <strong>roten Faden</strong> hinter deinen Problemen erkennen willst — um frei zu sein.',
   'in einer Beziehung bist und eine <strong>tiefere, unterstützende Verbindung</strong> erleben möchtest.',
   'einfach <strong>dein Leben in die Hand nehmen</strong> möchtest.',
+];
+
+// Echte Stimmen von der Intensiv-Coaching-Woche in Zypern — gleiches Produkt,
+// anderer Ort. Wortlaut von der Zypern-Seite übernommen (dort teils gekürzt),
+// NICHT umformuliert. Kennzeichnung des Ortes steht in der Sektions-Einleitung.
+const stimmen = [
+  {
+    kopf: '„…das Leben ist schön!"',
+    text: 'Ich kam ohne Erwartungen — und ging mit einer Klarheit, die mein Leben verändern wird. Diese Woche war ein Geschenk voller Herzlichkeit, Tiefe und echtem Aufbruch.',
+    name: 'Frank M.',
+  },
+  {
+    kopf: '„Ich bin richtig, wie ich bin."',
+    text: 'Diese eine Erkenntnis hat für mich alles verändert. In der Coaching-Woche durfte ich zum ersten Mal wirklich alles aussprechen — ohne bewertet zu werden, ohne Ratschläge, einfach gehört werden.',
+    name: 'Trixi',
+  },
+  {
+    kopf: '„…so intensiv habe ich mir das nicht vorgestellt"',
+    text: 'Dieses Coaching ist für Menschen, die den Mut haben, ihr Leben in die Hand zu nehmen und alte Muster und Strukturen, die ihnen dabei im Wege stehen, beiseite räumen wollen.',
+    name: 'Heike',
+  },
+];
+
+// „So einfach geht es weiter" — nimmt die Hemmschwelle vor dem Gesprächs-CTA:
+// klarer, unverbindlicher Dreischritt statt „Verkaufsgespräch"-Sorge.
+const schritte = [
+  { titel: 'Gespräch buchen', text: 'Du suchst dir online einen Termin aus — kostenfrei und unverbindlich.' },
+  { titel: 'Kennenlernen', text: 'Wir hören, was dich beschäftigt, und schauen gemeinsam, ob die Woche dein richtiger Schritt ist.' },
+  { titel: 'Deine Woche', text: 'Passt es für dich, finden wir deinen Termin — und du kommst einfach an.' },
+];
+
+// FAQ — nur Fragen, deren Antworten aus dem bestätigten Produktwissen stammen
+// (nichts erfunden: Ablauf, Formate, Preise, Zeitfenster von Zypern-Seite/Briefing).
+const fragen = [
+  {
+    f: 'Was passiert im Orientierungsgespräch?',
+    a: 'Wir lernen uns kennen. Du erzählst, was dich gerade beschäftigt, wir erzählen, wie wir arbeiten — und gemeinsam spüren wir, ob diese Woche dein richtiger Schritt ist. Das Gespräch ist kostenfrei und unverbindlich.',
+  },
+  {
+    f: 'Muss ich mich danach gleich entscheiden?',
+    a: 'Nein. Du entscheidest in deinem Tempo. Wenn du spürst, dass die Woche passt, finden wir gemeinsam deinen Termin.',
+  },
+  {
+    f: 'Kann ich allein kommen — oder wir als Paar?',
+    a: 'Beides. Du kannst die Woche für dich allein gehen (4.200 €) oder ihr geht sie zu zweit als Paar (5.700 €). Der Ablauf richtet sich danach, was ihr mitbringt.',
+  },
+  {
+    f: 'Wann findet meine Woche statt?',
+    a: 'Im September und Oktober 2026 sind wir in den Vogesen, ab November in Schopfheim. Den genauen Termin stimmen wir individuell mit dir ab — im Orientierungsgespräch.',
+  },
+  {
+    f: 'Muss ich mich vorbereiten?',
+    a: 'Nein. Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Um alles andere kümmern wir uns.',
+  },
 ];
 
 // Über Annette & Herbert — identisch zur Zypern-Seite (Fakten, nicht ortsgebunden)
@@ -103,8 +160,19 @@ const ueberPunkte = [
           </div>
           <p class="hero-termin">September &amp; Oktober 2026 in den Vogesen · ab November in Schopfheim — Termin nach Absprache</p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
+          <p class="hero-note">kostenfrei &amp; unverbindlich — ihr lernt euch erst einmal kennen</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 1b · TRUST-BAND — drei belegte Fakten (Zahlen von der Startseite/Über-Sektion),
+       direkt unter dem Hero: beantwortet „wer sind die beiden?" bevor das Problem kommt. -->
+  <section class="s-trust">
+    <div class="container trust-band">
+      <span>Seit 1992 ein Paar</span>
+      <span>Ärztin &amp; Sucht-Experte — zwei Blickwinkel</span>
+      <span>Über 20.000 Menschen begleitet</span>
     </div>
   </section>
 
@@ -144,6 +212,7 @@ const ueberPunkte = [
       <ul class="check-list woche-list">
         {woche.map((w) => <li style={`--wc: ${w.c}`}>{w.t}</li>)}
       </ul>
+      <blockquote class="pull-quote">„Es übertrifft alles, was ich mir vorstellen konnte."<cite>— Heike, Teilnehmerin der Intensiv-Coaching-Woche</cite></blockquote>
     </div>
     <WaveDivider fill="var(--bg-cream)" />
   </section>
@@ -211,6 +280,26 @@ const ueberPunkte = [
         </ul>
       </div>
     </div>
+    <WaveDivider fill="var(--bg-white)" />
+  </section>
+
+  <!-- 7b · STIMMEN — echte Teilnehmer-Stimmen derselben Woche (bisher Zypern),
+       ehrlich gekennzeichnet. Sozialer Beweis direkt VOR der Preisnennung. -->
+  <section class="s-stimmen" id="stimmen">
+    <div class="container">
+      <p class="acc-eyebrow" style="justify-content:center">Stimmen von Teilnehmern</p>
+      <h2 class="center">Menschen, die diese Woche schon gegangen sind</h2>
+      <p class="center stimmen-intro">Die Intensiv-Coaching-Woche gibt es seit mehreren Jahren — bisher in Zypern, jetzt auch in den Vogesen. Das sagen Menschen, die sie erlebt haben:</p>
+      <div class="stimmen-grid">
+        {stimmen.map((s) => (
+          <blockquote class="stimme">
+            <p class="stimme-kopf">{s.kopf}</p>
+            <p class="stimme-text">{s.text}</p>
+            <cite>{s.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
     <TidalWave />
   </section>
 
@@ -221,9 +310,25 @@ const ueberPunkte = [
       <h2 class="angebot-hl">Diese Woche ist ein Schlüssel zur echten Veränderung</h2>
       <p class="angebot-intro">Wenn du spürst, dass jetzt die richtige Zeit ist, dann laden wir dich herzlich ein, mit uns diese Woche zu erleben.</p>
 
+      <!-- Dreischritt: nimmt vor der Karte die Hemmschwelle — das Gespräch ist ein
+           Kennenlernen, kein Verkaufsdruck. -->
+      <ol class="schritte">
+        {schritte.map((s, i) => (
+          <li class="schritt">
+            <span class="schritt-nr">{i + 1}</span>
+            <span class="schritt-titel">{s.titel}</span>
+            <span class="schritt-text">{s.text}</span>
+          </li>
+        ))}
+      </ol>
+
       <div class="angebot-card">
         <dl class="angebot-facts">
           <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich</dd></div>
+          {/* ⚠️ „ganz privat" = 1 Gast/Paar pro Woche — aus dem Produktzuschnitt abgeleitet
+              (Briefing: „eine Woche mit der Klientin"; Zypern: ein Gästezimmer).
+              Von Annette/Herbert bestätigen lassen. */}
+          <div><dt>Privat</dt><dd>Eine Woche, ein Gast — du allein oder ihr als Paar. Kein Gruppenformat.</dd></div>
           <div><dt>Termin</dt><dd>September &amp; Oktober 2026 in den Vogesen, ab November in Schopfheim — wir finden gemeinsam deine Woche</dd></div>
           <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
           <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
@@ -254,11 +359,27 @@ const ueberPunkte = [
     <WaveDivider fill="var(--bg-cream)" />
   </section>
 
+  <!-- 9b · FAQ — räumt die häufigsten Einwände vor dem letzten CTA aus
+       (Angst vor Verkaufsgespräch, Entscheidungsdruck, Formatfragen, Termine). -->
+  <section class="s-faq" id="faq">
+    <div class="container narrow">
+      <h2 class="center">Häufige Fragen</h2>
+      <div class="faq-liste">
+        {fragen.map((q) => (
+          <details class="faq-item">
+            <summary>{q.f}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- 10 · FRAGEN / ABSCHLUSS-CTA -->
   <section class="s-final final-fokus">
     <div class="container narrow center">
-      <h2 class="final-hl">Hast du noch Fragen?</h2>
-      <p class="final-text">Wir nehmen uns sehr gerne Zeit für dich.</p>
+      <h2 class="final-hl">Noch etwas offen?</h2>
+      <p class="final-text">Wir nehmen uns sehr gerne Zeit für dich — im Gespräch klären wir alles Weitere.</p>
       <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Orientierungs-Gespräch buchen →</a>
       <p class="final-meta">kostenfrei &amp; unverbindlich</p>
     </div>
@@ -278,6 +399,33 @@ const ueberPunkte = [
 
   <FooterFokus />
 </FokusLayout>
+
+<script>
+  // Sanftes Einblenden beim Scrollen — progressive enhancement: ohne JS oder mit
+  // „Bewegung reduzieren" bleibt alles sofort sichtbar (Klassen werden erst hier gesetzt).
+  const ziele = document.querySelectorAll(
+    '.pain-list li, .woche-list li, .mit-card, .ablauf-text, .ablauf-img, ' +
+    '.fuer-panel, .chance-box, .stimme, .schritt, .angebot-card, .faq-item, .galerie-grid img'
+  );
+  const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduziert && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (eintraege) => {
+        for (const e of eintraege) {
+          if (e.isIntersecting) {
+            e.target.classList.add('sichtbar');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+    ziele.forEach((el) => {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+</script>
 
 <style>
 /* ── MINIMAL-HEADER (kein Menü, kein Link raus) ──────────────── */
@@ -321,6 +469,14 @@ const ueberPunkte = [
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
 .hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
 .hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
+.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
+
+/* ── TRUST-BAND ───────────────────────────────────────────── */
+/* Drei kurze Fakten in einer ruhigen Zeile — Kapitälchen-Optik, Punkte als Trenner. */
+.s-trust { background: var(--bg-white); padding: 22px 0; border-bottom: 1px solid rgba(184,149,107,0.14); }
+.trust-band { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px 18px; text-align: center; }
+.trust-band span { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); }
+.trust-band span + span::before { content: '·'; margin-right: 18px; color: var(--gold-line); }
 @media (hover: none), (max-width: 860px) {
   /* iOS/Touch: background-attachment:fixed ist unzuverlässig/laggy → normales Scrollen */
   .s-hero { background-attachment: scroll; }
@@ -354,6 +510,8 @@ const ueberPunkte = [
 .woche-list li { padding: 20px 24px 20px 56px; background: color-mix(in srgb, var(--wc) 12%, var(--bg-white)); border-top: 4px solid var(--wc); border-radius: var(--radius-card); color: var(--ink); }
 .woche-list li::before { content: '✓'; left: 22px; top: 21px; color: var(--wc); }
 .s-passiert { background: var(--bg-white); padding-top: clamp(64px,12vw,128px); }
+.pull-quote { margin: 48px auto 0; padding: 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2vw,28px); color: var(--blue-deep); line-height: 1.4; }
+.pull-quote cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--font-body); font-size: 14px; color: var(--ink-light); }
 
 /* ── WAS DU MITNIMMST ─────────────────────────────────────── */
 .s-mitnehmen { background: var(--bg-cream); }
@@ -405,8 +563,24 @@ const ueberPunkte = [
 .chance-box ul { margin: 0; padding-left: 22px; color: var(--ink-soft); }
 .chance-box li { margin-bottom: 8px; line-height: 1.55; }
 
+/* ── STIMMEN ──────────────────────────────────────────────── */
+.s-stimmen { background: var(--bg-white); }
+.s-stimmen .acc-eyebrow { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
+.stimmen-intro { max-width: 620px; margin: 0 auto clamp(36px,5vw,52px); color: var(--ink-soft); font-size: 16px; }
+.stimmen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.stimme { margin: 0; padding: 28px 26px 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.stimme-kopf { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
+.stimme-text { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 14px; }
+.stimme cite { font-style: normal; font-size: 13px; color: var(--ink-light); letter-spacing: 0.04em; }
+
 /* ── HAUPTANGEBOT ─────────────────────────────────────────── */
 .s-angebot { background: var(--sunset-surface); }
+/* Dreischritt über der Karte — helle Schrift auf dem Farbverlauf, drei schmale Spalten. */
+.schritte { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px,3vw,36px); max-width: 860px; margin: 0 auto clamp(36px,5vw,52px); padding: 0; text-align: center; }
+.schritt { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.schritt-nr { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.65); color: #fff; font-family: var(--font-display); font-size: 19px; margin-bottom: 4px; }
+.schritt-titel { font-family: var(--font-body); font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+.schritt-text { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.88); }
 .eyebrow-light { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: var(--font-body); font-size: var(--eyebrow-size); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
 .eyebrow-light::before,
 .eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
@@ -431,6 +605,17 @@ const ueberPunkte = [
 .ueber-list li { padding-left: 30px; position: relative; font-size: 16px; color: var(--ink-soft); line-height: 1.55; }
 .ueber-list li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--sky-light); font-weight: 700; }
 
+/* ── FAQ ──────────────────────────────────────────────────── */
+.s-faq { background: var(--bg-cream); padding-bottom: clamp(30px,4vw,50px); }
+.s-faq h2 { margin-bottom: clamp(28px,4vw,40px); }
+.faq-liste { display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--bg-white); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); overflow: hidden; }
+.faq-item summary { list-style: none; cursor: pointer; padding: 18px 52px 18px 24px; font-family: var(--font-body); font-weight: 600; font-size: 16px; color: var(--blue-deep); position: relative; min-height: 44px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; color: var(--orange); transition: transform .25s var(--ease); }
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-item p { margin: 0; padding: 0 24px 20px; font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
+
 /* ── FINAL ────────────────────────────────────────────────── */
 .s-final { background: var(--bg-cream); padding: clamp(50px,6vw,80px) 0; }
 .final-hl { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,3vw,44px); color: var(--blue-deep); margin-bottom: 16px; }
@@ -443,14 +628,29 @@ const ueberPunkte = [
 .galerie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
 .galerie-grid img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
 
+/* ── SCROLL-REVEAL ────────────────────────────────────────── */
+/* Klassen werden per Skript vergeben (progressive enhancement): ohne JS oder mit
+   reduced motion bleibt alles sofort sichtbar. */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.sichtbar { opacity: 1; transform: none; }
+/* Karten-Reihen laufen leicht versetzt ein — wirkt sorgfältiger als gleichzeitig. */
+.mit-grid .reveal:nth-child(2), .stimmen-grid .reveal:nth-child(2) { transition-delay: .1s; }
+.mit-grid .reveal:nth-child(3), .stimmen-grid .reveal:nth-child(3) { transition-delay: .2s; }
+
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero      { min-height: 560px; align-items: flex-end; background-position: center 20%; }
-  .hero-inner  { padding-bottom: 60px; }
-  .hero-text   { max-width: 100%; }
+  .s-hero      { min-height: 580px; align-items: flex-end; background-position: center 20%; }
+  .hero-inner  { padding-bottom: 52px; }
+  .hero-text   { max-width: 100%; gap: 28px; }
+  .hero-byline { font-size: 16px; }
+  .hero-termin { font-size: 14px; }
+  .trust-band  { flex-direction: column; gap: 8px; }
+  .trust-band span + span::before { content: none; margin: 0; }
   .mit-grid    { grid-template-columns: 1fr; }
   .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
   .ablauf-grid.reverse .ablauf-img { order: -1; }
+  .stimmen-grid { grid-template-columns: 1fr; }
+  .schritte    { grid-template-columns: 1fr; gap: 22px; max-width: 420px; }
   .ueber-grid  { grid-template-columns: 1fr; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
   .galerie-grid { grid-template-columns: 1fr; }
