@@ -12,8 +12,11 @@
 //     als Hinweis erwähnt (kein Umbau/keine zweite Seite, solange es für
 //     Schopfheim noch kein eigenes Material gibt; Entscheidung Christian 2026-08-25)
 //   - Genauer Ort/Adresse in den Vogesen (bewusst offen gehalten)
-//   - Hero-/Ablauf-Fotos: bisher nur ein Foto vorhanden (Wiese/Gartentor) —
-//     weitere Landschafts- und Hausfotos werden noch erwartet
+// Fotos (Stand 2026-08-25, zweite Lieferung): Hero + Panorama-Band = Morgennebel über den
+// Bergen (IMG_9360/9361), Haus = IMG_9342 (war um 180° gedreht, korrigiert), Essenstisch =
+// IMG_9373, Rastplatz = IMG_9362, Wiese/Gartentor = IMG_9367 (erstes Foto). Zwei Dateien aus
+// dem Business-Ordner (IMG_2659/2660.heic) waren KEINE Vogesen-Fotos, sondern versehentlich
+// dort abgelegte Steuerbriefe — nicht verwendet.
 // Siehe Projektdoku: Claude-Projekte/HSC-Vogesen-2026/01-Projektbeschreibung…
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
@@ -151,6 +154,12 @@ const ueberPunkte = [
     <WaveDivider fill="var(--bg-white)" />
   </section>
 
+  <!-- 5b · PANORAMA-BAND — zweites Weitblick-Foto als eigener, ruhiger Atemzug zwischen den
+       Textabschnitten. Gleiche Parallax-Technik wie der Hero, nur niedriger. -->
+  <section class="s-panorama" aria-hidden="false">
+    <p class="panorama-text">Mitten in der Stille der Vogesen — Morgennebel über den Bergen, Zeit zum Ankommen.</p>
+  </section>
+
   <!-- 6 · DU STEHST IM MITTELPUNKT / ABLAUF -->
   <section class="s-ablauf">
     <div class="container ablauf-grid">
@@ -161,16 +170,17 @@ const ueberPunkte = [
         <p>Dazwischen hast du genügend Raum, um das Erlebte nachklingen zu lassen, es zu verankern und die Ruhe und Natur der Vogesen zu genießen: ein Spaziergang durch Wald und Wiesen, Stille in den Bergen.</p>
       </div>
       <div class="ablauf-img ablauf-img--haus">
-        <img src="/img/vogesen/garten-wiese.jpg" alt="Wiese und Garten des Hauses in den Vogesen, umgeben von Bäumen" loading="lazy" />
+        <img src="/img/vogesen/haus-vogesen.jpg" alt="Unser Haus in den Vogesen — Chalet mit Holzbalkon, umgeben von Wiese und Bäumen" loading="lazy" />
       </div>
     </div>
 
     <div class="container ablauf-grid reverse">
-      <div class="ablauf-text ablauf-text--platzhalter">
+      <div class="ablauf-img ablauf-img--essen">
+        <img src="/img/vogesen/essen-tisch.jpg" alt="Gedeckter Tisch mit hausgemachten Gerichten, Blick auf die Wiese im Abendlicht" loading="lazy" />
+      </div>
+      <div class="ablauf-text">
         <h3>Unterkunft &amp; Verpflegung</h3>
         <p>Du genießt während deines Aufenthalts eine liebevolle Rundum-Versorgung mit Vollpension. Herbert ist ein ausgezeichneter Koch — wir besprechen gerne vorab deine Essenswünsche, Unverträglichkeiten oder besonderen Vorlieben mit dir.</p>
-        <!-- Platzhalter: konkrete Angaben zu Zimmer/Ausstattung folgen, sobald weitere Fotos & Details vorliegen -->
-        <p class="hinweis-platzhalter">Weitere Eindrücke von Haus und Umgebung folgen in Kürze.</p>
       </div>
     </div>
     <WaveDivider fill="var(--bg-cream)" />
@@ -247,13 +257,13 @@ const ueberPunkte = [
     </div>
   </section>
 
-  <!-- 11 · ERSTER EINDRUCK (Platzhalter-Galerie — nur 1 Foto vorhanden) -->
+  <!-- 11 · ERSTER EINDRUCK (Galerie — weitere Fotos folgen laufend) -->
   <section class="s-galerie">
     <TidalWave top flip fadeTo="var(--bg-cream)" opacity={1} />
     <div class="container">
       <h2 class="center">Ein erster Eindruck aus den Vogesen</h2>
-      <p class="center galerie-hinweis">Weitere Bilder vom Haus und der Umgebung folgen in Kürze.</p>
-      <div class="galerie-grid galerie-grid--einzeln">
+      <div class="galerie-grid">
+        <img src="/img/vogesen/rastplatz.jpg" alt="Rastplatz mit Bank und Tisch, Blick über die Wiese in die nebelverhangenen Berge" loading="lazy" />
         <img src="/img/vogesen/garten-wiese.jpg" alt="Wiese mit altem Holztor und Blick auf ein Haus, umgeben von Bäumen — Vogesen, Frankreich" loading="lazy" />
       </div>
     </div>
@@ -266,9 +276,9 @@ const ueberPunkte = [
 /* ── HERO ─────────────────────────────────────────────────── */
 .s-hero {
   position: relative; min-height: clamp(560px, 76vh, 820px); display: flex; align-items: stretch; overflow: hidden; padding: 0;
-  background-image: url('/img/vogesen/garten-wiese.jpg');
+  background-image: url('/img/vogesen/vista-morgennebel.jpg');
   background-size: cover;
-  background-position: center 40%;
+  background-position: center 32%;
   /* Echtes Parallax: das Bild "steht" im Viewport fest, die Section (und damit der Text)
      scrollt darüber hinweg. Auf Touch-Geräten kein verlässlicher Support + oft ruckelig
      → dort per Media Query zurück auf normales Scrollen (siehe unten). */
@@ -342,8 +352,8 @@ const ueberPunkte = [
 .s-ablauf { background: var(--bg-white); }
 .ablauf-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,6vw,72px); align-items: start; }
 .ablauf-grid + .ablauf-grid { margin-top: clamp(48px,6vw,80px); }
-.ablauf-grid.reverse { grid-template-columns: 1fr; }
-.ablauf-grid.reverse .ablauf-text { max-width: 640px; margin: 0 auto; text-align: center; }
+/* Zweite Zeile gespiegelt: Bild links, Text rechts (statt der ersten Zeile Text-links/Bild-rechts) */
+.ablauf-grid.reverse { grid-template-columns: 1fr 1.1fr; }
 .ablauf-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 /* Sticky-Bild: bleibt stehen, während der Text daneben vorbeiscrollt — der "edlere",
    editoriale Effekt aus dem Feedback. Nur auf breiten Screens (Grid steht dort nebeneinander). */
@@ -351,7 +361,22 @@ const ueberPunkte = [
   .ablauf-img--haus { position: sticky; top: calc(var(--header-h, 84px) + 32px); }
 }
 .ablauf-text h3 { margin-bottom: 12px; }
-.hinweis-platzhalter { font-size: 14px; color: var(--ink-light); font-style: italic; margin-top: 16px; }
+
+/* ── PANORAMA-BAND ────────────────────────────────────────── */
+/* Zweiter, kürzerer Parallax-Atemzug zwischen den Textabschnitten — gleiche Technik wie
+   der Hero (fixes Hintergrundbild), aber ohne Button/Meta, nur eine ruhige Zeile Text. */
+.s-panorama {
+  position: relative; min-height: clamp(280px, 40vh, 440px); display: flex; align-items: center; justify-content: center;
+  background-image: url('/img/vogesen/vista-morgennebel-2.jpg');
+  background-size: cover; background-position: center 30%; background-attachment: fixed;
+  overflow: hidden;
+}
+.s-panorama::before { content: ''; position: absolute; inset: 0; background:
+  linear-gradient(180deg, rgba(8,16,13,0.35) 0%, rgba(8,16,13,0.15) 40%, rgba(8,16,13,0.40) 100%); }
+.panorama-text { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,28px); color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
+@media (hover: none), (max-width: 860px) {
+  .s-panorama { background-attachment: scroll; }
+}
 
 /* ── FÜR WEN / CHANCE ─────────────────────────────────────── */
 .s-fuer { background: var(--bg-cream); }
@@ -397,21 +422,22 @@ const ueberPunkte = [
 .final-text { font-size: clamp(17px,1.5vw,20px); color: var(--ink-soft); margin: 0 auto 32px; max-width: 520px; }
 .final-meta { margin-top: 18px; font-size: 13px; color: var(--ink-light); }
 
-/* ── GALERIE (Platzhalter, ein Bild) ──────────────────────── */
+/* ── GALERIE ──────────────────────────────────────────────── */
 .s-galerie { background: var(--bg-white); }
-.s-galerie h2 { margin-bottom: 8px; }
-.galerie-hinweis { font-size: 14px; color: var(--ink-light); font-style: italic; margin-bottom: clamp(28px,4vw,40px); }
-.galerie-grid--einzeln { display: flex; justify-content: center; }
-.galerie-grid--einzeln img { max-width: 760px; width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.s-galerie h2 { margin-bottom: clamp(28px,4vw,40px); }
+.galerie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
+.galerie-grid img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero      { min-height: 560px; align-items: flex-end; background-position: 60% top; }
+  .s-hero      { min-height: 560px; align-items: flex-end; background-position: center 20%; }
   .hero-inner  { padding-bottom: 60px; }
   .hero-text   { max-width: 100%; }
   .mit-grid    { grid-template-columns: 1fr; }
   .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
+  .ablauf-grid.reverse .ablauf-img { order: -1; }
   .ueber-grid  { grid-template-columns: 1fr; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
+  .galerie-grid { grid-template-columns: 1fr; }
 }
 </style>
