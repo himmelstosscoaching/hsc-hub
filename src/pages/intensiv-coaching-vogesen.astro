@@ -2,7 +2,12 @@
 // Intensiv-Coaching-Woche Vogesen — Sales Page
 // Zweiter Standort desselben Produkts wie intensiv-coaching-zypern.astro
 // (gleicher Preis/Ablauf, andere Kulisse — Entscheidung Christian, 2026-08-25).
-// Struktur von der Zypern-Seite übernommen; Video bewusst weggelassen.
+// Struktur von der Zypern-Seite übernommen.
+// Einführungsvideo: Annettes Begrüßung aus den Vogesen (IMG_9397.MOV),
+// hochgeladen in Bunny-Library 708695 „Marketing & Website" am 2026-08-25.
+// Orts-/Haus-Fakten (Petit Ballon, Holzofen, Fermeauberge, Kraftplätze,
+// „noch Plätze frei") stammen aus Annettes zwei Videos — Transkripte in
+// Claude-Projekte/HSC-Vogesen-2026/03-Video-Transkripte-2026-08-25.md
 // Testimonials: ECHTE Stimmen von der Zypern-Woche (gleiches Produkt, anderer Ort),
 // in der Einleitung ehrlich als solche gekennzeichnet — kein Vogesen-Testimonial
 // erfunden. Sobald das erste Vogesen-Testimonial aufgezeichnet ist, ersetzt/ergänzt
@@ -200,6 +205,13 @@ const ueberPunkte = [
       <p class="lead">Wir sind wie gelenkt durch unbewusste Glaubenssätze, alte Verletzungen und emotionale Blockaden. Sie sorgen dafür, dass du im Kreis läufst, dich immer wieder in denselben Mustern verfängst — und dich fragst, warum du nicht weiterkommst.</p>
       <h2>Die Intensiv-Coaching-Woche</h2>
       <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann — egal ob du allein oder ihr als Paar kommt. Fernab vom Alltag, mitten in der Ruhe der Vogesen.</p>
+
+      <!-- Annettes Begrüßung aus den Vogesen — Bunny 361d101c-83eb-4a08-b1bb-f117d60b64c0
+           (Library 708695, hochgeladen 2026-08-25, Quelle IMG_9397.MOV) -->
+      <div class="video-embed">
+        <iframe src="https://iframe.mediadelivery.net/embed/708695/361d101c-83eb-4a08-b1bb-f117d60b64c0?autoplay=false&preload=true&responsive=true" title="Annette begrüßt dich aus den Vogesen und zeigt den Ort der Intensiv-Coaching-Woche" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="video-unterzeile">Annette nimmt dich mit an den Ort — direkt aus den Vogesen.</p>
       <a href={gespraech} class="btn btn-primary" target="_blank" rel="noopener">Jetzt Orientierungs-Gespräch buchen →</a>
     </div>
     <WaveDivider fill="var(--bg-white)" />
@@ -243,7 +255,7 @@ const ueberPunkte = [
         <p class="acc-eyebrow">Du stehst im Mittelpunkt</p>
         <h2>Wir sind die ganze Woche für dich da</h2>
         <p>Zweimal täglich begleiten wir dich mit individuellen Coaching-Prozessen, um dein mitgebrachtes Thema zu lösen und nachhaltige Veränderungen zu ermöglichen.</p>
-        <p>Dazwischen hast du genügend Raum, um das Erlebte nachklingen zu lassen, es zu verankern und die Ruhe und Natur der Vogesen zu genießen: ein Spaziergang durch Wald und Wiesen, Stille in den Bergen.</p>
+        <p>Dazwischen hast du genügend Raum, um das Erlebte nachklingen zu lassen und zu verankern. Direkt vom Haus führen viele Wege hinaus — zu Kraftplätzen mit mächtigen alten Bäumen, über Wiesen und Felder, mit weitem Blick ins Tal. Die Natur macht hier spürbar mit.</p>
       </div>
       <div class="ablauf-img ablauf-img--haus">
         <img src="/img/vogesen/haus-vogesen.jpg" alt="Unser Haus in den Vogesen — Chalet mit Holzbalkon, umgeben von Wiese und Bäumen" loading="lazy" />
@@ -256,11 +268,10 @@ const ueberPunkte = [
       </div>
       <div class="ablauf-text">
         <h3>Unterkunft &amp; Verpflegung</h3>
-        {/* ⚠️ Haus-Beschreibung bewusst knapp — Details (Zimmer, Ausstattung, Umgebung)
-            kommen nach Christians Interview mit Annette. Bestätigt ist bisher nur:
-            Gäste wohnen mit A&H im Haus, das Wohnmobil der beiden steht daneben. */}
-        <p>Du wohnst mit uns in unserem Haus mitten im Grünen — mit Wiese, Wald und Bergen direkt vor der Tür.</p>
-        <p>Dazu genießt du eine liebevolle Rundum-Versorgung mit Vollpension. Herbert ist ein ausgezeichneter Koch — wir besprechen gerne vorab deine Essenswünsche, Unverträglichkeiten oder besonderen Vorlieben mit dir.</p>
+        {/* Fakten aus Annettes Videos (2026-08-25): allein gelegen, Nähe Petit Ballon,
+            einfach aber gemütlich, Holzofen, Fermeauberge unterhalb. */}
+        <p>Du wohnst mit uns in einem kleinen, allein gelegenen Haus nahe dem Petit Ballon — einfach, aber gemütlich, mit Holzofen und Wiese, Wald und Bergen direkt vor der Tür.</p>
+        <p>Dazu genießt du eine liebevolle Rundum-Versorgung mit Vollpension. Herbert ist ein ausgezeichneter Koch — wir besprechen gerne vorab deine Essenswünsche, Unverträglichkeiten oder besonderen Vorlieben mit dir. Und wer mag: Gleich unterhalb liegt eine Fermeauberge, in der man einkehren kann.</p>
       </div>
     </div>
     <WaveDivider fill="var(--bg-cream)" />
@@ -328,7 +339,7 @@ const ueberPunkte = [
 
       <div class="angebot-card">
         <dl class="angebot-facts">
-          <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich</dd></div>
+          <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich — allein gelegen nahe dem Petit Ballon, mit Weitblick ins Tal</dd></div>
           {/* ⚠️ „ganz privat" = 1 Gast/Paar pro Woche — aus dem Produktzuschnitt abgeleitet
               (Briefing: „eine Woche mit der Klientin"; Zypern: ein Gästezimmer).
               Von Annette/Herbert bestätigen lassen. */}
@@ -399,6 +410,7 @@ const ueberPunkte = [
       <h2 class="center">Ein erster Eindruck aus den Vogesen</h2>
       <div class="galerie-grid">
         <img src="/img/vogesen/rastplatz.jpg" alt="Rastplatz mit Bank und Tisch, Blick über die Wiese in die nebelverhangenen Berge" loading="lazy" />
+        <img src="/img/vogesen/kaminofen.jpg" alt="Brennender Holzofen im Haus — gemütliche Wärme am Abend" loading="lazy" />
         <img src="/img/vogesen/garten-wiese.jpg" alt="Wiese mit altem Holztor und Blick auf ein Haus, umgeben von Bäumen — Vogesen, Frankreich" loading="lazy" />
       </div>
     </div>
@@ -506,8 +518,12 @@ const ueberPunkte = [
 .s-weg { background: var(--bg-cream); }
 .s-weg .acc-eyebrow { margin-bottom: 50px; }
 .s-weg h2 { margin: 64px 0 12px; }
-.s-weg > .container > a.btn { margin-top: 32px; }
+.s-weg > .container > a.btn { margin-top: 24px; }
 .acc-eyebrow { font-size: var(--eyebrow-size); }
+/* Video-Embed — Muster der Zypern-Seite (16:9, Bunny-iframe) */
+.video-embed { position: relative; width: 100%; max-width: 720px; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); margin: 48px auto 0; background: #0d1b2a; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-unterzeile { margin: 14px 0 0; font-size: 14px; color: var(--ink-light); font-style: italic; }
 
 /* ── CHECK-LIST (Was passiert) ────────────────────────────── */
 .check-list { list-style: none; padding: 0; margin: 36px 0; display: flex; flex-direction: column; gap: 14px; }
@@ -632,7 +648,7 @@ const ueberPunkte = [
 /* ── GALERIE ──────────────────────────────────────────────── */
 .s-galerie { background: var(--bg-white); }
 .s-galerie h2 { margin-bottom: clamp(28px,4vw,40px); }
-.galerie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
+.galerie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1060px; margin: 0 auto; }
 .galerie-grid img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
 
 /* ── SCROLL-REVEAL ────────────────────────────────────────── */
