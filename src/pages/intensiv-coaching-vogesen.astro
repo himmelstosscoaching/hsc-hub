@@ -19,7 +19,6 @@
 // dort abgelegte Steuerbriefe — nicht verwendet.
 // Siehe Projektdoku: Claude-Projekte/HSC-Vogesen-2026/01-Projektbeschreibung…
 import FokusLayout from '../layouts/FokusLayout.astro';
-import HeaderFokus from '../components/HeaderFokus.astro';
 import FooterFokus from '../components/FooterFokus.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
@@ -70,7 +69,14 @@ const ueberPunkte = [
   description="Eine Woche in den Vogesen, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension mitten im Grünen. Für dich allein oder als Paar."
   canonical="https://himmelstosscoaching.de/intensiv-coaching-vogesen"
 >
-  <HeaderFokus />
+  <!-- Bewusst KEIN HeaderFokus (Menü + "Kostenlos starten"-CTA) — Feedback: Sales Page
+       soll nicht ablenken, nur zwei Wege: Gespräch buchen oder Seite verlassen. Nur
+       Logo, nicht klickbar, keine Links raus. -->
+  <header class="header-minimal">
+    <div class="container header-minimal-inner">
+      <img src="/img/logo.svg" alt="Himmelstoß Coaching" class="header-minimal-logo" />
+    </div>
+  </header>
 
   <!-- 1 · HERO -->
   <!-- Bild als echter Parallax-Hintergrund (background-attachment: fixed auf Desktop) statt
@@ -274,6 +280,11 @@ const ueberPunkte = [
 </FokusLayout>
 
 <style>
+/* ── MINIMAL-HEADER (kein Menü, kein Link raus) ──────────────── */
+.header-minimal { background: var(--bg-white); padding: 18px 0; border-bottom: 1px solid rgba(184,149,107,0.18); }
+.header-minimal-inner { display: flex; justify-content: center; }
+.header-minimal-logo { height: 48px; width: auto; }
+
 /* ── HERO ─────────────────────────────────────────────────── */
 .s-hero {
   position: relative; min-height: clamp(560px, 76vh, 820px); display: flex; align-items: stretch; overflow: hidden; padding: 0;
