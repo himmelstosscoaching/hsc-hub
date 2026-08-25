@@ -5,6 +5,10 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
+  /* Schwebender „Angebote ansehen"-Knopf. Standard an (bisheriges Verhalten).
+     Salespages mit eigenem Sticky-CTA schalten ihn ab — er würde dort von der
+     Seite wegführen statt zum Seiten-Ziel (Feedback Christian, 2026-08-25). */
+  angeboteKnopf?: boolean;
 }
 const {
   title = 'Annette & Herbert Himmelstoß — Coaches für ein lebendiges Leben',
@@ -12,6 +16,7 @@ const {
   canonical = 'https://himmelstosscoaching.de/',
   ogImage = '/img/og-default.jpg',
   noindex = false,
+  angeboteKnopf = true,
 } = Astro.props;
 
 import '../styles/brand-v02.css';
@@ -127,14 +132,16 @@ const websiteSchema = {
     <slot />
   </main>
 
-  <a
-    href="/angebote"
-    class="sticky-cta-fokus"
-    id="sticky-cta-fokus"
-    aria-label="Angebote ansehen"
-  >
-    Angebote ansehen →
-  </a>
+  {angeboteKnopf && (
+    <a
+      href="/angebote"
+      class="sticky-cta-fokus"
+      id="sticky-cta-fokus"
+      aria-label="Angebote ansehen"
+    >
+      Angebote ansehen →
+    </a>
+  )}
 
   <script>
     if ('IntersectionObserver' in window) {
