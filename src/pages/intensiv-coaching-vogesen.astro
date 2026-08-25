@@ -86,6 +86,7 @@ const ueberPunkte = [
         <div class="hero-oben">
           <p class="hero-eyebrow">Retreat in den Vogesen · Frankreich</p>
           <h1>Intensiv-Coaching-Woche</h1>
+          <p class="hero-byline">Eine Woche lang ganz für dich — persönlich begleitet von Annette &amp; Herbert Himmelstoß.</p>
         </div>
         <div class="hero-unten">
           <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
@@ -299,7 +300,10 @@ const ueberPunkte = [
 /* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
 .hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
 .hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(255,255,255,0.55); }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.55), 0 6px 40px rgba(0,0,0,0.35); margin: 0 0 22px; }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.55), 0 6px 40px rgba(0,0,0,0.35); margin: 0; }
+/* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
+   persönlich, keine Vertretung) als eigene, ruhige Zeile statt Aufzählung. */
+.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: rgba(255,255,255,0.92); margin: 14px 0 0; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
 .hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 14px rgba(0,0,0,0.55); }
 .hero-sub strong { color: #FFD800; font-weight: 700; }
 .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
