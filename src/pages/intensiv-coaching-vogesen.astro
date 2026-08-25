@@ -70,8 +70,13 @@ const ueberPunkte = [
   <HeaderFokus />
 
   <!-- 1 · HERO -->
+  <!-- Bild als echter Parallax-Hintergrund (background-attachment: fixed auf Desktop) statt
+       <img>, damit der Text beim Scrollen über das ruhende Bild läuft — auf Mobil (kein
+       fixed-attachment-Support/UX) fällt es sauber auf normales Scrollen zurück. -->
+  <!-- Bild rein dekorativ (CSS background) — der Ort wird im sichtbaren Text (Eyebrow,
+       H1) bereits benannt, daher kein zusätzliches role="img"/aria-label nötig (würde
+       Überschrift/Link für Screenreader sonst verschlucken). -->
   <section class="s-hero hero-fokus">
-    <img class="hero-bg" src="/img/vogesen/garten-wiese.jpg" alt="Wiese mit altem Holztor und Blick auf ein Haus, umgeben von Bäumen — Vogesen, Frankreich" loading="eager" />
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-text">
@@ -259,24 +264,45 @@ const ueberPunkte = [
 
 <style>
 /* ── HERO ─────────────────────────────────────────────────── */
-.s-hero { position: relative; min-height: clamp(560px, 76vh, 820px); display: flex; align-items: stretch; overflow: hidden; padding: 0; }
-.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
-/* Grünes Wiesenfoto statt Meer/Sonne — kühlerer, ruhigerer Schleier: dunkles
-   Aufhellen unten fürs Textband, Blau links / zartes Grün-Gold rechts. */
+.s-hero {
+  position: relative; min-height: clamp(560px, 76vh, 820px); display: flex; align-items: stretch; overflow: hidden; padding: 0;
+  background-image: url('/img/vogesen/garten-wiese.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  /* Echtes Parallax: das Bild "steht" im Viewport fest, die Section (und damit der Text)
+     scrollt darüber hinweg. Auf Touch-Geräten kein verlässlicher Support + oft ruckelig
+     → dort per Media Query zurück auf normales Scrollen (siehe unten). */
+  background-attachment: fixed;
+}
+/* Deutlich kräftigerer, gleichmäßiger Dunkel-Schleier (Grundproblem vorher: helle
+   Wiesen-/Himmelpartien im Foto machten weißen Text stellenweise unlesbar). Radialer
+   Kern zusätzlich dunkler genau dort, wo der Text liegt — unabhängig davon, was im
+   Bild darunter gerade hell oder dunkel ist. Leichte Blau-Tönung an den Rändern hält
+   die Markenfarbe präsent, ohne die Lesbarkeit zu kosten. */
 .hero-veil { position: absolute; inset: 0; background:
-  linear-gradient(180deg, rgba(20,38,30,0) 45%, rgba(20,38,30,0.42) 82%, rgba(20,38,30,0.58) 100%),
-  linear-gradient(90deg, rgba(39,131,172,0.30) 0%, rgba(39,131,172,0) 46%),
-  linear-gradient(270deg, rgba(250,157,86,0.20) 0%, rgba(250,157,86,0) 46%); }
+  radial-gradient(ellipse 70% 65% at 50% 52%, rgba(10,20,16,0.62) 0%, rgba(10,20,16,0.40) 55%, rgba(10,20,16,0.22) 100%),
+  linear-gradient(180deg, rgba(8,16,13,0.30) 0%, rgba(8,16,13,0.12) 30%, rgba(8,16,13,0.20) 65%, rgba(8,16,13,0.55) 100%),
+  linear-gradient(90deg, rgba(20,45,60,0.22) 0%, rgba(20,45,60,0) 40%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
-.hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
-.hero-eyebrow { font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; margin: 0 0 18px; text-shadow: 0 1px 14px rgba(0,0,0,0.35); }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,0.35), 0 0 50px rgba(0,0,0,0.20); margin: 0 0 22px; }
-.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(0,0,0,0.4); }
+.hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; animation: hero-rise 1.1s var(--ease) both; }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+/* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
+.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+.hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(255,255,255,0.55); }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.55), 0 6px 40px rgba(0,0,0,0.35); margin: 0 0 22px; }
+.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 14px rgba(0,0,0,0.55); }
 .hero-sub strong { color: #FFD800; font-weight: 700; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
-.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
+.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
 .hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
+@media (hover: none), (max-width: 860px) {
+  /* iOS/Touch: background-attachment:fixed ist unzuverlässig/laggy → normales Scrollen */
+  .s-hero { background-attachment: scroll; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-text { animation: none; }
+}
 
 /* ── PROBLEM ──────────────────────────────────────────────── */
 .s-problem { background: var(--bg-white); }
@@ -314,11 +340,16 @@ const ueberPunkte = [
 
 /* ── ABLAUF ───────────────────────────────────────────────── */
 .s-ablauf { background: var(--bg-white); }
-.ablauf-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,6vw,72px); align-items: center; }
+.ablauf-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,6vw,72px); align-items: start; }
 .ablauf-grid + .ablauf-grid { margin-top: clamp(48px,6vw,80px); }
 .ablauf-grid.reverse { grid-template-columns: 1fr; }
 .ablauf-grid.reverse .ablauf-text { max-width: 640px; margin: 0 auto; text-align: center; }
 .ablauf-img img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+/* Sticky-Bild: bleibt stehen, während der Text daneben vorbeiscrollt — der "edlere",
+   editoriale Effekt aus dem Feedback. Nur auf breiten Screens (Grid steht dort nebeneinander). */
+@media (min-width: 861px) {
+  .ablauf-img--haus { position: sticky; top: calc(var(--header-h, 84px) + 32px); }
+}
 .ablauf-text h3 { margin-bottom: 12px; }
 .hinweis-platzhalter { font-size: 14px; color: var(--ink-light); font-style: italic; margin-top: 16px; }
 
@@ -375,8 +406,7 @@ const ueberPunkte = [
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .s-hero      { min-height: 560px; align-items: flex-end; }
-  .hero-bg     { object-position: 60% top; }
+  .s-hero      { min-height: 560px; align-items: flex-end; background-position: 60% top; }
   .hero-inner  { padding-bottom: 60px; }
   .hero-text   { max-width: 100%; }
   .mit-grid    { grid-template-columns: 1fr; }
