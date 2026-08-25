@@ -28,6 +28,7 @@
 // Siehe Projektdoku: Claude-Projekte/HSC-Vogesen-2026/01-Projektbeschreibung…
 import FokusLayout from '../layouts/FokusLayout.astro';
 import FooterFokus from '../components/FooterFokus.astro';
+import StickyCTA from '../components/StickyCTA.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import TidalWave from '../components/TidalWave.astro';
 
@@ -416,6 +417,16 @@ const ueberPunkte = [
     </div>
   </section>
 
+  {/* Mitwandernde Handy-Leiste (Bauteil von Godiwas Mobil-Runde, Aug 2026).
+      Kein Preis in der Leiste — der Weg führt hier übers Gespräch, nicht in
+      einen Warenkorb. Versteckt sich bei Hero, Angebotskarte und Schluss-CTA. */}
+  <StickyCTA
+    label="Intensiv-Coaching-Woche"
+    href={gespraech}
+    knopf="Gespräch buchen"
+    extern={true}
+    verstecke=".s-angebot, .s-final"
+  />
   <FooterFokus />
 </FokusLayout>
 
