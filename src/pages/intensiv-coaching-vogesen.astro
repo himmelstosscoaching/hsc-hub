@@ -469,38 +469,46 @@ const ueberPunkte = [
   position: relative; min-height: clamp(560px, 76vh, 820px); display: flex; align-items: stretch; overflow: hidden; padding: 0;
   background-image: url('/img/vogesen/vista-morgennebel.jpg');
   background-size: cover;
-  background-position: center 32%;
+  background-position: center 26%;
   /* Echtes Parallax: das Bild "steht" im Viewport fest, die Section (und damit der Text)
      scrollt darüber hinweg. Auf Touch-Geräten kein verlässlicher Support + oft ruckelig
      → dort per Media Query zurück auf normales Scrollen (siehe unten). */
   background-attachment: fixed;
 }
-/* Deutlich kräftigerer, gleichmäßiger Dunkel-Schleier (Grundproblem vorher: helle
-   Wiesen-/Himmelpartien im Foto machten weißen Text stellenweise unlesbar). Radialer
-   Kern zusätzlich dunkler genau dort, wo der Text liegt — unabhängig davon, was im
-   Bild darunter gerade hell oder dunkel ist. Leichte Blau-Tönung an den Rändern hält
-   die Markenfarbe präsent, ohne die Lesbarkeit zu kosten. */
+/* Der Wolkenhimmel ist als Schriftgrund zu unruhig (helle und dunkle Flecken direkt
+   nebeneinander) — ein bloßes Abdunkeln nimmt die Flecken nicht weg. Deshalb läuft das
+   Foto nach UNTEN in einfarbiges Marken-Blau aus: oben bleibt das Bild sichtbar, unten
+   steht die Schrift auf ruhiger, praktisch einfarbiger Fläche. Dazu ein warmer
+   Orange-Hauch genau dort, wo im Foto die Sonne steht — das bringt die zweite
+   Markenfarbe ins Bild und verbindet Foto und Verlauf (Feedback Christian, 2026-08-26).
+   Reihenfolge: Blau-Verlauf oben in der Liste (liegt visuell obenauf), Orange darunter. */
 .hero-veil { position: absolute; inset: 0; background:
-  radial-gradient(ellipse 70% 65% at 50% 52%, rgba(10,20,16,0.62) 0%, rgba(10,20,16,0.40) 55%, rgba(10,20,16,0.22) 100%),
-  linear-gradient(180deg, rgba(8,16,13,0.30) 0%, rgba(8,16,13,0.12) 30%, rgba(8,16,13,0.20) 65%, rgba(8,16,13,0.55) 100%),
-  linear-gradient(90deg, rgba(20,45,60,0.22) 0%, rgba(20,45,60,0) 40%); }
+  linear-gradient(180deg,
+    rgba(44,75,123,0.16)  0%,
+    rgba(43,73,120,0.44) 17%,
+    rgba(38,65,108,0.78) 33%,
+    rgba(33,57,96,0.93)  49%,
+    rgba(29,50,85,0.99)  68%,
+    rgba(29,50,85,1)    100%),
+  radial-gradient(ellipse 78% 46% at 28% 14%, rgba(250,157,86,0.52) 0%, rgba(248,148,137,0.22) 48%, rgba(250,157,86,0) 76%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
-.hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; animation: hero-rise 1.1s var(--ease) both; }
+/* Text sitzt im unteren, ruhigen Teil — nicht mehr über die ganze Höhe verteilt. */
+.hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px,3.2vh,38px); animation: hero-rise 1.1s var(--ease) both; }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 /* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
-.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
 .hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(255,255,255,0.55); }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.55), 0 6px 40px rgba(0,0,0,0.35); margin: 0; }
+.s-hero h1 { color: #fff; text-shadow: 0 2px 14px rgba(14,28,48,0.42), 0 8px 44px rgba(14,28,48,0.30); margin: 0; }
 /* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
    persönlich, keine Vertretung) als eigene, ruhige Zeile statt Aufzählung. */
-.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: rgba(255,255,255,0.92); margin: 14px 0 0; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
-.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 14px rgba(0,0,0,0.55); }
-.hero-sub strong { color: #FFD800; font-weight: 700; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: rgba(255,255,255,0.92); margin: 14px 0 0; text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
+.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 12px rgba(14,28,48,0.45); }
+.hero-sub strong { color: color-mix(in srgb, var(--orange) 72%, #fff); font-weight: 700; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
-.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
 .hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
-.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
+.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
 
 /* ── TRUST-BAND ───────────────────────────────────────────── */
 /* Drei kurze Fakten in einer ruhigen Zeile — Kapitälchen-Optik, Punkte als Trenner. */
@@ -579,8 +587,12 @@ const ueberPunkte = [
   background-size: cover; background-position: center 30%; background-attachment: fixed;
   overflow: hidden;
 }
+/* Gleiche Handschrift wie der Hero: Marken-Blau statt neutralem Schwarz, dazu ein
+   ruhiger Kern hinter der Textzeile. Insgesamt aber viel durchsichtiger — dieses
+   Band soll ja das Foto zeigen, es trägt nur einen Satz. */
 .s-panorama::before { content: ''; position: absolute; inset: 0; background:
-  linear-gradient(180deg, rgba(8,16,13,0.35) 0%, rgba(8,16,13,0.15) 40%, rgba(8,16,13,0.40) 100%); }
+  radial-gradient(ellipse 62% 58% at 50% 50%, rgba(29,50,85,0.72) 0%, rgba(31,53,90,0.42) 60%, rgba(31,53,90,0.20) 100%),
+  linear-gradient(180deg, rgba(35,60,100,0.42) 0%, rgba(35,60,100,0.16) 42%, rgba(29,50,85,0.48) 100%); }
 .panorama-text { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,28px); color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
 @media (hover: none), (max-width: 860px) {
   .s-panorama { background-attachment: scroll; }
@@ -676,7 +688,22 @@ const ueberPunkte = [
 @media (max-width: 860px) {
   .s-hero      { min-height: 580px; align-items: flex-end; background-position: center 20%; }
   .hero-inner  { padding-bottom: 52px; }
-  .hero-text   { max-width: 100%; gap: 28px; }
+  .hero-text   { max-width: 100%; gap: 22px; }
+  /* Handy: Der Text füllt fast die ganze Höhe. Deshalb bleibt oben nur ein schmaler
+     Bildstreifen stehen, danach läuft es zügig ins einfarbige Marken-Blau — sonst
+     stünde die Überschrift wieder mitten in den hellen Wolken.
+     Bewusst in PIXELN statt Prozent: der Hero wird hier durch die Textlänge ~790px
+     hoch, bei Prozentwerten rutschte der einfarbige Bereich unter die Überschrift
+     (gemessen: H1 sitzt bei 129–230px ab Hero-Oberkante). */
+  .hero-veil   { background:
+    linear-gradient(180deg,
+      rgba(44,75,123,0.10)   0px,
+      rgba(43,73,120,0.34)  50px,
+      rgba(38,65,108,0.72) 100px,
+      rgba(32,55,94,0.92)  145px,
+      rgba(29,50,85,1)     195px,
+      rgba(29,50,85,1)    100%),
+    radial-gradient(ellipse 95% 130px at 34% 30px, rgba(250,157,86,0.50) 0%, rgba(248,148,137,0.18) 52%, rgba(250,157,86,0) 80%); }
   .hero-byline { font-size: 16px; }
   .hero-termin { font-size: 14px; }
   .trust-band  { flex-direction: column; gap: 8px; }
