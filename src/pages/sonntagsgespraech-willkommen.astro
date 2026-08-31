@@ -1,0 +1,128 @@
+---
+// Willkommens-/Start-Seite für Menschen, die sich über das Sonntagsgespräch neu
+// angemeldet haben (verlinkt aus der Willkommens-Mail): wer wir sind + weiterführende Wege.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import '../styles/sonntagsgespraech.css';
+
+const YOUTUBE_STREAMS_URL = "https://www.youtube.com/@himmelstosscoaching/streams";
+const GESPRAECH_URL = "https://orientierungsgespraech-himmelstoss.youcanbook.me";
+---
+
+<FokusLayout
+  title="Willkommen — schön, dass du da bist | Himmelstoß Coaching"
+  description="Deine Startseite nach der Anmeldung zum Sonntagsgespräch: wer wir sind, wo du die Gespräche findest — und was es bei uns sonst noch gibt."
+  canonical="https://himmelstosscoaching.de/sonntagsgespraech-willkommen"
+  noindex={true}
+  angeboteKnopf={false}
+>
+
+<HeaderFokus />
+
+<div class="sg-page">
+
+  <!-- HERO -->
+  <section class="sg-hero">
+    <div class="narrow">
+      <div class="sg-band"></div>
+      <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
+      <div class="sg-meta">Willkommen</div>
+      <h1>Schön, dass du<br /><em>da bist.</em></h1>
+      <p class="sg-hero-sub">
+        Du hast dich über das Sonntagsgespräch bei uns angemeldet — hier findest
+        du alles Wichtige an einem Ort: wer wir sind, wo die Gespräche laufen und
+        was es bei uns sonst noch gibt.
+      </p>
+    </div>
+  </section>
+
+  <!-- WER WIR SIND -->
+  <section class="sg-about" style="padding-top: 10px;">
+    <div class="container">
+      <div class="sg-about-grid">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+        <div>
+          <h2>Annette &amp; Herbert</h2>
+          <p>
+            Über 30 Jahre verheiratet — mit allem, was dazugehört. Irgendwann haben
+            wir aufgehört, den anderen verändern zu wollen, und angefangen, bei uns
+            selbst hinzuschauen. Was dabei entstanden ist, geben wir heute weiter:
+            im Sonntagsgespräch, in unseren Kursen und in persönlichen Begleitungen.
+          </p>
+          <p>
+            Wir glauben: Jeder Mensch trägt eine leise innere Stimme in sich, die
+            den eigenen Weg kennt. Wir begleiten Menschen dabei, sie wieder
+            wahrzunehmen.
+          </p>
+          <p class="sg-leitsatz">Spiritualität, die trägt &ndash; Hand in Hand mit der geistigen Welt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SONNTAGSGESPRÄCH-KARTE -->
+  <section style="padding: 0 24px 40px;">
+    <div class="sg-card sg-terminkarte" style="margin-top: 0;">
+      <div class="sg-tag">Jeden Sonntag &middot; 10 Uhr &middot; live &middot; kostenfrei</div>
+      <h3>Unser Sonntagsgespräch</h3>
+      <p>
+        Samstags bekommst du unsere Einladung mit einem Gedanken zum Sonntag.
+        Sonntags um 10 Uhr sprechen wir live — und wenn du es nicht schaffst,
+        bleibt die Aufzeichnung auf unserem Kanal.
+      </p>
+      <a href={YOUTUBE_STREAMS_URL} target="_blank" rel="noopener" class="sg-btn sg-btn--blue">Zu den Gesprächen auf YouTube &rarr;</a>
+    </div>
+  </section>
+
+  <!-- WEITERE WEGE -->
+  <section class="sg-angebote">
+    <div class="container">
+      <h2>Wenn du tiefer einsteigen magst</h2>
+      <p class="sg-angebote-sub">
+        Alles kann, nichts muss — das Sonntagsgespräch bleibt kostenfrei.
+        Für alle, die mehr wollen, gibt es diese drei Wege:
+      </p>
+      <div class="sg-angebote-grid">
+        <div class="sg-card sg-angebot">
+          <div class="sg-tag">Kostenfrei &middot; PDF-Workbook</div>
+          <h3>Drei Tage, die eure Beziehung verändern</h3>
+          <p>
+            Drei Übungen, drei Abende, jeweils 10&ndash;15 Minuten — für Paare,
+            die wieder ein Team werden wollen. Sofort per E-Mail.
+          </p>
+          <a href="/3-tage">Workbook holen &rarr;</a>
+        </div>
+        <div class="sg-card sg-angebot">
+          <div class="sg-tag">Persönlich &middot; kostenfrei</div>
+          <h3>Das Orientierungsgespräch</h3>
+          <p>
+            Manchmal ist ein Gespräch der bessere erste Schritt. Wir hören zu —
+            ohne Urteil, ohne fertige Lösung — und schauen gemeinsam, was für
+            dich dran ist.
+          </p>
+          <a href={GESPRAECH_URL} target="_blank" rel="noopener">Termin aussuchen &rarr;</a>
+        </div>
+        <div class="sg-card sg-angebot">
+          <div class="sg-tag">Kurse &middot; Coaching &middot; Retreats</div>
+          <h3>Unsere Angebote</h3>
+          <p>
+            Vom günstigen Einstieg bis zur intensiven Begleitung — für alle,
+            die ihr Leben lesen lernen und tiefer gehen wollen.
+          </p>
+          <a href="/angebote">Angebote ansehen &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEITSATZ -->
+  <section class="sg-quote" style="padding-bottom: 80px;">
+    <p>„Wir geben nur weiter, was wir selbst leben."</p>
+  </section>
+
+</div>
+
+<FooterFokus />
+
+</FokusLayout>

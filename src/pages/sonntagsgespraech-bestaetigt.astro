@@ -1,0 +1,63 @@
+---
+// Bestätigungsseite NACH Klick auf den DOI-Link der Sonntagseinladung (Double-Opt-In Schritt 2):
+// „Deine Anmeldung ist bestätigt" + Brücke zur Willkommens-Seite.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import '../styles/sonntagsgespraech.css';
+
+const YOUTUBE_STREAMS_URL = "https://www.youtube.com/@himmelstosscoaching/streams";
+---
+
+<FokusLayout
+  title="Deine Anmeldung ist bestätigt — bis Sonntag! | Himmelstoß Coaching"
+  description="Schön, dass du dabei bist. Ab jetzt bekommst du jeden Samstag die Sonntagseinladung von Annette & Herbert."
+  canonical="https://himmelstosscoaching.de/sonntagsgespraech-bestaetigt"
+  noindex={true}
+  angeboteKnopf={false}
+>
+
+<HeaderFokus />
+
+<div class="sg-page">
+
+  <!-- HERO -->
+  <section class="sg-hero">
+    <div class="narrow">
+      <div class="sg-band"></div>
+      <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
+      <div class="sg-meta">Anmeldung bestätigt</div>
+      <h1>Schön, dass du<br /><em>dabei bist.</em></h1>
+      <p class="sg-hero-sub">
+        Deine E-Mail-Adresse ist bestätigt — damit ist alles erledigt.
+        Ab jetzt bekommst du jeden Samstag unsere Einladung mit einem
+        Gedanken zum Sonntag. Und am Sonntag um 10 Uhr sehen wir uns live.
+      </p>
+
+      <!-- Terminkarte -->
+      <div class="sg-card sg-terminkarte">
+        <div class="sg-tag">Jeden Sonntag &middot; 10 Uhr &middot; live</div>
+        <h3>Unser Sonntagsgespräch</h3>
+        <p>
+          Du magst nicht bis Samstag warten? Hier findest du unsere Live-Gespräche
+          und alle bisherigen Aufzeichnungen.
+        </p>
+        <a href={YOUTUBE_STREAMS_URL} target="_blank" rel="noopener" class="sg-btn sg-btn--blue">Auf YouTube ansehen &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRÜCKE ZUR WILLKOMMENS-SEITE -->
+  <section class="sg-quote" style="padding-top: 44px;">
+    <p>„Wir geben nur weiter, was wir selbst leben."</p>
+  </section>
+  <div style="text-align: center; padding-bottom: 80px;">
+    <a href="/sonntagsgespraech-willkommen" class="sg-btn">Lern uns kennen &rarr;</a>
+    <span class="sg-btn-meta">Wer wir sind — und was es bei uns sonst noch gibt.</span>
+  </div>
+
+</div>
+
+<FooterFokus />
+
+</FokusLayout>

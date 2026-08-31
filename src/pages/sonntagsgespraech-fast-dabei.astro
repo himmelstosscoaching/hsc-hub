@@ -1,0 +1,76 @@
+---
+// Danke-Seite NACH dem Absenden des Sonntagsgespräch-Opt-ins (Double-Opt-In Schritt 1):
+// „Bitte E-Mail checken und Bestätigungslink klicken." Bewusst ohne Navigation.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import '../styles/sonntagsgespraech.css';
+---
+
+<FokusLayout
+  title="Fast dabei — bitte bestätige kurz deine E-Mail | Himmelstoß Coaching"
+  description="Ein letzter kleiner Schritt: Bestätige deine E-Mail-Adresse, dann kommt die Sonntagseinladung jeden Samstag zu dir."
+  canonical="https://himmelstosscoaching.de/sonntagsgespraech-fast-dabei"
+  noindex={true}
+  angeboteKnopf={false}
+>
+
+<div class="sg-page">
+
+  <!-- Schlichter Logo-Header (ohne Navigation) -->
+  <header class="sg-header">
+    <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+  </header>
+
+  <!-- HERO -->
+  <section class="sg-hero">
+    <div class="narrow">
+      <div class="sg-band"></div>
+      <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
+      <div class="sg-meta">Fast geschafft</div>
+      <h1>Ein kleiner Schritt<br /><em>fehlt noch.</em></h1>
+      <p class="sg-hero-sub">
+        Wir haben dir gerade eine E-Mail geschickt. Klick einmal kurz auf den
+        Bestätigungs-Link darin — dann kommt die Sonntagseinladung ab jetzt
+        jeden Samstag zu dir.
+      </p>
+    </div>
+  </section>
+
+  <!-- SCHRITTE -->
+  <section class="sg-punkte">
+    <div class="container">
+      <h2>So machst du es</h2>
+      <div class="sg-punkte-grid">
+        <div class="sg-punkt">
+          <div class="sg-step-num">1</div>
+          <h3>Postfach öffnen</h3>
+          <p>In deinem Posteingang liegt eine E-Mail von uns. Schau auch kurz im Spam-Ordner nach, falls sie sich dort versteckt.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-step-num">2</div>
+          <h3>Bestätigen</h3>
+          <p>Ein Klick auf den Link in der Mail genügt. Damit weiß unser System, dass du es wirklich bist — und dass wir dir schreiben dürfen.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-step-num">3</div>
+          <h3>Fertig</h3>
+          <p>Ab jetzt bekommst du jeden Samstag einen Gedanken zum Sonntag — und den Link zum Gespräch am Sonntag um 10 Uhr.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HINWEIS -->
+  <div class="sg-note">
+    <p>
+      Keine E-Mail bekommen? Schreib uns an
+      <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a>
+      &mdash; wir kümmern uns von Hand darum.
+    </p>
+  </div>
+
+</div>
+
+<FooterFokus />
+
+</FokusLayout>

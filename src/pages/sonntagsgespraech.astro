@@ -1,0 +1,119 @@
+---
+// Opt-in-Seite für die Sonntagseinladung (verlinkt aus den YouTube-Videobeschreibungen).
+// Bewusst ohne Navigation — nur eintragen oder gehen.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import '../styles/sonntagsgespraech.css';
+
+// ⚠️ PLATZHALTER — eigenes Quentn-Formular für die Sonntagseinladung noch anlegen
+// (mit Herkunfts-Tag, z. B. reg_sonntagsgespraech). In Quentn einstellen:
+//   Redirect nach Absenden  → https://himmelstosscoaching.de/sonntagsgespraech-fast-dabei
+//   Redirect nach DOI-Klick → https://himmelstosscoaching.de/sonntagsgespraech-bestaetigt
+const QUENTN_FORM_URL = "#TODO-QUENTN-FORMULAR-SONNTAGSGESPRAECH";
+---
+
+<FokusLayout
+  title="Das Sonntagsgespräch — jeden Sonntag um 10 Uhr live | Himmelstoß Coaching"
+  description="Ein Gedanke, der dich durch den Sonntag trägt. Trag dich ein und erhalte jeden Samstag die Sonntagseinladung von Annette & Herbert."
+  canonical="https://himmelstosscoaching.de/sonntagsgespraech"
+  angeboteKnopf={false}
+>
+
+<div class="sg-page">
+
+  <!-- Schlichter Logo-Header (ohne Navigation) -->
+  <header class="sg-header">
+    <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+  </header>
+
+  <!-- HERO mit Formular -->
+  <section class="sg-hero">
+    <div class="narrow">
+      <div class="sg-band"></div>
+      <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
+      <div class="sg-meta">Jeden Sonntag &middot; 10 Uhr &middot; live &middot; kostenfrei</div>
+      <h1>Ein Gedanke, der dich<br /><em>durch den Sonntag trägt.</em></h1>
+      <p class="sg-hero-sub">
+        Jeden Sonntag um 10 Uhr sprechen wir live über das, was das Leben gerade
+        von uns wissen will — offen, geerdet und auch über unsere eigenen Brüche.
+        Trag dich ein, dann bekommst du jeden Samstag unsere Einladung
+        mit einem Gedanken zum Sonntag.
+      </p>
+
+      <div class="sg-card sg-form-card">
+        <form class="sg-form" action={QUENTN_FORM_URL} method="post">
+          <div class="form-row">
+            <label for="sg-firstname">Vorname</label>
+            <input id="sg-firstname" type="text" name="first_name" required autocomplete="given-name" />
+          </div>
+          <div class="form-row">
+            <label for="sg-mail">E-Mail</label>
+            <input id="sg-mail" type="email" name="mail" required autocomplete="email" />
+          </div>
+          <button type="submit">Sonntagseinladung erhalten &rarr;</button>
+        </form>
+        <p class="sg-form-disclaimer">
+          Eine E-Mail pro Woche &middot; Kein Spam &middot; Jederzeit abbestellbar &middot;
+          <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAS DICH ERWARTET -->
+  <section class="sg-punkte">
+    <div class="container">
+      <h2>So einfach ist es</h2>
+      <div class="sg-punkte-grid">
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#9993;</div>
+          <h3>Samstags die Einladung</h3>
+          <p>Du bekommst einen Gedanken zum Sonntag — und den Link zum Gespräch. Mehr steht nicht drin.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#9654;</div>
+          <h3>Sonntags um 10 live</h3>
+          <p>Wir sprechen auf YouTube — du kannst einfach zuhören oder im Chat mitreden. Ohne Kamera, ohne Anmeldung.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#10084;</div>
+          <h3>In deinem Tempo</h3>
+          <p>Du hast keine Zeit am Sonntagmorgen? Die Aufzeichnung bleibt auf unserem Kanal — schau, wann es für dich passt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WER WIR SIND -->
+  <section class="sg-about">
+    <div class="container">
+      <div class="sg-about-grid">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+        <div>
+          <h2>Annette &amp; Herbert</h2>
+          <p>
+            Über 30 Jahre verheiratet — mit allem, was dazugehört. Wir sprechen im
+            Sonntagsgespräch nicht über Theorien, sondern über das, was wir selbst
+            erlebt und durchlebt haben: Nähe und Distanz, Krisen und Durchbrüche,
+            und die leise innere Stimme, die den eigenen Weg kennt.
+          </p>
+          <p class="sg-leitsatz">Spiritualität, die trägt &ndash; Hand in Hand mit der geistigen Welt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSCHLUSS-CTA -->
+  <section class="sg-quote" style="padding-top: 0;">
+    <p>„Wir geben nur weiter, was wir selbst leben."</p>
+  </section>
+  <div class="center" style="text-align: center; padding-bottom: 80px;">
+    <a href="#sg-firstname" class="sg-btn">Jetzt eintragen &rarr;</a>
+    <span class="sg-btn-meta">Jeden Samstag ein Gedanke zum Sonntag — kostenfrei.</span>
+  </div>
+
+</div>
+
+<FooterFokus />
+
+</FokusLayout>
