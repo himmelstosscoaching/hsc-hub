@@ -184,7 +184,7 @@ const ueberPunkte = [
           <p class="hero-byline">Eine Woche lang ganz für dich — persönlich begleitet von Annette &amp; Herbert Himmelstoß.</p>
         </div>
         <div class="hero-unten">
-          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — eine Woche, die dir allein gehört.</p>
+          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong><span class="hero-sub-zeile">eine Woche, die dir allein gehört.</span></p>
           <div class="hero-meta">
             <span>7 Tage · 6 Nächte</span>
             <span>Zweimal täglich Coaching</span>
@@ -271,7 +271,7 @@ const ueberPunkte = [
 
   <!-- 5b · PANORAMA-BAND — zweites Weitblick-Foto als eigener, ruhiger Atemzug zwischen den
        Textabschnitten. Gleiche Parallax-Technik wie der Hero, nur niedriger. -->
-  <section class="s-panorama" aria-hidden="false">
+  <section class="s-panorama" id="ausblick" aria-hidden="false">
     <p class="panorama-text">Mitten in der Stille der Vogesen — Morgennebel über den Bergen, Zeit zum Ankommen.</p>
   </section>
 
@@ -582,8 +582,11 @@ const ueberPunkte = [
 .hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px,3.2vh,38px); animation: hero-rise 1.1s var(--ease) both; }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 /* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
-/* --hero-ink = dunkles Blau-Schwarz; der Schein ist hell, nicht dunkel. */
-.hero-text { --hero-ink: #14263F; }
+/* Die Hero-Schrift steht durchgehend im Marken-Blau statt im frueheren Blau-Schwarz
+   (Annette, 2026-09-01). Der Schein darunter ist hell, nicht dunkel. */
+.hero-text { --hero-ink: var(--blue-deep); }
+/* Eigene Zeile fuer die zweite Haelfte der Unterzeile — kein Umbruch mittendrin. */
+.hero-sub-zeile { display: block; margin-top: 4px; }
 .hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hero-ink); margin: 0 0 22px; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 26px rgba(255,250,240,0.80); }
 .hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(44,75,123,0.42); }
 .s-hero h1 { color: var(--blue-deep); text-shadow: 0 2px 20px rgba(255,252,245,0.75), 0 0 52px rgba(255,250,240,0.60); margin: 0; }
