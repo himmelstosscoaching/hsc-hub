@@ -2,7 +2,11 @@
 // Intensiv-Coaching-Woche Pachyammos (Zypern) — Sales Page
 // Nachbau der ClickFunnels-Archivseite (workshop.himmelstosscoaching.de/pachyammos-icw)
 // Struktur exakt übernommen, Stil an die Fokus-Seiten angepasst (keine Emojis).
-// ⚠️ Preis 4.200 € / Paar 5.700 € = Stand offers.ts (Single Source of Truth)
+// Preis 4.200 €, Paar-Angebot gestrichen (Annette, 2026-09-01) — gilt fuer beide
+// Standorte. Paare kamen bisher einzeln nacheinander oder in anderen Formaten;
+// zwei Einzelwochen gehen tiefer und bringen mehr als eine geteilte Woche.
+// Diese Seite und intensiv-coaching-vogesen.astro sind zwei Standort-Varianten
+// desselben Angebots: beworben wird immer die, wo Annette und Herbert gerade sind.
 // ⚠️ Gesprächs-Link = Orientierungsgespräch-Kalender (aus FooterFokus); von A&H bestätigen lassen
 import FokusLayout from '../layouts/FokusLayout.astro';
 import HeaderFokus from '../components/HeaderFokus.astro';
@@ -85,7 +89,7 @@ const ueberPunkte = [
 
 <FokusLayout
   title="Intensiv-Coaching-Woche Zypern — Dein Weg zur tiefgehenden Transformation"
-  description="Eine Woche Zypern, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension am Meer. Für dich allein oder als Paar."
+  description="Eine Woche Zypern, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension am Meer. Eine Woche, ein Gast — ganz für dich."
   canonical="https://himmelstosscoaching.de/intensiv-coaching-zypern"
 >
   <HeaderFokus />
@@ -103,7 +107,7 @@ const ueberPunkte = [
         {/* Freiraum — hier steht im Foto die Sonne (gemessen: x 56%, y 52%). Bleibt leer. */}
         <div class="hero-sonnenfeld" aria-hidden="true"></div>
         <div class="hero-unten">
-          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
+          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — eine Woche, die dir allein gehört.</p>
           <div class="hero-meta">
             <span>7 Tage · 6 Nächte</span>
             <span>Zweimal täglich Coaching</span>
@@ -138,7 +142,7 @@ const ueberPunkte = [
       <p class="acc-eyebrow" style="justify-content:center">Es gibt einen Weg</p>
       <p class="lead">Wir sind wie gelenkt durch unbewusste Glaubenssätze, alte Verletzungen und emotionale Blockaden. Sie sorgen dafür, dass du im Kreis läufst, dich immer wieder in denselben Mustern verfängst — und dich fragst, warum du nicht weiterkommst.</p>
       <h2>Die Intensiv-Coaching-Woche</h2>
-      <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann — egal ob du allein oder ihr als Paar kommt.</p>
+      <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann.</p>
 
       <!-- Einführungs-/Erklärungsvideo — Bunny b4251ecf-ec20-4e72-911d-ae1af0ddecaf -->
       <div class="video-embed">
@@ -308,7 +312,7 @@ const ueberPunkte = [
           <div><dt>Ort</dt><dd>Unser Haus in Zypern (alternativ eine nahegelegene Unterkunft oder exklusiv im 4-Sterne-Hotel)</dd></div>
           <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
           <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
-          <div><dt>Invest</dt><dd><strong>einzeln 4.200 €</strong> · als Paar 5.700 €</dd></div>
+          <div><dt>Invest</dt><dd><strong>4.200 €</strong> · Unterkunft und Vollpension inbegriffen</dd></div>
         </dl>
         <p class="angebot-aufgabe">Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Wir sind für dich da.</p>
         <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Termin für ein Gespräch aussuchen →</a>
