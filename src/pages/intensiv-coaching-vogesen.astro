@@ -131,6 +131,15 @@ const fragen = [
     f: 'Muss ich mich vorbereiten?',
     a: 'Nein. Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Um alles andere kümmern wir uns.',
   },
+  // Bewusst als LETZTE Frage, ganz unten (Ueberlegung mit Annette, 2026-09-01):
+  // Wer bis hierher liest und noch nicht gebucht hat, nimmt ohnehin keine
+  // Herbstwoche — fuer den ist das die Rettung. Wer den Herbst will, entscheidet
+  // weiter oben und kommt hier nie an. Weiter oben waere es eine Ausweichtuer und
+  // wuerde die drei Wochen leer lassen.
+  {
+    f: 'Und wenn dieser Herbst nicht geht?',
+    a: 'Dann geht Januar. Ab Januar sind wir wieder auf <a href="/intensiv-coaching-zypern">Zypern, am Meer</a>. Sag es im Gespräch, dann finden wir den Zeitpunkt, der wirklich passt.',
+  },
 ];
 
 // Über Annette & Herbert — identisch zur Zypern-Seite (Fakten, nicht ortsgebunden)
@@ -402,7 +411,8 @@ const ueberPunkte = [
         {fragen.map((q) => (
           <details class="faq-item">
             <summary>{q.f}</summary>
-            <p>{q.a}</p>
+            {/* set:html — damit einzelne Antworten einen Link enthalten koennen */}
+            <p set:html={q.a} />
           </details>
         ))}
       </div>
