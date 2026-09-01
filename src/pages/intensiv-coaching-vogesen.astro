@@ -332,6 +332,15 @@ const ueberPunkte = [
       <p class="acc-eyebrow" style="justify-content:center">Stimmen von Teilnehmern</p>
       <h2 class="center">Menschen, die diese Woche schon gegangen sind</h2>
       <p class="center stimmen-intro">Die Intensiv-Coaching-Woche gibt es seit mehreren Jahren — bisher in Zypern, jetzt auch in den Vogesen. Das sagen Menschen, die sie erlebt haben:</p>
+
+      {/* Hervorgehoben: Nira ist die aktuellste Teilnehmerin und tritt als einzige mit
+          Klarnamen und eigener Praxis auf — deshalb als großes Zitat statt als Karte.
+          Wortlaut aus dem Video-Interview vom 01.09.2026 (Transkript im Projektordner). */}
+      <blockquote class="stimme-gross">
+        <p class="stimme-gross-text">Annette und Herbert haben mir einen Raum geschaffen — wie zwei Eltern, die einfach nur für ihr Kind da sind.</p>
+        <cite>Nira Vogel · Heartcoaching</cite>
+      </blockquote>
+
       <div class="stimmen-grid">
         {stimmen.map((s) => (
           <blockquote class="stimme">
@@ -461,7 +470,7 @@ const ueberPunkte = [
   // „Bewegung reduzieren" bleibt alles sofort sichtbar (Klassen werden erst hier gesetzt).
   const ziele = document.querySelectorAll(
     '.pain-list li, .woche-list li, .mit-card, .ablauf-text, .ablauf-img, ' +
-    '.fuer-panel, .chance-box, .stimme, .schritt, .angebot-card, .faq-item, .galerie-grid img'
+    '.fuer-panel, .chance-box, .stimme-gross, .stimme, .schritt, .angebot-card, .faq-item, .galerie-grid img'
   );
   const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduziert && 'IntersectionObserver' in window) {
@@ -726,6 +735,14 @@ const ueberPunkte = [
 .s-stimmen { background: var(--bg-white); }
 .s-stimmen .acc-eyebrow { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 .stimmen-intro { max-width: 620px; margin: 0 auto clamp(36px,5vw,52px); color: var(--ink-soft); font-size: 16px; }
+/* Großes Zitat über den drei Karten — bewusst ohne Karten-Fläche, damit es sich
+   abhebt; das Anführungszeichen-Ornament in Rosé greift die Kante der Karten auf. */
+.stimme-gross { max-width: 780px; margin: 0 auto clamp(38px,5vw,56px); text-align: center; }
+/* Ornament im Textfluss (nicht absolut) — sonst überlappt das tief sitzende
+   deutsche Anführungszeichen die erste Textzeile. */
+.stimme-gross::before { content: '„'; display: block; font-family: var(--font-display); font-size: 64px; line-height: 0.62; color: var(--rose); margin-bottom: 14px; }
+.stimme-gross-text { font-family: var(--font-display); font-style: italic; font-size: clamp(21px,2.3vw,30px); line-height: 1.45; color: var(--blue-deep); margin: 0 0 18px; }
+.stimme-gross cite { font-style: normal; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.07em; color: var(--ink-light); }
 .stimmen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; max-width: 1060px; margin: 0 auto; }
 .stimme { margin: 0; padding: 28px 26px 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
 .stimme-kopf { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
