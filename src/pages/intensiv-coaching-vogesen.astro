@@ -96,6 +96,14 @@ const stimmen = [
   },
 ];
 
+// Video-Testimonial Nira Vogel (Interview 01.09.2026). Wortlaut aus dem Transkript,
+// nur zusammengezogen — nichts hinzugedichtet. Der Wohnmobil-Teil ihrer Schilderung
+// ist bewusst weggelassen: er widerspricht dem Unterkunfts-Absatz („du wohnst mit uns
+// im Haus"), solange das mit A&H nicht geklärt ist.
+// ⚠️ Bunny-GUID eintragen, sobald der finale Schnitt exportiert und in Library 708695
+// („Marketing & Website") hochgeladen ist — bis dahin zeigt die Karte nur den Text.
+const niraVideo = null;
+
 // „So einfach geht es weiter" — nimmt die Hemmschwelle vor dem Gesprächs-CTA:
 // klarer, unverbindlicher Dreischritt statt „Verkaufsgespräch"-Sorge.
 const schritte = [
@@ -333,12 +341,24 @@ const ueberPunkte = [
       <h2 class="center">Menschen, die diese Woche schon gegangen sind</h2>
       <p class="center stimmen-intro">Die Intensiv-Coaching-Woche gibt es seit mehreren Jahren — bisher in Zypern, jetzt auch in den Vogesen. Das sagen Menschen, die sie erlebt haben:</p>
 
-      {/* Hervorgehoben: Nira ist die aktuellste Teilnehmerin und tritt als einzige mit
-          Klarnamen und eigener Praxis auf — deshalb als großes Zitat statt als Karte.
-          Wortlaut aus dem Video-Interview vom 01.09.2026 (Transkript im Projektordner). */}
-      <blockquote class="stimme-gross">
-        <p class="stimme-gross-text">Annette und Herbert haben mir einen Raum geschaffen — wie zwei Eltern, die einfach nur für ihr Kind da sind.</p>
-        <cite>Nira Vogel · Heartcoaching</cite>
+      {/* Hervorgehoben: Nira ist die aktuellste Teilnehmerin, tritt mit Klarnamen und
+          eigener Praxis auf — und es gibt ein Video-Interview. Gleicher Aufbau wie die
+          Karten darunter (Kernsatz oben, dann Kontext), nur größer und mit Video. */}
+      <blockquote class:list={['stimme-nira', !niraVideo && 'stimme-nira--nurtext']}>
+        {niraVideo && (
+          <div class="video-embed stimme-nira-video">
+            <iframe
+              src={`https://iframe.mediadelivery.net/embed/708695/${niraVideo}?autoplay=false&preload=true&responsive=true`}
+              title="Nira Vogel über ihre Intensiv-Coaching-Woche"
+              loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        )}
+        <div class="stimme-nira-text">
+          <p class="stimme-kopf">„…wie zwei Eltern, die einfach nur für ihr Kind da sind."</p>
+          <p class="stimme-text">Annette und Herbert haben mir wirklich den Raum geschaffen — und das auf einer Erwachsenen-Ebene: Was brauchst du jetzt? Möchtest du eine Decke? Ich wäre gar nicht auf die Idee gekommen, gerade eine zu brauchen — und schon kam die Decke. Ich habe das in meinem Leben nicht erlebt. Und das war eine ganze Woche lang.</p>
+          <p class="stimme-text">Da fangen Schutzmechanismen an wegzufallen — und Möglichkeiten zu entstehen, die einfach plötzlich da sind.</p>
+          <cite>Nira Vogel · Heartcoaching</cite>
+        </div>
       </blockquote>
 
       <div class="stimmen-grid">
@@ -470,7 +490,7 @@ const ueberPunkte = [
   // „Bewegung reduzieren" bleibt alles sofort sichtbar (Klassen werden erst hier gesetzt).
   const ziele = document.querySelectorAll(
     '.pain-list li, .woche-list li, .mit-card, .ablauf-text, .ablauf-img, ' +
-    '.fuer-panel, .chance-box, .stimme-gross, .stimme, .schritt, .angebot-card, .faq-item, .galerie-grid img'
+    '.fuer-panel, .chance-box, .stimme-nira, .stimme, .schritt, .angebot-card, .faq-item, .galerie-grid img'
   );
   const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduziert && 'IntersectionObserver' in window) {
@@ -737,12 +757,16 @@ const ueberPunkte = [
 .stimmen-intro { max-width: 620px; margin: 0 auto clamp(36px,5vw,52px); color: var(--ink-soft); font-size: 16px; }
 /* Großes Zitat über den drei Karten — bewusst ohne Karten-Fläche, damit es sich
    abhebt; das Anführungszeichen-Ornament in Rosé greift die Kante der Karten auf. */
-.stimme-gross { max-width: 780px; margin: 0 auto clamp(38px,5vw,56px); text-align: center; }
-/* Ornament im Textfluss (nicht absolut) — sonst überlappt das tief sitzende
-   deutsche Anführungszeichen die erste Textzeile. */
-.stimme-gross::before { content: '„'; display: block; font-family: var(--font-display); font-size: 64px; line-height: 0.62; color: var(--rose); margin-bottom: 14px; }
-.stimme-gross-text { font-family: var(--font-display); font-style: italic; font-size: clamp(21px,2.3vw,30px); line-height: 1.45; color: var(--blue-deep); margin: 0 0 18px; }
-.stimme-gross cite { font-style: normal; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.07em; color: var(--ink-light); }
+/* Hervorgehobene Karte mit Video — gleiche Bausteine wie .stimme, nur zweispaltig
+   und größer. Ohne Video fällt sie automatisch auf eine schmale Textkarte zurück. */
+.stimme-nira { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(26px,3vw,40px); align-items: center;
+  max-width: 1060px; margin: 0 auto clamp(38px,5vw,56px); padding: clamp(26px,3vw,34px);
+  background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
+.stimme-nira--nurtext { grid-template-columns: 1fr; max-width: 820px; }
+.stimme-nira-video { margin: 0; box-shadow: var(--shadow-soft); }
+.stimme-nira .stimme-kopf { font-size: clamp(19px,1.8vw,23px); margin-bottom: 14px; }
+.stimme-nira .stimme-text { font-size: 16px; }
+.stimme-nira cite { font-style: normal; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-light); }
 .stimmen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; max-width: 1060px; margin: 0 auto; }
 .stimme { margin: 0; padding: 28px 26px 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
 .stimme-kopf { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
@@ -864,6 +888,7 @@ const ueberPunkte = [
   .ablauf-grid, .ablauf-grid.reverse { grid-template-columns: 1fr; }
   .ablauf-grid.reverse .ablauf-img { order: -1; }
   .stimmen-grid { grid-template-columns: 1fr; }
+  .stimme-nira  { grid-template-columns: 1fr; }
   .schritte    { grid-template-columns: 1fr; gap: 22px; max-width: 420px; }
   .ueber-grid  { grid-template-columns: 1fr; }
   .angebot-facts > div { grid-template-columns: 1fr; gap: 4px; }
