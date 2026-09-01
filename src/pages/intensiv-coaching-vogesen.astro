@@ -190,7 +190,7 @@ const ueberPunkte = [
             <span>Zweimal täglich Coaching</span>
             <span>Vollpension im Grünen</span>
           </div>
-          <p class="hero-termin">Termine von September bis November 2026 · noch drei Wochen frei</p>
+          <p class="hero-termin"><span>Termine von September bis November 2026</span><span class="termin-sep"> · </span><span>noch drei Wochen frei</span></p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
           <p class="hero-note">kostenfrei &amp; unverbindlich — ihr lernt euch erst einmal kennen</p>
         </div>
@@ -805,13 +805,32 @@ const ueberPunkte = [
      durch die Textlaenge ~790px hoch wird und Prozentwerte dann danebenliegen. */
   .hero-veil   { background:
     linear-gradient(180deg,
-      rgba(255,248,236,0)     40px,
-      rgba(255,247,234,0.50) 130px,
-      rgba(255,246,232,0.76) 220px,
-      rgba(255,245,230,0.84) 320px,
-      rgba(255,245,230,0.84) 100%),
-    linear-gradient(90deg,  rgba(39,131,172,0.50) 0%, rgba(39,131,172,0) 62%),
-    linear-gradient(270deg, rgba(250,157,86,0.46) 0%, rgba(248,148,137,0.20) 28%, rgba(250,157,86,0) 62%); }
+      rgba(255,248,236,0)     30px,
+      rgba(255,247,234,0.34) 130px,
+      rgba(255,246,232,0.46) 240px,
+      rgba(255,246,232,0.42) 420px,
+      rgba(255,245,230,0.20) 100%),
+    radial-gradient(ellipse 78% 34% at 0% 8%,   rgba(39,131,172,0.62) 0%, rgba(39,131,172,0) 76%),
+    radial-gradient(ellipse 78% 34% at 100% 8%, rgba(250,157,86,0.56) 0%, rgba(248,148,137,0.20) 44%, rgba(250,157,86,0) 76%); }
+  /* Die Weichzeichnung muss am Handy fast die ganze Breite fassen — die Schrift laeuft
+     hier von Rand zu Rand, nicht in einer schmalen Saeule wie am Bildschirm. */
+  .hero-veil::after {
+    mask-image: radial-gradient(ellipse 94% 60% at 50% 54%,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 52%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 94% 60% at 50% 54%,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 52%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0) 100%); }
+
+  /* Haengende Trennpunkte vermeiden: am Handy brechen die Zeilen ohnehin um, also
+     stehen die Teile untereinander und die Punkte entfallen. */
+  .hero-meta   { flex-direction: column; gap: 5px; }
+  .hero-meta span + span::before { content: none; margin: 0; }
+  .hero-termin span { display: block; }
+  /* Muss .hero-termin span an Spezifitaet schlagen, sonst gewinnt dort display:block
+     und der Trennpunkt steht als eigene Zeile da. */
+  .hero-termin .termin-sep { display: none; }
+  /* Die Vorzeile passte mit 0.22em Sperrung nicht in eine Zeile und brach hinter dem
+     Trennpunkt um. Enger gesetzt passt sie. */
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.14em; }
   .hero-byline { font-size: 16px; }
   .hero-termin { font-size: 14px; }
   .trust-band  { flex-direction: column; gap: 8px; }
