@@ -525,9 +525,9 @@ const ueberPunkte = [
      hinter der Schriftsaeule. So bleibt die Schrift auf ruhigem Grund, waehrend links
      die Baeume und rechts die Wiese ihr Gruen behalten (Annette: das Gruen ist eine
      Qualitaet der Vogesen und soll sichtbar sein). */
-  radial-gradient(ellipse 58% 42% at 50% 76%,
-    rgba(255,248,236,0.66) 0%,
-    rgba(255,247,234,0.46) 58%,
+  radial-gradient(ellipse 60% 52% at 50% 60%,
+    rgba(255,248,236,0.62) 0%,
+    rgba(255,247,234,0.44) 58%,
     rgba(255,246,232,0)   100%),
   linear-gradient(180deg,
     rgba(255,248,236,0)    20%,
@@ -537,6 +537,25 @@ const ueberPunkte = [
     rgba(255,245,230,0.38) 100%),
   linear-gradient(90deg,  rgba(39,131,172,0.62) 0%, rgba(45,138,178,0.26) 26%, rgba(39,131,172,0) 54%),
   linear-gradient(270deg, rgba(250,157,86,0.58) 0%, rgba(248,148,137,0.26) 26%, rgba(250,157,86,0) 54%); }
+/* Die Unruhe hinter der Schrift kommt nicht von der Helligkeit, sondern von der
+   ZEICHNUNG: harte Wolkenkanten, Astwerk, Kontrastflecken direkt hinter den Buchstaben
+   (Annette, 2026-09-01: "noch ein bisschen zu unruhig fuer die Schrift"). Aufhellen
+   nimmt Helligkeit, aber keine Kanten. Unschaerfe nimmt Kanten, aber keine Farbe —
+   deshalb bleibt das Gruen erhalten und die Flaeche wird trotzdem ruhig.
+
+   Die Weichzeichnung liegt NUR hinter der Schriftsaeule und laeuft nach aussen aus
+   (mask-image mit derselben Ellipse wie der Cremeschleier). Dadurch bleiben links die
+   Baeume und rechts die Wiese knackig, waehrend die Mitte zur Ruhe kommt — man sieht
+   keine Kante, weil die Maske weich ausblendet.
+
+   Ohne backdrop-filter (aeltere Browser) passiert hier schlicht nichts. */
+.hero-veil::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  mask-image: radial-gradient(ellipse 64% 60% at 50% 60%,
+    rgba(0,0,0,1) 0%, rgba(0,0,0,0.94) 42%, rgba(0,0,0,0.58) 72%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(ellipse 64% 60% at 50% 60%,
+    rgba(0,0,0,1) 0%, rgba(0,0,0,0.94) 42%, rgba(0,0,0,0.58) 72%, rgba(0,0,0,0) 100%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
 /* Text sitzt im unteren, ruhigen Teil — nicht mehr über die ganze Höhe verteilt. */
 .hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px,3.2vh,38px); animation: hero-rise 1.1s var(--ease) both; }
