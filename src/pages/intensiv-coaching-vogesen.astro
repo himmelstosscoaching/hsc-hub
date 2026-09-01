@@ -499,40 +499,48 @@ const ueberPunkte = [
      → dort per Media Query zurück auf normales Scrollen (siehe unten). */
   background-attachment: fixed;
 }
-/* Der Wolkenhimmel ist als Schriftgrund zu unruhig (helle und dunkle Flecken direkt
-   nebeneinander) — ein bloßes Abdunkeln nimmt die Flecken nicht weg. Deshalb läuft das
-   Foto nach UNTEN in einfarbiges Marken-Blau aus: oben bleibt das Bild sichtbar, unten
-   steht die Schrift auf ruhiger, praktisch einfarbiger Fläche. Dazu ein warmer
-   Orange-Hauch genau dort, wo im Foto die Sonne steht — das bringt die zweite
-   Markenfarbe ins Bild und verbindet Foto und Verlauf (Feedback Christian, 2026-08-26).
-   Reihenfolge: Blau-Verlauf oben in der Liste (liegt visuell obenauf), Orange darunter. */
+/* Aufhellen statt Abdunkeln — nach dem Vorbild der Zypern-Seite (Annette, 2026-09-01:
+   "licht und verzaubernd"). Der fruehere dunkelblaue Schleier hat den Morgennebel
+   zugedeckt und den Hero schwer gemacht.
+
+   Die drei Schichten:
+   1. Ein warmer, cremefarbener Verlauf hebt die untere Bildhaelfte AUF. Dort steht die
+      Schrift — auf heller, ruhiger Flaeche, ohne dass das Bild verschwindet. Er loest
+      dasselbe Problem wie vorher das Abdunkeln: der unruhige Wolkenhimmel mit hellen
+      und dunklen Flecken taugt nicht als Schriftgrund.
+   2. Blau von LINKS, Orange von RECHTS — die zwei Markenfarben rahmen das Bild.
+   3. Die Schrift ist deshalb DUNKEL (Marken-Blau) mit hellem Schein statt weiss mit
+      Schatten. Weisse Schrift auf hellem Grund waere nicht lesbar.
+   Reihenfolge: was zuerst steht, liegt visuell obenauf. */
 .hero-veil { position: absolute; inset: 0; background:
   linear-gradient(180deg,
-    rgba(44,75,123,0.16)  0%,
-    rgba(43,73,120,0.44) 17%,
-    rgba(38,65,108,0.78) 33%,
-    rgba(33,57,96,0.93)  49%,
-    rgba(29,50,85,0.99)  68%,
-    rgba(29,50,85,1)    100%),
-  radial-gradient(ellipse 78% 46% at 28% 14%, rgba(250,157,86,0.52) 0%, rgba(248,148,137,0.22) 48%, rgba(250,157,86,0) 76%); }
+    rgba(255,248,236,0)    16%,
+    rgba(255,248,236,0.30) 38%,
+    rgba(255,247,234,0.56) 58%,
+    rgba(255,246,232,0.76) 78%,
+    rgba(255,245,230,0.84) 100%),
+  linear-gradient(90deg,  rgba(39,131,172,0.42) 0%, rgba(39,131,172,0) 46%),
+  linear-gradient(270deg, rgba(250,157,86,0.38) 0%, rgba(250,157,86,0) 46%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
 /* Text sitzt im unteren, ruhigen Teil — nicht mehr über die ganze Höhe verteilt. */
 .hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px,3.2vh,38px); animation: hero-rise 1.1s var(--ease) both; }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 /* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
-.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
-.hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(255,255,255,0.55); }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 14px rgba(14,28,48,0.42), 0 8px 44px rgba(14,28,48,0.30); margin: 0; }
+/* --hero-ink = dunkles Blau-Schwarz; der Schein ist hell, nicht dunkel. */
+.hero-text { --hero-ink: #14263F; }
+.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hero-ink); margin: 0 0 22px; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 26px rgba(255,250,240,0.80); }
+.hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(44,75,123,0.42); }
+.s-hero h1 { color: var(--blue-deep); text-shadow: 0 2px 20px rgba(255,252,245,0.75), 0 0 52px rgba(255,250,240,0.60); margin: 0; }
 /* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
    persönlich, keine Vertretung) als eigene, ruhige Zeile statt Aufzählung. */
-.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: rgba(255,255,255,0.92); margin: 14px 0 0; text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
-.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 12px rgba(14,28,48,0.45); }
-.hero-sub strong { color: color-mix(in srgb, var(--orange) 72%, #fff); font-weight: 700; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
+.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: var(--hero-ink); margin: 14px 0 0; text-shadow: 0 1px 14px rgba(255,252,245,0.85); }
+.hero-sub { font-size: clamp(21px,2.2vw,27px); color: var(--hero-ink); margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(255,252,245,0.88); }
+.hero-sub strong { color: var(--blue-deep); font-weight: 700; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: var(--hero-ink); font-weight: 700; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 24px rgba(255,250,240,0.78); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
-.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
+.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 700; color: var(--blue-deep); text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 24px rgba(255,250,240,0.80); }
 .hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
-.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
+.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 600; color: var(--hero-ink); text-shadow: 0 1px 12px rgba(255,252,245,0.85); }
 
 /* ── TRUST-BAND ───────────────────────────────────────────── */
 /* Drei kurze Fakten in einer ruhigen Zeile — Kapitälchen-Optik, Punkte als Trenner. */
@@ -611,12 +619,14 @@ const ueberPunkte = [
   background-size: cover; background-position: center 30%; background-attachment: fixed;
   overflow: hidden;
 }
-/* Gleiche Handschrift wie der Hero: Marken-Blau statt neutralem Schwarz, dazu ein
-   ruhiger Kern hinter der Textzeile. Insgesamt aber viel durchsichtiger — dieses
-   Band soll ja das Foto zeigen, es trägt nur einen Satz. */
+/* Gleiche Handschrift wie der Hero — auch hier Blau von links, Orange von rechts und
+   insgesamt heller (2026-09-01). Das Band soll das Foto zeigen, es traegt nur einen Satz;
+   nur hinter der Textzeile liegt ein ruhiger Kern. */
 .s-panorama::before { content: ''; position: absolute; inset: 0; background:
-  radial-gradient(ellipse 62% 58% at 50% 50%, rgba(29,50,85,0.72) 0%, rgba(31,53,90,0.42) 60%, rgba(31,53,90,0.20) 100%),
-  linear-gradient(180deg, rgba(35,60,100,0.42) 0%, rgba(35,60,100,0.16) 42%, rgba(29,50,85,0.48) 100%); }
+  linear-gradient(90deg,  rgba(44,75,123,0.44) 0%, rgba(44,75,123,0) 50%),
+  linear-gradient(270deg, rgba(250,157,86,0.36) 0%, rgba(250,157,86,0) 52%),
+  radial-gradient(ellipse 62% 58% at 50% 50%, rgba(44,75,123,0.54) 0%, rgba(46,78,126,0.26) 60%, rgba(46,78,126,0.10) 100%),
+  linear-gradient(180deg, rgba(44,75,123,0.26) 0%, rgba(44,75,123,0.08) 42%, rgba(44,75,123,0.32) 100%); }
 .panorama-text { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,28px); color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
 @media (hover: none), (max-width: 860px) {
   .s-panorama { background-attachment: scroll; }
@@ -719,15 +729,18 @@ const ueberPunkte = [
      Bewusst in PIXELN statt Prozent: der Hero wird hier durch die Textlänge ~790px
      hoch, bei Prozentwerten rutschte der einfarbige Bereich unter die Überschrift
      (gemessen: H1 sitzt bei 129–230px ab Hero-Oberkante). */
+  /* Handy: gleiche Idee, nur zuegiger — der Text faengt hier schon bei ~130px an,
+     also muss die helle Flaeche frueher da sein. Bewusst in PIXELN, weil der Hero
+     durch die Textlaenge ~790px hoch wird und Prozentwerte dann danebenliegen. */
   .hero-veil   { background:
     linear-gradient(180deg,
-      rgba(44,75,123,0.10)   0px,
-      rgba(43,73,120,0.34)  50px,
-      rgba(38,65,108,0.72) 100px,
-      rgba(32,55,94,0.92)  145px,
-      rgba(29,50,85,1)     195px,
-      rgba(29,50,85,1)    100%),
-    radial-gradient(ellipse 95% 130px at 34% 30px, rgba(250,157,86,0.50) 0%, rgba(248,148,137,0.18) 52%, rgba(250,157,86,0) 80%); }
+      rgba(255,248,236,0)     40px,
+      rgba(255,247,234,0.50) 130px,
+      rgba(255,246,232,0.76) 220px,
+      rgba(255,245,230,0.84) 320px,
+      rgba(255,245,230,0.84) 100%),
+    linear-gradient(90deg,  rgba(39,131,172,0.34) 0%, rgba(39,131,172,0) 58%),
+    linear-gradient(270deg, rgba(250,157,86,0.30) 0%, rgba(250,157,86,0) 58%); }
   .hero-byline { font-size: 16px; }
   .hero-termin { font-size: 14px; }
   .trust-band  { flex-direction: column; gap: 8px; }
