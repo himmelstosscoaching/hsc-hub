@@ -4,3 +4,22 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Zypern pausiert (Annette, 2026-09-01): unklar, wann wir wieder dort sind.
+# Ab Januar 2027 grundsaetzlich wieder moeglich — auf Anfrage im Gespraech.
+# Bewusst 302 (temporaer), NICHT 301: ein 301 wird von Browsern und Google
+# dauerhaft gecacht und waere beim Zurueckschalten kaum wieder loszuwerden.
+# Zurueckschalten: diese Regel loeschen und src/pages/_intensiv-coaching-zypern.astro
+# wieder ohne Unterstrich benennen.
+[[redirects]]
+  from = "/intensiv-coaching-zypern"
+  to = "/intensiv-coaching-vogesen"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/intensiv-coaching-zypern/*"
+  to = "/intensiv-coaching-vogesen"
+  status = 302
+  force = true
+

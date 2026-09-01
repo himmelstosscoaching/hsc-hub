@@ -21,6 +21,13 @@
 //   - Schopfheim wird NICHT mehr genannt (Wohnung ist Airbnb-vermietet —
 //     sonst Wohnungs- und Steuerfrage). Stattdessen Zeitraum September bis
 //     November 2026, Ort/Termin individuell im Orientierungsgespraech.
+//   - Noch DREI Wochen frei bis Ende Oktober — bewusst gedeckelt, mehr ist
+//     nicht zu leisten. Steht als ehrliche Knappheit auf der Seite (Hero,
+//     Fakten-Block); keine Countdown-/Druck-Sprache.
+//   - Zypern pausiert: Seite auf _intensiv-coaching-zypern.astro umbenannt
+//     (wird nicht gebaut, faellt aus der Sitemap), 302 auf die Vogesen in
+//     netlify.toml. Ab Januar 2027 wieder moeglich — dann Praefix entfernen
+//     und den Redirect wieder herausnehmen.
 //   - Paar-Angebot (5.700 €) raus: Paare kamen bisher einzeln nacheinander
 //     oder in anderen Formaten. Zwei Einzelwochen sind tiefer UND besser
 //     bezahlt als eine geteilte Woche. Das Thema Beziehung bleibt ueberall
@@ -117,6 +124,10 @@ const fragen = [
     a: 'Von September bis November 2026. Den genauen Termin stimmen wir individuell mit dir ab — im Orientierungsgespräch.',
   },
   {
+    f: 'Wie viele Wochen gibt es überhaupt?',
+    a: 'Bis Ende Oktober sind noch drei frei. Mehr nehmen wir bewusst nicht an — eine solche Woche fordert auch uns, und wir wollen sie ganz geben können. Deshalb ist immer nur ein Mensch da.',
+  },
+  {
     f: 'Muss ich mich vorbereiten?',
     a: 'Nein. Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Um alles andere kümmern wir uns.',
   },
@@ -170,7 +181,7 @@ const ueberPunkte = [
             <span>Zweimal täglich Coaching</span>
             <span>Vollpension im Grünen</span>
           </div>
-          <p class="hero-termin">Termine von September bis November 2026 — nach Absprache</p>
+          <p class="hero-termin">Termine von September bis November 2026 · noch drei Wochen frei</p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
           <p class="hero-note">kostenfrei &amp; unverbindlich — ihr lernt euch erst einmal kennen</p>
         </div>
@@ -349,7 +360,7 @@ const ueberPunkte = [
           <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich — allein gelegen nahe dem Petit Ballon, mit Weitblick ins Tal</dd></div>
           {/* „ganz privat" = 1 Gast pro Woche — bestätigt Annette 2026-09-01. */}
           <div><dt>Privat</dt><dd>Eine Woche, ein Gast. Kein Gruppenformat.</dd></div>
-          <div><dt>Termin</dt><dd>September bis November 2026 — wir finden gemeinsam deine Woche</dd></div>
+          <div><dt>Termin</dt><dd>September bis November 2026 — noch drei Wochen frei, wir finden gemeinsam deine</dd></div>
           <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
           <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
           <div><dt>Invest</dt><dd><strong>4.200 €</strong> · Unterkunft und Vollpension inbegriffen</dd></div>
