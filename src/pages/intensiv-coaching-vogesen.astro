@@ -593,7 +593,10 @@ const ueberPunkte = [
 /* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
    persönlich, keine Vertretung) als eigene, ruhige Zeile statt Aufzählung. */
 .hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: var(--hero-ink); margin: 14px 0 0; text-shadow: 0 1px 14px rgba(255,252,245,0.85); }
-.hero-sub { font-size: clamp(21px,2.2vw,27px); color: var(--hero-ink); margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(255,252,245,0.88); }
+/* Beide Zeilen komplett fett (Annette, 2026-09-01). Das <strong> im Markup bleibt
+   stehen — es markiert weiterhin die Kernaussage, faellt optisch nur nicht mehr auf,
+   weil jetzt alles fett ist. */
+.hero-sub { font-size: clamp(21px,2.2vw,27px); font-weight: 700; color: var(--hero-ink); margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(255,252,245,0.88); }
 .hero-sub strong { color: var(--blue-deep); font-weight: 700; }
 .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: var(--hero-ink); font-weight: 700; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 24px rgba(255,250,240,0.78); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
