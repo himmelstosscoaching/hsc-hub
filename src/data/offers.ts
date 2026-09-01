@@ -186,20 +186,20 @@ export const offers: Offer[] = [
     ctaUrl: '/intensiv-coaching-zypern',
   },
   {
-    // ⚠️ Preis vorläufig identisch zu Zypern übernommen (gleiches Produkt, zweiter Standort) —
-    // von Annette/Herbert zu bestätigen. Termine: September & Oktober 2026 in den Vogesen,
-    // danach läuft die Woche in Schopfheim weiter (Antwort Annette, 2026-08-25).
+    // Preis 4.200 € und Zeitraum bestätigt (Annette, 2026-09-01). Paar-Angebot bewusst
+    // gestrichen, Schopfheim wird nicht mehr genannt — Begründung siehe Kopf der Seite
+    // src/pages/intensiv-coaching-vogesen.astro.
     id: 'intensiv-coaching-vogesen',
     cluster: 'F3',
     eyebrow: 'Retreat in den Vogesen',
-    headline: 'Eine Woche Vogesen. Tiefes Coaching. Für dich — oder zu zweit.',
-    promise: 'Tiefes Coaching mitten in den Vogesen — für dich allein oder mit deinem Partner. Eingebettet in Pause, Natur und Stille.',
+    headline: 'Eine Woche Vogesen. Tiefes Coaching. Ganz für dich.',
+    promise: 'Tiefes Coaching mitten in den Vogesen — eine Woche, ein Gast. Eingebettet in Pause, Natur und Stille.',
     bullets: ['Privates Haus in den Vogesen', 'Tägliche Sessions mit Annette & Herbert', 'Wald, Stille, Raum für dich'],
-    format: '1 Woche Retreat · einzeln oder als Paar',
-    priceFrom: 'einzeln 4.200 € · als Paar 5.700 €',
+    format: '1 Woche Retreat · eine Woche, ein Gast',
+    priceFrom: '4.200 €',
     ctaText: 'Zum Retreat',
     ctaUrl: '/intensiv-coaching-vogesen',
-    note: 'Termine September & Oktober 2026 — nach Absprache',
+    note: 'Termine September bis November 2026 — nach Absprache',
   },
   {
     id: 'karma-konkret',

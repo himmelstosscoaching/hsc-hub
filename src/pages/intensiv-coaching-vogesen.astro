@@ -14,12 +14,24 @@
 // es diese Sektion.
 //
 // ⚠️ PLATZHALTER — noch mit Annette/Herbert zu bestätigen:
-//   - Preis (vorläufig identisch zu Zypern übernommen)
-//   - Termine: September & Oktober 2026 in den Vogesen, keine festen Wochen.
-//     Ab November läuft die Woche in Schopfheim weiter — auf dieser Seite nur
-//     als Hinweis erwähnt (kein Umbau/keine zweite Seite, solange es für
-//     Schopfheim noch kein eigenes Material gibt; Entscheidung Christian 2026-08-25)
 //   - Genauer Ort/Adresse in den Vogesen (bewusst offen gehalten)
+//
+// ENTSCHIEDEN (Annette, 2026-09-01):
+//   - Preis 4.200 € bestaetigt.
+//   - Schopfheim wird NICHT mehr genannt (Wohnung ist Airbnb-vermietet —
+//     sonst Wohnungs- und Steuerfrage). Stattdessen Zeitraum September bis
+//     November 2026, Ort/Termin individuell im Orientierungsgespraech.
+//   - Noch DREI Wochen frei bis Ende Oktober — bewusst gedeckelt, mehr ist
+//     nicht zu leisten. Steht als ehrliche Knappheit auf der Seite (Hero,
+//     Fakten-Block); keine Countdown-/Druck-Sprache.
+//   - Zypern pausiert: Seite auf _intensiv-coaching-zypern.astro umbenannt
+//     (wird nicht gebaut, faellt aus der Sitemap), 302 auf die Vogesen in
+//     netlify.toml. Ab Januar 2027 wieder moeglich — dann Praefix entfernen
+//     und den Redirect wieder herausnehmen.
+//   - Paar-Angebot (5.700 €) raus: Paare kamen bisher einzeln nacheinander
+//     oder in anderen Formaten. Zwei Einzelwochen sind tiefer UND besser
+//     bezahlt als eine geteilte Woche. Das Thema Beziehung bleibt ueberall
+//     stehen — es spricht den Einzelnen an, der an seiner Beziehung arbeitet.
 // Fotos (Stand 2026-08-25, zweite Lieferung): Hero + Panorama-Band = Morgennebel über den
 // Bergen (IMG_9360/9361), Haus = IMG_9342 (war um 180° gedreht, korrigiert), Essenstisch =
 // IMG_9373, Rastplatz = IMG_9362, Wiese/Gartentor = IMG_9367 (erstes Foto). Zwei Dateien aus
@@ -104,16 +116,29 @@ const fragen = [
     a: 'Nein. Du entscheidest in deinem Tempo. Wenn du spürst, dass die Woche passt, finden wir gemeinsam deinen Termin.',
   },
   {
-    f: 'Kann ich allein kommen — oder wir als Paar?',
-    a: 'Beides. Du kannst die Woche für dich allein gehen (4.200 €) oder ihr geht sie zu zweit als Paar (5.700 €). Der Ablauf richtet sich danach, was ihr mitbringt.',
+    f: 'Ich möchte an meiner Beziehung arbeiten — geht das?',
+    a: 'Ja, viele kommen genau deshalb. Du gehst die Woche für dich — und gerade das verändert die Beziehung am meisten, weil du nicht mehr aus dem alten Muster heraus reagierst. Manche Paare gehen die Woche nacheinander, jeder für sich.',
   },
   {
     f: 'Wann findet meine Woche statt?',
-    a: 'Im September und Oktober 2026 sind wir in den Vogesen, ab November in Schopfheim. Den genauen Termin stimmen wir individuell mit dir ab — im Orientierungsgespräch.',
+    a: 'Von September bis November 2026. Den genauen Termin stimmen wir individuell mit dir ab — im Orientierungsgespräch.',
+  },
+  {
+    f: 'Wie viele Menschen begleitet ihr in dieser Zeit?',
+    a: 'Noch drei. Mehr nehmen wir bewusst nicht an — eine solche Woche fordert auch uns, und wir wollen sie ganz geben können. Deshalb ist immer nur ein Mensch da, und deinen Termin stimmen wir persönlich mit dir ab.',
   },
   {
     f: 'Muss ich mich vorbereiten?',
     a: 'Nein. Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Um alles andere kümmern wir uns.',
+  },
+  // Bewusst als LETZTE Frage, ganz unten (Ueberlegung mit Annette, 2026-09-01):
+  // Wer bis hierher liest und noch nicht gebucht hat, nimmt ohnehin keine
+  // Herbstwoche — fuer den ist das die Rettung. Wer den Herbst will, entscheidet
+  // weiter oben und kommt hier nie an. Weiter oben waere es eine Ausweichtuer und
+  // wuerde die drei Wochen leer lassen.
+  {
+    f: 'Und wenn dieser Herbst nicht geht?',
+    a: 'Dann geht Januar. Ab Januar sind wir wieder auf <a href="/intensiv-coaching-zypern">Zypern, am Meer</a>. Sag es im Gespräch, dann finden wir den Zeitpunkt, der wirklich passt.',
   },
 ];
 
@@ -129,7 +154,7 @@ const ueberPunkte = [
 
 <FokusLayout
   title="Intensiv-Coaching-Woche Vogesen — Dein Weg zur tiefgehenden Transformation"
-  description="Eine Woche in den Vogesen, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension mitten im Grünen. Für dich allein oder als Paar."
+  description="Eine Woche in den Vogesen, tiefes Coaching mit Annette & Herbert Himmelstoß. Zweimal täglich individuelle Prozesse, Vollpension mitten im Grünen. Eine Woche, ein Gast — ganz für dich."
   canonical="https://himmelstosscoaching.de/intensiv-coaching-vogesen"
   angeboteKnopf={false}
 >
@@ -159,13 +184,13 @@ const ueberPunkte = [
           <p class="hero-byline">Eine Woche lang ganz für dich — persönlich begleitet von Annette &amp; Herbert Himmelstoß.</p>
         </div>
         <div class="hero-unten">
-          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong> — allein oder als Paar.</p>
+          <p class="hero-sub">Dein Weg zur <strong>tiefgehenden Transformation</strong><span class="hero-sub-zeile">eine Woche, die dir allein gehört.</span></p>
           <div class="hero-meta">
             <span>7 Tage · 6 Nächte</span>
             <span>Zweimal täglich Coaching</span>
             <span>Vollpension im Grünen</span>
           </div>
-          <p class="hero-termin">September &amp; Oktober 2026 in den Vogesen · ab November in Schopfheim — Termin nach Absprache</p>
+          <p class="hero-termin"><span>Termine von September bis November 2026</span><span class="termin-sep"> · </span><span>wir begleiten noch drei Menschen</span></p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
           <p class="hero-note">kostenfrei &amp; unverbindlich — ihr lernt euch erst einmal kennen</p>
         </div>
@@ -206,7 +231,7 @@ const ueberPunkte = [
       <p class="acc-eyebrow" style="justify-content:center">Es gibt einen Weg</p>
       <p class="lead">Wir sind wie gelenkt durch unbewusste Glaubenssätze, alte Verletzungen und emotionale Blockaden. Sie sorgen dafür, dass du im Kreis läufst, dich immer wieder in denselben Mustern verfängst — und dich fragst, warum du nicht weiterkommst.</p>
       <h2>Die Intensiv-Coaching-Woche</h2>
-      <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann — egal ob du allein oder ihr als Paar kommt. Fernab vom Alltag, mitten in der Ruhe der Vogesen.</p>
+      <p>Eine Woche, die dein Leben nachhaltig, tiefgehend und effektiv verändern kann. Fernab vom Alltag, mitten in der Ruhe der Vogesen.</p>
 
       <!-- Annettes Begrüßung aus den Vogesen — Bunny 361d101c-83eb-4a08-b1bb-f117d60b64c0
            (Library 708695, hochgeladen 2026-08-25, Quelle IMG_9397.MOV) -->
@@ -246,7 +271,7 @@ const ueberPunkte = [
 
   <!-- 5b · PANORAMA-BAND — zweites Weitblick-Foto als eigener, ruhiger Atemzug zwischen den
        Textabschnitten. Gleiche Parallax-Technik wie der Hero, nur niedriger. -->
-  <section class="s-panorama" aria-hidden="false">
+  <section class="s-panorama" id="ausblick" aria-hidden="false">
     <p class="panorama-text">Mitten in der Stille der Vogesen — Morgennebel über den Bergen, Zeit zum Ankommen.</p>
   </section>
 
@@ -342,14 +367,13 @@ const ueberPunkte = [
       <div class="angebot-card">
         <dl class="angebot-facts">
           <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich — allein gelegen nahe dem Petit Ballon, mit Weitblick ins Tal</dd></div>
-          {/* ⚠️ „ganz privat" = 1 Gast/Paar pro Woche — aus dem Produktzuschnitt abgeleitet
-              (Briefing: „eine Woche mit der Klientin"; Zypern: ein Gästezimmer).
-              Von Annette/Herbert bestätigen lassen. */}
-          <div><dt>Privat</dt><dd>Eine Woche, ein Gast — du allein oder ihr als Paar. Kein Gruppenformat.</dd></div>
-          <div><dt>Termin</dt><dd>September &amp; Oktober 2026 in den Vogesen, ab November in Schopfheim — wir finden gemeinsam deine Woche</dd></div>
+          {/* „ganz privat" = 1 Gast pro Woche — bestätigt Annette 2026-09-01. */}
+          <div><dt>Privat</dt><dd>Eine Woche, ein Gast. Kein Gruppenformat.</dd></div>
+          <div><dt>Termin</dt><dd>September bis November 2026 — deine Woche stimmen wir persönlich mit dir ab</dd></div>
+          <div><dt>Noch frei</dt><dd>In diesem Zeitraum begleiten wir noch <strong>drei Menschen</strong></dd></div>
           <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
           <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
-          <div><dt>Invest</dt><dd><strong>einzeln 4.200 €</strong> · als Paar 5.700 €</dd></div>
+          <div><dt>Invest</dt><dd><strong>4.200 €</strong> · Unterkunft und Vollpension inbegriffen</dd></div>
         </dl>
         <p class="angebot-aufgabe">Deine einzige Aufgabe: ankommen, loslassen und bereit sein für echte Veränderung. Wir sind für dich da.</p>
         <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Termin für ein Gespräch aussuchen →</a>
@@ -388,7 +412,8 @@ const ueberPunkte = [
         {fragen.map((q) => (
           <details class="faq-item">
             <summary>{q.f}</summary>
-            <p>{q.a}</p>
+            {/* set:html — damit einzelne Antworten einen Link enthalten koennen */}
+            <p set:html={q.a} />
           </details>
         ))}
       </div>
@@ -475,40 +500,113 @@ const ueberPunkte = [
      → dort per Media Query zurück auf normales Scrollen (siehe unten). */
   background-attachment: fixed;
 }
-/* Der Wolkenhimmel ist als Schriftgrund zu unruhig (helle und dunkle Flecken direkt
-   nebeneinander) — ein bloßes Abdunkeln nimmt die Flecken nicht weg. Deshalb läuft das
-   Foto nach UNTEN in einfarbiges Marken-Blau aus: oben bleibt das Bild sichtbar, unten
-   steht die Schrift auf ruhiger, praktisch einfarbiger Fläche. Dazu ein warmer
-   Orange-Hauch genau dort, wo im Foto die Sonne steht — das bringt die zweite
-   Markenfarbe ins Bild und verbindet Foto und Verlauf (Feedback Christian, 2026-08-26).
-   Reihenfolge: Blau-Verlauf oben in der Liste (liegt visuell obenauf), Orange darunter. */
-.hero-veil { position: absolute; inset: 0; background:
+/* Aufhellen statt Abdunkeln — nach dem Vorbild der Zypern-Seite (Annette, 2026-09-01:
+   "licht und verzaubernd"). Der fruehere dunkelblaue Schleier hat den Morgennebel
+   zugedeckt und den Hero schwer gemacht.
+
+   Die drei Schichten:
+   1. Ein warmer, cremefarbener Verlauf hebt die untere Bildhaelfte AUF. Dort steht die
+      Schrift — auf heller, ruhiger Flaeche, ohne dass das Bild verschwindet. Er loest
+      dasselbe Problem wie vorher das Abdunkeln: der unruhige Wolkenhimmel mit hellen
+      und dunklen Flecken taugt nicht als Schriftgrund.
+   2. Blau von LINKS, Orange von RECHTS — die zwei Markenfarben rahmen das Bild.
+   3. Die Schrift ist deshalb DUNKEL (Marken-Blau) mit hellem Schein statt weiss mit
+      Schatten. Weisse Schrift auf hellem Grund waere nicht lesbar.
+   Reihenfolge: was zuerst steht, liegt visuell obenauf. */
+/* Verstaerkt 2026-09-01 (Annette): die Seitenfarben duerfen kraeftiger sein, und das
+   Gruen der Vogesen soll wieder herauskommen. backdrop-filter hebt Saettigung und
+   Kontrast des FOTOS an, bevor der Schleier darueber liegt — genau das bringt das Gruen
+   zurueck, das der Cremeschleier sonst wegwaescht. Wo backdrop-filter fehlt, sieht die
+   Seite aus wie vorher, nichts bricht. */
+/* Das Gruen der Baeume steht in der unteren Bildhaelfte. Diese Schicht hebt dort die
+   Saettigung deutlich an — und NUR dort, damit der Himmel oben nicht kippt. Sie liegt
+   auf der Section, also unter dem Schleier: so trifft sie das Foto selbst und nicht die
+   Farbverlaeufe darueber (Annette, 2026-09-01: "aber die Baeume sind doch gruen"). */
+.s-hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  backdrop-filter: saturate(1.85) contrast(1.04);
+  -webkit-backdrop-filter: saturate(1.85) contrast(1.04);
+  mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0) 34%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%);
+  -webkit-mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0) 34%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%); }
+.hero-veil { position: absolute; inset: 0; z-index: 1;
+  backdrop-filter: saturate(1.52) contrast(1.06);
+  -webkit-backdrop-filter: saturate(1.52) contrast(1.06);
+  background:
+  /* Die Creme liegt nicht mehr als BAND ueber der ganzen Breite, sondern als Ellipse
+     hinter der Schriftsaeule. So bleibt die Schrift auf ruhigem Grund, waehrend links
+     die Baeume und rechts die Wiese ihr Gruen behalten (Annette: das Gruen ist eine
+     Qualitaet der Vogesen und soll sichtbar sein). */
+  radial-gradient(ellipse 60% 52% at 50% 60%,
+    rgba(255,248,236,0.62) 0%,
+    rgba(255,247,234,0.44) 58%,
+    rgba(255,246,232,0)   100%),
+  /* Laeuft unten bewusst wieder AUS: dort stehen Wiese und Baeume, und genau dieses
+     saftige Gruen soll sichtbar sein (Annette, 2026-09-01). Die Schrift verliert dabei
+     nichts — sie sitzt in der Ellipse darueber, die den ruhigen Grund traegt. */
   linear-gradient(180deg,
-    rgba(44,75,123,0.16)  0%,
-    rgba(43,73,120,0.44) 17%,
-    rgba(38,65,108,0.78) 33%,
-    rgba(33,57,96,0.93)  49%,
-    rgba(29,50,85,0.99)  68%,
-    rgba(29,50,85,1)    100%),
-  radial-gradient(ellipse 78% 46% at 28% 14%, rgba(250,157,86,0.52) 0%, rgba(248,148,137,0.22) 48%, rgba(250,157,86,0) 76%); }
+    rgba(255,248,236,0)    20%,
+    rgba(255,248,236,0.07) 44%,
+    rgba(255,247,234,0.13) 64%,
+    rgba(255,246,232,0.12) 84%,
+    rgba(255,245,230,0.06) 100%),
+  /* Blau links, Orange rechts — aber als Ecken, nicht als Baender ueber die ganze Hoehe.
+     Vorher lagen sie auch ueber den Baeumen: Blau macht aus Gruen ein Blaugruen, Orange
+     macht es braun. Genau deshalb kam das Gruen nicht heraus, egal wie hoch die
+     Saettigung stand. Jetzt rahmen die zwei Farben den HIMMEL, und die untere
+     Bildhaelfte mit den Baeumen bleibt farbecht (Annette, 2026-09-01). */
+  radial-gradient(ellipse 48% 76% at 0% 20%,   rgba(39,131,172,0.70) 0%, rgba(45,138,178,0.24) 46%, rgba(39,131,172,0) 78%),
+  radial-gradient(ellipse 48% 76% at 100% 20%, rgba(250,157,86,0.64) 0%, rgba(248,148,137,0.24) 46%, rgba(250,157,86,0) 78%),
+  /* warmes Spaetsommerlicht ueber der Wiese */
+  radial-gradient(ellipse 76% 26% at 60% 100%, rgba(255,228,176,0.18) 0%, rgba(255,218,156,0.06) 56%, rgba(255,214,148,0) 86%); }
+/* Die Unruhe hinter der Schrift kommt nicht von der Helligkeit, sondern von der
+   ZEICHNUNG: harte Wolkenkanten, Astwerk, Kontrastflecken direkt hinter den Buchstaben
+   (Annette, 2026-09-01: "noch ein bisschen zu unruhig fuer die Schrift"). Aufhellen
+   nimmt Helligkeit, aber keine Kanten. Unschaerfe nimmt Kanten, aber keine Farbe —
+   deshalb bleibt das Gruen erhalten und die Flaeche wird trotzdem ruhig.
+
+   Die Weichzeichnung liegt NUR hinter der Schriftsaeule und laeuft nach aussen aus
+   (mask-image mit derselben Ellipse wie der Cremeschleier). Dadurch bleiben links die
+   Baeume und rechts die Wiese knackig, waehrend die Mitte zur Ruhe kommt — man sieht
+   keine Kante, weil die Maske weich ausblendet.
+
+   Ohne backdrop-filter (aeltere Browser) passiert hier schlicht nichts. */
+.hero-veil::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  mask-image: radial-gradient(ellipse 54% 58% at 50% 58%,
+    rgba(0,0,0,1) 0%, rgba(0,0,0,0.94) 44%, rgba(0,0,0,0.52) 74%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(ellipse 54% 58% at 50% 58%,
+    rgba(0,0,0,1) 0%, rgba(0,0,0,0.94) 44%, rgba(0,0,0,0.52) 74%, rgba(0,0,0,0) 100%); }
 .hero-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px,7vw,84px) 0 clamp(28px,3.5vw,48px); display: flex; }
 /* Text sitzt im unteren, ruhigen Teil — nicht mehr über die ganze Höhe verteilt. */
 .hero-text { max-width: 980px; margin: 0 auto; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(20px,3.2vh,38px); animation: hero-rise 1.1s var(--ease) both; }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 /* Feine Trennlinie unter der Vorzeile — kleiner, edler Akzent statt reiner Textmasse. */
-.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; margin: 0 0 22px; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
-.hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(255,255,255,0.55); }
-.s-hero h1 { color: #fff; text-shadow: 0 2px 14px rgba(14,28,48,0.42), 0 8px 44px rgba(14,28,48,0.30); margin: 0; }
+/* Die Hero-Schrift steht durchgehend im Marken-Blau statt im frueheren Blau-Schwarz
+   (Annette, 2026-09-01). Der Schein darunter ist hell, nicht dunkel. */
+.hero-text { --hero-ink: var(--blue-deep); }
+/* Eigene Zeile fuer die zweite Haelfte der Unterzeile — kein Umbruch mittendrin. */
+.hero-sub-zeile { display: block; margin-top: 4px; }
+/* Gleiche Groesse wie .hero-sub (Annette, 2026-09-01) — Grossbuchstaben bleiben.
+   Bei 27px und 0.22em Sperrung ist die Zeile rund 770px breit und passt in die
+   980px-Saeule. Am Handy geht das nicht auf, dort steht eine eigene Regel. */
+.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(21px,2.2vw,27px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hero-ink); margin: 0 0 22px; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 26px rgba(255,250,240,0.80); }
+.hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(44,75,123,0.42); }
+.s-hero h1 { color: var(--blue-deep); text-shadow: 0 2px 20px rgba(255,252,245,0.75), 0 0 52px rgba(255,250,240,0.60); margin: 0; }
 /* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
    persönlich, keine Vertretung) als eigene, ruhige Zeile statt Aufzählung. */
-.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: rgba(255,255,255,0.92); margin: 14px 0 0; text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
-.hero-sub { font-size: clamp(21px,2.2vw,27px); color: #fff; margin: 0 0 14px; line-height: 1.5; text-shadow: 0 2px 12px rgba(14,28,48,0.45); }
-.hero-sub strong { color: color-mix(in srgb, var(--orange) 72%, #fff); font-weight: 700; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: #fff; font-weight: 700; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
+.hero-byline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,21px); color: var(--hero-ink); margin: 14px 0 0; text-shadow: 0 1px 14px rgba(255,252,245,0.85); }
+/* Beide Zeilen komplett fett (Annette, 2026-09-01). Das <strong> im Markup bleibt
+   stehen — es markiert weiterhin die Kernaussage, faellt optisch nur nicht mehr auf,
+   weil jetzt alles fett ist. */
+.hero-sub { font-size: clamp(21px,2.2vw,27px); font-weight: 700; color: var(--hero-ink); margin: 0 0 14px; line-height: 1.5; text-shadow: 0 1px 16px rgba(255,252,245,0.88); }
+.hero-sub strong { color: var(--blue-deep); font-weight: 700; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin: 0 0 10px; font-size: 18px; color: var(--hero-ink); font-weight: 700; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 24px rgba(255,250,240,0.78); }
 .hero-meta span + span::before { content: '·'; margin-right: 8px; }
-.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 600; color: #fff; text-shadow: 0 1px 8px rgba(14,28,48,0.45); }
+.hero-termin { margin: 0 0 26px; font-size: 15px; font-weight: 700; color: var(--blue-deep); text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 24px rgba(255,250,240,0.80); }
 .hero-text .btn-lg { font-size: 15px !important; padding: 13px 28px !important; }
-.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-shadow: 0 1px 8px rgba(14,28,48,0.42); }
+.hero-note { margin: 14px 0 0; font-size: 14px; font-weight: 700; color: var(--hero-ink); text-shadow: 0 1px 8px rgba(255,252,245,0.98), 0 0 20px rgba(255,251,242,0.90); }
 
 /* ── TRUST-BAND ───────────────────────────────────────────── */
 /* Drei kurze Fakten in einer ruhigen Zeile — Kapitälchen-Optik, Punkte als Trenner. */
@@ -587,13 +685,27 @@ const ueberPunkte = [
   background-size: cover; background-position: center 30%; background-attachment: fixed;
   overflow: hidden;
 }
-/* Gleiche Handschrift wie der Hero: Marken-Blau statt neutralem Schwarz, dazu ein
-   ruhiger Kern hinter der Textzeile. Insgesamt aber viel durchsichtiger — dieses
-   Band soll ja das Foto zeigen, es trägt nur einen Satz. */
-.s-panorama::before { content: ''; position: absolute; inset: 0; background:
-  radial-gradient(ellipse 62% 58% at 50% 50%, rgba(29,50,85,0.72) 0%, rgba(31,53,90,0.42) 60%, rgba(31,53,90,0.20) 100%),
-  linear-gradient(180deg, rgba(35,60,100,0.42) 0%, rgba(35,60,100,0.16) 42%, rgba(29,50,85,0.48) 100%); }
-.panorama-text { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,28px); color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
+/* Gleiche Handschrift wie der Hero — auch hier Blau von links, Orange von rechts und
+   insgesamt heller (2026-09-01). Das Band soll das Foto zeigen, es traegt nur einen Satz;
+   nur hinter der Textzeile liegt ein ruhiger Kern. */
+/* Verstaerkt 2026-09-01 (Annette): links kraeftiger Blau, rechts Orange-Rose, und die
+   Sonne auf der linken Seite freistellen, damit sie wirklich strahlt.
+   Der beruhigende Kern hinter der Textzeile ist deshalb nach RECHTS gewandert (56%) und
+   kleiner geworden — er liegt jetzt hinter der Schrift statt ueber der Sonne. An der
+   Sonnenstelle liegt stattdessen ein warm aufhellender Kreis. Reihenfolge zaehlt: der
+   Sonnenkreis steht ganz oben und gewinnt gegen alles darunter. */
+.s-panorama::before { content: ''; position: absolute; inset: 0;
+  backdrop-filter: saturate(1.28);
+  -webkit-backdrop-filter: saturate(1.28);
+  background:
+  /* die Sonne links: hellt auf statt abzudunkeln */
+  radial-gradient(ellipse 40% 66% at 17% 45%, rgba(255,240,214,0.46) 0%, rgba(255,228,186,0.20) 46%, rgba(255,224,178,0) 74%),
+  linear-gradient(90deg,  rgba(39,131,172,0.62) 0%, rgba(44,75,123,0.24) 26%, rgba(44,75,123,0) 52%),
+  linear-gradient(270deg, rgba(250,157,86,0.56) 0%, rgba(248,148,137,0.30) 26%, rgba(248,148,137,0) 54%),
+  /* ruhiger Kern hinter der Textzeile, nach rechts versetzt */
+  radial-gradient(ellipse 46% 54% at 58% 52%, rgba(44,75,123,0.48) 0%, rgba(46,78,126,0.20) 62%, rgba(46,78,126,0.06) 100%),
+  linear-gradient(180deg, rgba(44,75,123,0.20) 0%, rgba(44,75,123,0.05) 42%, rgba(44,75,123,0.28) 100%); }
+.panorama-text { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(20px,2.2vw,28px); color: #fff; text-shadow: 0 2px 10px rgba(20,38,63,0.72), 0 2px 26px rgba(20,38,63,0.52); }
 @media (hover: none), (max-width: 860px) {
   .s-panorama { background-attachment: scroll; }
 }
@@ -695,15 +807,38 @@ const ueberPunkte = [
      Bewusst in PIXELN statt Prozent: der Hero wird hier durch die Textlänge ~790px
      hoch, bei Prozentwerten rutschte der einfarbige Bereich unter die Überschrift
      (gemessen: H1 sitzt bei 129–230px ab Hero-Oberkante). */
+  /* Handy: gleiche Idee, nur zuegiger — der Text faengt hier schon bei ~130px an,
+     also muss die helle Flaeche frueher da sein. Bewusst in PIXELN, weil der Hero
+     durch die Textlaenge ~790px hoch wird und Prozentwerte dann danebenliegen. */
   .hero-veil   { background:
     linear-gradient(180deg,
-      rgba(44,75,123,0.10)   0px,
-      rgba(43,73,120,0.34)  50px,
-      rgba(38,65,108,0.72) 100px,
-      rgba(32,55,94,0.92)  145px,
-      rgba(29,50,85,1)     195px,
-      rgba(29,50,85,1)    100%),
-    radial-gradient(ellipse 95% 130px at 34% 30px, rgba(250,157,86,0.50) 0%, rgba(248,148,137,0.18) 52%, rgba(250,157,86,0) 80%); }
+      rgba(255,248,236,0)     30px,
+      rgba(255,247,234,0.34) 130px,
+      rgba(255,246,232,0.46) 240px,
+      rgba(255,246,232,0.42) 420px,
+      rgba(255,245,230,0.20) 100%),
+    radial-gradient(ellipse 78% 34% at 0% 8%,   rgba(39,131,172,0.62) 0%, rgba(39,131,172,0) 76%),
+    radial-gradient(ellipse 78% 34% at 100% 8%, rgba(250,157,86,0.56) 0%, rgba(248,148,137,0.20) 44%, rgba(250,157,86,0) 76%); }
+  /* Die Weichzeichnung muss am Handy fast die ganze Breite fassen — die Schrift laeuft
+     hier von Rand zu Rand, nicht in einer schmalen Saeule wie am Bildschirm. */
+  .hero-veil::after {
+    mask-image: radial-gradient(ellipse 94% 60% at 50% 54%,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 52%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 94% 60% at 50% 54%,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 52%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0) 100%); }
+
+  /* Haengende Trennpunkte vermeiden: am Handy brechen die Zeilen ohnehin um, also
+     stehen die Teile untereinander und die Punkte entfallen. */
+  .hero-meta   { flex-direction: column; gap: 5px; }
+  .hero-meta span + span::before { content: none; margin: 0; }
+  .hero-termin span { display: block; }
+  /* Muss .hero-termin span an Spezifitaet schlagen, sonst gewinnt dort display:block
+     und der Trennpunkt steht als eigene Zeile da. */
+  .hero-termin .termin-sep { display: none; }
+  /* Am Handy kann die Vorzeile nicht so gross werden wie am Bildschirm: bei 21px und
+     0.22em Sperrung waere sie rund 600px breit und braeuchte zwei Zeilen. 15px mit
+     0.08em ist das Groesste, das auf 375px noch in eine Zeile geht. */
+  .hero-eyebrow { font-size: 15px; letter-spacing: 0.08em; }
   .hero-byline { font-size: 16px; }
   .hero-termin { font-size: 14px; }
   .trust-band  { flex-direction: column; gap: 8px; }

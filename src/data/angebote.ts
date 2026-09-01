@@ -50,13 +50,13 @@ export const kern: Angebot[] = [
     url: '/monatsausrichtung',
   },
   {
-    name: 'Intensivcoaching-Woche Zypern',
-    nutzen: 'Eine Woche am Meer, die nachwirkt — ungestört, in eurem Tempo, mit Wirkung, die bleibt.',
+    name: 'Intensiv-Coaching-Woche',
+    nutzen: 'Eine Woche, die nachwirkt — ungestört, in deinem Tempo, mit Wirkung, die bleibt.',
     formatType: 'live-vor-ort',
-    format: 'Retreat vor Ort (Pachyammos) · als Paar oder einzeln · inkl. Unterkunft & Verpflegung',
-    preis: 'einzeln 4.200 € · als Paar 5.700 €',
+    format: 'Retreat vor Ort (Vogesen) · eine Woche, ein Gast · inkl. Unterkunft & Verpflegung',
+    preis: '4.200 €',
     cta: 'Mehr erfahren',
-    url: '/intensiv-coaching-zypern',
+    url: '/intensiv-coaching-vogesen',
   },
   {
     id: 'einzelcoaching',
