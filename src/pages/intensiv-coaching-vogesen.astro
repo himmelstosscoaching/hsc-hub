@@ -517,7 +517,18 @@ const ueberPunkte = [
    Kontrast des FOTOS an, bevor der Schleier darueber liegt — genau das bringt das Gruen
    zurueck, das der Cremeschleier sonst wegwaescht. Wo backdrop-filter fehlt, sieht die
    Seite aus wie vorher, nichts bricht. */
-.hero-veil { position: absolute; inset: 0;
+/* Das Gruen der Baeume steht in der unteren Bildhaelfte. Diese Schicht hebt dort die
+   Saettigung deutlich an — und NUR dort, damit der Himmel oben nicht kippt. Sie liegt
+   auf der Section, also unter dem Schleier: so trifft sie das Foto selbst und nicht die
+   Farbverlaeufe darueber (Annette, 2026-09-01: "aber die Baeume sind doch gruen"). */
+.s-hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  backdrop-filter: saturate(1.85) contrast(1.04);
+  -webkit-backdrop-filter: saturate(1.85) contrast(1.04);
+  mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0) 34%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%);
+  -webkit-mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0) 34%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%); }
+.hero-veil { position: absolute; inset: 0; z-index: 1;
   backdrop-filter: saturate(1.52) contrast(1.06);
   -webkit-backdrop-filter: saturate(1.52) contrast(1.06);
   background:
@@ -534,9 +545,9 @@ const ueberPunkte = [
      nichts — sie sitzt in der Ellipse darueber, die den ruhigen Grund traegt. */
   linear-gradient(180deg,
     rgba(255,248,236,0)    20%,
-    rgba(255,248,236,0.10) 44%,
-    rgba(255,247,234,0.20) 64%,
-    rgba(255,246,232,0.18) 84%,
+    rgba(255,248,236,0.07) 44%,
+    rgba(255,247,234,0.13) 64%,
+    rgba(255,246,232,0.12) 84%,
     rgba(255,245,230,0.06) 100%),
   /* Blau links, Orange rechts — aber als Ecken, nicht als Baender ueber die ganze Hoehe.
      Vorher lagen sie auch ueber den Baeumen: Blau macht aus Gruen ein Blaugruen, Orange
@@ -546,7 +557,7 @@ const ueberPunkte = [
   radial-gradient(ellipse 48% 76% at 0% 20%,   rgba(39,131,172,0.70) 0%, rgba(45,138,178,0.24) 46%, rgba(39,131,172,0) 78%),
   radial-gradient(ellipse 48% 76% at 100% 20%, rgba(250,157,86,0.64) 0%, rgba(248,148,137,0.24) 46%, rgba(250,157,86,0) 78%),
   /* warmes Spaetsommerlicht ueber der Wiese */
-  radial-gradient(ellipse 86% 34% at 60% 98%, rgba(255,228,176,0.26) 0%, rgba(255,218,156,0.10) 54%, rgba(255,214,148,0) 84%); }
+  radial-gradient(ellipse 76% 26% at 60% 100%, rgba(255,228,176,0.18) 0%, rgba(255,218,156,0.06) 56%, rgba(255,214,148,0) 86%); }
 /* Die Unruhe hinter der Schrift kommt nicht von der Helligkeit, sondern von der
    ZEICHNUNG: harte Wolkenkanten, Astwerk, Kontrastflecken direkt hinter den Buchstaben
    (Annette, 2026-09-01: "noch ein bisschen zu unruhig fuer die Schrift"). Aufhellen
