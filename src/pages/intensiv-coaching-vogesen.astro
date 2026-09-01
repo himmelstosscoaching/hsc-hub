@@ -587,7 +587,10 @@ const ueberPunkte = [
 .hero-text { --hero-ink: var(--blue-deep); }
 /* Eigene Zeile fuer die zweite Haelfte der Unterzeile — kein Umbruch mittendrin. */
 .hero-sub-zeile { display: block; margin-top: 4px; }
-.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(15px,1.5vw,19px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hero-ink); margin: 0 0 22px; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 26px rgba(255,250,240,0.80); }
+/* Gleiche Groesse wie .hero-sub (Annette, 2026-09-01) — Grossbuchstaben bleiben.
+   Bei 27px und 0.22em Sperrung ist die Zeile rund 770px breit und passt in die
+   980px-Saeule. Am Handy geht das nicht auf, dort steht eine eigene Regel. */
+.hero-eyebrow { position: relative; font-family: var(--font-body); font-size: clamp(21px,2.2vw,27px); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hero-ink); margin: 0 0 22px; text-shadow: 0 1px 10px rgba(255,252,245,0.95), 0 0 26px rgba(255,250,240,0.80); }
 .hero-eyebrow::after { content: ''; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); width: 56px; height: 1px; background: rgba(44,75,123,0.42); }
 .s-hero h1 { color: var(--blue-deep); text-shadow: 0 2px 20px rgba(255,252,245,0.75), 0 0 52px rgba(255,250,240,0.60); margin: 0; }
 /* Byline direkt unter der Headline — trägt die Personenmarke (Annette & Herbert
@@ -831,9 +834,10 @@ const ueberPunkte = [
   /* Muss .hero-termin span an Spezifitaet schlagen, sonst gewinnt dort display:block
      und der Trennpunkt steht als eigene Zeile da. */
   .hero-termin .termin-sep { display: none; }
-  /* Die Vorzeile passte mit 0.22em Sperrung nicht in eine Zeile und brach hinter dem
-     Trennpunkt um. Enger gesetzt passt sie. */
-  .hero-eyebrow { font-size: 12px; letter-spacing: 0.14em; }
+  /* Am Handy kann die Vorzeile nicht so gross werden wie am Bildschirm: bei 21px und
+     0.22em Sperrung waere sie rund 600px breit und braeuchte zwei Zeilen. 15px mit
+     0.08em ist das Groesste, das auf 375px noch in eine Zeile geht. */
+  .hero-eyebrow { font-size: 15px; letter-spacing: 0.08em; }
   .hero-byline { font-size: 16px; }
   .hero-termin { font-size: 14px; }
   .trust-band  { flex-direction: column; gap: 8px; }
