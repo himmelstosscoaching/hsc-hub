@@ -11,11 +11,11 @@
 /* Schlichter Logo-Header (Opt-in/Fast-dabei: bewusst ohne Navigation) */
 .sg-header {
   background: var(--bg-white);
-  padding: 18px 0;
+  padding: 13px 0;
   text-align: center;
   border-bottom: 1px solid var(--bg-beige);
 }
-.sg-header img { height: 64px; width: auto; margin: 0 auto; display: block; }
+.sg-header img { height: 48px; width: auto; margin: 0 auto; display: block; }
 
 /* Marken-Element: Verlaufsband + ▶ Sonntagsgespräch */
 .sg-band {
