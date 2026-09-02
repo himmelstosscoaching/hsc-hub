@@ -204,7 +204,7 @@ const ueberPunkte = [
             <span>Zweimal täglich Coaching</span>
             <span>Vollpension im Grünen</span>
           </div>
-          <p class="hero-termin"><span>Termine von September bis November 2026</span><span class="termin-sep"> · </span><span>wir begleiten noch drei Menschen</span></p>
+          <p class="hero-termin"><span>Termine von September bis November 2026</span></p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
           <p class="hero-note">kostenfrei &amp; unverbindlich — ihr lernt euch erst einmal kennen</p>
         </div>
@@ -878,10 +878,6 @@ const ueberPunkte = [
      stehen die Teile untereinander und die Punkte entfallen. */
   .hero-meta   { flex-direction: column; gap: 5px; }
   .hero-meta span + span::before { content: none; margin: 0; }
-  .hero-termin span { display: block; }
-  /* Muss .hero-termin span an Spezifitaet schlagen, sonst gewinnt dort display:block
-     und der Trennpunkt steht als eigene Zeile da. */
-  .hero-termin .termin-sep { display: none; }
   /* Am Handy kann die Vorzeile nicht so gross werden wie am Bildschirm: bei 21px und
      0.22em Sperrung waere sie rund 600px breit und braeuchte zwei Zeilen. 15px mit
      0.08em ist das Groesste, das auf 375px noch in eine Zeile geht. */
