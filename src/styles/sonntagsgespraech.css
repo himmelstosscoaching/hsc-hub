@@ -183,6 +183,50 @@
   font-size: 16px;
 }
 
+/* FILMSTREIFEN (Einblicke aus den Aufzeichnungen) */
+.sg-film { background: #1a1a1c; padding: 30px 0 34px; }
+.sg-film h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-align: center;
+  color: var(--bg-cream);
+  font-size: clamp(24px, 3vw, 34px);
+  margin: 0 0 4px;
+}
+.sg-film-sub {
+  text-align: center;
+  color: rgba(251, 246, 238, 0.65);
+  font-size: 15px;
+  margin: 0 0 22px;
+}
+.sg-film-perfo {
+  height: 12px;
+  margin: 0 auto;
+  max-width: 1400px;
+  background-image: repeating-linear-gradient(90deg,
+    transparent 0 11px, var(--bg-cream) 11px 27px, transparent 27px 34px);
+  border-radius: 3px;
+  opacity: .9;
+}
+.sg-film-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  scrollbar-width: thin;
+}
+.sg-film-frame { flex: 0 0 auto; width: 300px; margin: 0; }
+.sg-film-frame img { width: 100%; border-radius: 6px; display: block; }
+.sg-film-frame figcaption {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: rgba(251, 246, 238, 0.75);
+  text-align: center;
+  margin-top: 8px;
+}
+
 /* ABOUT kurz */
 .sg-about { padding: clamp(48px, 7vw, 70px) 0; }
 .sg-about-stack { max-width: 720px; margin: 0 auto; text-align: center; }
