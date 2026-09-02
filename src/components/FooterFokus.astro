@@ -2,10 +2,18 @@
 // Footer V03 — ruhiger Newsletter-Streifen oben, klare Navigation, YouTube als Icon
 // Immer gleich gestaltet, direkt an die vorherige Sektion angehängt — keine eigene
 // Kurve/Übergang am Footer selbst (die sitzt stattdessen an der Sektion davor, z.B. FinalFokus2).
+interface Props {
+  /* Newsletter-Streifen oben. Auf den Sonntagsgespräch-Funnel-Seiten abgeschaltet —
+     dort haben sich die Leute gerade erst (über Formular 1253) angemeldet, ein zweites
+     Formular in eine andere Liste (191) würde nur verwirren. */
+  newsletter?: boolean;
+}
+const { newsletter = true } = Astro.props;
 ---
 
 <footer class="footer-fokus">
   <!-- Newsletter-Streifen: ein ruhiger Block, Text links / Feld rechts -->
+  {newsletter && (
   <div class="footer-news-strip">
     <div class="container footer-news-inner">
       <div class="footer-news-text">
@@ -21,6 +29,7 @@
       </form>
     </div>
   </div>
+  )}
 
   <!-- Navigation -->
   <div class="container footer-inner">
