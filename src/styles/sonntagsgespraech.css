@@ -6,7 +6,7 @@
    Nutzt ausschließlich Tokens aus brand-v02.css (nichts dupliziert).
    ============================================================ */
 
-.sg-page { background: var(--bg-cream); }
+.sg-page { background: var(--bg-cream); overflow-x: hidden; }
 
 /* Schlichter Logo-Header (Opt-in/Fast-dabei: bewusst ohne Navigation) */
 .sg-header {
@@ -394,4 +394,17 @@
   .sg-about-grid { grid-template-columns: 1fr; gap: 28px; max-width: 480px; text-align: center; }
   .sg-about-grid img { max-width: 260px; margin: 0 auto; }
   .sg-form-card { margin-left: 20px; margin-right: 20px; padding: 26px 22px 20px; }
+}
+
+/* Mobile first — kleine Handys: nichts darf breiter als der Bildschirm werden */
+@media (max-width: 480px) {
+  .sg-header-slogan { font-size: 12px; padding: 0 18px; line-height: 1.5; }
+  .sg-hero h1 { font-size: 29px; }
+  .sg-hero .sg-meta { font-size: 12px; letter-spacing: 0.1em; }
+  .sg-punkte h2, .sg-angebote h2, .sg-about-stack h2, .sg-about h2, .sg-film h2 { font-size: 24px; }
+  .sg-film-sub { padding: 0 20px; }
+  .sg-film-frame { width: 262px; }
+  .sg-terminkarte { padding: 24px 18px; margin-left: 4px; margin-right: 4px; }
+  .sg-quote p { font-size: 18px; padding: 0 6px; }
+  .sg-form-card { margin-left: 16px; margin-right: 16px; }
 }
