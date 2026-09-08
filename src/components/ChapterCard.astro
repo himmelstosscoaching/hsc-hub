@@ -1,0 +1,46 @@
+---
+interface Props {
+  num: number;
+  title: string;
+  description: string;
+  dark?: boolean;
+}
+const { num, title, description, dark = false } = Astro.props;
+---
+
+<article class={`chapter-card${dark ? ' on-dark' : ''}`}>
+  <div class="chapter-num">{num}</div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</article>
+
+<style>
+  .chapter-card {
+    border-radius: var(--radius-lg);
+    padding: 22px 34px 36px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: transform .4s var(--ease);
+  }
+  .chapter-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: rgba(255,255,255,0.4);
+  }
+  .chapter-card:hover {
+    transform: translateY(-6px);
+  }
+  .chapter-num {
+    font-family: 'Fontin', serif;
+    font-size: 76px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(0,0,0,0.12);
+    margin-bottom: 8px;
+  }
+  .chapter-card h3 { color: #fff; margin-bottom: 14px; font-size: 23px; line-height: 1.35; }
+  .chapter-card p { font-size: 19px; line-height: 1.45; color: rgba(255,255,255,0.88); margin: 0; }
+</style>
