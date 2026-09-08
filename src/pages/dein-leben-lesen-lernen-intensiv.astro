@@ -1,0 +1,577 @@
+---
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import CTAButton from '../components/CTAButton.astro';
+import Testimonial from '../components/Testimonial.astro';
+import ChapterCard from '../components/ChapterCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import '../styles/salespage.css';
+
+/* Kapitel-Titel sind Approximationen — bitte mit Annette/Herbert abstimmen */
+const chapters = [
+  { num: 1,  title: 'Dein innerer Kompass',            description: 'Du lernst, was innere Führung wirklich bedeutet — und warum du schon längst alles mitbringst, was du brauchst. Ein Kapitel, das alles verändert, bevor das eigentliche Lernen beginnt.' },
+  { num: 2,  title: 'Die eigene Stimme hören',          description: 'Inmitten all der Ratschläge, Meinungen und Experten: Welche Stimme ist wirklich deine? Du übst, sie zu erkennen — auch wenn sie leise ist und das Außen laut.' },
+  { num: 3,  title: 'Prägungen und Muster',             description: 'Nicht alles, was du denkst, hast du selbst gedacht. Dieses Kapitel zeigt dir, welche Überzeugungen du mitgenommen hast — und welche du bereit bist, sanft loszulassen.' },
+  { num: 4,  title: 'Verantwortung ohne Überforderung', description: 'Verantwortung zu übernehmen klingt schwer. Aber wenn du weißt, wo deine echte Kraft liegt und wo deine Grenzen sind, wird Verantwortung zur Befreiung.' },
+  { num: 5,  title: 'Sicherheit in Entscheidungen',     description: 'Soll ich bleiben oder gehen? Ist das wirklich mein Weg — oder ein Impuls von außen? Du lernst, großen Entscheidungen zu begegnen, ohne dich zu verlieren.' },
+  { num: 6,  title: 'Dein Körper als Zeuge',            description: 'Dein Körper erzählt dir mehr als du glaubst. In diesem Kapitel lernst du, seine Signale zu lesen — nicht als Diagnose, sondern als Einladung zum Verstehen.' },
+  { num: 7,  title: 'Mut in kleinen Schritten',         description: 'Mut ist keine Charaktereigenschaft. Mut ist trainierbar. Du bekommst konkrete Werkzeuge, um in deinem ganz konkreten Alltag mutiger zu werden — Schritt für Schritt.' },
+  { num: 8,  title: 'Beziehungen neu lesen',            description: 'Was dir an anderen Menschen auf die Nerven geht, erzählt etwas über dich. Dieses Kapitel lädt dich ein, Beziehungen als Spiegel deines Innenlebens zu verstehen.' },
+  { num: 9,  title: 'Innere Vision und Lebensvorsätze', description: 'Wie sieht dein Leben aus, wenn es wirklich deins ist? Du entdeckst deine innere Vision — nicht als starren Plan, sondern als lebendige Einladung.' },
+  { num: 10, title: 'Blockaden und emotionale Muster',  description: 'Manche Themen kommen immer wieder. Dieses Kapitel zeigt dir, wie du festgefahrene Muster erkennst und auflöst — nicht durch Willenskraft, sondern durch tiefes Verstehen.' },
+  { num: 11, title: 'Selbstführung im Alltag',          description: 'Was nützen alle Erkenntnisse, wenn der Alltag sie überrollt? Du bekommst Werkzeuge für den nachhaltigen Transfer — klein, konkret, dauerhaft wirksam.' },
+  { num: 12, title: 'Dein Leben — deine Führung',      description: 'Ein Abschluss, der kein Ende ist. Du fasst zusammen, was du entdeckt hast — und machst einen bewussten Schritt in dein selbst gelesenes Leben.' },
+];
+---
+
+<FokusLayout
+  title="Dein Leben lesen lernen — Der Online-Kurs von Annette &amp; Herbert Himmelstoß"
+  description="Entdecke das wichtigste Werkzeug deines Lebens: Dich selbst. 12 Kapitel, Workbooks, geführte Meditationen und eine 12-monatige Masterclass mit Annette &amp; Herbert."
+  canonical="https://himmelstosscoaching.de/dein-leben-lesen-lernen-intensiv"
+>
+
+<style>
+  /* ── Kursfarbe-Akzente ────────────────────────────────────── */
+  .h1-leben-lesen        { color: var(--kurs-leben-lesen); }
+  .leben-lesen-eyebrow   { color: var(--kurs-leben-lesen); }
+
+  /* ── Testimonials-Dots ────────────────────────────────────── */
+  #ll-dots .dot          { background: rgba(243,152,92,0.35); }
+  #ll-dots .dot.active   { background: var(--kurs-leben-lesen); }
+
+  /* ── Buttons: weiß mit Kursfarbe ─────────────────────────── */
+  :global(.btn-primary) {
+    background:  #ffffff !important;
+    color:       var(--kurs-leben-lesen) !important;
+    box-shadow:  0 8px 24px rgba(243,152,92,0.35) !important;
+  }
+  :global(.btn-primary:hover) {
+    background:  var(--kurs-leben-lesen) !important;
+    color:       #ffffff !important;
+    box-shadow:  0 12px 28px rgba(243,152,92,0.45) !important;
+  }
+
+  /* ── Hero: Bild LINKS → Text RECHTS ──────────────────────── */
+  .hero-text h1 { white-space: normal; }
+  .hero-text-col { align-items: flex-start; padding: 80px 50px 80px 40px; }
+
+  /* Gespiegelte Schatz-Maske */
+  .hero-image {
+    -webkit-mask-image:
+      linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 7%, black 18%, black 100%),
+      linear-gradient(to bottom, transparent 0%, black 14%, black 88%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 7%, black 18%, black 100%),
+      linear-gradient(to bottom, transparent 0%, black 14%, black 88%, transparent 100%);
+    mask-composite: intersect;
+  }
+  .hero-image img { object-position: 65% top; }
+
+  /* ── Pricing: 2 Spalten ───────────────────────────────────── */
+  .pricing-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; max-width: 860px; margin: 0 auto;
+  }
+  .pricing-card.highlight               { border: 2px solid var(--kurs-leben-lesen); }
+  .pricing-card.highlight .pricing-head { background: var(--kurs-leben-lesen); }
+  .guarantee-centered                   { max-width: 860px; margin: 2.5rem auto 0; }
+
+  /* ── Mobile ───────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .hero-image   { height: 520px; -webkit-mask-image: none; mask-image: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- Header -->
+<HeaderFokus />
+
+<!-- A — HERO -->
+<section class="hero atm-schatz-hero atm-on-dark">
+  <div class="hero-image">
+    <img src="/img/dlll-hero.jpg" alt="Annette und Herbert Himmelstoß" loading="eager">
+  </div>
+  <div class="hero-text-col">
+    <div class="hero-text">
+      <span class="eyebrow">Online-Kurs · Gruppenbegleitung &amp; Intensiv-Coaching-Woche</span>
+      <h1><span class="h1-leben-lesen">Dein Leben</span><br><em>lesen lernen</em></h1>
+      <p class="hero-sub">Entdecke das wichtigste Werkzeug deines Lebens: Dich selbst.<br class="hero-sub-break">Für alle, die nicht länger im Außen suchen,<br class="hero-sub-break">sondern im Inneren <strong>finden wollen.</strong></p>
+      <div class="hero-trust">
+        <span>12 Kapitel</span>
+        <span>Workbooks &amp; Meditationen</span>
+        <span>Lebens&shy;langer Zugang</span>
+      </div>
+      <div class="hero-cta-wrap">
+        <CTAButton href="#preis" label="Lerne dein Leben zu verstehen" large={true} meta="Inkl. 12-monatiger Masterclass mit Annette &amp; Herbert." />
+      </div>
+      <div class="hero-badges">
+        <span>✓ Lebenslanger Zugang</span>
+        <span>✓ SSL-verschlüsselt</span>
+        <span>✓ Sofort-Zugang nach Kauf</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B — WELCOME -->
+<section class="welcome">
+  <div class="narrow">
+    <h2>Schön, dass du hier bist.</h2>
+    <span class="welcome-divider"></span>
+    <p>Vielleicht bist du hier, weil du spürst: Da ist noch mehr in dir. Mehr Klarheit, die du abrufen könntest. Mehr Sicherheit bei Entscheidungen. Mehr Vertrauen in die eigene Stimme — auch wenn das Außen laut ist.</p>
+    <p>Vielleicht bist du auch ein wenig müde davon, ständig neue Ratgeber, Experten und Methoden zu konsultieren. Und hast dabei das Gefühl, dass die Antwort irgendwo in dir liegt — aber du nicht weißt, wie du sie findest.</p>
+    <p>Hier findest du alles, was du über diesen Kurs wissen musst. Und vor allem: wie er dir helfen kann, das Wichtigste zu entdecken — <em>dich selbst.</em></p>
+
+    <div class="welcome-feeling">
+      <p>Im Videokurs „Dein Leben lesen lernen" erhältst du praxisorientierte Werkzeuge, mit denen du den Zugang zu deiner inneren Klarheit wiederfinden kannst.</p>
+      <p><em>Keine abstrakte Theorie. Keine Fremdanalyse.</em></p>
+      <p>Sondern erprobte Methoden, die dich dabei unterstützen, deinen eigenen stimmigen Weg zu erkennen — selbst bei grundlegenden Lebensfragen:</p>
+      <p><em>Soll ich bleiben oder gehen? · Will ich das wirklich, oder ist das ein Impuls von außen?<br>Ist diese Krankheit vielleicht eine Botschaft? · Was ist mein nächster Schritt?</em></p>
+      <p>Nur du kannst diese Entscheidungen treffen. <strong>Mit diesem Kurs lernst du, wie.</strong></p>
+    </div>
+
+    <div class="welcome-video">
+      <!-- Vimeo-Video eintragen: src="https://player.vimeo.com/video/VIMEO_ID" -->
+      <div class="welcome-video-placeholder">
+        <div class="play-icon">&#9654;</div>
+      </div>
+    </div>
+
+    <blockquote class="welcome-quote">
+      <p>„Was uns verbindet, ist der Glaube daran, dass jeder Mensch bereits alles in sich trägt, was er braucht. Man muss nur lernen, wie man es freilegt — und dafür geben wir dir die Werkzeuge an die Hand."</p>
+      <cite>— Annette &amp; Herbert</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- C — MIRROR -->
+<section class="mirror atm-warm-vignette atm-on-dark">
+  <div class="container">
+    <div class="section-intro">
+      <span class="eyebrow">Fällt dir das auch immer häufiger auf?</span>
+      <h2>Wenn du weißt, dass die Antwort<br>in dir liegt — aber nicht weißt, wie du sie findest.</h2>
+    </div>
+    <div class="mirror-quotes">
+      <div class="mirror-quote">Ständig wirst du von anderen belehrt, was für dich richtig sei — von Experten, Politikern, Ratgebern.</div>
+      <div class="mirror-quote">Du fühlst dich unsicher, weil jeder etwas anderes sagt — und du selbst nicht mehr weißt, was stimmt.</div>
+      <div class="mirror-quote">Du suchst nach Klarheit und Orientierung — aber niemand scheint dir wirklich helfen zu können.</div>
+    </div>
+  </div>
+</section>
+
+<!-- C2 — TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <h3 class="testimonials-title">Was Teilnehmer sagen:</h3>
+    <div class="testimonials" id="ll-slider">
+      <Testimonial
+        quote="Ich bin sicherer geworden, gehe bewusster mit meinem Leben um — und sogar schwierige Themen fühlen sich leichter an. Dieser Kurs verändert wirklich etwas."
+        author="Julia"
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Ich habe gelernt, wie kraftvoll es sein kann, jeden Tag bewusst mutig zu handeln. Der Kurs hat mir gezeigt: Mut ist trainierbar — und verändert mein ganzes Leben."
+        author="Chris"
+        note="Teilnehmer"
+      />
+      <Testimonial
+        quote="Ich hätte nie gedacht, wie kraftvoll es sein kann, sich jeden Tag bewusst eine Situation zu suchen, in der ich mutig bin. Mut hat immer mit Menschen zu tun. Und plötzlich wurde mein Alltag lebendig. Dieser Kurs hat mir gezeigt, dass Mut trainierbar ist — und der Schlüssel zu echter Verbindung und einem erfüllten Alltag."
+        author="Cornelia G."
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Ich habe mein altes Leben losgelassen — meine Beziehung, mein Zuhause — und wurde mit einem neuen belohnt. Heute lebe ich in der Nähe meiner Tochter und bin angekommen."
+        author="Hans L."
+        note="Teilnehmer"
+      />
+      <Testimonial
+        quote="Früher habe ich Konfrontationen vermieden. Jetzt habe ich ein Gespräch mit meinem Vater geführt, das ich nie für möglich gehalten hätte. Es war heilsam."
+        author="Christian S."
+        note="Teilnehmer"
+      />
+      <Testimonial
+        quote="Ich wirke heute ganz anders — präsenter, strahlender. Außenstehende sprechen mich darauf an. Das gab es früher nie."
+        author="Philomela"
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Innerlich hat sich alles verändert. Ich spreche meine Wahrheit — und spüre eine tiefe Zufriedenheit. Ich bin gerne mit mir selbst befreundet. Das ist für mich ein riesiger Schritt."
+        author="Katharina G."
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Auch wenn ich nicht durchgehend live dabei sein konnte, hat mir der Kurs unglaublich viel gegeben. Immer wieder habe ich Impulse aufgegriffen, die mich in schwierigen Momenten zur Ruhe gebracht haben. Es ist ein riesiger Schatz, lebenslangen Zugang zu haben."
+        author="Luzia S."
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Ich starte wieder gerne in den Tag. Heute gehe ich mit Freude zur Arbeit, bin kreativer, gelassener — und näher bei dem, was ich wirklich machen will."
+        author="Veronika"
+        note="Teilnehmerin"
+      />
+      <Testimonial
+        quote="Mein Leben ist komplett zusammengebrochen — und genau da begann die eigentliche Reise. Ich habe losgelassen, bin ins Vertrauen gegangen, und plötzlich wurde klar, was wirklich zählt: mein Sein, meine Essenz. Dieser Kurs hat mein Leben verändert."
+        author="Ute S."
+        note="Teilnehmerin"
+      />
+    </div>
+    <div class="testimonials-dots" id="ll-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- D — SOLUTION -->
+<section class="solution atm-sun-radial atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Warum dieser Kurs anders ist</span>
+    <h2>Was, wenn du der größte Experte<br>für dein eigenes Leben wärst?</h2>
+    <p class="solution-lead">&bdquo;Dein Leben lesen lernen&ldquo; ist kein Selbstoptimierungs&shy;kurs und keine Therapie. Es ist eine Einladung, nach innen zu horchen — auf die Stimme, die du schon immer hattest. Und ihr endlich zu vertrauen.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-icon">&#10022;</div>
+        <h3>Keine Ratschläge — eigene Antworten</h3>
+        <p>Wir geben dir keine Ratschläge, sondern vermitteln dir einen Weg, wie du deine eigenen Antworten findest. Nachhaltig und unabhängig von weiteren Experten.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#10022;</div>
+        <h3>Selbst erlebt und erprobt</h3>
+        <p>Alles, was wir weitergeben, haben wir selbst erlebt, selbst erprobt — und es hat sich in unserem Coaching mit tausenden Menschen vielfach bewährt.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#10022;</div>
+        <h3>Werkzeuge statt noch mehr Wissen</h3>
+        <p>Du bekommst echte Werkzeuge — direkt anwendbar und wirksam im Alltag. Der Kurs ist kein starres Konzept, sondern ein lebendiger Prozess.</p>
+      </div>
+    </div>
+
+    <div class="solution-cta">
+      <p class="solution-cta-text">Wenn du nicht nur über dein Leben nachdenken,<br>sondern es wirklich verstehen willst,<br>dann bist du hier richtig.</p>
+      <CTAButton href="#preis" label="Jetzt starten →" large={true} />
+    </div>
+  </div>
+</section>
+
+<!-- E0 — KURS-BESCHREIBUNG -->
+<section class="kurs-beschreibung">
+  <div class="container">
+    <div class="kb-intro">
+      <span class="eyebrow leben-lesen-eyebrow">Unser Kurs</span>
+      <h2>„Dein Leben lesen lernen"</h2>
+      <p class="kb-lead">Deine Rückverbindung zu dir selbst. Du bekommst kein Konzept von außen, sondern eine Methode, wie du deine eigene innere Wahrheit erkennst. Schritt für Schritt. Still. Kraftvoll. Nachhaltig.</p>
+    </div>
+
+    <div class="course-overview">
+      <div class="course-mockup">
+        <!-- Kurs-Mockup-Bild: <img src="/img/kurs-mockup-leben-lesen.png" alt="Kurs-Mockup"> -->
+        <div class="mockup-placeholder">
+          <div class="mockup-icon">&#9632;</div>
+          <span>Kurs-Mockup</span>
+        </div>
+      </div>
+      <div class="course-features">
+        <div class="course-feature">
+          <div class="cf-icon">&#10022;</div>
+          <div>
+            <strong>12 Kapitel</strong>
+            <span>über 120 kompakte Lektionen — sofort anwendbar im Alltag</span>
+          </div>
+        </div>
+        <div class="course-feature">
+          <div class="cf-icon">&#9998;</div>
+          <div>
+            <strong>Workbooks &amp; geführte Meditationen</strong>
+            <span>Zum Vertiefen, Reflektieren, Umsetzen</span>
+          </div>
+        </div>
+        <div class="course-feature">
+          <div class="cf-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </div>
+          <div>
+            <strong>Exklusive Telegram-Gruppe</strong>
+            <span>Für Begleitung, Inspiration und Verbindung</span>
+          </div>
+        </div>
+        <div class="course-feature">
+          <div class="cf-icon">&#9654;</div>
+          <div>
+            <strong>Live-Zoom Masterclass</strong>
+            <span>12 Monate · 2× im Monat mit Annette &amp; Herbert</span>
+          </div>
+        </div>
+        <div class="course-feature">
+          <div class="cf-icon">&#8734;</div>
+          <div>
+            <strong>Lebenslanger Zugang</strong>
+            <span>Keine Eile, kein Ablaufdatum — du gehst in deinem Tempo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kb-outcomes">
+      <h3>Was du lernen wirst:</h3>
+      <ul>
+        <li>🌿 Wie du deine innere Stimme hörst — auch wenn alle im Außen etwas anderes sagen</li>
+        <li>🌿 Wie du lernst, Verantwortung zu übernehmen, ohne dich überfordert zu fühlen</li>
+        <li>🌿 Wie du Schritt für Schritt Sicherheit in deinen Entscheidungen gewinnst</li>
+        <li>🌿 Wie du dich selbst besser verstehst, annimmst und führst</li>
+        <li>🌿 Wie du Mut entwickelst — in kleinen und großen Schritten</li>
+        <li>🌿 Wie du mit einfachen Mitteln dein Leben neu gestaltest</li>
+      </ul>
+    </div>
+
+    <div class="kb-audience">
+      <p>Du bekommst kein Konzept von außen. Du bekommst eine Methode, wie du deine eigene innere Wahrheit erkennst. <em>Die wahre Antwort liegt in dir. Niemand sonst kennt deinen Weg.</em></p>
+    </div>
+
+    <div class="kb-entwicklung">
+      <div class="kb-entwicklung-text">
+        <h3>Für nachhaltige Veränderung</h3>
+        <p>Zusätzlich zum Videokurs erhältst du Zugang zur Masterclass: 12 Monate lang begleiten wir dich in 2 Live-Zoom-Treffen pro Monat, damit du wirklich dranbleibst, deine Themen klärst und deine nächsten Schritte konsequent umsetzt.</p>
+        <ul>
+          <li>Du bleibst im Fluss, auch wenn es mal schwierig wird</li>
+          <li>Du erhältst direkte Antworten und individuelle Impulse</li>
+          <li>Du stärkst dein Vertrauen in deinen eigenen Weg</li>
+          <li>Du setzt das Gelernte schneller und nachhaltiger um</li>
+        </ul>
+      </div>
+      <div class="kb-entwicklung-text">
+        <h3>Wer wir sind und warum wir diesen Kurs entwickelt haben</h3>
+        <p>Ich, <strong>Annette</strong>, habe über 20 Jahre in meiner ärztlichen Praxis gearbeitet — und erkannt, dass es bei Gesundheit nicht nur um Medizin geht, sondern um die Beziehung zu sich selbst.</p>
+        <p>Ich, <strong>Herbert</strong>, habe als Kunsttherapeut und Lehrer mit tausenden Jugendlichen und Erwachsenen zu Themen wie Medien, Sucht und Identität gearbeitet. Innere Klarheit war immer der Schlüssel.</p>
+        <p>Gemeinsam haben wir erkannt: Es braucht heute nicht noch mehr Bücher oder Gurus — sondern Menschen, die lernen, ihre eigene innere Führung zu hören und ihr zu vertrauen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E — CHAPTERS -->
+<section class="chapters" id="kapitel">
+  <div class="container">
+    <span class="eyebrow leben-lesen-eyebrow" style="display:block;text-align:center;">Was dich erwartet</span>
+    <h2 class="chapters-title">Zwölf Kapitel, die etwas in dir bewegen</h2>
+    <p class="chapters-intro">Jedes Kapitel baut auf dem vorherigen auf. Und jedes verändert etwas in dir — nicht irgendwann, sondern schon während du es durcharbeitest. Nicht nur im Kopf, sondern dort, wo es zählt: in deinem ganz konkreten Leben.</p>
+
+    <div class="chapter-grid">
+      {chapters.map((ch) => (
+        <ChapterCard num={ch.num} title={ch.title} description={ch.description} dark={ch.num <= 3} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- F — TRANSFORMATION -->
+<section class="transformation atm-sunrise atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Was sich verändert</span>
+    <h2>Dein Leben nach dem Kurs</h2>
+    <div class="transformation-grid">
+      <div class="transformation-card">
+        <div class="tc-before">Verwirrung</div>
+        <div class="tc-arrow">&#8594;</div>
+        <div class="tc-after">Klarheit</div>
+        <p>Statt widersprüchlichen Experten-Ratschlägen: eine eigene innere Stimme, der du vertraust. Du weißt, was für dich stimmt — weil du gelernt hast, es zu lesen.</p>
+      </div>
+      <div class="transformation-card">
+        <div class="tc-before">Unsicherheit</div>
+        <div class="tc-arrow">&#8594;</div>
+        <div class="tc-after">Selbstführung</div>
+        <p>Entscheidungen, die sich richtig anfühlen — nicht weil du mehr weißt, sondern weil du auf dich selbst hörst. Innere Sicherheit, die nicht vom Außen abhängt.</p>
+      </div>
+      <div class="transformation-card">
+        <div class="tc-before">Blockaden</div>
+        <div class="tc-arrow">&#8594;</div>
+        <div class="tc-after">Freiheit</div>
+        <p>Die festgefahrenen Muster und emotionalen Blockaden, die deiner Vision im Weg stehen — du erkennst sie, löst sie, und gewinnst Klarheit, Leichtigkeit und neue Perspektiven.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- H — ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow leben-lesen-eyebrow">Wer wir sind</span>
+        <h2>Wir haben das alles selbst durchlebt.</h2>
+        <p>Wir, Annette und Herbert, begleiten Menschen seit über 20 Jahren auf dem Weg zu sich selbst. Annette als Ärztin, Herbert als Kunsttherapeut und Lehrer — beide in der Überzeugung, dass jeder Mensch bereits alles in sich trägt, was er braucht.</p>
+        <p>Was uns antreibt, ist keine Methode. Es ist eine Erfahrung: dass echte Veränderung nicht von außen kommt, sondern von innen wächst. Dass die tiefste Orientierung immer schon in dir ist — du musst nur lernen, sie zu hören.</p>
+        <p>Aus dieser Überzeugung ist &bdquo;Dein Leben lesen lernen&ldquo; entstanden. Nicht als Theorie. Sondern als Einladung, die wir selbst täglich annehmen.</p>
+        <p class="about-signature">— Annette &amp; Herbert</p>
+      </div>
+      <div class="about-image">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- G — FOR WHOM -->
+<section class="for-whom atm-yellow-vignette atm-on-dark">
+  <div class="container">
+    <h2 class="for-whom-title">Ist dieser Kurs für dich?</h2>
+    <div class="for-whom-grid">
+      <div class="fw-card yes">
+        <h3>Ja, wenn du…</h3>
+        <ul>
+          <li>… spürst, dass die Antworten in dir sind — aber nicht weißt, wie du sie findest.</li>
+          <li>… müde bist von widersprüchlichen Ratschlägen und endlich auf dich selbst hören willst.</li>
+          <li>… bei wichtigen Entscheidungen mehr Klarheit und innere Sicherheit suchst.</li>
+          <li>… Muster und Blockaden erkennst, die dich immer wieder einholen.</li>
+          <li>… bereit bist, Verantwortung für dein Leben zu übernehmen — nicht als Last, sondern als Befreiung.</li>
+          <li>… Lust hast, dein Leben wirklich zu verstehen, statt es nur zu verwalten.</li>
+          <li>… Dinge wirklich angehen möchtest, statt sie zu umgehen.</li>
+        </ul>
+      </div>
+      <div class="fw-card no">
+        <h3>Nicht, wenn du…</h3>
+        <ul>
+          <li>… in einer akuten psychischen Krise steckst und professionelle therapeutische Begleitung brauchst.</li>
+          <li>… eine schnelle Fix-Methode ohne eigenes Zutun suchst.</li>
+          <li>… nur Techniken und Tricks sammeln möchtest, ohne etwas wirklich zu verändern.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- J — FAQ (vor Pricing) -->
+<section class="faq">
+  <div class="container">
+    <h2 class="faq-title">Häufige Fragen</h2>
+    <div class="faq-list">
+      <FAQItem
+        question="Ich habe keine Zeit für einen großen Kurs."
+        answer="Die Lektionen sind bewusst kurz — du kannst sie unterwegs hören oder im Alltag einbauen. Viele Teilnehmer sagen: Die Inhalte wirken nach — selbst, wenn ich sie nur nebenbei gehört habe. Du brauchst keine Extra-Zeit — du brauchst nur Aufmerksamkeit."
+      />
+      <FAQItem
+        question="Ich brauche doch eigentlich einen Experten, der mir sagt, was richtig ist."
+        answer="Der größte Experte für dein Leben bist du selbst. Das ist nicht nur ein schöner Satz — das ist das Herzstück dieses Kurses. Wir zeigen dir, wie du dir selbst wieder vertraust. Das ist nachhaltiger als jeder Ratschlag von außen."
+      />
+      <FAQItem
+        question="Ich bin mir nicht sicher, ob ich das kann."
+        answer="Du musst nichts können. Alles, was du brauchst, ist bereits in dir. Dieser Kurs hilft dir, es zu entdecken — in deinem eigenen Tempo, in deiner eigenen Tiefe."
+      />
+      <FAQItem
+        question="Schon wieder Geld ausgeben — bringt das wirklich etwas?"
+        answer='Wir hören oft: „Das hätte ich nicht erwartet — dieser Kurs hat mehr verändert als teure Coachings." Es ist eine Investition in dich — und damit in alles, was du bist und tust.'
+      />
+      <FAQItem
+        question="Was ist der Unterschied zwischen dem Videokurs und der Intensiv-Variante mit Masterclass?"
+        answer="Der Videokurs gibt dir den kompletten Kursinhalt mit allen 12 Kapiteln, Workbooks und Meditationen — in deinem eigenen Tempo. Die Intensiv-Variante beinhaltet zusätzlich 12 Monate Live-Zooms mit Annette und Herbert, in denen ihr gemeinsam tiefer geht, Fragen besprecht und den Prozess begleitet bekommt."
+      />
+      <FAQItem
+        question="Wie läuft das technisch ab?"
+        answer="Nach dem Kauf bekommst du sofort Zugang per E-Mail. Du loggst dich in den geschützten Mitgliederbereich ein und kannst direkt mit Kapitel 1 beginnen. Bei der Intensiv-Variante erhältst du separat die Einladung zur Telegram-Gruppe und zu den Live-Zooms."
+      />
+    </div>
+  </div>
+</section>
+
+<!-- I — PRICING (nach FAQ) -->
+<section class="pricing atm-sky-dome atm-on-dark" id="preis">
+  <div class="container">
+    <span class="eyebrow">Dein Weg beginnt hier</span>
+    <h2 class="pricing-title">Dein Leben lesen lernen</h2>
+    <p class="pricing-sub">Wähle den Zugang, der zu dir passt. Einmaliger Kauf — kein Abo, keine versteckten Kosten.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Tier 1: Nur Videokurs -->
+      <div class="pricing-card">
+        <div class="pricing-head">
+          <h3>Nur der Kurs</h3>
+          <div class="price-anchor">Alle 12 Kapitel, keine Live-Meetings</div>
+          <!-- Checkout-Link &amp; Preis eintragen -->
+          <div class="price"><small>&euro;</small>&thinsp;<!-- PREIS --></div>
+          <p class="price-installments">&nbsp;</p>
+        </div>
+        <ul class="pricing-features">
+          <li><strong>12 Kapitel</strong> mit über 120 kompakten Lektionen</li>
+          <li><strong>Workbooks</strong> &amp; geführte Meditationen</li>
+          <li><strong>Telegram-Gruppe</strong> für den Austausch</li>
+          <li><strong>Lebenslanger Zugang</strong> — jederzeit zurückkehren</li>
+        </ul>
+        <div class="pricing-cta">
+          <!-- Fuehrt zum funktionierenden ThriveCart-Checkout (Produkt 21) auf der Basic-Seite -->
+          <CTAButton href="/dein-leben-lesen-lernen#preis" label="Ich möchte nur den Kurs →" large={true} />
+        </div>
+      </div>
+
+      <!-- Tier 2: Kurs + Masterclass -->
+      <div class="pricing-card highlight">
+        <div class="pricing-head">
+          <span class="tag">Empfohlen</span>
+          <h3>Kurs + Masterclass</h3>
+          <div class="price-anchor">Inkl. 12-monatiger Live-Begleitung</div>
+          <div class="price"><small>&euro;</small>697</div>
+          <p class="price-installments">oder 12 Monatsraten &agrave; 60 &euro;</p>
+        </div>
+        <ul class="pricing-features">
+          <li><strong>12 Kapitel</strong> mit über 120 kompakten Lektionen</li>
+          <li><strong>Workbooks</strong> &amp; geführte Meditationen</li>
+          <li><strong>Telegram-Gruppe</strong> für den Austausch</li>
+          <li><strong>Lebenslanger Zugang</strong> — jederzeit zurückkehren</li>
+          <li class="bonus"><strong>12 Monate Masterclass</strong> — 2&times; monatlich Live-Zoom mit Annette &amp; Herbert</li>
+        </ul>
+        <div class="pricing-cta">
+          <!-- TODO Checkout: sobald ein Produkt fuer 697 EUR / 12x60 EUR angelegt ist (ThriveCart oder
+               Digistore), hier das Embeddable bzw. die Kauf-URL eintragen — analog Produkt 21 auf der
+               Basic-Seite. Bis dahin persoenliche Anmeldung per Mail. -->
+          <CTAButton href="mailto:kontakt@himmelstosscoaching.de?subject=Dein%20Leben%20lesen%20lernen%20%E2%80%94%20Kurs%20%2B%20Masterclass" label="Lerne dein Leben zu verstehen →" large={true} />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="guarantee guarantee-centered">
+      <div class="guarantee-icon">14</div>
+      <div>
+        <h4>14 Tage Rückgabe&shy;garantie — ohne Diskussion</h4>
+        <p>Schau dir den Kurs in Ruhe an. Wenn du nach 14 Tagen spürst, dass es nicht der richtige Weg für dich ist, schreib uns eine Mail. Du bekommst dein Geld zurück. Ohne Begründung, ohne Frage, ohne komplizierte Formulare.</p>
+      </div>
+    </div>
+
+    <p class="payment-icons">Sicher zahlen &middot; SSL-verschlüsselt &middot; Sofort-Zugang nach Kauf</p>
+  </div>
+</section>
+
+<!-- K — FINAL CTA -->
+<section class="final-cta atm-sunset-horizon atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Jetzt ist der Moment</span>
+    <h2>Du brauchst keinen neuen Ratgeber.<br>Du brauchst dich.</h2>
+    <p class="final-cta-lead">Du musst dich nicht verändern, um richtig zu sein. Aber du kannst dich erinnern, wer du wirklich bist. Mit diesem Kurs gehst du deinen Weg — mit Klarheit, Tiefe und Vertrauen.</p>
+    <CTAButton href="#preis" label="Noch heute buchen — und sofort loslegen →" large={true} meta="14-Tage-Rückgabegarantie · Sofort-Zugang · Lebenslanger Zugang" />
+  </div>
+</section>
+
+<!-- L — FOOTER -->
+<FooterFokus />
+
+</FokusLayout>
+
+<script>
+  const slider = document.getElementById('ll-slider');
+  const dots = document.querySelectorAll('#ll-dots .dot');
+  if (slider && dots.length) {
+    slider.addEventListener('scroll', () => {
+      const index = Math.round(slider.scrollLeft / slider.clientWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }, { passive: true });
+  }
+</script>

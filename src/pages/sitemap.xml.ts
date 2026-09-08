@@ -16,6 +16,8 @@ const EXCLUDE = new Set([
   '3-tage-danke', '3-tage-fast-dabei',
   // Newsletter-Zwischenseiten (noindex):
   'newsletter-bestaetigen', 'newsletter-willkommen',
+  // Sonntagsgespraech-Zwischenseiten (noindex):
+  'sonntagsgespraech-fast-dabei', 'sonntagsgespraech-bestaetigt', 'sonntagsgespraech-willkommen',
 ]);
 
 // Prioritäten je Seite (Default 0.7). Startseite oben, Rechtliches unten.
