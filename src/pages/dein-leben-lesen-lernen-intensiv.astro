@@ -32,6 +32,9 @@ const chapters = [
 >
 
 <style>
+  /* ── Checkout-Einbettung ──────────────────────────────────── */
+  .tc-embed-title { text-align: center; font-size: clamp(20px,2vw,26px); color: var(--blue-deep); margin: 0 0 20px; }
+
   /* ── Kursfarbe-Akzente ────────────────────────────────────── */
   .h1-leben-lesen        { color: var(--kurs-leben-lesen); }
   .leben-lesen-eyebrow   { color: var(--kurs-leben-lesen); }
@@ -529,13 +532,17 @@ const chapters = [
           <li class="bonus"><strong>12 Monate Masterclass</strong> — 2&times; monatlich Live-Zoom mit Annette &amp; Herbert</li>
         </ul>
         <div class="pricing-cta">
-          <!-- TODO Checkout: sobald ein Produkt fuer 697 EUR / 12x60 EUR angelegt ist (ThriveCart oder
-               Digistore), hier das Embeddable bzw. die Kauf-URL eintragen — analog Produkt 21 auf der
-               Basic-Seite. Bis dahin persoenliche Anmeldung per Mail. -->
-          <CTAButton href="mailto:kontakt@himmelstosscoaching.de?subject=Dein%20Leben%20lesen%20lernen%20%E2%80%94%20Kurs%20%2B%20Masterclass" label="Lerne dein Leben zu verstehen →" large={true} />
+          <CTAButton href="#checkout-intensiv" label="Lerne dein Leben zu verstehen →" large={true} />
         </div>
       </div>
 
+    </div>
+
+    <!-- ThriveCart-Checkout Produkt 23 (DLLL Kurs + Masterclass, 697 € / 12 × 60 €) -->
+    <div class="tc-embed" id="checkout-intensiv" style="margin-top:40px;">
+      <h3 class="tc-embed-title">Kurs + Masterclass — 697 &euro; oder 12 &times; 60 &euro;</h3>
+      <div data-thrivecart-account="himmelstosscoaching" data-thrivecart-tpl="v2" data-thrivecart-product="23" class="thrivecart-embeddable" data-thrivecart-embeddable="tc-himmelstosscoaching-23-R96OE3"></div>
+      <script is:inline async src="//tinder.thrivecart.com/embed/v1/thrivecart.js" id="tc-himmelstosscoaching-23-R96OE3"></script>
     </div>
 
     <div class="guarantee guarantee-centered">
