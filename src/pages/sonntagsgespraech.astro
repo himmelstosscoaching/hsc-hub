@@ -27,19 +27,21 @@ const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public
     <div class="sg-header-slogan">Spiritualität, die trägt &ndash; Hand in Hand mit der geistigen Welt.</div>
   </header>
 
-  <!-- HERO mit Formular -->
+  <!-- HERO: Text links, Formular rechts (mobil gestapelt) -->
   <section class="sg-hero">
-    <div class="narrow">
-      <div class="sg-band"></div>
-      <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
-      <div class="sg-meta">Jeden Sonntag &middot; 10 Uhr &middot; live &middot; kostenfrei</div>
-      <h1>Ein Gedanke, der dich<br /><em>durch die Woche trägt.</em></h1>
-      <p class="sg-hero-sub">
-        Jeden Sonntag um 10 Uhr sprechen wir live über das, was das Leben gerade
-        von uns wissen will — offen, geerdet und auch über unsere eigenen Brüche.
-        Trag dich ein, dann bekommst du jeden Samstag unsere Einladung
-        mit einem Gedanken zum Sonntag.
-      </p>
+    <div class="sg-hero-grid">
+      <div class="sg-hero-text">
+        <div class="sg-band"></div>
+        <div class="sg-badge"><span class="sg-play">&#9654;</span>&nbsp;Sonntagsgespräch</div>
+        <div class="sg-meta">Jeden Sonntag &middot; 10 Uhr &middot; live &middot; kostenfrei</div>
+        <h1>Ein Gedanke, der dich<br /><em>durch die Woche trägt.</em></h1>
+        <p class="sg-hero-sub">
+          Jeden Sonntag um 10 Uhr sprechen wir live über das, was das Leben gerade
+          von uns wissen will — offen, geerdet und auch über unsere eigenen Brüche.
+          Trag dich ein, dann bekommst du jeden Samstag unsere Einladung
+          mit einem Gedanken zum Sonntag.
+        </p>
+      </div>
 
       <div class="sg-card sg-form-card">
         <form class="sg-form" action={QUENTN_FORM_URL} method="post">
@@ -57,30 +59,6 @@ const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public
           Eine E-Mail pro Woche &middot; Kein Spam &middot; Jederzeit abbestellbar &middot;
           <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAS DICH ERWARTET -->
-  <section class="sg-punkte">
-    <div class="container">
-      <h2>So einfach ist es</h2>
-      <div class="sg-punkte-grid">
-        <div class="sg-punkt">
-          <div class="sg-punkt-icon">&#9993;</div>
-          <h3>Samstags die Einladung</h3>
-          <p>Du bekommst einen Gedanken zum Sonntag — und den Link zum Gespräch. Mehr steht nicht drin.</p>
-        </div>
-        <div class="sg-punkt">
-          <div class="sg-punkt-icon">&#9654;</div>
-          <h3>Sonntags um 10 live</h3>
-          <p>Wir sprechen auf YouTube — du kannst einfach zuhören oder im Chat mitreden. Ohne Kamera, ohne Anmeldung.</p>
-        </div>
-        <div class="sg-punkt">
-          <div class="sg-punkt-icon">&#10084;</div>
-          <h3>In deinem Tempo</h3>
-          <p>Du hast keine Zeit am Sonntagmorgen? Die Aufzeichnung bleibt auf unserem Kanal — schau, wann es für dich passt.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -121,6 +99,30 @@ const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public
       </figure>
     </div>
     <div class="sg-film-perfo"></div>
+  </section>
+
+  <!-- WAS DICH ERWARTET -->
+  <section class="sg-punkte">
+    <div class="container">
+      <h2>So einfach ist es</h2>
+      <div class="sg-punkte-grid">
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#9993;</div>
+          <h3>Samstags die Einladung</h3>
+          <p>Du bekommst einen Gedanken zum Sonntag — und den Link zum Gespräch. Mehr steht nicht drin.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#9654;</div>
+          <h3>Sonntags um 10 live</h3>
+          <p>Wir sprechen auf YouTube — du kannst einfach zuhören oder im Chat mitreden. Ohne Kamera, ohne Anmeldung.</p>
+        </div>
+        <div class="sg-punkt">
+          <div class="sg-punkt-icon">&#10084;</div>
+          <h3>In deinem Tempo</h3>
+          <p>Du hast keine Zeit am Sonntagmorgen? Die Aufzeichnung bleibt auf unserem Kanal — schau, wann es für dich passt.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- WER WIR SIND -->
