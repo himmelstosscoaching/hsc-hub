@@ -18,12 +18,21 @@
 //
 // ENTSCHIEDEN (Annette, 2026-09-01):
 //   - Preis 4.200 € bestaetigt.
-//   - Schopfheim wird NICHT mehr genannt (Wohnung ist Airbnb-vermietet —
-//     sonst Wohnungs- und Steuerfrage). Stattdessen Zeitraum September bis
-//     November 2026, Ort/Termin individuell im Orientierungsgespraech.
-//   - Noch DREI Wochen frei bis Ende Oktober — bewusst gedeckelt, mehr ist
-//     nicht zu leisten. Steht als ehrliche Knappheit auf der Seite (Hero,
-//     Fakten-Block); keine Countdown-/Druck-Sprache.
+//   - Schopfheim wird NICHT genannt (Wohnung ist Airbnb-vermietet — sonst
+//     Wohnungs- und Steuerfrage). Steht hier nur, damit es nicht versehentlich
+//     wieder eingebaut wird; auf der Seite kommt es nirgends vor.
+//   - Noch DREI Wochen frei — bewusst gedeckelt, mehr ist nicht zu leisten.
+//     Steht als ehrliche Knappheit auf der Seite (Hero, Fakten-Block);
+//     keine Countdown-/Druck-Sprache.
+//
+// GEAENDERT (Christian, 2026-09-22):
+//   - Zeitraum verkuerzt: Vogesen nur noch BIS MITTE OKTOBER 2026, danach
+//     geht es auf Zypern weiter (vorher: September bis November 2026).
+//     Grund: Der Flug steht an; die Vogesen-Zeit endet mit der Flugbuchung.
+//     Betrifft Hero, Fakten-Block und zwei FAQ-Antworten.
+//   ⚠️ OFFEN: Die Zypern-Seite ist noch pausiert (siehe naechster Punkt).
+//     Solange sie es ist, darf hier NICHT auf /intensiv-coaching-zypern
+//     verlinkt werden — der Redirect wirft den Leser auf diese Seite zurueck.
 //   - Zypern pausiert: Seite auf _intensiv-coaching-zypern.astro umbenannt
 //     (wird nicht gebaut, faellt aus der Sitemap), 302 auf die Vogesen in
 //     netlify.toml. Ab Januar 2027 wieder moeglich — dann Praefix entfernen
@@ -134,7 +143,7 @@ const fragen = [
   },
   {
     f: 'Wann findet meine Woche statt?',
-    a: 'Von September bis November 2026. Den genauen Termin stimmen wir individuell mit dir ab — im Orientierungsgespräch.',
+    a: 'Bis Mitte Oktober 2026 — danach sind wir wieder auf Zypern. Den genauen Termin stimmen wir individuell mit dir ab, im Orientierungsgespräch.',
   },
   {
     f: 'Wie viele Menschen begleitet ihr in dieser Zeit?',
@@ -146,12 +155,12 @@ const fragen = [
   },
   // Bewusst als LETZTE Frage, ganz unten (Ueberlegung mit Annette, 2026-09-01):
   // Wer bis hierher liest und noch nicht gebucht hat, nimmt ohnehin keine
-  // Herbstwoche — fuer den ist das die Rettung. Wer den Herbst will, entscheidet
+  // Vogesen-Woche mehr — fuer den ist das die Rettung. Wer sie will, entscheidet
   // weiter oben und kommt hier nie an. Weiter oben waere es eine Ausweichtuer und
   // wuerde die drei Wochen leer lassen.
   {
-    f: 'Und wenn dieser Herbst nicht geht?',
-    a: 'Dann geht Januar. Ab Januar sind wir wieder auf <a href="/intensiv-coaching-zypern">Zypern, am Meer</a>. Sag es im Gespräch, dann finden wir den Zeitpunkt, der wirklich passt.',
+    f: 'Und wenn Mitte Oktober zu früh ist?',
+    a: 'Dann sehen wir uns danach am Meer. Ab Mitte Oktober sind wir wieder auf Zypern — dieselbe Woche, dieselbe Arbeit, anderer Ort. Sag es im Gespräch, dann finden wir den Zeitpunkt, der wirklich passt.',
   },
 ];
 
@@ -203,7 +212,7 @@ const ueberPunkte = [
             <span>Zweimal täglich Coaching</span>
             <span>Vollpension im Grünen</span>
           </div>
-          <p class="hero-termin"><span>Termine von September bis November 2026</span></p>
+          <p class="hero-termin"><span>Termine bis Mitte Oktober 2026</span></p>
           <a href={gespraech} class="btn btn-primary btn-lg" target="_blank" rel="noopener">Kostenfrei Orientierungs-Gespräch buchen →</a>
           <p class="hero-note">kostenfrei &amp; unverbindlich — wir lernen uns erst einmal kennen</p>
         </div>
@@ -404,8 +413,8 @@ const ueberPunkte = [
           <div><dt>Ort</dt><dd>Unser Haus in den Vogesen, Frankreich — allein gelegen nahe dem Petit Ballon, mit Weitblick ins Tal</dd></div>
           {/* „ganz privat" = 1 Gast pro Woche — bestätigt Annette 2026-09-01. */}
           <div><dt>Privat</dt><dd>Eine Woche, ein Gast. Kein Gruppenformat.</dd></div>
-          <div><dt>Termin</dt><dd>September bis November 2026 — deine Woche stimmen wir persönlich mit dir ab</dd></div>
-          <div><dt>Noch frei</dt><dd>In diesem Zeitraum begleiten wir noch <strong>drei Menschen</strong></dd></div>
+          <div><dt>Termin</dt><dd>Bis Mitte Oktober 2026 — deine Woche stimmen wir persönlich mit dir ab. Danach geht es auf Zypern weiter</dd></div>
+          <div><dt>Noch frei</dt><dd>Bis dahin begleiten wir noch <strong>drei Menschen</strong></dd></div>
           <div><dt>Dauer</dt><dd>7 Tage · 6 Nächte</dd></div>
           <div><dt>Inklusive</dt><dd>Tägliche intensive Sitzungen, Vollpension, eine entspannte und unterstützende Umgebung</dd></div>
           <div><dt>Invest</dt><dd><strong>4.200 €</strong> · Unterkunft und Vollpension inbegriffen</dd></div>

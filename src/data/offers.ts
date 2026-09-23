@@ -186,9 +186,10 @@ export const offers: Offer[] = [
     ctaUrl: '/intensiv-coaching-zypern',
   },
   {
-    // Preis 4.200 € und Zeitraum bestätigt (Annette, 2026-09-01). Paar-Angebot bewusst
-    // gestrichen, Schopfheim wird nicht mehr genannt — Begründung siehe Kopf der Seite
+    // Preis 4.200 € bestätigt (Annette, 2026-09-01). Paar-Angebot bewusst gestrichen,
+    // Schopfheim wird nicht genannt — Begründung siehe Kopf der Seite
     // src/pages/intensiv-coaching-vogesen.astro.
+    // Zeitraum seit 2026-09-22: nur noch bis Mitte Oktober 2026, danach Zypern.
     id: 'intensiv-coaching-vogesen',
     cluster: 'F3',
     eyebrow: 'Retreat in den Vogesen',

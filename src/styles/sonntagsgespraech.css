@@ -375,6 +375,31 @@
 }
 .sg-terminkarte p { font-size: 15.5px; color: var(--ink-soft); margin: 0 0 18px; }
 
+/* Adressbuch-Tipp (Bestätigt-Seite) */
+.sg-adressbuch-tipp {
+  max-width: 520px;
+  margin: 22px auto 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-light);
+  text-align: center;
+}
+
+/* Ruhige Textlinks (Willkommen-Seite, unter dem Workbook-Button) */
+.sg-textlinks {
+  margin-top: 30px;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+}
+.sg-textlinks a {
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--gold-soft);
+}
+.sg-textlinks a:hover { text-decoration-color: var(--blue-deep); }
+.sg-textlinks-trenner { margin: 0 14px; color: var(--ink-light); }
+
 /* Angebots-Karten (Willkommen-Seite) */
 .sg-angebote { padding: 10px 0 clamp(56px, 8vw, 80px); }
 .sg-angebote h2 {
@@ -418,11 +443,27 @@
   .sg-form-card { margin-left: 20px; margin-right: 20px; padding: 26px 22px 20px; }
 }
 
-/* Mobile first — kleine Handys: nichts darf breiter als der Bildschirm werden */
+/* Mobile first — kleine Handys: nichts darf breiter als der Bildschirm werden.
+   Ziel auf dem Opt-in: Formular-Felder + Button OHNE Scrollen sichtbar (auch iPhone SE).
+   Dafür fliegen die doppelten Kopfzeilen raus (Slogan + Band/Badge — Logo und
+   Meta-Zeile sagen dasselbe) und alle Abstände werden kompakt. */
 @media (max-width: 480px) {
-  .sg-header-slogan { font-size: 12px; padding: 0 18px; line-height: 1.5; }
-  .sg-hero h1 { font-size: 29px; }
-  .sg-hero .sg-meta { font-size: 12px; letter-spacing: 0.1em; }
+  .sg-header { padding: 9px 0; }
+  .sg-header img { height: 38px; }
+  .sg-header-slogan { display: none; }
+  .sg-hero { padding: 18px 0 24px; }
+  .sg-hero-grid { gap: 16px; }
+  .sg-hero .sg-band, .sg-hero .sg-badge { display: none; }
+  .sg-hero h1 { font-size: 26px; }
+  .sg-hero .sg-meta { font-size: 11.5px; letter-spacing: 0.1em; margin: 0 0 8px; }
+  .sg-hero-sub { font-size: 15px; line-height: 1.55; }
+  .sg-form-card { padding: 18px 18px 14px; }
+  .sg-form .form-row { margin-bottom: 10px; }
+  .sg-form label { margin-bottom: 4px; font-size: 11.5px; }
+  .sg-form input[type="text"],
+  .sg-form input[type="email"] { padding: 11px 14px; font-size: 16px; }
+  .sg-form button[type="submit"] { padding: 13px 20px; margin-top: 2px; }
+  .sg-form-disclaimer { margin-top: 10px; font-size: 11.5px; }
   .sg-punkte h2, .sg-angebote h2, .sg-about-stack h2, .sg-about h2, .sg-film h2 { font-size: 24px; }
   .sg-film-sub { padding: 0 20px; }
   .sg-film-frame { width: 262px; }

@@ -18,7 +18,7 @@ const GESPRAECH_URL = "https://orientierungsgespraech-himmelstoss.youcanbook.me"
   angeboteKnopf={false}
 >
 
-<HeaderFokus />
+<HeaderFokus ctaButton={false} />
 
 <div class="sg-page">
 
@@ -77,43 +77,19 @@ const GESPRAECH_URL = "https://orientierungsgespraech-himmelstoss.youcanbook.me"
     </div>
   </section>
 
-  <!-- WEITERE WEGE -->
+  <!-- WEITERE WEGE: ein Button, zwei ruhige Textlinks (Annette, 2026-09-23) -->
   <section class="sg-angebote">
-    <div class="container">
+    <div class="container" style="text-align: center;">
       <h2>Wenn du tiefer einsteigen magst</h2>
       <p class="sg-angebote-sub">
         Alles kann, nichts muss — das Sonntagsgespräch bleibt kostenfrei.
-        Für alle, die mehr wollen, gibt es diese drei Wege:
       </p>
-      <div class="sg-angebote-grid">
-        <div class="sg-card sg-angebot">
-          <div class="sg-tag">Kostenfrei &middot; PDF-Workbook</div>
-          <h3>Drei Tage, die eure Beziehung verändern</h3>
-          <p>
-            Drei Übungen, drei Abende, jeweils 10&ndash;15 Minuten — für Paare,
-            die wieder ein Team werden wollen. Sofort per E-Mail.
-          </p>
-          <a href="/3-tage">Workbook holen &rarr;</a>
-        </div>
-        <div class="sg-card sg-angebot">
-          <div class="sg-tag">Persönlich &middot; kostenfrei</div>
-          <h3>Das Orientierungsgespräch</h3>
-          <p>
-            Manchmal ist ein Gespräch der bessere erste Schritt. Wir hören zu —
-            ohne Urteil, ohne fertige Lösung — und schauen gemeinsam, was für
-            dich dran ist.
-          </p>
-          <a href={GESPRAECH_URL} target="_blank" rel="noopener">Termin aussuchen &rarr;</a>
-        </div>
-        <div class="sg-card sg-angebot">
-          <div class="sg-tag">Kurse &middot; Coaching &middot; Retreats</div>
-          <h3>Unsere Angebote</h3>
-          <p>
-            Vom günstigen Einstieg bis zur intensiven Begleitung — für alle,
-            die ihr Leben lesen lernen und tiefer gehen wollen.
-          </p>
-          <a href="/angebote">Angebote ansehen &rarr;</a>
-        </div>
+      <a href="/3-tage" class="sg-btn">Zum kostenfreien 3-Tage-Workbook &rarr;</a>
+      <span class="sg-btn-meta">Drei Übungen, drei Abende — für Paare, die wieder ein Team werden wollen.</span>
+      <div class="sg-textlinks">
+        <a href={GESPRAECH_URL} target="_blank" rel="noopener">Orientierungsgespräch aussuchen</a>
+        <span class="sg-textlinks-trenner">&middot;</span>
+        <a href="/angebote">Alle Angebote ansehen</a>
       </div>
     </div>
   </section>
