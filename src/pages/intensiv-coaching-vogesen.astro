@@ -84,8 +84,10 @@ const fuerDich = [
   'einfach <strong>dein Leben in die Hand nehmen</strong> möchtest.',
 ];
 
-// Echte Stimmen von der Intensiv-Coaching-Woche in Zypern — gleiches Produkt,
-// anderer Ort. Wortlaut von der Zypern-Seite übernommen (dort teils gekürzt),
+// Echte Stimmen von der Intensiv-Coaching-Woche. Frank, Trixi und Heike waren in
+// Zypern — gleiches Produkt, anderer Ort. Pauls Zitat stammt aus dem Video-Interview
+// vom 13.09.2026 (Transkript in HSC-Vogesen-2026/08-Testimonial-Paul/); sein Video
+// kommt nach, sobald der Schnitt freigegeben ist. Wortlaut von der Zypern-Seite übernommen (dort teils gekürzt),
 // NICHT umformuliert. Kennzeichnung des Ortes steht in der Sektions-Einleitung.
 // Namensform: nur Vorname. Ausnahme ist Nira Vogel — sie hat eine eigene Praxis
 // und möchte namentlich genannt werden (Christian, 2026-09-01).
@@ -104,6 +106,11 @@ const stimmen = [
     kopf: '„…so intensiv habe ich mir das nicht vorgestellt"',
     text: 'Dieses Coaching ist für Menschen, die den Mut haben, ihr Leben in die Hand zu nehmen und alte Muster und Strukturen, die ihnen dabei im Wege stehen, beiseite räumen wollen.',
     name: 'Heike',
+  },
+  {
+    kopf: '„Ich lebe das Leben — aber da ist irgendwas, was durch will."',
+    text: 'Ich bin ganz unvoreingenommen hingefahren — und es ist unfassbar viel rausgekommen. Vor allem Klarheit: dass ich Dinge vor mir herschiebe und mich damit selbst blockiere. Und dass es keine richtige oder falsche Entscheidung gibt, sondern nur die, die man trifft.',
+    name: 'Paul',
   },
 ];
 
@@ -783,6 +790,8 @@ const ueberPunkte = [
 .stimme-nira .stimme-text { font-size: 16px; }
 .stimme-nira cite { font-style: normal; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-light); }
 .stimmen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; max-width: 1060px; margin: 0 auto; }
+/* Vierte Karte allein in der zweiten Reihe: mittig setzen statt links hängen lassen. */
+.stimmen-grid > .stimme:last-child:nth-child(3n + 1) { grid-column: 2 / 3; }
 .stimme { margin: 0; padding: 28px 26px 24px; background: var(--bg-cream); border-radius: var(--radius-card); border-left: 3px solid var(--rose); }
 .stimme-kopf { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.5vw,20px); color: var(--blue-deep); margin: 0 0 12px; }
 .stimme-text { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 14px; }
@@ -851,6 +860,7 @@ const ueberPunkte = [
 /* Karten-Reihen laufen leicht versetzt ein — wirkt sorgfältiger als gleichzeitig. */
 .mit-grid .reveal:nth-child(2), .stimmen-grid .reveal:nth-child(2) { transition-delay: .1s; }
 .mit-grid .reveal:nth-child(3), .stimmen-grid .reveal:nth-child(3) { transition-delay: .2s; }
+.stimmen-grid .reveal:nth-child(4) { transition-delay: .3s; }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 860px) {
