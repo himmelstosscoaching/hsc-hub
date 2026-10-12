@@ -1,0 +1,189 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/webinar.css';
+import '../styles/lead-magnet.css';
+// Korrekturschicht: Farben und Stil wie auf der Website (muss zuletzt stehen)
+import '../styles/3-tage-hsc-look.css';
+
+// Vorschaltseite zum Orientierungsgespräch (Christian-Wunsch 2026-10-12):
+// einladend, Hemmschwelle senken, Inspirationen, worüber man mit A&H sprechen kann.
+// Fakten von der Buchungsseite: 30 Minuten, Zoom, kostenfrei.
+const GESPRAECH_URL = "https://orientierungsgespraech-himmelstoss.youcanbook.me";
+---
+
+<FunnelLayout
+  canonical="https://himmelstosscoaching.de/orientierungsgespraech"
+  title="Orientierungsgespräch mit Annette & Herbert — kostenfrei, 30 Minuten"
+  description="Hast du eine Frage an Annette & Herbert? Im kostenfreien Orientierungsgespräch nehmen sich die beiden 30 Minuten Zeit für dich — online per Zoom, ohne Vorbereitung."
+>
+
+<!-- A — HEADER -->
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- B — HERO -->
+<section class="lm-hero atm-lm-hero">
+  <div class="lm-hero-content">
+    <span class="lm-pdf-badge">Kostenfrei · 30 Minuten · per Zoom</span>
+    <h1>Hast du eine Frage<br><em>an Annette &amp; Herbert?</em></h1>
+    <p class="lm-hero-sub">
+      Dann stell sie ihnen einfach. Im Orientierungsgespräch nehmen sich die beiden Zeit für dich —<br>
+      <strong>für das, was dich gerade bewegt. Ohne Vorbereitung, ohne fertige Antworten.</strong>
+    </p>
+    <CTAButton href="#termin" label="Termin aussuchen →" meta="Du wählst einen Zeitpunkt, der zu dir passt." />
+  </div>
+
+  <div class="lm-hero-cover">
+    <div class="og-photo og-zoom">
+      <img src="/img/annette-herbert-zoom-lachen.jpg" alt="Annette und Herbert Himmelstoß im Zoom-Gespräch" loading="eager" />
+      <span class="og-zoom-name">Annette &amp; Herbert Himmelstoß</span>
+    </div>
+  </div>
+</section>
+
+<!-- C — WELCOME -->
+<section class="welcome lm-tinted-soft">
+  <div class="narrow">
+    <h2>Du musst nicht wissen, was du fragen willst.</h2>
+    <span class="welcome-divider"></span>
+    <p>Manche kommen mit einer klaren Frage. Andere mit einem Gefühl, das sie noch gar nicht in Worte fassen können. Beides ist willkommen. Wir hören erst einmal zu — ohne Urteil, ohne Ratschlag auf Vorrat.</p>
+    <p>Und am Ende weißt du, was für dich gerade dran ist. Vielleicht ist es eines unserer Angebote. Vielleicht ist es etwas ganz anderes. Das sagen wir dir ehrlich.</p>
+  </div>
+</section>
+
+<!-- D — INSPIRATIONEN (Spiegel-Karten) -->
+<section class="lm-mirror atm-lm-mirror atm-on-dark">
+  <div class="container">
+    <div class="lm-mirror-intro">
+      <span class="eyebrow">Worüber Menschen mit uns sprechen</span>
+      <h2>Vielleicht ist dein Thema<br>schon dabei.</h2>
+    </div>
+    <div class="lm-mirror-quotes og-quotes">
+      <div class="lm-mirror-quote">„Wir sind lange zusammen — und irgendwie sehen wir uns nicht mehr. Wie fangen wir wieder an?"</div>
+      <div class="lm-mirror-quote">„Ich möchte etwas verändern. Aber mein Partner zieht gerade nicht mit."</div>
+      <div class="lm-mirror-quote">„Die Kinder sind aus dem Haus. Was wollen wir eigentlich noch miteinander?"</div>
+      <div class="lm-mirror-quote">„Wir streiten immer über dasselbe — und wissen beide, dass es nicht darum geht."</div>
+      <div class="lm-mirror-quote">„Ich spüre, dass sich in meinem Leben etwas ändern will. Ich weiß nur noch nicht, was."</div>
+      <div class="lm-mirror-quote">„Ich habe euch in einem Interview gesehen — und eine Frage ist hängen geblieben."</div>
+    </div>
+  </div>
+</section>
+
+<!-- E — SO LÄUFT ES -->
+<section class="lm-tage">
+  <div class="container">
+    <div class="lm-tage-intro">
+      <span class="eyebrow" style="color: var(--wb-gold);">So einfach ist es</span>
+      <h2>Drei Schritte. <em>Eine halbe Stunde.</em></h2>
+    </div>
+
+    <div class="lm-tage-grid">
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">1</div>
+        <h3>Termin <em>aussuchen</em></h3>
+        <p>Du wählst direkt hier auf der Seite einen Zeitpunkt, der dir passt. Danach bekommst du den Zoom-Link per E-Mail.</p>
+      </div>
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">2</div>
+        <h3>Einfach <em>erzählen</em></h3>
+        <p>30 Minuten, nur du und wir beide. Du erzählst, was dich bewegt — so viel oder so wenig, wie du magst.</p>
+      </div>
+      <div class="lm-tag-card">
+        <div class="lm-tag-num">3</div>
+        <h3>Klarer <em>sehen</em></h3>
+        <p>Am Ende weißt du, was dein nächster Schritt sein kann. Ob mit uns oder ohne uns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E2 — TERMINBUCHUNG (YouCanBook.me eingebettet, Code aus Annettes YCBM-Konto, Seite „Orientierungs-Gespräch“) -->
+<section class="welcome lm-tinted-soft" id="termin">
+  <div class="container og-booking">
+    <span class="eyebrow">Dein Termin</span>
+    <h2>Such dir einen Zeitpunkt aus.</h2>
+    <span class="welcome-divider"></span>
+    <div class="og-embed">
+      <script is:inline src="https://embed.ycb.me" async="true" data-domain="orientierungsgespraech-himmelstoss" data-displaymode="auto"></script>
+    </div>
+    <p class="og-fallback">Der Kalender wird nicht angezeigt? <a href={GESPRAECH_URL} target="_blank" rel="noopener">Hier geht es direkt zur Terminbuchung.</a></p>
+  </div>
+</section>
+
+<!-- F — ABOUT -->
+<section class="about lm-tinted">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Wer dir zuhört</span>
+        <h2>Annette &amp; Herbert.</h2>
+        <p>Über 30 Jahre verheiratet, drei Kinder, eine Ärztin und ein Lehrer — und irgendwann die Entscheidung, noch einmal ganz neu anzufangen. Heute begleiten wir gemeinsam Paare und Einzelne, die spüren: So wie es jetzt ist, soll es nicht bleiben.</p>
+        <p>Wir haben in unserer eigenen Ehe erlebt, wie viel sich verändert, wenn einer anfängt, anders hinzuschauen. Genau dorthin begleiten wir — mit Erfahrung, nicht mit Rezepten.</p>
+        <p class="about-signature">— Annette &amp; Herbert Himmelstoß</p>
+      </div>
+      <div class="about-image">
+        <img src="/img/annette-herbert-mallorca.jpg" alt="Annette und Herbert Himmelstoß">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- G — FINAL CTA -->
+<section class="final-cta atm-lm-final atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Für dich</span>
+    <h2 class="lm-final-cta-headline">Eine halbe Stunde.<br><em>Für deine Frage.</em></h2>
+    <p class="final-cta-lead">Kostenfrei, per Zoom, ohne Vorbereitung. Wir freuen uns auf dich.</p>
+    <CTAButton href="#termin" label="Termin aussuchen →" large={true} meta="Orientierungsgespräch · 30 Minuten · kostenfrei" />
+  </div>
+</section>
+
+<FunnelFooter />
+
+</FunnelLayout>
+
+<style is:global>
+  /* evtl. Sticky-CTA ausblenden */
+  .sticky-cta { display: none !important; }
+
+  /* Foto statt Workbook-Cover im Hero */
+  .og-photo { max-width: 400px; width: 100%; }
+  /* Zoom-Fenster-Look: Bild aus einem echten Zoom-Gespräch mit Namensschild */
+  .og-zoom { max-width: 520px; position: relative; }
+  .og-zoom img { border-radius: 14px; border: 3px solid #fff; }
+  .og-zoom-name {
+    position: absolute; left: 14px; bottom: 14px;
+    background: rgba(20,20,20,.62); color: #fff;
+    font: 600 13px/1 'League Spartan', Helvetica, Arial, sans-serif; letter-spacing: .02em;
+    padding: 6px 10px; border-radius: 6px;
+  }
+  .og-photo img {
+    width: 100%; display: block; border-radius: 18px;
+    box-shadow: 0 30px 70px rgba(60,20,20,.25), 0 12px 28px rgba(60,20,20,.18);
+  }
+  .lm-hero-content .cta-wrap { margin-top: 28px; }
+
+  /* Eingebettete Terminbuchung */
+  .og-booking { text-align: center; }
+  .og-embed { max-width: 1000px; margin: 24px auto 0; min-height: 600px; }
+  .og-embed iframe { width: 100% !important; border: 0; }
+  .og-fallback { font-size: 15px; margin-top: 18px; }
+  .og-fallback a { color: var(--hsc-blue, #2C4B7B); }
+  html { scroll-behavior: smooth; }
+
+  /* Sechs Inspirationskarten: 3 Spalten, mobil eine */
+  .og-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 960px) {
+    .og-quotes { grid-template-columns: 1fr; }
+    .og-photo { margin: 0 auto; }
+  }
+</style>
