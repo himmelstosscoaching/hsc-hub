@@ -11,12 +11,13 @@ import TidalWave from '../components/TidalWave.astro';
 import StickyCTA from '../components/StickyCTA.astro';
 import FounderTrust from '../components/FounderTrust.astro';
 
-// 🔴 TODO (Christian): Digistore-Checkout für Edition 2026/2027 NEU anlegen — es existiert nur die 2025er-Version.
-//    Produkt 577723 (alter Link) ist die MONATSAUSRICHTUNG, NICHT die Heiligen Nächte → darf NICHT live gehen.
-//    Sobald das neue Produkt steht: Checkout-Link hier eintragen, Gutschein (z. B. „weihnachten-2026“) im Produkt anlegen.
-// Zwischenlösung (bis der echte Checkout steht): Buttons führen zu einer vorbereiteten
-//    Anmelde-Mail statt ins Leere — kein falsches Produkt, aber Interessenten können sich melden.
-const buchenUrl = 'mailto:kontakt@himmelstosscoaching.de?subject=12%20heilige%20N%C3%A4chte%202026%2F2027%20%E2%80%94%20ich%20bin%20dabei';
+// Checkout: Digistore-Produkt 751668 „12 heilige Nächte 2026/27“ (Grundpreis 330 €, auch 3 × 110 €).
+//    Die Preisstufen laufen über Gutscheincodes mit Ablaufdatum (in Digistore angelegt):
+//    FRUEHBUCHER26 = −90 € bis 15.11. · ADVENT2026 = −60 € vom 16.11. bis 10.12. · danach ohne Code.
+//    Jeder „Anmelden“-Knopf bekommt automatisch den Code der aktuellen Stufe angehängt (s. Skript unten).
+//    Produkt 577723 ist die MONATSAUSRICHTUNG, 620972 die Edition 2025 → beide NICHT verlinken.
+const checkoutBasis = 'https://www.digistore24.com/product/751668';
+const checkoutUrl = (code) => (code ? `${checkoutBasis}?voucher=${code}` : checkoutBasis);
 
 // Abwechselnde Bild-Text-Blöcke (Bild links / rechts / links)
 const bloecke = [
@@ -73,14 +74,16 @@ const leistungen = [
 // Preisstufen als Zeitleiste: sichtbar ist immer nur der Preis, der heute gilt.
 // „bis“ = letzter Tag der Stufe (ISO). Die letzte Stufe laeuft ohne Ende.
 const preisstufen = [
-  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-15', frist: 'Nur bis 15. November', ab: '' },
-  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-10', frist: 'Nur bis 10. Dezember', ab: 'Ab 16. November' },
-  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 11. Dezember' },
+  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-15', frist: 'Nur bis 15. November', ab: '',                code: 'FRUEHBUCHER26' },
+  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-10', frist: 'Nur bis 10. Dezember', ab: 'Ab 16. November', code: 'ADVENT2026' },
+  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 11. Dezember', code: null },
 ];
 
-const heute = new Date().toISOString().slice(0, 10);
+// Datum in deutscher Zeit (Gutscheine laufen um 23:59 Uhr Berlin ab, nicht um Mitternacht UTC)
+const heute = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
 const aktivIndex = Math.max(0, preisstufen.findIndex((p) => !p.bis || heute <= p.bis));
 const aktiv = preisstufen[aktivIndex];
+const buchenUrl = checkoutUrl(aktiv.code);
 // Ruhige Zeile darunter: was danach kommt — Transparenz ohne Vergleichsarbeit.
 const staffelText = preisstufen
   .slice(aktivIndex + 1)
@@ -282,7 +285,7 @@ const stimmen = [
   const block = document.querySelector('[data-preisblock]');
   if (block instanceof HTMLElement && block.dataset.stufen) {
     const stufen = JSON.parse(block.dataset.stufen);
-    const heute = new Date().toISOString().slice(0, 10);
+    const heute = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
     let i = stufen.findIndex((s) => !s.bis || heute <= s.bis);
     if (i < 0) i = stufen.length - 1;
     const aktiv = stufen[i];
@@ -297,6 +300,10 @@ const stimmen = [
       '[data-preis-staffel]',
       stufen.slice(i + 1).map((s) => `${s.ab} ${s.preis}`).join(' · ')
     );
+    // Alle Anmelde-Knöpfe auf den Gutschein der aktuellen Stufe stellen
+    const basis = 'https://www.digistore24.com/product/751668';
+    const ziel = aktiv.code ? `${basis}?voucher=${aktiv.code}` : basis;
+    document.querySelectorAll(`a[href^="${basis}"]`).forEach((a) => a.setAttribute('href', ziel));
   }
 </script>
 
