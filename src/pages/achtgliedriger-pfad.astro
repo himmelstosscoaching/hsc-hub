@@ -1,0 +1,308 @@
+---
+// Der achtgliedrige Pfad — Verkaufsseite für die 9-wöchige Live-Übungsgruppe (Start Di 12.01.2027).
+// Projekt-Doku: ../HSC-Achtgliedriger-Pfad/ (E-005). Aufbau nach /12-heilige-naechte.
+// Zwei Botschaften tragen die Seite: „Das ist genau mein Thema“ (Spiegel) und
+// „Allein ziehe ich es nicht durch“ (Gruppe). Zulauf v. a. über das Kongress-PDF.
+import FokusLayout from '../layouts/FokusLayout.astro';
+import HeaderFokus from '../components/HeaderFokus.astro';
+import FooterFokus from '../components/FooterFokus.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import TidalWave from '../components/TidalWave.astro';
+import StickyCTA from '../components/StickyCTA.astro';
+import FounderTrust from '../components/FounderTrust.astro';
+import FAQItem from '../components/FAQItem.astro';
+
+// Checkout: Digistore-Produkt 758474 „Der achtgliedrige Pfad – Übungsgruppe 2027“ (287 €, Online-Coaching,
+// angelegt 2026-11-02). Ist die Nummer leer, springen die Knöpfe nur zum Preisblock.
+const DIGISTORE_PRODUKT = '758474';
+const buchenUrl = DIGISTORE_PRODUKT ? `https://www.digistore24.com/product/${DIGISTORE_PRODUKT}` : '#preis';
+
+const preis = '287 €';
+const zeitraum = 'dienstags um 19 Uhr, vom 12. Januar bis 9. März 2027';
+
+// Spiegel: woran sich die Leserin / der Leser erkennt (Themen aus dem Kongress-Interview)
+const spiegel = [
+  'Du weißt längst, was dir guttun würde, und tust es dann doch wieder nicht.',
+  'Deine guten Vorsätze verstauben, kaum dass der erste Schwung vorbei ist.',
+  'Abends greifst du zum Bildschirm, zum Glas oder zur Schokolade, statt zur Ruhe zu kommen.',
+  'Du willst helfen und merkst, dass du dich dabei einmischst.',
+  'Du beurteilst dich und andere ständig, oft ohne es zu merken.',
+  'Du weißt gar nicht mehr genau, was du selbst eigentlich willst.',
+];
+
+const uebungen = [
+  ['Samstag', 'Auf Urteile verzichten', 'nicht nur in Gedanken, sondern auch in Gefühlen'],
+  ['Sonntag', 'Bewusst entscheiden', 'eine Entscheidung ordnet und gibt Kraft'],
+  ['Montag', 'Die richtigen Worte finden', 'nicht zu viele, nicht zu wenige, und Fragen, die etwas öffnen'],
+  ['Dienstag', 'Bewusst handeln', 'nicht richtig, sondern anders'],
+  ['Mittwoch', 'Das Leben dient deiner Entwicklung', 'alles, was dir begegnet, ist für dich da'],
+  ['Donnerstag', 'In der eigenen Kraft', 'tun, was in deiner Kraft liegt, und Ziele ins Auge fassen'],
+  ['Freitag', 'Vom Leben lernen', 'von anderen und durch den Blick zurück'],
+  ['Jeden Tag', 'Tägliche Reflexion', 'fünf Minuten am Tag für dich'],
+];
+
+const leistungen = [
+  `9 Live-Treffen in der Gruppe per Zoom, ${zeitraum}`,
+  'Jeweils 1,5 Stunden, von 19:00 bis 20:30 Uhr',
+  'Jede Woche eine Übung mit einem konkreten Übungsaspekt für deinen Alltag',
+  'Rückblick in der Gruppe: Was hast du in der Woche mit der Übung erlebt?',
+  'Du kannst einmal nicht dabei sein? Jedes Treffen wird aufgezeichnet, die Aufzeichnung findest du in unserer Telegram-Gruppe.',
+  'Austausch in Kleingruppen, damit jede und jeder zu Wort kommt',
+  'Höchstens 30 Teilnehmerinnen und Teilnehmer',
+  'Die acht Übungen im Originaltext nach Rudolf Steiner als Karten zum Aufhängen',
+];
+
+const ablauf = [
+  ['Woche 1', 'Ankommen', 'Wir lernen uns kennen, du bekommst den Überblick über den ganzen Pfad und nimmst die erste Übung mit.'],
+  ['Woche 2–9', 'Eine Übung pro Woche', 'Wir schauen zurück, was du erlebt hast, besprechen die nächste Übung und suchen einen Aspekt, den du in deiner Woche übst.'],
+  ['Danach', 'Dein eigener Rhythmus', 'Nach neun Wochen sind die Übungen keine Vorsätze mehr, sondern ein Rhythmus, den du kennst und weitergehen kannst.'],
+];
+
+const faq = [
+  ['Brauche ich Vorwissen über Rudolf Steiner oder Anthroposophie?', 'Nein. Die Übungen sind ganz praktisch und für den Alltag gedacht. Steiners Originaltexte bekommst du dazu, aber du musst nichts davon vorher kennen.'],
+  ['Muss mein Partner oder meine Partnerin mitmachen?', 'Nein. Der achtgliedrige Pfad ist ein Weg, den du für dich gehst. Oft verändert sich das Miteinander dann ganz von selbst.'],
+  ['Wie viel Zeit brauche ich neben den Treffen?', 'Die Übungen passieren in deinem Alltag, nicht zusätzlich. Dazu kommen ein paar Minuten am Abend, in denen du dir notierst, was du erlebt hast.'],
+  ['Was, wenn ich an einem Dienstag nicht kann?', 'Kein Problem. Wir zeichnen jedes Treffen auf und stellen die Aufzeichnung in unsere Telegram-Gruppe. So kannst du in Ruhe nachschauen und die Übung der Woche trotzdem mitnehmen.'],
+  ['Ich habe das PDF zum achtgliedrigen Pfad schon. Brauche ich die Gruppe dann noch?', 'Das PDF zeigt dir die Übungen. Die Gruppe sorgt dafür, dass du sie wirklich übst, Woche für Woche, und dass du hörst, was andere damit erleben. Genau das ist der Unterschied zwischen Lesen und Erleben.'],
+];
+---
+
+<FokusLayout
+  title="Der achtgliedrige Pfad — 9 Wochen Übungsgruppe mit Annette & Herbert | Himmelstoß Coaching"
+  description="Acht Übungen, die dich zu dir selbst führen, neun Wochen gemeinsam geübt: Live-Übungsgruppe online mit Annette & Herbert Himmelstoß, dienstags ab 12. Januar 2027."
+  canonical="https://himmelstosscoaching.de/achtgliedriger-pfad"
+>
+  <HeaderFokus />
+
+  <!-- 1 · HERO -->
+  <section class="pf-hero">
+    <div class="container pf-hero-inner">
+      <p class="pf-eyebrow">Live-Übungsgruppe online · 9 Wochen</p>
+      <h1>Der achtgliedrige Pfad<br><em>Üben, bis es dein Weg wird.</em></h1>
+      <p class="pf-dates">Ab Dienstag, 12. Januar 2027, 19 Uhr · mit Annette &amp; Herbert</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Platz sichern →</a>
+    </div>
+  </section>
+
+  <!-- 2 · SPIEGEL (Botschaft 1: das ist mein Thema) -->
+  <section class="pf-spiegel">
+    <div class="container narrow">
+      <h2 class="center">Erkennst du dich?</h2>
+      <ul class="pf-spiegel-list">
+        {spiegel.map((s) => <li>{s}</li>)}
+      </ul>
+      <p class="pf-spiegel-schluss">Dann bist du hier richtig. Nicht, weil mit dir etwas nicht stimmt. Sondern weil Gewohnheiten so funktionieren: In zwei bis vier Wochen sind sie da. Und genauso lässt sich ein neuer Weg anlegen.</p>
+    </div>
+    <TidalWave />
+  </section>
+
+  <!-- Pull-Quote -->
+  <section class="pf-pull">
+    <div class="container narrow">
+      <span class="pf-pull-mark" aria-hidden="true"></span>
+      <p>Nur du weißt deinen nächsten Schritt.</p>
+    </div>
+  </section>
+
+  <!-- 3 · WAS DER PFAD IST -->
+  <section class="pf-block-wrap">
+    <div class="container">
+      <div class="pf-block">
+        <div class="pf-block-img"><img src="/img/pfad/pfad-cover.png" alt="Der achtgliedrige Pfad — Annette & Herbert Himmelstoß" loading="lazy" /></div>
+        <div class="pf-block-text">
+          <h2>Acht Übungen, die dich zu dir selbst führen</h2>
+          <p>Der achtgliedrige Pfad geht auf Buddha zurück. Rudolf Steiner hat ihn vor rund 100 Jahren in eine Form gebracht, die mitten im Alltag funktioniert. Es sind Achtsamkeitsübungen in einem sehr umfassenden Sinn.</p>
+          <p>Sie üben genau die Haltungen, mit denen wir uns sonst von uns selbst abschneiden: das ständige Urteilen, das Verwechseln von Meinung und Wahrheit, das Ausweichen, das Sich-Verlassen auf andere. Mit jeder Übung wächst die Sicherheit, deine eigenen Schritte zu gehen.</p>
+          <p>Über 20 Jahre haben wir uns jede Woche in einem Übkreis getroffen. Diese acht Übungen sind die Grundlage für das Leben geworden, das wir heute führen.</p>
+        </div>
+      </div>
+
+      <div class="pf-uebungen">
+        {uebungen.map(([tag, titel, sub], i) => (
+          <div class="pf-uebung">
+            <span class="pf-uebung-num">{i + 1}</span>
+            <span class="pf-uebung-tag">{tag}</span>
+            <strong>{titel}</strong>
+            <span class="pf-uebung-sub">{sub}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · WARUM IN DER GRUPPE (Botschaft 2) -->
+  <section class="pf-gruppe">
+    <div class="container">
+      <div class="pf-block pf-block--rev">
+        <div class="pf-block-img"><img src="/img/pachy-gespraech.jpg" alt="Annette und Herbert im Online-Treffen" loading="lazy" /></div>
+        <div class="pf-block-text">
+          <p class="pf-kicker">Warum in der Gruppe</p>
+          <h2>Allein lesen ist leicht. Dranbleiben nicht.</h2>
+          <p>Die Begeisterung am Anfang kennt jeder. Ein paar Tage später ist die Übung vergessen, und der Vorsatz verstaubt neben den anderen. Deshalb haben wir den Pfad nie allein geübt, sondern immer in einer Gruppe.</p>
+          <p>Wenn du weißt, am Dienstag trifft sich die Gruppe, dann magst du nicht dasitzen und sagen: Ich habe nicht dran gedacht. Und wenn wir uns treffen, fragen wir nicht, wer es vergessen hat. Wir fragen: Wer hat etwas erlebt mit dieser Übung?</p>
+          <p><strong>Da passieren Wunder.</strong> Und jede Geschichte, die jemand erzählt, macht den anderen Mut, es selbst zu versuchen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ERLEBNISSE AUS UNSEREN ÜBGRUPPEN -->
+  <section class="pf-erlebnisse">
+    <div class="container">
+      <p class="pf-kicker center">Erzählt in unseren Übungsgruppen</p>
+      <h2 class="center">Was eine einzige Übung bewegen kann</h2>
+      <div class="pf-erlebnis-grid">
+        <blockquote class="pf-erlebnis">
+          <p>Eine Frau arbeitet an der Rezeption eines Altenheims. Eine Angehörige geht sie heftig an, für etwas, wofür sie gar nichts kann. Sie hört einfach zu, ohne zu urteilen, nicht in Worten, nicht in Gedanken, nicht im Gefühl. Am nächsten Tag kommt die Frau mit einer Schachtel Pralinen: „Noch nie hat mir jemand so zugehört.“</p>
+          <cite>Samstagsübung · Auf Urteile verzichten</cite>
+        </blockquote>
+        <blockquote class="pf-erlebnis">
+          <p>Eine Mutter merkt, dass ihre Tochter immer schweigsamer wird. Sie hört auf, nach der Schule zu fragen, zu kommentieren und die Lehrerin zu verteidigen. Sie sagt nur freundlich Hallo und hört zu. Nach zwei Tagen fragt die Tochter: „Mama, warum bist du so gut drauf?“</p>
+          <cite>Samstagsübung · Auf Urteile verzichten</cite>
+        </blockquote>
+      </div>
+      <!-- TODO A&H: 2–3 Stimmen von Teilnehmenden früherer Übkreise (Satz + Vorname) ergänzen -->
+    </div>
+  </section>
+
+  <!-- 6 · SO LÄUFT ES AB -->
+  <section class="pf-ablauf">
+    <TidalWave top />
+    <div class="container narrow">
+      <h2 class="center">So läuft die Übungsgruppe ab</h2>
+      <div class="pf-ablauf-list">
+        {ablauf.map(([wann, titel, text]) => (
+          <div class="pf-ablauf-item">
+            <span class="pf-ablauf-wann">{wann}</span>
+            <div><strong>{titel}</strong><p>{text}</p></div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="center pf-leistungen-hl">Das bekommst du</h2>
+      <ul class="pf-facts">
+        {leistungen.map((l) => <li>{l}</li>)}
+      </ul>
+    </div>
+    <WaveDivider fill="var(--bg-cream)" />
+  </section>
+
+  <FounderTrust />
+
+  <!-- 7 · PREIS -->
+  <section class="pf-preis" id="preis">
+    <div class="container narrow center">
+      <p class="pf-eyebrow-light">Höchstens 30 Plätze</p>
+      <h2 class="pf-preis-hl">Geh den Pfad mit uns</h2>
+      <div class="pf-preis-box">
+        <p class="pf-preis-tag">9 Wochen Übungsgruppe</p>
+        <div class="pf-preis-wert">{preis}</div>
+        <p class="pf-preis-frist">{zeitraum}</p>
+      </div>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Ja, ich gehe mit →</a>
+    </div>
+  </section>
+
+  <!-- 8 · FAQ -->
+  <section class="pf-faq">
+    <div class="container narrow">
+      <h2 class="center">Häufige Fragen</h2>
+      {faq.map(([q, a]) => <FAQItem question={q} answer={a} />)}
+    </div>
+  </section>
+
+  <!-- 9 · FINAL -->
+  <section class="pf-final">
+    <div class="container narrow center">
+      <h2 class="pf-final-hl">Die einzige Voraussetzung:<br><em>Du musst die Übungen anwenden.</em></h2>
+      <p class="pf-final-sub">Wir sorgen dafür, dass du es neun Wochen lang tust.</p>
+      <a href={buchenUrl} class="btn btn-primary btn-lg">Platz sichern →</a>
+    </div>
+  </section>
+
+  <StickyCTA label="Der achtgliedrige Pfad" preis={preis} href={buchenUrl} knopf="Platz sichern" verstecke=".pf-preis, .pf-final" />
+  <FooterFokus />
+</FokusLayout>
+
+<style>
+  /* Gleiche Bildsprache wie /12-heilige-naechte: Blau→Türkis→Warm-Verlauf, Fontin-Überschriften */
+  .pf-hero { position: relative; padding: clamp(120px,14vw,170px) 0 clamp(72px,9vw,110px); text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
+  .pf-eyebrow { font-family: var(--font-body); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: clamp(13px,1.3vw,16px); color: rgba(255,255,255,.92); margin: 0 0 18px; }
+  .pf-hero h1 { color: #fff; font-size: clamp(38px,5.6vw,68px); line-height: 1.08; margin: 0 0 18px; text-shadow: 0 2px 22px rgba(15,28,50,.55); }
+  .pf-hero h1 em { display: block; font-style: italic; color: #fff; font-size: .58em; margin-top: 12px; font-weight: 400; }
+  .pf-dates { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,2vw,23px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,.55); }
+  .pf-hero .btn-primary, .pf-final .btn-primary { background: var(--blue-deep); }
+
+  .pf-spiegel { background: var(--bg-white); padding: clamp(60px,8vw,100px) 0 clamp(90px,10vw,130px); position: relative; }
+  .pf-spiegel h2 { color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 30px; }
+  .pf-spiegel-list { list-style: none; padding: 0; margin: 0 auto; max-width: 640px; display: grid; gap: 12px; }
+  .pf-spiegel-list li { position: relative; padding: 14px 18px 14px 50px; background: var(--bg-cream); border-radius: var(--radius-card); font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.5; }
+  .pf-spiegel-list li::before { content: '✦'; position: absolute; left: 20px; top: 14px; color: var(--orange); }
+  .pf-spiegel-schluss { max-width: 640px; margin: 30px auto clamp(40px,6vw,70px); font-size: clamp(17px,1.5vw,20px); line-height: 1.7; color: var(--blue-deep); text-align: center; }
+
+  .pf-pull { background: var(--bg-white); padding: clamp(48px,6vw,84px) 0; text-align: center; }
+  .pf-pull-mark { display: block; width: 56px; height: 3px; background: var(--orange); margin: 0 auto 26px; border-radius: 2px; }
+  .pf-pull p { font-family: var(--font-display); font-style: italic; font-size: clamp(26px,3.4vw,44px); line-height: 1.25; color: var(--blue-deep); margin: 0; }
+
+  .pf-block-wrap, .pf-gruppe { padding: clamp(40px,6vw,80px) 0; }
+  .pf-block-wrap { background: var(--bg-cream); }
+  .pf-gruppe { background: var(--bg-white); }
+  .pf-block { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,72px); align-items: center; }
+  .pf-block--rev .pf-block-img { order: 2; }
+  .pf-block-img img { width: 100%; border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: block; }
+  .pf-block-wrap .pf-block-img img { max-width: 380px; margin: 0 auto; transform: rotate(-2deg); }
+  .pf-block-text h2 { color: var(--blue-deep); font-size: clamp(24px,2.6vw,34px); line-height: 1.2; margin: 0 0 20px; }
+  .pf-block-text p { font-size: clamp(16px,1.4vw,18px); color: var(--ink-soft); line-height: 1.7; margin: 0 0 16px; }
+  .pf-kicker { font-family: var(--font-body); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 13px; color: var(--orange); margin: 0 0 10px; }
+
+  .pf-uebungen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: clamp(40px,6vw,64px); }
+  .pf-uebung { background: var(--bg-white); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); padding: 20px 18px; display: flex; flex-direction: column; gap: 4px; border-top: 3px solid var(--orange); }
+  .pf-uebung-num { font-family: var(--font-display); font-size: 30px; color: var(--blue-deep); line-height: 1; }
+  .pf-uebung-tag { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+  .pf-uebung strong { font-family: var(--font-display); color: var(--blue-deep); font-size: 19px; line-height: 1.2; }
+  .pf-uebung-sub { font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
+
+  .pf-erlebnisse { background: var(--bg-cream); padding: clamp(64px,8vw,100px) 0; }
+  .pf-erlebnisse h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 40px; }
+  .pf-erlebnis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; }
+  .pf-erlebnis { margin: 0; padding: 28px; background: var(--bg-white); border-radius: var(--radius-card); border-left: 3px solid var(--orange); box-shadow: var(--shadow-soft); }
+  .pf-erlebnis p { font-family: var(--font-display); font-style: italic; font-size: clamp(16px,1.4vw,18px); color: var(--blue-deep); line-height: 1.6; margin: 0 0 14px; }
+  .pf-erlebnis cite { font-style: normal; font-weight: 600; font-size: 14px; color: var(--ink-light); }
+
+  .pf-ablauf { background: var(--bg-white); padding: clamp(64px,8vw,96px) 0 clamp(60px,8vw,100px); }
+  .pf-ablauf h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: clamp(40px,6vw,72px) 0 32px; }
+  .pf-ablauf-list { display: grid; gap: 18px; max-width: 680px; margin: 0 auto; }
+  .pf-ablauf-item { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: start; }
+  .pf-ablauf-wann { font-family: var(--font-display); font-style: italic; color: var(--orange); font-size: 19px; padding-top: 2px; }
+  .pf-ablauf-item strong { color: var(--blue-deep); font-size: 18px; }
+  .pf-ablauf-item p { margin: 4px 0 0; color: var(--ink-soft); line-height: 1.6; font-size: 16px; }
+  .pf-facts { list-style: none; margin: 0 auto; padding: 0; max-width: 640px; display: grid; gap: 12px; }
+  .pf-facts li { position: relative; padding: 16px 20px 16px 56px; border-radius: var(--radius-card); background: var(--bg-cream); box-shadow: var(--shadow-soft); font-size: clamp(15px,1.3vw,17px); color: var(--ink-soft); line-height: 1.5; }
+  .pf-facts li::before { content: '✓'; position: absolute; left: 22px; top: 50%; transform: translateY(-50%); color: var(--orange); font-weight: 700; font-size: 18px; }
+
+  .pf-preis { background: var(--bg-cream); padding: clamp(64px,8vw,110px) 0; }
+  .pf-eyebrow-light { display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 10px; }
+  .pf-eyebrow-light::before, .pf-eyebrow-light::after { content: ""; width: 28px; height: 1px; background: var(--orange); }
+  .pf-preis-hl { font-family: var(--font-display); font-weight: 400; color: var(--blue-deep); font-size: clamp(26px,3vw,40px); margin: 0 0 36px; }
+  .pf-preis-box { background: var(--bg-white); border-radius: 16px; border-top: 3px solid var(--orange); box-shadow: var(--shadow-soft); padding: 24px 28px; max-width: 360px; margin: 0 auto 28px; }
+  .pf-preis-tag { font-weight: 600; letter-spacing: .05em; text-transform: uppercase; font-size: 12px; color: var(--orange); margin: 0 0 8px; }
+  .pf-preis-wert { font-family: var(--font-display); font-weight: 700; font-size: clamp(32px,3.6vw,42px); color: var(--blue-deep); line-height: 1.05; margin: 0 0 6px; }
+  .pf-preis-frist { font-size: 15px; color: var(--ink-soft); margin: 0; }
+
+  .pf-faq { background: var(--bg-white); padding: clamp(64px,8vw,100px) 0; }
+  .pf-faq h2 { color: var(--blue-deep); font-size: clamp(24px,2.8vw,36px); margin: 0 0 20px; }
+
+  .pf-final { padding: clamp(72px,9vw,120px) 0; text-align: center; background: linear-gradient(180deg, #1c4062 0%, #21476b 20%, #2783ac 40%, #4f9fc4 56%, #75bfda 70%, #9cc4cf 80%, #c9b8b4 89%, #e6af96 95%, #f4a366 100%); }
+  .pf-final-hl { font-family: var(--font-display); font-weight: 400; color: #fff; font-size: clamp(26px,3vw,40px); line-height: 1.25; margin: 0 0 12px; text-shadow: 0 2px 22px rgba(15,28,50,.6); }
+  .pf-final-hl em { font-style: italic; }
+  .pf-final-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(17px,1.6vw,21px); color: #fff; margin: 0 0 30px; text-shadow: 0 1px 14px rgba(15,28,50,.6); }
+
+  @media (max-width: 860px) {
+    .pf-block { grid-template-columns: 1fr; gap: 24px; }
+    .pf-block--rev .pf-block-img { order: 0; }
+    .pf-uebungen { grid-template-columns: 1fr 1fr; }
+    .pf-erlebnis-grid { grid-template-columns: 1fr; }
+    .pf-ablauf-item { grid-template-columns: 1fr; gap: 4px; }
+  }
+  :global(.founder-trust) { padding-top: 128px !important; }
+</style>
