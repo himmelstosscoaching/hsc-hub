@@ -64,7 +64,7 @@ const FORM_ACTIVE = QUENTN_FORM_URL !== "";
 
   <div class="lm-hero-cover">
     <div class="lm-cover-mockup">
-      <img src="/img/pfad/pfad-cover.png" alt="Titelseite: Der achtgliedrige Pfad — Annette & Herbert Himmelstoß" loading="eager" />
+      <img src="/img/pfad/pfad-cover-B-wochenstern.png" alt="Titelseite: Der achtgliedrige Pfad — mit dem Wochenstern und dem Kongress-Band" loading="eager" />
     </div>
   </div>
 </section>
@@ -74,6 +74,10 @@ const FORM_ACTIVE = QUENTN_FORM_URL !== "";
   <div class="narrow">
     <h2>Im Interview mit Iris haben wir ihn immer wieder erwähnt.</h2>
     <span class="welcome-divider"></span>
+    <figure class="pf-ah-foto">
+      <img src="/img/paar-strand.jpg" alt="Annette und Herbert Himmelstoß lächeln gemeinsam in die Kamera" loading="lazy" />
+      <figcaption>Annette &amp; Herbert</figcaption>
+    </figure>
     <p>Den achtgliedrigen Pfad. Acht Übungen, die auf Buddha zurückgehen und die Rudolf Steiner vor rund 100 Jahren in eine Form gebracht hat, die mitten im Alltag funktioniert. Auf das Urteil verzichten, nicht nur in Worten, sondern auch in Gedanken und Gefühlen. Bewusst entscheiden. Die richtigen Worte finden. Vom Leben lernen.</p>
     <p>Über 20 Jahre haben wir uns jede Woche mit anderen Menschen in einem Übkreis getroffen, in wechselnden Gruppen, überall dort, wo wir gerade gelebt haben. Diese Übungen sind die Grundlage für das Leben geworden, das wir heute führen, und für unsere Arbeit mit Menschen und Paaren.</p>
     <p>Hier bekommst Du das ganze Kapitel aus unserem Buch.</p>
@@ -217,6 +221,12 @@ const FORM_ACTIVE = QUENTN_FORM_URL !== "";
 <FunnelFooter />
 
 </FunnelLayout>
+
+<style>
+  .pf-ah-foto { margin: 8px auto 30px; max-width: 520px; text-align: center; }
+  .pf-ah-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 34px rgba(44,75,123,.18); display: block; }
+  .pf-ah-foto figcaption { margin-top: 10px; font-style: italic; color: #2C4B7B; font-size: 15px; }
+</style>
 
 <style is:global>
   /* Sticky-CTA aus BaseLayout (Schatz-Page) auf dieser Seite ausblenden */

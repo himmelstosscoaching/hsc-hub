@@ -1,0 +1,229 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/webinar.css';
+import '../styles/lead-magnet.css';
+// Korrekturschicht: Farben und Stil wie auf der Website (muss zuletzt stehen)
+import '../styles/3-tage-hsc-look.css';
+
+// Kongress-Seite für „Hätt ich doch mal." (Iris Pointinger, 9.–18.11.2026, Interview A&H an Tag 9).
+// Freebie: Kapitel 13 „Der achtgliedrige Pfad" aus „Trau keinem, der nicht in einer glücklichen
+// Beziehung ist". Aufbau wie /3-tage-dran. Ein Weg: Kapitel holen → Danke-Seite → Januar-Gruppe vormerken.
+// Projekt-Doku: ../HSC-Achtgliedriger-Pfad/ (2026-11-02 von beziehung.* hierher umgezogen)
+
+// Quentn-Formular 1300 in der Kampagne „Der 8-gliedrige Pfad“: setzt REG | Pfad-Freebie | Kongress Pointinger,
+// Bestätigungsmail, danach /achtgliedriger-pfad-danke. Neue Kontakte landen vorher auf /achtgliedriger-pfad-fast-dabei.
+const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public/forms/1300/raw/submit";
+const FORM_ACTIVE = QUENTN_FORM_URL !== "";
+---
+
+<FunnelLayout
+  title="Der achtgliedrige Pfad — acht Übungen, die Dich zu Dir selbst führen"
+  description="Kostenfreies Kapitel aus dem Buch von Annette & Herbert Himmelstoß: die acht Übungen des achtgliedrigen Pfads, eine für jeden Tag der Woche, mit allen Originaltexten zum Ausschneiden und Aufhängen."
+  canonical="https://himmelstosscoaching.de/achtgliedriger-pfad-optin"
+>
+
+<!-- A — HEADER -->
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- B — HERO -->
+<section class="lm-hero atm-lm-hero">
+  <div class="lm-hero-content">
+    <span class="lm-pdf-badge">Aus dem Kongress „Hätt ich doch mal."</span>
+    <h1>Nur Du weißt<br><em>Deinen nächsten Schritt.</em></h1>
+    <p class="lm-hero-sub">
+      Acht Übungen, eine für jeden Tag der Woche. Seit über 20 Jahren unser Übungsweg.<br>
+      <strong>Kostenfreies Kapitel aus unserem Buch, mit allen acht Übungen im Originaltext zum Aufhängen.</strong>
+    </p>
+
+    <form class="lm-hero-form" action={QUENTN_FORM_URL || undefined} method="post">
+      <div class="form-row">
+        <label for="lf-firstname-hero">Vorname</label>
+        <input id="lf-firstname-hero" type="text" name="first_name" required autocomplete="given-name" />
+      </div>
+      <div class="form-row">
+        <label for="lf-mail-hero">E-Mail</label>
+        <input id="lf-mail-hero" type="email" name="mail" required autocomplete="email" />
+      </div>
+      <button type="submit" disabled={!FORM_ACTIVE}>Kapitel jetzt holen →</button>
+    </form>
+    <p class="lm-hero-form-disclaimer">
+      Sofort per E-Mail · Kein Spam · Jederzeit abbestellbar ·
+      <a href="https://himmelstosscoaching.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+    </p>
+  </div>
+
+  <div class="lm-hero-cover">
+    <div class="lm-cover-mockup">
+      <img src="/img/pfad/pfad-cover.png" alt="Titelseite: Der achtgliedrige Pfad — Annette & Herbert Himmelstoß" loading="eager" />
+    </div>
+  </div>
+</section>
+
+<!-- C — WELCOME (Anschluss ans Interview bei Iris Pointinger) -->
+<section class="welcome lm-tinted-soft">
+  <div class="narrow">
+    <h2>Im Interview mit Iris haben wir ihn immer wieder erwähnt.</h2>
+    <span class="welcome-divider"></span>
+    <p>Den achtgliedrigen Pfad. Acht Übungen, die auf Buddha zurückgehen und die Rudolf Steiner vor rund 100 Jahren in eine Form gebracht hat, die mitten im Alltag funktioniert. Auf das Urteil verzichten, nicht nur in Worten, sondern auch in Gedanken und Gefühlen. Bewusst entscheiden. Die richtigen Worte finden. Vom Leben lernen.</p>
+    <p>Über 20 Jahre haben wir uns jede Woche mit anderen Menschen in einem Übkreis getroffen, in wechselnden Gruppen, überall dort, wo wir gerade gelebt haben. Diese Übungen sind die Grundlage für das Leben geworden, das wir heute führen, und für unsere Arbeit mit Menschen und Paaren.</p>
+    <p>Hier bekommst Du das ganze Kapitel aus unserem Buch.</p>
+
+    <blockquote class="welcome-quote">
+      <p>„Wenn man diese Übungen vollkommen beherrscht, ist man ein vollkommener Mensch. Davon braucht man wahrscheinlich noch ein paar Leben. Aber sie sind einfach so wirksam im Alltag."</p>
+      <cite>— Annette &amp; Herbert im Interview mit Iris Pointinger</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- D — MIRROR (Haltungen, mit denen wir uns von uns selbst abschneiden — aus dem Kapitel) -->
+<section class="lm-mirror atm-lm-mirror atm-on-dark">
+  <div class="container">
+    <div class="lm-mirror-intro">
+      <span class="eyebrow">Was die Übungen verändern</span>
+      <h2>Wir schneiden uns von uns selbst ab.<br>Meistens, ohne es zu merken.</h2>
+    </div>
+    <div class="lm-mirror-quotes pfad-mirror">
+      <div class="lm-mirror-quote">Wir beurteilen uns ständig.</div>
+      <div class="lm-mirror-quote">Wir definieren uns über Leistung.</div>
+      <div class="lm-mirror-quote">Wir halten für die Wahrheit, was nur eine Meinung ist.</div>
+      <div class="lm-mirror-quote">Und verlassen uns auf andere, weil wir glauben, sie wüssten es.</div>
+    </div>
+  </div>
+</section>
+
+<!-- E — DIE ACHT ÜBUNGEN -->
+<section class="lm-tage">
+  <div class="container">
+    <div class="lm-tage-intro">
+      <span class="eyebrow" style="color: var(--wb-gold);">Was im Kapitel steckt</span>
+      <h2>Acht Übungen. <em>Eine für jeden Tag.</em></h2>
+      <p>Du musst nicht alle auf einmal üben. Fang mit einer an, die Dich anspricht. Jede Übung kommt mit Beispielen aus der Schule, aus der Praxis und aus unseren Übungsgruppen, von der Schachtel Pralinen an der Rezeption bis zum Schüler, der plötzlich DVDs statt Computerspiele schaut.</p>
+    </div>
+
+    <div class="lm-tage-grid pfad-grid">
+      <div class="lm-tag-card"><div class="lm-tag-num">1</div><div class="lm-tag-eyebrow">Samstag</div><h3>Auf Urteile <em>verzichten</em></h3><p>Auf negative und positive, nicht nur in Gedanken, sondern auch in Gefühlen.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">2</div><div class="lm-tag-eyebrow">Sonntag</div><h3>Bewusst <em>entscheiden</em></h3><p>Eine Entscheidung ordnet und gibt Kraft, manchmal löst sie einen jahrzehntealten Konflikt.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">3</div><div class="lm-tag-eyebrow">Montag</div><h3>Die richtigen <em>Worte</em></h3><p>Nicht zu viele und nicht zu wenige, und Fragen, die einem Gespräch Bedeutung geben.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">4</div><div class="lm-tag-eyebrow">Dienstag</div><h3>Bewusst <em>handeln</em></h3><p>Nicht richtig, sondern anders, und so, dass es den anderen nicht stört.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">5</div><div class="lm-tag-eyebrow">Mittwoch</div><h3>Das Leben <em>dient Dir</em></h3><p>Alles, was Dir begegnet, ist für Dich da, auch das, was Dich am anderen stört.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">6</div><div class="lm-tag-eyebrow">Donnerstag</div><h3>In der eigenen <em>Kraft</em></h3><p>Tun, was in Deiner Kraft liegt, und Ziele und Ideale ins Auge fassen.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">7</div><div class="lm-tag-eyebrow">Freitag</div><h3>Vom Leben <em>lernen</em></h3><p>Von anderen und durch den Blick zurück. So entsteht eine Kultur des Rückblicks.</p></div>
+      <div class="lm-tag-card"><div class="lm-tag-num">8</div><div class="lm-tag-eyebrow">Jeden Tag</div><h3>Tägliche <em>Reflexion</em></h3><p>Fünf Minuten am Tag: Wie geht es Dir, und lebst Du so, wie es Dir entspricht?</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- F — WAS DRIN IST -->
+<section class="lm-content-preview">
+  <div class="container">
+    <div class="lm-content-card">
+      <h2>Ein Blick ins Kapitel</h2>
+      <ul class="lm-content-list">
+        <li><strong>Warum dieser Pfad für uns so wertvoll ist</strong>: 20 Jahre Übkreis, und was daraus geworden ist.</li>
+        <li><strong>Alle acht Übungen</strong> mit Anregungen und Fragen, wie Du sie im Alltag übst, in der Familie, im Beruf, mit Menschen, die Dir nahestehen.</li>
+        <li><strong>Erlebnisse aus Schule, Praxis und Übungsgruppen</strong>, die zeigen, was eine einzige Übung bewegen kann, auch beim Thema Gewohnheiten und Sucht.</li>
+        <li><strong>Die acht Originaltexte nach Rudolf Steiner als Karten</strong> zum Ausschneiden und Aufhängen, mit dem Wochenstern von der Sonne bis zum Saturn.</li>
+      </ul>
+      <p class="lm-content-meta">16 Seiten · PDF · Sofort einsetzbar</p>
+    </div>
+  </div>
+</section>
+
+<!-- G — WARUM IN DER GRUPPE (Brücke zum Januar-Kurs, ohne Angebot auf dieser Seite) -->
+<section class="welcome lm-tinted">
+  <div class="narrow">
+    <span class="eyebrow">Ein Tipp aus dem Interview</span>
+    <h2>Üb nicht allein.</h2>
+    <span class="welcome-divider"></span>
+    <p>Die Begeisterung am Anfang kennt jeder. Ein paar Tage später ist die Übung vergessen. Deshalb haben wir den Pfad immer in einer Gruppe geübt. Wenn Du weißt, am Dienstag trifft sich die Gruppe, dann magst Du nicht dasitzen und sagen: Ich hab nicht dran gedacht.</p>
+    <p>Und wenn sich die Gruppe trifft, fragen wir nicht, wer es vergessen hat, sondern: Wer hat etwas erlebt mit dieser Übung? Da passieren Wunder.</p>
+
+    <blockquote class="welcome-quote">
+      <p>Eine Frau aus einer unserer Gruppen arbeitet an der Rezeption eines Altenheims. Eine Angehörige hat sie heftig angegangen, für etwas, wofür sie gar nichts konnte. Sie hat einfach zugehört, ohne zu urteilen, nicht in Worten, nicht in Gedanken, nicht im Gefühl. Am nächsten Tag kam die Frau mit einer Schachtel Pralinen und sagte: „Noch nie hat mir jemand so zugehört."</p>
+      <cite>— erzählt von Annette &amp; Herbert</cite>
+    </blockquote>
+
+    <p>Am 12. Januar 2027 startet unsere nächste Übungsgruppe zum achtgliedrigen Pfad. Mehr dazu findest Du, wenn Du Dir das Kapitel geholt hast.</p>
+  </div>
+</section>
+
+<!-- H — ABOUT -->
+<section class="about lm-tinted-soft">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Wer wir sind</span>
+        <h2>Annette &amp; Herbert.</h2>
+        <p>Seit über 30 Jahren verheiratet, Eltern von drei erwachsenen Kindern. Annette ist Ärztin, Herbert war Lehrer. Heute begleiten wir Menschen und Paare von Zypern aus.</p>
+        <p>Die acht Übungen sind dabei ein Grundpfeiler geblieben. Für uns selbst und für alle, die wir begleiten. Es fasziniert uns immer wieder, wie wir in acht Übungen, die auf eine DIN-A4-Seite passen, nach 20 Jahren noch neue Seiten entdecken.</p>
+        <p class="about-signature">— Annette &amp; Herbert Himmelstoß</p>
+      </div>
+      <div class="about-image">
+        <img src="/img/annette-herbert-about.jpg" alt="Annette und Herbert Himmelstoß">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- I — ANMELDE-FORMULAR -->
+<section class="webinar-anmeldung atm-lm-anmeldung atm-on-dark" id="anmeldung">
+  <div class="container">
+    <span class="eyebrow">Hol es Dir jetzt</span>
+    <h2 class="anmeldung-title">Fang mit einer Übung an.</h2>
+    <p class="anmeldung-sub">Trag Dich hier ein, Du bekommst sofort eine E-Mail mit dem Kapitel als PDF.</p>
+
+    <div class="anmeldung-card">
+      <form class="webinar-form" action={QUENTN_FORM_URL || undefined} method="post">
+        <div class="form-row">
+          <label for="lf-firstname">Vorname</label>
+          <input id="lf-firstname" type="text" name="first_name" required autocomplete="given-name" />
+        </div>
+        <div class="form-row">
+          <label for="lf-mail">E-Mail</label>
+          <input id="lf-mail" type="email" name="mail" required autocomplete="email" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-large form-submit" disabled={!FORM_ACTIVE}>
+          Jetzt das Kapitel holen →
+        </button>
+      </form>
+      <p class="form-disclaimer">
+        Du bekommst das Kapitel und in den nächsten Tagen ein paar begleitende Mails von Annette &amp; Herbert. Kein Spam, jederzeit abbestellbar.
+        <a href="https://himmelstosscoaching.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- K — FINAL CTA -->
+<section class="final-cta atm-lm-final atm-on-dark">
+  <div class="container">
+    <span class="eyebrow">Für Dich</span>
+    <h2 class="lm-final-cta-headline">Die einzige Voraussetzung:<br><em>Du musst sie anwenden.</em></h2>
+    <p class="final-cta-lead">Der achtgliedrige Pfad ist ein Weg, den Du auch allein gehen kannst. Auch wenn Dein Partner gerade nicht mitmacht. Oft verändert sich das Miteinander dann ganz von selbst.</p>
+    <CTAButton href="#anmeldung" label="Jetzt das Kapitel holen →" large={true} meta="Kostenfrei · Sofort per E-Mail · 16 Seiten" />
+  </div>
+</section>
+
+<FunnelFooter />
+
+</FunnelLayout>
+
+<style is:global>
+  /* Sticky-CTA aus BaseLayout (Schatz-Page) auf dieser Seite ausblenden */
+  .sticky-cta { display: none !important; }
+  /* Acht Übungen und vier Spiegel-Sätze: vier Spalten statt drei */
+  @media (min-width: 961px) {
+    .pfad-grid, .pfad-mirror { grid-template-columns: repeat(4, 1fr); }
+    .pfad-grid .lm-tag-card { padding: 40px 24px 32px; }
+  }
+</style>
