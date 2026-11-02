@@ -1,0 +1,102 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/webinar.css';
+import '../styles/lead-magnet.css';
+import '../styles/3-tage-hsc-look.css';
+
+// Danke-Seite nach dem Opt-in auf /achtgliedriger-pfad-optin. Einziger nächster Schritt: die Verkaufsseite
+// der Übungsgruppe auf himmelstosscoaching.de (E-005). Projekt-Doku: ../HSC-Achtgliedriger-Pfad/ (2026-11-02 von beziehung.* hierher umgezogen)
+
+// Kongress-Fassung des PDFs (V06, letzte Seite führt auf die Verkaufsseite)
+const PDF_DOWNLOAD_URL = "/downloads/Der-achtgliedrige-Pfad.pdf";
+const SALESPAGE_URL = "/achtgliedriger-pfad";
+---
+
+<FunnelLayout
+  title="Hier ist Dein Wegweiser — Der achtgliedrige Pfad"
+  description="Anmeldung bestätigt. Hier ist Dein PDF mit den acht Übungen des achtgliedrigen Pfads."
+  noindex={true}
+>
+
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="atm-lm-thanks-hero lm-hero-narrow">
+  <div class="narrow">
+    <span class="eyebrow">Schön, dass Du dabei bist</span>
+    <h1>Hier ist <em>Dein Wegweiser.</em></h1>
+    <p class="lm-hero-sub-narrow">
+      Das PDF liegt auch in Deinem Postfach.<br>
+      Acht Übungen, eine für jeden Tag. Du kannst heute schon anfangen.
+    </p>
+    <p class="danke-hero-sig">— Annette &amp; Herbert</p>
+
+    <div style="margin-top: 36px;">
+      <CTAButton href={PDF_DOWNLOAD_URL} label="Wegweiser jetzt herunterladen ↓" large={true} meta="PDF · 16 Seiten" />
+    </div>
+  </div>
+</section>
+
+<!-- SO FÄNGST DU AN -->
+<section class="lm-steps-section lm-steps-thanks">
+  <div class="container">
+    <div class="lm-steps-grid">
+      <div class="lm-step-card">
+        <div class="lm-step-num">1</div>
+        <span class="lm-step-icon">&#9759;</span>
+        <h3>Karten aufhängen</h3>
+        <p>Hinten im PDF findest Du die acht Übungen im Originaltext als Karten. <em>Schneide sie aus</em> und häng sie dort auf, wo Du sie jeden Tag siehst.</p>
+      </div>
+      <div class="lm-step-card">
+        <div class="lm-step-num">2</div>
+        <span class="lm-step-icon">&#9788;</span>
+        <h3>Eine Übung wählen</h3>
+        <p>Nicht alle auf einmal. Such Dir <em>einen Aspekt</em> aus, der Dich anspricht, und nimm ihn eine Woche lang mit in Deinen Alltag.</p>
+      </div>
+      <div class="lm-step-card">
+        <div class="lm-step-num">3</div>
+        <span class="lm-step-icon">&#9998;</span>
+        <h3>Abends notieren</h3>
+        <p>Annette nimmt dafür bis heute Zettel und Stift: Was ist mir heute gelungen? Für welche Situation will ich die Übung <em>morgen</em> präsent haben?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DER EINE NÄCHSTE SCHRITT: DIE ÜBGRUPPE -->
+<section class="atm-lm-thanks-cta atm-on-dark" id="uebgruppe" style="padding: 90px 24px;">
+  <div class="container" style="max-width: 720px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow">Üb nicht allein</span>
+    <h2 style="color:#fff; font-size: clamp(28px, 3vw, 38px); margin: 14px 0 22px;">Geh den Pfad neun Wochen mit uns.</h2>
+    <p style="color: rgba(255,255,255,0.95); font-size: 18px; line-height: 1.6;">Allein lesen ist leicht, dranbleiben nicht. Deshalb haben wir den Pfad immer in einer Gruppe geübt. Woche für Woche eine Übung: Wir schauen zurück, was Du erlebt hast, und nehmen uns die nächste vor.</p>
+    <p style="color: rgba(255,255,255,0.95); font-size: 18px; line-height: 1.6;">Dienstags um 19 Uhr ab 12. Januar 2027, neun Treffen online, höchstens 30 Plätze.</p>
+
+    <div style="margin-top: 28px;">
+      <CTAButton href={SALESPAGE_URL} label="Zur Übungsgruppe →" large={true} meta="9 Wochen · online · ab 12. Januar 2027" />
+    </div>
+  </div>
+</section>
+
+<div class="lm-footer-note">
+  <div class="container">
+    <p>Fragen? Schreib uns jederzeit an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a></p>
+  </div>
+</div>
+
+<FunnelFooter />
+
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>
