@@ -1,0 +1,295 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+
+// Kongress-Seite für „Hätt ich doch mal." (Iris Pointinger, 9.–18.11.2026, Interview A&H an Tag 9).
+// Freebie: Kapitel „Der achtgliedrige Pfad" aus „Trau keinem, der nicht in einer glücklichen Beziehung ist".
+// V2 (2026-11-02): eigener, ruhiger Stil (Creme, Tiefblau, ein Akzent) statt 3-Tage-Look. V1 → HSC-Hub/xold/.
+// Ein Weg: Kapitel holen → Danke-Seite → Übungsgruppe. Projekt-Doku: ../HSC-Achtgliedriger-Pfad/
+
+// Quentn-Formular 1300 in der Kampagne „Der 8-gliedrige Pfad“: setzt REG | Pfad-Freebie | Kongress Pointinger,
+// Bestätigungsmail, danach /achtgliedriger-pfad-danke. Neue Kontakte landen vorher auf /achtgliedriger-pfad-fast-dabei.
+const QUENTN_FORM_URL = "https://himmelstosscoaching.eu-3.quentn-site.com/public/forms/1300/raw/submit";
+
+const belege = [
+  ['„Noch nie hat mir jemand so zugehört.“', 'Eine Angehörige zur Rezeptionistin eines Altenheims, die eine einzige dieser Übungen angewandt hatte.'],
+  ['„Mama, warum bist du so gut drauf?“', 'Eine Tochter, zwei Tage nachdem ihre Mutter angefangen hatte, einfach zuzuhören.'],
+  ['„Da passieren Wunder.“', 'Annette & Herbert über das, was in ihren Übungsgruppen jede Woche erzählt wird.'],
+];
+
+const uebungen = [
+  ['Samstag', 'Auf Urteile verzichten', 'Auf negative und positive, nicht nur in Gedanken, sondern auch in Gefühlen.'],
+  ['Sonntag', 'Bewusst entscheiden', 'Eine Entscheidung ordnet und gibt Kraft, manchmal löst sie einen jahrzehntealten Konflikt.'],
+  ['Montag', 'Die richtigen Worte', 'Nicht zu viele und nicht zu wenige, und Fragen, die einem Gespräch Bedeutung geben.'],
+  ['Dienstag', 'Bewusst handeln', 'Nicht richtig, sondern anders, und so, dass es den anderen nicht stört.'],
+  ['Mittwoch', 'Das Leben dient Dir', 'Alles, was Dir begegnet, ist für Dich da, auch das, was Dich am anderen stört.'],
+  ['Donnerstag', 'In der eigenen Kraft', 'Tun, was in Deiner Kraft liegt, und Ziele und Ideale ins Auge fassen.'],
+  ['Freitag', 'Vom Leben lernen', 'Von anderen und durch den Blick zurück. So entsteht eine Kultur des Rückblicks.'],
+  ['Jeden Tag', 'Tägliche Reflexion', 'Fünf Minuten am Tag: Wie geht es Dir, und lebst Du so, wie es Dir entspricht?'],
+];
+
+const inhalt = [
+  'Warum dieser Pfad für uns so wertvoll ist: 20 Jahre Übkreis, und was daraus geworden ist.',
+  'Alle acht Übungen mit Anregungen, wie Du sie im Alltag übst, in der Familie, im Beruf, mit Menschen, die Dir nahestehen.',
+  'Erlebnisse aus Schule, Praxis und Übungsgruppen, auch zum Thema Gewohnheiten.',
+  'Die acht Originaltexte nach Rudolf Steiner als Karten zum Ausschneiden und Aufhängen.',
+];
+---
+
+<FunnelLayout
+  title="Der achtgliedrige Pfad — acht Übungen, die Dich zu Dir selbst führen"
+  description="Kostenfreies Kapitel aus dem Buch von Annette & Herbert Himmelstoß: die acht Übungen des achtgliedrigen Pfads, eine für jeden Tag der Woche, mit allen Originaltexten zum Ausschneiden und Aufhängen."
+  canonical="https://himmelstosscoaching.de/achtgliedriger-pfad-optin"
+>
+<div class="po">
+
+<header class="po-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<!-- HERO -->
+<section class="po-hero">
+  <div class="po-wrap po-hero-grid">
+    <div class="po-hero-text">
+      <p class="po-kicker">Aus dem Kongress „Hätt ich doch mal.“</p>
+      <h1>Du weißt längst, was Du tun müsstest.<em>Acht Übungen, mit denen Du es auch tust.</em></h1>
+      <p class="po-lead">Eine Übung für jeden Tag der Woche, mitten im Alltag. Seit über 20 Jahren unser Übungsweg. Hol Dir das Kapitel aus unserem Buch, mit allen acht Übungen im Originaltext zum Aufhängen.</p>
+
+      <form class="po-form" action={QUENTN_FORM_URL} method="post">
+        <label>Vorname<input type="text" name="first_name" required autocomplete="given-name" /></label>
+        <label>E-Mail<input type="email" name="mail" required autocomplete="email" /></label>
+        <button type="submit">Kapitel kostenfrei holen</button>
+      </form>
+      <p class="po-fine">Sofort per E-Mail · Kein Spam · Jederzeit abbestellbar · <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+    <div class="po-hero-cover">
+      <img src="/img/pfad/pfad-cover-B-wochenstern.png" alt="Titelseite: Der achtgliedrige Pfad, mit dem Wochenstern und dem Kongress-Band" loading="eager" />
+      <p>16 Seiten · PDF</p>
+    </div>
+  </div>
+</section>
+
+<!-- BELEGE -->
+<section class="po-belege">
+  <div class="po-wrap po-belege-grid">
+    {belege.map(([zitat, quelle]) => (
+      <figure>
+        <blockquote>{zitat}</blockquote>
+        <figcaption>{quelle}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<!-- INTERVIEW -->
+<section class="po-section po-cream">
+  <div class="po-wrap po-split">
+    <figure class="po-photo">
+      <img src="/img/paar-strand.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+    </figure>
+    <div>
+      <p class="po-kicker">Aus dem Interview mit Iris Pointinger</p>
+      <h2>Wir haben ihn immer wieder erwähnt.</h2>
+      <p>Den achtgliedrigen Pfad. Acht Übungen, die auf Buddha zurückgehen und die Rudolf Steiner vor rund 100 Jahren in eine Form gebracht hat, die mitten im Alltag funktioniert.</p>
+      <p>Über 20 Jahre haben wir uns jede Woche mit anderen Menschen in einem Übkreis getroffen. Diese Übungen sind die Grundlage für das Leben geworden, das wir heute führen, und für unsere Arbeit mit Menschen und Paaren.</p>
+      <blockquote class="po-quote">„Wenn man diese Übungen vollkommen beherrscht, ist man ein vollkommener Mensch. Davon braucht man wahrscheinlich noch ein paar Leben. Aber sie sind einfach so wirksam im Alltag.“</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- DIE ACHT ÜBUNGEN -->
+<section class="po-section">
+  <div class="po-wrap">
+    <div class="po-center">
+      <p class="po-kicker">Was im Kapitel steckt</p>
+      <h2>Acht Übungen. Eine für jeden Tag.</h2>
+      <p class="po-intro">Du musst nicht alle auf einmal üben. Fang mit einer an, die Dich anspricht.</p>
+    </div>
+    <ol class="po-uebungen">
+      {uebungen.map(([tag, titel, text], i) => (
+        <li>
+          <span class="po-num">{i + 1}</span>
+          <div>
+            <p class="po-tag">{tag}</p>
+            <h3>{titel}</h3>
+            <p>{text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- SPIEGEL -->
+<section class="po-section po-navy">
+  <div class="po-wrap po-center">
+    <p class="po-kicker">Was die Übungen verändern</p>
+    <h2>Wir schneiden uns von uns selbst ab. <em>Meistens, ohne es zu merken.</em></h2>
+    <ul class="po-spiegel">
+      <li>Wir beurteilen uns ständig.</li>
+      <li>Wir definieren uns über Leistung.</li>
+      <li>Wir halten für die Wahrheit, was nur eine Meinung ist.</li>
+      <li>Und verlassen uns auf andere, weil wir glauben, sie wüssten es.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GRUPPE -->
+<section class="po-section po-cream">
+  <div class="po-wrap po-narrow po-center">
+    <p class="po-kicker">Ein Tipp aus dem Interview</p>
+    <h2>Üb nicht allein.</h2>
+    <p>Die Begeisterung am Anfang kennt jeder. Ein paar Tage später ist die Übung vergessen. Deshalb haben wir den Pfad immer in einer Gruppe geübt. Wenn Du weißt, am Dienstag trifft sich die Gruppe, dann magst Du nicht dasitzen und sagen: Ich hab nicht dran gedacht.</p>
+    <p>Und wenn sich die Gruppe trifft, fragen wir nicht, wer es vergessen hat, sondern: Wer hat etwas erlebt mit dieser Übung?</p>
+    <p class="po-note">Am 12. Januar 2027 startet unsere nächste Übungsgruppe. Mehr dazu findest Du, wenn Du Dir das Kapitel geholt hast.</p>
+  </div>
+</section>
+
+<!-- WER WIR SIND -->
+<section class="po-section">
+  <div class="po-wrap po-split po-split-rev">
+    <div>
+      <p class="po-kicker">Wer wir sind</p>
+      <h2>Annette &amp; Herbert Himmelstoß</h2>
+      <p>Seit über 30 Jahren verheiratet, Eltern von drei erwachsenen Kindern. Annette ist Ärztin, Herbert war Lehrer. Heute begleiten wir Menschen und Paare von Zypern aus.</p>
+      <p>Die acht Übungen sind ein Grundpfeiler geblieben, für uns selbst und für alle, die wir begleiten. Es fasziniert uns immer wieder, wie wir in acht Übungen, die auf eine DIN-A4-Seite passen, nach 20 Jahren noch Neues entdecken.</p>
+    </div>
+    <figure class="po-photo">
+      <img src="/img/annette-herbert-mallorca.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<!-- ANMELDUNG -->
+<section class="po-section po-cream" id="anmeldung">
+  <div class="po-wrap po-signup">
+    <div>
+      <p class="po-kicker">Hol es Dir jetzt</p>
+      <h2>Fang mit einer Übung an.</h2>
+      <ul class="po-inhalt">
+        {inhalt.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+    <div>
+      <form class="po-form po-form-card" action={QUENTN_FORM_URL} method="post">
+        <label>Vorname<input type="text" name="first_name" required autocomplete="given-name" /></label>
+        <label>E-Mail<input type="email" name="mail" required autocomplete="email" /></label>
+        <button type="submit">Kapitel kostenfrei holen</button>
+        <p class="po-fine">Du bekommst das Kapitel und in den nächsten Wochen ein paar begleitende Mails von Annette &amp; Herbert. Kein Spam, jederzeit abbestellbar. <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<style>
+  .po {
+    --navy: #2C4B7B; --blue: #2783ac; --ink: #2A2A2E; --soft: #55555E; --light: #8A8A90;
+    --cream: #FBF6EE; --line: #E7DCCB; --accent: #FA9D56;
+    font-family: 'League Spartan', Helvetica, Arial, sans-serif; color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .po :global(h1), .po :global(h2), .po :global(h3) { font-family: 'Fontin', Georgia, serif; color: var(--navy); font-weight: 400; letter-spacing: 0; margin: 0; }
+  .po p { font-size: 18px; line-height: 1.7; color: var(--soft); margin: 0 0 18px; }
+  .po-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .po-narrow { max-width: 720px; }
+  .po-center { text-align: center; }
+  .po-kicker { font-size: 13px !important; letter-spacing: .18em; text-transform: uppercase; color: var(--accent) !important; font-weight: 600; margin: 0 0 16px !important; }
+  .po-section { padding: 110px 0; background: #fff; }
+  .po-cream { background: var(--cream); }
+  .po-section h2 { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.2; margin-bottom: 26px; }
+
+  /* Kopf */
+  .po-head { background: #fff; border-bottom: 1px solid var(--line); display: flex; justify-content: center; padding: 18px 0; }
+  .po-head img { height: 48px; width: auto; display: block; margin: 0 auto; }
+
+  /* Hero */
+  .po-hero { background: var(--cream); padding: 96px 0 104px; border-bottom: 1px solid var(--line); }
+  .po-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 72px; align-items: center; }
+  .po-hero h1 { font-size: clamp(36px, 4.2vw, 54px); line-height: 1.12; margin-bottom: 24px; }
+  .po-hero h1 em { display: block; font-style: italic; color: var(--blue); font-size: .72em; line-height: 1.3; margin-top: 14px; }
+  .po-lead { max-width: 540px; }
+  .po-hero-cover { text-align: center; }
+  .po-hero-cover img { width: 100%; max-width: 360px; display: block; margin: 0 auto; box-shadow: 0 30px 60px -28px rgba(44, 75, 123, .45), 0 2px 6px rgba(44, 75, 123, .08); }
+  .po-hero-cover p { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--light); margin: 22px 0 0; }
+
+  /* Formular */
+  .po-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 540px; margin-top: 30px; }
+  .po-form label { display: flex; flex-direction: column; gap: 7px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--light); font-weight: 600; }
+  .po-form input { font: inherit; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); padding: 14px 16px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+  .po-form input:focus { outline: none; border-color: var(--navy); }
+  .po-form button { grid-column: 1 / -1; font: inherit; font-size: 17px; font-weight: 600; letter-spacing: .03em; color: #fff; background: var(--navy); border: 0; border-radius: 4px; padding: 17px 24px; cursor: pointer; transition: background .2s; }
+  .po-form button:hover { background: #1f3a63; }
+  .po-fine { font-size: 13px !important; line-height: 1.6 !important; color: var(--light) !important; margin: 14px 0 0 !important; }
+  .po-fine a { color: var(--light); }
+  .po-form-card { grid-template-columns: 1fr; background: #fff; border: 1px solid var(--line); padding: 34px; margin-top: 0; max-width: none; }
+  .po-form-card .po-fine { margin-top: 4px !important; }
+
+  /* Belege */
+  .po-belege { background: #fff; padding: 72px 0; border-bottom: 1px solid var(--line); }
+  .po-belege-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .po-belege figure { margin: 0; padding: 4px 36px; text-align: center; }
+  .po-belege figure + figure { border-left: 1px solid var(--line); }
+  .po-belege blockquote { margin: 0 0 14px; font-family: 'Fontin', Georgia, serif; font-style: italic; font-size: 23px; line-height: 1.35; color: var(--navy); }
+  .po-belege figcaption { font-size: 15px; line-height: 1.55; color: var(--light); }
+
+  /* Zweispaltig mit Foto */
+  .po-split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .po-split-rev { grid-template-columns: 1.1fr .9fr; }
+  .po-photo { margin: 0; }
+  .po-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+  .po-quote { margin: 30px 0 0; padding: 4px 0 4px 26px; border-left: 2px solid var(--accent); font-family: 'Fontin', Georgia, serif; font-style: italic; font-size: 21px; line-height: 1.5; color: var(--navy); }
+
+  /* Acht Übungen */
+  .po-intro { max-width: 560px; margin: 0 auto !important; }
+  .po-uebungen { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px; }
+  .po-uebungen li { display: grid; grid-template-columns: 54px 1fr; gap: 8px; padding: 28px 0; border-top: 1px solid var(--line); }
+  .po-num { font-family: 'Fontin', Georgia, serif; font-size: 30px; line-height: 1; color: var(--accent); }
+  .po-tag { font-size: 12px !important; letter-spacing: .16em; text-transform: uppercase; color: var(--light) !important; margin: 2px 0 6px !important; font-weight: 600; }
+  .po-uebungen h3 { font-size: 24px; margin-bottom: 8px; }
+  .po-uebungen p:last-child { font-size: 16px; margin: 0; }
+
+  /* Spiegel */
+  .po-navy { background: var(--navy); }
+  .po-navy h2 { color: #fff !important; max-width: 760px; margin: 0 auto 50px; }
+  .po-navy h2 em { display: block; font-style: italic; color: #C9DDEA; }
+  .po-spiegel { list-style: none; margin: 0 auto; padding: 0; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; }
+  .po-spiegel li { padding: 24px 28px; font-family: 'Fontin', Georgia, serif; font-style: italic; font-size: 21px; line-height: 1.45; color: #fff; border-top: 1px solid rgba(255,255,255,.18); }
+  .po-spiegel li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.18); }
+
+  .po-note { font-size: 16px !important; color: var(--navy) !important; margin-top: 30px !important; padding-top: 26px; border-top: 1px solid var(--line); }
+
+  /* Anmeldung */
+  .po-signup { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .po-inhalt { list-style: none; margin: 0; padding: 0; }
+  .po-inhalt li { position: relative; padding: 14px 0 14px 30px; font-size: 17px; line-height: 1.6; color: var(--soft); border-top: 1px solid var(--line); }
+  .po-inhalt li::before { content: ""; position: absolute; left: 4px; top: 25px; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--accent); }
+
+  @media (max-width: 900px) {
+    .po-section { padding: 76px 0; }
+    .po-hero { padding: 56px 0 70px; }
+    .po-hero-grid, .po-split, .po-split-rev, .po-signup { grid-template-columns: 1fr; gap: 44px; }
+    .po-hero-cover { order: -1; }
+    .po-hero-cover img { max-width: 230px; }
+    .po-belege-grid { grid-template-columns: 1fr; }
+    .po-belege figure { padding: 22px 8px; }
+    .po-belege figure + figure { border-left: 0; border-top: 1px solid var(--line); }
+    .po-uebungen, .po-spiegel { grid-template-columns: 1fr; }
+    .po-spiegel li:nth-child(odd) { border-right: 0; }
+    .po-split-rev .po-photo { order: -1; }
+    .po-photo img { aspect-ratio: 4 / 3; }
+  }
+  @media (max-width: 520px) {
+    .po-form { grid-template-columns: 1fr; }
+    .po-form-card { padding: 24px; }
+    .po p { font-size: 17px; }
+  }
+</style>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>
