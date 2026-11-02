@@ -223,6 +223,9 @@ const FORM_ACTIVE = QUENTN_FORM_URL !== "";
 </FunnelLayout>
 
 <style>
+  /* Schatten hinter Cover und Formular: dunkelblau auf Pfirsich wirkte wie eine schmutzige Kante → leichter, wärmer */
+  :global(.lm-hero .lm-cover-mockup img) { box-shadow: 0 16px 36px rgba(160, 95, 70, .16), 0 4px 10px rgba(44, 75, 123, .08) !important; }
+  :global(.lm-hero .lm-hero-form) { box-shadow: 0 8px 24px rgba(160, 95, 70, .10) !important; }
   .pf-ah-foto { margin: 8px auto 30px; max-width: 520px; text-align: center; }
   .pf-ah-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 34px rgba(44,75,123,.18); display: block; }
   .pf-ah-foto figcaption { margin-top: 10px; font-style: italic; color: #2C4B7B; font-size: 15px; }

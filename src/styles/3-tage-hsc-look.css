@@ -254,6 +254,9 @@ h1, h2, h3, h4, .anmeldung-title, .lm-final-cta-headline {
 /* ── Schluss-Block: Sunset-Verlauf der Website ───────────── */
 .final-cta.atm-lm-final {
   background: var(--hsc-sunset);
+  /* Bezugsrahmen fuer den Schatten (.final-cta::before, salespage.css). Ohne position
+     legte sich der dunkle Fleck ueber den ersten Bildschirm — hinter Formular und Cover. */
+  position: relative;
 }
 
 /* ── Tag-Karten & Liste: Tuerkis als zweiter Akzent ──────── */
