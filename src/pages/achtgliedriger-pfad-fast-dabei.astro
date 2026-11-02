@@ -1,0 +1,76 @@
+---
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/salespage.css';
+import '../styles/lead-magnet.css';
+
+// Zwischenseite nach dem Opt-in auf /achtgliedriger-pfad-optin (Quentn-Formular 1300), bis die E-Mail bestätigt ist.
+// Betreff unten = Betreff der Bestätigungsmail in Quentn. Projekt-Doku: ../HSC-Achtgliedriger-Pfad/ (2026-11-02 von beziehung.* hierher umgezogen)
+---
+
+<FunnelLayout
+  title="Fast geschafft — bitte bestätige kurz Deine E-Mail"
+  description="Ein letzter kleiner Schritt: Bestätige Deine E-Mail-Adresse, dann schicken wir Dir das Kapitel."
+  noindex={true}
+>
+
+<header class="site-header lm-header">
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="/img/logo.svg" alt="Himmelstoß" class="logo-img" />
+      <span class="logo-coaching">COACHING</span>
+    </div>
+  </div>
+</header>
+
+<section class="atm-lm-confirm-hero lm-hero-narrow">
+  <div class="narrow">
+    <span class="eyebrow">Fast geschafft</span>
+    <h1>Ein <em>kleiner Schritt</em> fehlt noch.</h1>
+    <p class="lm-hero-sub-narrow">
+      Wir haben Dir gerade eine E-Mail geschickt.<br>
+      Klick einmal kurz auf den Link darin —<br>
+      dann ist Dein Kapitel auf dem Weg zu Dir.
+    </p>
+    <p class="danke-hero-sig">— Annette &amp; Herbert</p>
+  </div>
+</section>
+
+<section class="lm-steps-section lm-steps-confirm">
+  <div class="container">
+    <div class="lm-steps-grid">
+      <div class="lm-step-card">
+        <div class="lm-step-num">1</div>
+        <span class="lm-step-icon">&#9993;</span>
+        <h3>Postfach öffnen</h3>
+        <p>Betreff: <em>„Bitte bestätige – dann kommt dein Kapitel"</em>. Schau auch kurz im Spam-Ordner nach.</p>
+      </div>
+      <div class="lm-step-card">
+        <div class="lm-step-num">2</div>
+        <span class="lm-step-icon">&#10003;</span>
+        <h3>Bestätigen</h3>
+        <p>Ein Klick auf den Link genügt. So wissen wir, dass Du es bist und wir Dir schreiben dürfen.</p>
+      </div>
+      <div class="lm-step-card">
+        <div class="lm-step-num">3</div>
+        <span class="lm-step-icon">&#9788;</span>
+        <h3>Kapitel bekommen</h3>
+        <p>Direkt danach kannst Du das PDF mit allen acht Übungen herunterladen. Es kommt auch per Mail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lm-footer-note">
+  <div class="container">
+    <p>Keine E-Mail bekommen? Schreib uns an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a> — wir helfen Dir weiter.</p>
+  </div>
+</div>
+
+<FunnelFooter />
+
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>
