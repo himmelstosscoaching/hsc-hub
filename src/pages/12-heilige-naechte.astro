@@ -74,10 +74,12 @@ const leistungen = [
 
 // Preisstufen als Zeitleiste: sichtbar ist immer nur der Preis, der heute gilt.
 // „bis“ = letzter Tag der Stufe (ISO). Die letzte Stufe laeuft ohne Ende.
+// `frist` steht gross unter dem aktiven Preis, `ab` in der ruhigen Staffelzeile darunter.
+// Zeitraeume statt nur Startdaten — so sieht man auf einen Blick, wie lange eine Stufe gilt.
 const preisstufen = [
-  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-29', frist: 'Nur bis 29. November', ab: '',                code: 'FRUEHBUCHER26' },
-  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-12', frist: 'Nur bis 12. Dezember', ab: 'Ab 30. November', code: 'ADVENT2026' },
-  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 13. Dezember', code: null },
+  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-29', frist: 'Nur bis Sonntag, 29. November', ab: 'bis 29.11.',          code: 'FRUEHBUCHER26' },
+  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-12', frist: 'Nur bis Samstag, 12. Dezember', ab: 'vom 30.11. bis 12.12.', code: 'ADVENT2026' },
+  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                              ab: 'ab 13.12.',           code: null },
 ];
 
 // Datum in deutscher Zeit (Gutscheine laufen um 23:59 Uhr Berlin ab, nicht um Mitternacht UTC)
@@ -88,7 +90,7 @@ const buchenUrl = checkoutUrl(aktiv.code);
 // Ruhige Zeile darunter: was danach kommt — Transparenz ohne Vergleichsarbeit.
 const staffelText = preisstufen
   .slice(aktivIndex + 1)
-  .map((p) => `${p.ab} ${p.preis}`)
+  .map((p) => `${p.preis} ${p.ab}`)
   .join(' · ');
 
 const stimmen = [
