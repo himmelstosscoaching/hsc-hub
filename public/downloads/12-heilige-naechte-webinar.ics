@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Himmelstoss Coaching//Webinar//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:hn-webinar-2026-11-26@himmelstosscoaching.de
+DTSTAMP:20261113T120000Z
+DTSTART:20261126T183000Z
+DTEND:20261126T200000Z
+SUMMARY:Webinar: Die 12 heiligen Nächte (Annette & Herbert Himmelstoß)
+DESCRIPTION:Zoom-Raum: https://us06web.zoom.us/j/8233498646
+LOCATION:https://us06web.zoom.us/j/8233498646
+URL:https://us06web.zoom.us/j/8233498646
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Gleich beginnt das Webinar Die 12 heiligen Nächte
+END:VALARM
+END:VEVENT
+END:VCALENDAR

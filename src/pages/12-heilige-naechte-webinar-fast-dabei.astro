@@ -1,0 +1,58 @@
+---
+// Zwischenseite nach dem Opt-in auf /12-heilige-naechte-webinar, bis die E-Mail bestätigt ist.
+// Betreff unten = Betreff der Bestätigungsmail in Quentn. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/hn-webinar.css';
+---
+
+<FunnelLayout
+  title="Fast geschafft — bitte bestätige kurz deine E-Mail"
+  description="Ein letzter kleiner Schritt: Bestätige deine E-Mail-Adresse, dann bekommst du den Zoom-Link zum Webinar."
+  noindex={true}
+>
+<div class="hw">
+
+<header class="hw-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<section class="hw-hero hw-hero--single">
+  <div class="hw-wrap">
+    <p class="hw-kicker">Fast geschafft</p>
+    <h1>Ein kleiner Schritt<em>fehlt noch.</em></h1>
+    <p>Wir haben dir gerade eine E-Mail geschickt. Klick einmal kurz auf den Link darin, dann bist du beim Webinar dabei und bekommst deinen Zoom-Link.</p>
+    <p class="hw-sig">— Annette &amp; Herbert</p>
+  </div>
+</section>
+
+<section class="hw-section hw-cream">
+  <div class="hw-wrap">
+    <div class="hw-schritte" style="margin-top:0;">
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">1</div>
+        <h3>Postfach öffnen</h3>
+        <p>Betreff: <em>„Bitte bestätige – dann bist du am 26. November dabei“</em>. Schau auch kurz im Spam-Ordner nach.</p>
+      </div>
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">2</div>
+        <h3>Bestätigen</h3>
+        <p>Ein Klick auf den Link genügt. So wissen wir, dass du es bist und wir dir schreiben dürfen.</p>
+      </div>
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">3</div>
+        <h3>Zoom-Link bekommen</h3>
+        <p>Direkt danach siehst du alle Angaben zum Webinar. Den Zoom-Link schicken wir dir auch per Mail.</p>
+      </div>
+    </div>
+    <p class="hw-note">Keine E-Mail bekommen? Schreib uns an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a>, wir helfen dir weiter.</p>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>

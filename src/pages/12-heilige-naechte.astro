@@ -13,7 +13,8 @@ import FounderTrust from '../components/FounderTrust.astro';
 
 // Checkout: Digistore-Produkt 751668 „12 heilige Nächte 2026/27“ (Grundpreis 330 €, auch 3 × 110 €).
 //    Die Preisstufen laufen über Gutscheincodes mit Ablaufdatum (in Digistore angelegt):
-//    FRUEHBUCHER26 = −90 € bis 15.11. · ADVENT2026 = −60 € vom 16.11. bis 10.12. · danach ohne Code.
+//    FRUEHBUCHER26 = −90 € bis 29.11. · ADVENT2026 = −60 € vom 30.11. bis 12.12. · danach ohne Code.
+//    (2026-11-13 verlängert wegen Webinar 26.11.: 240 € gilt 72 h nach dem Webinar.)
 //    Jeder „Anmelden“-Knopf bekommt automatisch den Code der aktuellen Stufe angehängt (s. Skript unten).
 //    Produkt 577723 ist die MONATSAUSRICHTUNG, 620972 die Edition 2025 → beide NICHT verlinken.
 const checkoutBasis = 'https://www.digistore24.com/product/751668';
@@ -74,9 +75,9 @@ const leistungen = [
 // Preisstufen als Zeitleiste: sichtbar ist immer nur der Preis, der heute gilt.
 // „bis“ = letzter Tag der Stufe (ISO). Die letzte Stufe laeuft ohne Ende.
 const preisstufen = [
-  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-15', frist: 'Nur bis 15. November', ab: '',                code: 'FRUEHBUCHER26' },
-  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-10', frist: 'Nur bis 10. Dezember', ab: 'Ab 16. November', code: 'ADVENT2026' },
-  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 11. Dezember', code: null },
+  { tag: 'Frühbucherpreis', preis: '240 €', bis: '2026-11-29', frist: 'Nur bis 29. November', ab: '',                code: 'FRUEHBUCHER26' },
+  { tag: 'Aktionspreis',    preis: '270 €', bis: '2026-12-12', frist: 'Nur bis 12. Dezember', ab: 'Ab 30. November', code: 'ADVENT2026' },
+  { tag: 'Regulärer Preis', preis: '330 €', bis: null,         frist: '',                     ab: 'Ab 13. Dezember', code: null },
 ];
 
 // Datum in deutscher Zeit (Gutscheine laufen um 23:59 Uhr Berlin ab, nicht um Mitternacht UTC)
@@ -280,7 +281,7 @@ const stimmen = [
 
 <script>
   // Der Preis wird beim Build gesetzt. Ohne neuen Build waere er nach dem
-  // 15.11. bzw. 10.12. falsch — deshalb hier im Browser noch einmal anhand
+  // 29.11. bzw. 12.12. falsch — deshalb hier im Browser noch einmal anhand
   // des heutigen Datums nachgezogen.
   const block = document.querySelector('[data-preisblock]');
   if (block instanceof HTMLElement && block.dataset.stufen) {
