@@ -1,17 +1,17 @@
 ---
 // Opt-in-Seite: kostenfreies Live-Webinar „Die 12 heiligen Nächte“, Do 26.11.2026, 19:30 Uhr (Zoom).
 // Quentn-Formular → /12-heilige-naechte-webinar-fast-dabei → Bestätigung → /12-heilige-naechte-webinar-danke.
-// Programmpunkte = Vorschlag (Christian, 2026-11-13), von A&H noch abzunicken. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+// Programmpunkte und „Wer wir sind“ von Annette (2026-11-13); Hero-Hook A + Abschnitt B aus E - Kundennutzen-und-Hooks-V01.md. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
 import FunnelLayout from '../layouts/FunnelLayout.astro';
 import FunnelFooter from '../components/FunnelFooter.astro';
 import '../styles/hn-webinar.css';
 import { QUENTN_FORM_URL, FORMULAR_BEREIT, DATUM_LANG, DATUM_KURZ, UHRZEIT } from '../data/hn-webinar';
 
 const punkte = [
-  ['Warum gerade diese zwölf Nächte', 'Zwischen Weihnachten und dem 6. Januar ist die Grenze zwischen Diesseits und Jenseits durchlässig. Es gelingt leichter als sonst, an die eigenen inneren Impulse anzuschließen.'],
-  ['Jede Nacht ein Monat', 'Wie jede der zwölf Nächte für einen Monat des kommenden Jahres steht, und wie der Blick auf das alte Jahr mit den Tierkreiskräften neue Gestaltungsimpulse gibt.'],
-  ['Eine freie Meditation zum Mitmachen', 'Eine Kostprobe dessen, was wir in den heiligen Nächten jeden Morgen gemeinsam tun. Du brauchst nur einen ruhigen Platz.'],
-  ['Deine Morgenbotschaften', 'Wie du sie empfängst und wie du unterscheidest, was alte Gedanken sind und was echte Inspiration. Und Zeit für deine Fragen.'],
+  ['Die Welt braucht unser Menschsein', 'Warum es gerade heute so wichtig ist, unsere Menschlichkeit bewusst zu leben, und wie jeder von uns dazu beitragen kann, die Welt ein wenig menschlicher zu machen.'],
+  ['Die besondere Kraft der zwölf heiligen Nächte', 'Was die Zeit zwischen Weihnachten und dem 6. Januar so besonders macht und wie wir sie nutzen können, um innezuhalten, uns neu auszurichten und Kraft zu schöpfen.'],
+  ['Eine Meditation zum Mitmachen', 'Erlebe selbst, wie es sich anfühlt, den Alltag loszulassen, still zu werden und dich für deine eigenen inneren Impulse zu öffnen.'],
+  ['Deine zwölf Morgenbotschaften für 2027', 'Wie du in jeder der zwölf Nächte eine persönliche Botschaft für einen Monat des neuen Jahres empfängst, und wie diese Botschaften dich durch das ganze Jahr begleiten können.'],
 ];
 
 const formular = (id) => (
@@ -25,7 +25,7 @@ const formular = (id) => (
 
 <FunnelLayout
   title="Die 12 heiligen Nächte — kostenfreies Live-Webinar am 26. November | Himmelstoß Coaching"
-  description="Kostenfreies Live-Webinar mit Annette & Herbert Himmelstoß am 26. November 2026 um 19:30 Uhr: was die zwölf heiligen Nächte so besonders macht, eine geführte Meditation und wie du deine Botschaften für 2027 empfängst."
+  description="Es gibt keine Vorlage für dein Leben. Aber zwölf Nächte, in denen du sie selbst findest. Kostenfreies Live-Webinar mit Annette & Herbert Himmelstoß am 26. November 2026 um 19:30 Uhr."
   canonical="https://himmelstosscoaching.de/12-heilige-naechte-webinar"
 >
 <div class="hw">
@@ -41,8 +41,9 @@ const formular = (id) => (
   <div class="hw-wrap hw-hero-grid">
     <div>
       <p class="hw-kicker">Kostenfreies Live-Webinar · {DATUM_KURZ} · {UHRZEIT}</p>
-      <h1>Die 12 heiligen Nächte<em>Wie du zwischen den Jahren deine Botschaften für 2027 empfängst.</em></h1>
-      <p>Ein Abend mit Annette &amp; Herbert im Zoom: was diese zwölf Nächte so besonders macht, eine geführte Meditation zum Mitmachen und wie die Morgenbotschaften entstehen, die dich durch das ganze neue Jahr begleiten.</p>
+      <h1>Es gibt keine Vorlage für dein Leben.<em>Aber zwölf Nächte, in denen du sie selbst findest.</em></h1>
+      <p>Die 12 heiligen Nächte zwischen Weihnachten und dem 6. Januar sind eine besondere Zeit: zur Ruhe kommen, dich auf das Wesentliche besinnen und neue Kraft schöpfen. Mit persönlichen Morgenbotschaften, die dich Monat für Monat durch 2027 begleiten.</p>
+      <p>Erlebe mit Annette &amp; Herbert einen Abend im Zoom, mit einer gemeinsamen Meditation und neuen Perspektiven auf Weihnachten.</p>
     </div>
     <div class="hw-card" id="anmeldung">
       <h2>Sei dabei</h2>
@@ -53,12 +54,23 @@ const formular = (id) => (
   </div>
 </section>
 
+<!-- KENNST DU DAS -->
+<section class="hw-section hw-cream">
+  <div class="hw-wrap hw-narrow hw-center">
+    <p class="hw-kicker">Kennst du das?</p>
+    <h2>Vorsätze halten bis Mitte Januar.</h2>
+    <p>Du nimmst dir für das neue Jahr etwas vor, und im Februar ist der Schwung weg. Oder du weißt gar nicht so genau, was du eigentlich willst, und richtest dich doch wieder nach dem, was andere erwarten.</p>
+    <p>Und vielleicht spürst du auch: Die Welt braucht gerade mehr Menschlichkeit, Mitgefühl und Verbundenheit. Woher nehmen wir die Kraft dafür?</p>
+    <p>Die Botschaften aus den 12 heiligen Nächten kommen nicht von außen, sondern aus dir. Und sie tragen dich durch das ganze Jahr: Noch im Herbst schlagen unsere Teilnehmer nach, was ihnen für den jeweiligen Monat geschenkt wurde, und finden darin ihre Antwort.</p>
+  </div>
+</section>
+
 <!-- PROGRAMM -->
 <section class="hw-section">
   <div class="hw-wrap">
     <div class="hw-center">
-      <p class="hw-kicker">An diesem Abend</p>
-      <h2>Rauhnächte einmal anders.</h2>
+      <p class="hw-kicker">Weihnachten einmal anders</p>
+      <h2>Weihnachten als Kraftquelle für unser Menschsein.</h2>
     </div>
     <ul class="hw-punkte">
       {punkte.map(([titel, text]) => (
@@ -78,7 +90,7 @@ const formular = (id) => (
 <section class="hw-section hw-cream hw-center">
   <div class="hw-wrap">
     <span class="hw-pull-mark" aria-hidden="true"></span>
-    <p class="hw-pull">Zwölf Nächte, in denen die Grenze dünn wird.</p>
+    <p class="hw-pull">Die Welt braucht unser Menschsein. Und Weihnachten kann uns dafür stärken.</p>
   </div>
 </section>
 
@@ -91,8 +103,9 @@ const formular = (id) => (
     <div>
       <p class="hw-kicker">Wer wir sind</p>
       <h2>Annette &amp; Herbert Himmelstoß</h2>
-      <p>Seit vielen Jahren nehmen wir uns in den 12 heiligen Nächten bewusst den Raum, den Alltag weitgehend loszulassen, und achten darauf, was uns in diesen Tagen begegnet. Seit einigen Jahren gehen wir diesen Weg gemeinsam mit einer Gruppe, jeden Morgen im Zoom.</p>
+      <p>Seit vielen Jahren gestalten wir die zwölf heiligen Nächte ganz bewusst als eine Zeit der Stille, der inneren Einkehr und der Inspiration. Seit einigen Jahren teilen wir diese Erfahrung mit Menschen, die sich jeden Morgen mit uns im Zoom treffen.</p>
       <p>Annette ist Ärztin, Herbert war Lehrer. Heute begleiten wir Menschen und Paare von Zypern aus.</p>
+      <p>Uns bewegt die Frage, wie wir unser Menschsein immer bewusster leben und damit zu einer menschlicheren Welt beitragen können.</p>
       <blockquote class="hw-quote">
         „Was da durch mich durchgeflossen ist und nachher auf dem Papier stand, hat mich täglich neu erstaunt!“
         <cite>Veronika Sudhoff, Teilnehmerin der 12 heiligen Nächte</cite>
@@ -106,6 +119,7 @@ const formular = (id) => (
   <div class="hw-wrap hw-narrow hw-center">
     <p class="hw-kicker">Kostenfrei</p>
     <h2>Komm am 26. November dazu.</h2>
+    <p style="margin-top:16px;">Entdecke mit uns, wie die zwölf heiligen Nächte zu einer Kraftquelle für dein Leben und das kommende Jahr werden können.</p>
     <div class="hw-card" style="text-align:left;margin-top:32px;">
       <p class="hw-termin-mini">{DATUM_LANG} · {UHRZEIT} · im Zoom</p>
       <Fragment set:html={formular('f')} />

@@ -1,0 +1,134 @@
+---
+// Opt-in-Seite: kostenfreies Live-Webinar „Die 12 heiligen Nächte“, Do 26.11.2026, 19:30 Uhr (Zoom).
+// Quentn-Formular → /12-heilige-naechte-webinar-fast-dabei → Bestätigung → /12-heilige-naechte-webinar-danke.
+// Programmpunkte = Vorschlag (Christian, 2026-11-13), von A&H noch abzunicken. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/hn-webinar.css';
+import { QUENTN_FORM_URL, FORMULAR_BEREIT, DATUM_LANG, DATUM_KURZ, UHRZEIT } from '../data/hn-webinar';
+
+const punkte = [
+  ['Warum gerade diese zwölf Nächte', 'Zwischen Weihnachten und dem 6. Januar ist die Grenze zwischen Diesseits und Jenseits durchlässig. Es gelingt leichter als sonst, an die eigenen inneren Impulse anzuschließen.'],
+  ['Jede Nacht ein Monat', 'Wie jede der zwölf Nächte für einen Monat des kommenden Jahres steht, und wie der Blick auf das alte Jahr mit den Tierkreiskräften neue Gestaltungsimpulse gibt.'],
+  ['Eine freie Meditation zum Mitmachen', 'Eine Kostprobe dessen, was wir in den heiligen Nächten jeden Morgen gemeinsam tun. Du brauchst nur einen ruhigen Platz.'],
+  ['Deine Morgenbotschaften', 'Wie du sie empfängst und wie du unterscheidest, was alte Gedanken sind und was echte Inspiration. Und Zeit für deine Fragen.'],
+];
+
+const formular = (id) => (
+  `<form class="hw-form" action="${QUENTN_FORM_URL}" method="post">
+    <label for="${id}-vn">Vorname<input id="${id}-vn" type="text" name="first_name" required autocomplete="given-name" /></label>
+    <label for="${id}-em">E-Mail<input id="${id}-em" type="email" name="mail" required autocomplete="email" /></label>
+    <button type="submit"${FORMULAR_BEREIT ? '' : ' disabled title="Formular noch nicht verbunden"'}>Kostenfrei Platz sichern</button>
+  </form>`
+);
+---
+
+<FunnelLayout
+  title="Die 12 heiligen Nächte — kostenfreies Live-Webinar am 26. November | Himmelstoß Coaching"
+  description="Es gibt keine Vorlage für dein Leben. Aber zwölf Nächte, in denen du sie selbst findest. Kostenfreies Live-Webinar mit Annette & Herbert Himmelstoß am 26. November 2026 um 19:30 Uhr."
+  canonical="https://himmelstosscoaching.de/12-heilige-naechte-webinar"
+>
+<div class="hw">
+
+<header class="hw-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<!-- HERO -->
+<section class="hw-hero">
+  <img class="hw-hero-snow hw-hero-snow--l" src="/img/heilige-naechte/Schnee-Tannen.jpeg" alt="" aria-hidden="true" />
+  <img class="hw-hero-snow hw-hero-snow--r" src="/img/heilige-naechte/Schnee-Wald.jpeg" alt="" aria-hidden="true" />
+  <div class="hw-wrap hw-hero-grid">
+    <div>
+      <p class="hw-kicker">Die 12 heiligen Nächte · Kostenfreies Live-Webinar · {DATUM_KURZ} · {UHRZEIT}</p>
+      <h1>Es gibt keine Vorlage für dein Leben.<em>Aber zwölf Nächte, in denen du sie selbst findest.</em></h1>
+      <p>Ein Abend mit Annette &amp; Herbert im Zoom: was die zwölf Nächte zwischen Weihnachten und dem 6. Januar so besonders macht, eine geführte Meditation zum Mitmachen und wie du deine Botschaften für 2027 empfängst, eine für jeden Monat.</p>
+    </div>
+    <div class="hw-card" id="anmeldung">
+      <h2>Sei dabei</h2>
+      <p class="hw-termin-mini">{DATUM_LANG} · {UHRZEIT} · im Zoom</p>
+      <Fragment set:html={formular('h')} />
+      <p class="hw-fine">Den Zoom-Link bekommst du per E-Mail. Kannst du nicht live dabei sein, schicken wir dir die Aufzeichnung. Kein Spam, jederzeit abbestellbar. <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- KENNST DU DAS -->
+<section class="hw-section hw-cream">
+  <div class="hw-wrap hw-narrow hw-center">
+    <p class="hw-kicker">Kennst du das?</p>
+    <h2>Vorsätze halten bis Mitte Januar.</h2>
+    <p>Du nimmst dir für das neue Jahr etwas vor, und im Februar ist der Schwung weg. Oder du weißt gar nicht so genau, was du eigentlich willst, und richtest dich doch wieder nach dem, was andere erwarten.</p>
+    <p>Die Botschaften aus den 12 heiligen Nächten kommen nicht von außen, sondern aus dir. Und sie tragen dich durch das ganze Jahr: Noch im Herbst schlagen unsere Teilnehmer nach, was ihnen für den jeweiligen Monat geschenkt wurde, und finden darin ihre Antwort.</p>
+  </div>
+</section>
+
+<!-- PROGRAMM -->
+<section class="hw-section">
+  <div class="hw-wrap">
+    <div class="hw-center">
+      <p class="hw-kicker">An diesem Abend</p>
+      <h2>Rauhnächte einmal anders.</h2>
+    </div>
+    <ul class="hw-punkte">
+      {punkte.map(([titel, text]) => (
+        <li>
+          <span class="hw-stern" aria-hidden="true">✦</span>
+          <div>
+            <h3>{titel}</h3>
+            <p>{text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- ZITAT -->
+<section class="hw-section hw-cream hw-center">
+  <div class="hw-wrap">
+    <span class="hw-pull-mark" aria-hidden="true"></span>
+    <p class="hw-pull">Zwölf Nächte, in denen die Grenze dünn wird.</p>
+  </div>
+</section>
+
+<!-- WER WIR SIND -->
+<section class="hw-section">
+  <div class="hw-wrap hw-split">
+    <figure class="hw-photo">
+      <img src="/img/paar-strand.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+    </figure>
+    <div>
+      <p class="hw-kicker">Wer wir sind</p>
+      <h2>Annette &amp; Herbert Himmelstoß</h2>
+      <p>Seit vielen Jahren nehmen wir uns in den 12 heiligen Nächten bewusst den Raum, den Alltag weitgehend loszulassen, und achten darauf, was uns in diesen Tagen begegnet. Seit einigen Jahren gehen wir diesen Weg gemeinsam mit einer Gruppe, jeden Morgen im Zoom.</p>
+      <p>Annette ist Ärztin, Herbert war Lehrer. Heute begleiten wir Menschen und Paare von Zypern aus.</p>
+      <blockquote class="hw-quote">
+        „Was da durch mich durchgeflossen ist und nachher auf dem Papier stand, hat mich täglich neu erstaunt!“
+        <cite>Veronika Sudhoff, Teilnehmerin der 12 heiligen Nächte</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ANMELDUNG -->
+<section class="hw-section hw-cream">
+  <div class="hw-wrap hw-narrow hw-center">
+    <p class="hw-kicker">Kostenfrei</p>
+    <h2>Komm am 26. November dazu.</h2>
+    <div class="hw-card" style="text-align:left;margin-top:32px;">
+      <p class="hw-termin-mini">{DATUM_LANG} · {UHRZEIT} · im Zoom</p>
+      <Fragment set:html={formular('f')} />
+      <p class="hw-fine">Den Zoom-Link bekommst du per E-Mail. Kein Spam, jederzeit abbestellbar. <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+  .hw-form button[disabled] { opacity: .5; cursor: not-allowed; }
+</style>
