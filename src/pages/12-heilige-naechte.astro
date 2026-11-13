@@ -126,7 +126,9 @@ const stimmen = [
       <p class="hn-eyebrow">Online-Workshop · 12 Live-Treffen</p>
       <h1>Die 12 heiligen Nächte<br><em>Jede Nacht ein Monat. Jeder Morgen eine Botschaft.</em><br><span class="hn-h1-sub">Rauhnächte einmal anders.</span></h1>
       <p class="hn-dates">vom 25.12.2026 – 05.01.2027</p>
-      <a href={buchenUrl} class="btn btn-primary btn-lg">Jetzt anmelden →</a>
+      <!-- Oberster CTA fuehrt bewusst NICHT direkt zur Kasse, sondern zum Preisblock:
+           wer hier klickt, hat das Angebot noch nicht gesehen. -->
+      <a href="#preis" class="btn btn-primary btn-lg">Jetzt anmelden →</a>
     </div>
   </section>
 
@@ -198,7 +200,7 @@ const stimmen = [
   <FounderTrust />
 
   <!-- 5 · PREISE -->
-  <section class="hn-preise">
+  <section class="hn-preise" id="preis">
     <div class="container narrow center">
       <p class="eyebrow-light hn-eyebrow-light">Einmal bezahlen und als Familie dabei</p>
       <h2 class="hn-preis-hl">Sei dabei</h2>
