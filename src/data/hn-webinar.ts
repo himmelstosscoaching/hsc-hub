@@ -3,7 +3,7 @@
 // Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
 
 // 🔴 Vor dem Livegang: ID des neuen Quentn-Formulars eintragen (Formular „Webinar 12 heilige Nächte 26.11.2026“).
-export const QUENTN_FORM_ID = 'FORMULAR-ID';
+export const QUENTN_FORM_ID = '1333';
 export const QUENTN_FORM_URL = `https://himmelstosscoaching.eu-3.quentn-site.com/public/forms/${QUENTN_FORM_ID}/raw/submit`;
 export const FORMULAR_BEREIT = !QUENTN_FORM_ID.startsWith('FORMULAR');
 
