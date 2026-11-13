@@ -6,29 +6,87 @@
 
 const files = Object.keys(import.meta.glob('./*.astro'));
 
-// Klartext-Namen + Gruppierung je Slug. Fehlt ein Slug hier, wird der
-// Dateiname als Fallback-Name genommen (Seite erscheint trotzdem).
-const meta: Record<string, { label: string; group: string; note?: string }> = {
-  'index':                   { label: 'Startseite',                          group: 'Haupt' },
-  'angebote':                { label: 'Angebote — die 5 Kernangebote',       group: 'Haupt' },
-  'einzelcoaching':          { label: 'Einzel-Coaching',                     group: 'Angebote' },
-  'intensiv-coaching-vogesen':{label: 'ICW Vogesen (aktuell beworben)',       group: 'Angebote' },
-  'intensiv-coaching-zypern':{ label: 'ICW Zypern (ruht, ab Januar wieder)',  group: 'Angebote' },
-  'dein-leben-lesen-lernen': { label: 'Dein Leben lesen lernen (DLLL)',      group: 'Angebote' },
-  'monatsausrichtung':       { label: 'Monatsausrichtung',                   group: 'Angebote' },
-  '12-meditationen':         { label: '12 Meditationen',                     group: 'Angebote' },
-  '12-heilige-naechte':      { label: '12 Heilige Nächte',                   group: 'Angebote' },
-  'schatz':                  { label: 'Schatz, coachst du mich? (Paarkurs)', group: 'Angebote' },
-  'buch':                    { label: 'Buch',                                group: 'Angebote' },
-  'fokus':                   { label: 'Fokus (Layout-Variante)',             group: 'Varianten / Entwürfe' },
-  'fokus2b':                 { label: 'Fokus 2b (Layout-Variante)',          group: 'Varianten / Entwürfe' },
-  'datenschutz':             { label: 'Datenschutz',                         group: 'Rechtliches' },
-  'impressum':               { label: 'Impressum',                           group: 'Rechtliches' },
+// Klartext-Name, Gruppe, Rolle im Ablauf und Position je Slug.
+// Gruppiert nach FUNNEL — jede Strecke in der Reihenfolge, die ein Interessent
+// durchläuft. So sieht man auf einen Blick, ob eine Strecke vollständig ist.
+// Fehlt ein Slug hier, landet die Seite unter „Noch nicht einsortiert“ (mit
+// Dateinamen) — das ist der Hinweis, diese Tabelle zu ergänzen.
+type Meta = { label: string; group: string; rolle?: string; nr?: number };
+
+const G = {
+  haupt:     'Hauptseiten',
+  verkauf:   'Verkaufsseiten (ohne eigene Strecke)',
+  dlll:      'Strecke · Dein Leben lesen lernen',
+  schatz:    'Strecke · Schatz, coachst du mich?',
+  hn:        'Strecke · 12 heilige Nächte',
+  pfad:      'Strecke · Achtgliedriger Pfad',
+  sonntag:   'Strecke · Sonntagsgespräch',
+  newsletter:'Strecke · Newsletter',
+  recht:     'Rechtliches',
+  intern:    'Intern / Entwürfe',
 };
 
-const groupOrder = ['Haupt', 'Angebote', 'Varianten / Entwürfe', 'Rechtliches', 'Sonstiges'];
+const meta: Record<string, Meta> = {
+  // ── Hauptseiten ───────────────────────────────────────────────
+  'index':                        { label: 'Startseite',                     group: G.haupt, nr: 1 },
+  'angebote':                     { label: 'Angebote — alle Kernangebote',   group: G.haupt, nr: 2 },
+  'buch':                         { label: 'Das Buch',                       group: G.haupt, nr: 3 },
+  'orientierungsgespraech':       { label: 'Orientierungsgespräch',          group: G.haupt, rolle: 'kostenfrei, 30 Min.', nr: 4 },
 
-type Page = { slug: string; path: string; label: string; group: string };
+  // ── Verkaufsseiten ohne eigene Funnel-Strecke ─────────────────
+  'einzelcoaching':               { label: 'Einzel-Coaching',                group: G.verkauf, nr: 1 },
+  'intensiv-coaching-vogesen':    { label: 'Intensiv-Woche Vogesen',         group: G.verkauf, rolle: 'aktuell beworben', nr: 2 },
+  'intensiv-coaching-zypern':     { label: 'Intensiv-Woche Zypern',          group: G.verkauf, rolle: 'ruht, ab Januar',  nr: 3 },
+  'monatsausrichtung':            { label: 'Monatsausrichtung',              group: G.verkauf, nr: 4 },
+  '12-meditationen':              { label: '12 Meditationen',                group: G.verkauf, nr: 5 },
+
+  // ── Dein Leben lesen lernen ───────────────────────────────────
+  'dein-leben-lesen-lernen':          { label: 'DLLL Basic (197 €)',         group: G.dlll, rolle: 'Verkaufsseite', nr: 1 },
+  'dein-leben-lesen-lernen-intensiv': { label: 'DLLL Intensiv (697 €)',      group: G.dlll, rolle: 'Verkaufsseite', nr: 2 },
+
+  // ── Schatz / 3-Tage-Challenge ─────────────────────────────────
+  '3-tage':                       { label: '3-Tage-Challenge',               group: G.schatz, rolle: 'Opt-in',       nr: 1 },
+  '3-tage-fast-dabei':            { label: 'Fast dabei',                     group: G.schatz, rolle: 'Bestätigung',  nr: 2 },
+  '3-tage-danke':                 { label: 'Workbook-Download',              group: G.schatz, rolle: 'nach Opt-in',  nr: 3 },
+  'schatz':                       { label: 'Schatz, coachst du mich?',       group: G.schatz, rolle: 'Verkaufsseite', nr: 4 },
+
+  // ── 12 heilige Nächte ─────────────────────────────────────────
+  '12-heilige-naechte':                     { label: '12 heilige Nächte',    group: G.hn, rolle: 'Verkaufsseite',  nr: 1 },
+  '12-heilige-naechte-webinar':             { label: 'Webinar-Anmeldung',    group: G.hn, rolle: 'Opt-in',         nr: 2 },
+  '12-heilige-naechte-webinar-fast-dabei':  { label: 'Fast dabei',           group: G.hn, rolle: 'Bestätigung',    nr: 3 },
+  '12-heilige-naechte-webinar-danke':       { label: 'Anmeldung bestätigt',  group: G.hn, rolle: 'nach Opt-in',    nr: 4 },
+  '12-heilige-naechte-webinar-aufzeichnung':{ label: 'Webinar-Aufzeichnung', group: G.hn, rolle: 'nach dem Termin', nr: 5 },
+
+  // ── Achtgliedriger Pfad ───────────────────────────────────────
+  'achtgliedriger-pfad':            { label: 'Achtgliedriger Pfad',          group: G.pfad, rolle: 'Verkaufsseite', nr: 1 },
+  'achtgliedriger-pfad-optin':      { label: 'Anmeldung',                    group: G.pfad, rolle: 'Opt-in',        nr: 2 },
+  'achtgliedriger-pfad-fast-dabei': { label: 'Fast dabei',                   group: G.pfad, rolle: 'Bestätigung',   nr: 3 },
+  'achtgliedriger-pfad-danke':      { label: 'Danke',                        group: G.pfad, rolle: 'nach Opt-in',   nr: 4 },
+  'achtgliedriger-pfad-willkommen': { label: 'Willkommen',                   group: G.pfad, rolle: 'nach dem Kauf', nr: 5 },
+
+  // ── Sonntagsgespräch ──────────────────────────────────────────
+  'sonntagsgespraech':             { label: 'Sonntagsgespräch',              group: G.sonntag, rolle: 'Opt-in',       nr: 1 },
+  'sonntagsgespraech-fast-dabei':  { label: 'Fast dabei',                    group: G.sonntag, rolle: 'Bestätigung',  nr: 2 },
+  'sonntagsgespraech-bestaetigt':  { label: 'Anmeldung bestätigt',           group: G.sonntag, rolle: 'nach Opt-in',  nr: 3 },
+  'sonntagsgespraech-willkommen':  { label: 'Willkommen',                    group: G.sonntag, rolle: 'aus der Mail', nr: 4 },
+
+  // ── Newsletter ────────────────────────────────────────────────
+  'newsletter-bestaetigen':       { label: 'Bitte bestätigen',               group: G.newsletter, rolle: 'Bestätigung', nr: 1 },
+  'newsletter-willkommen':        { label: 'Willkommen',                     group: G.newsletter, rolle: 'nach Opt-in', nr: 2 },
+
+  // ── Rechtliches / Intern ──────────────────────────────────────
+  'impressum':                    { label: 'Impressum',                      group: G.recht, nr: 1 },
+  'datenschutz':                  { label: 'Datenschutz',                    group: G.recht, nr: 2 },
+  'fokus':                        { label: 'Fokus (Layout-Variante)',        group: G.intern, nr: 1 },
+  'fokus2b':                      { label: 'Fokus 2b (Layout-Variante)',     group: G.intern, nr: 2 },
+};
+
+const groupOrder = [
+  G.haupt, G.verkauf, G.dlll, G.schatz, G.hn, G.pfad, G.sonntag,
+  G.newsletter, G.recht, G.intern, 'Noch nicht einsortiert',
+];
+
+type Page = { slug: string; path: string; label: string; group: string; rolle?: string; nr: number };
 
 const pages: Page[] = files
   .map((f) => f.replace('./', '').replace('.astro', ''))
@@ -39,10 +97,13 @@ const pages: Page[] = files
       slug,
       path: slug === 'index' ? '/' : `/${slug}`,
       label: m?.label ?? slug,
-      group: m?.group ?? 'Sonstiges',
+      group: m?.group ?? 'Noch nicht einsortiert',
+      rolle: m?.rolle,
+      nr: m?.nr ?? 99,
     };
   })
-  .sort((a, b) => a.label.localeCompare(b.label, 'de'));
+  // Innerhalb einer Strecke nach Ablauf sortieren, nicht alphabetisch.
+  .sort((a, b) => (a.nr - b.nr) || a.label.localeCompare(b.label, 'de'));
 
 const grouped = groupOrder
   .map((g) => ({ group: g, items: pages.filter((p) => p.group === g) }))
@@ -94,6 +155,20 @@ const total = pages.length;
       }
       .row .info { flex: 1 1 auto; min-width: 0; }
       .row .label { font-weight: 600; }
+      /* Rolle im Ablauf — dezent, damit der Seitenname fuehrend bleibt */
+      .row .rolle {
+        display: inline-block;
+        margin-left: 9px;
+        padding: 2px 8px;
+        border-radius: 10px;
+        background: #eef3f6;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: .02em;
+        vertical-align: 1px;
+        white-space: nowrap;
+      }
       .row a.url {
         display: inline-block; font-size: 0.85rem; color: var(--blue-light);
         text-decoration: none; word-break: break-all;
@@ -130,7 +205,7 @@ const total = pages.length;
           {g.items.map((p) => (
             <div class="row">
               <div class="info">
-                <div class="label">{p.label}</div>
+                <div class="label">{p.label}{p.rolle && <span class="rolle">{p.rolle}</span>}</div>
                 <a class="url" href={p.path} data-path={p.path}>{p.path}</a>
               </div>
               <div class="actions">
