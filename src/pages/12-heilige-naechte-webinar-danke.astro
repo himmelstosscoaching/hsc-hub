@@ -1,0 +1,73 @@
+---
+// Danke-Seite nach der Bestätigung (Double-Opt-in) für das Webinar „Die 12 heiligen Nächte“ am 26.11.2026.
+// Auch Ziel für Kontakte, die schon bestätigt sind. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/hn-webinar.css';
+import { ZOOM_URL, DATUM_LANG, UHRZEIT, GOOGLE_KALENDER_URL, ICS_URL, SALESPAGE_URL } from '../data/hn-webinar';
+---
+
+<FunnelLayout
+  title="Du bist dabei — Webinar Die 12 heiligen Nächte am 26. November"
+  description="Deine Anmeldung ist bestätigt. Hier sind Termin und Zoom-Link zum Webinar mit Annette & Herbert Himmelstoß."
+  noindex={true}
+>
+<div class="hw">
+
+<header class="hw-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<section class="hw-hero hw-hero--single">
+  <div class="hw-wrap">
+    <p class="hw-kicker">Schön, dass du dabei bist</p>
+    <h1>Du bist dabei.<em>Wir freuen uns auf dich.</em></h1>
+    <p>Alle Angaben zum Webinar findest du hier und in deinem Postfach. Am Vortag und eine Stunde vorher erinnern wir dich noch einmal.</p>
+    <p class="hw-sig">— Annette &amp; Herbert</p>
+  </div>
+</section>
+
+<section class="hw-section hw-cream">
+  <div class="hw-wrap">
+    <div class="hw-termin">
+      <p class="hw-kicker">Dein Termin</p>
+      <div class="hw-termin-datum">{DATUM_LANG}</div>
+      <p class="hw-termin-zeit">{UHRZEIT} · im Zoom</p>
+      <div class="hw-termin-knoepfe">
+        <a class="hw-btn" href={ZOOM_URL} target="_blank" rel="noopener">Zum Zoom-Raum →</a>
+        <a class="hw-btn hw-btn--ghost" href={GOOGLE_KALENDER_URL} target="_blank" rel="noopener">Google-Kalender</a>
+        <a class="hw-btn hw-btn--ghost" href={ICS_URL} download>Apple / Outlook</a>
+      </div>
+      <p class="hw-fine" style="margin-top:18px !important;">Speichere dir den Link am besten gleich. Der Raum öffnet ein paar Minuten vor Beginn.</p>
+    </div>
+
+    <div class="hw-schritte">
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">1</div>
+        <h3>Ruhigen Platz wählen</h3>
+        <p>Wir meditieren gemeinsam. Such dir für den Abend einen Ort, an dem du eine Stunde ungestört bist.</p>
+      </div>
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">2</div>
+        <h3>Notizbuch bereitlegen</h3>
+        <p>Für das, was dir während der Meditation begegnet. Vielleicht ist es schon deine erste kleine Botschaft.</p>
+      </div>
+      <div class="hw-schritt">
+        <div class="hw-schritt-num">3</div>
+        <h3>Kurz zurückschauen</h3>
+        <p>Wenn du magst, nimm dir vorher ein paar Minuten: Was hat dieses Jahr dir gebracht? Was hast du gelernt?</p>
+      </div>
+    </div>
+
+    <p class="hw-note">Du kannst am 26. November doch nicht? Kein Problem: Wir schicken dir am nächsten Morgen die Aufzeichnung.<br>
+    Wer schon jetzt mehr wissen möchte: <a href={SALESPAGE_URL}>die 12 heiligen Nächte vom 25.12.2026 bis 05.01.2027</a>.</p>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>

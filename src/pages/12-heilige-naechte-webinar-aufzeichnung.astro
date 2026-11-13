@@ -1,0 +1,138 @@
+---
+// Aufzeichnung des Webinars „Die 12 heiligen Nächte“ vom 26.11.2026 — 72 Stunden sichtbar (bis So 29.11., 23:59 Uhr),
+// darunter das Angebot (Frühbucherpreis 240 € bis 29.11., dann 270 € bis 12.12.). Nicht im Index, nur per Mail verlinkt.
+// Video: in ../data/hn-webinar.ts BUNNY_VIDEO_ID (Bibliothek 708695) oder YOUTUBE_VIDEO_ID setzen.
+// Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/hn-webinar.css';
+import { BUNNY_VIDEO_ID, YOUTUBE_VIDEO_ID, AUFZEICHNUNG_BIS, PREISSTUFEN, CHECKOUT_BASIS, SALESPAGE_URL } from '../data/hn-webinar';
+
+const videoSrc = BUNNY_VIDEO_ID
+  ? `https://iframe.mediadelivery.net/embed/708695/${BUNNY_VIDEO_ID}?autoplay=false&preload=true&responsive=true`
+  : YOUTUBE_VIDEO_ID
+    ? `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`
+    : '';
+
+const heute = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
+const aktivIndex = Math.max(0, PREISSTUFEN.findIndex((p) => !p.bis || heute <= p.bis));
+const aktiv = PREISSTUFEN[aktivIndex];
+const buchenUrl = aktiv.code ? `${CHECKOUT_BASIS}?voucher=${aktiv.code}` : CHECKOUT_BASIS;
+const staffelText = PREISSTUFEN.slice(aktivIndex + 1).map((p) => `${p.ab} ${p.preis}`).join(' · ');
+
+const leistungen = [
+  '12 Live-Treffen im Zoom, täglich von 9 bis 10 Uhr',
+  'vom 25.12.2026 bis zum 05.01.2027',
+  'Jeden Morgen eine freie Meditation und der Tierkreisspruch des Tages',
+  'Du lernst, deine eigenen Morgenbotschaften zu empfangen',
+  'Rückschau auf das alte Jahr und Vorblick auf 2027, Austausch in der Gruppe',
+  'Einmal nicht dabei? Die Aufzeichnung kommt in unsere Telegram-Gruppe',
+  'Ein Zugang pro Haushalt: Ihr könnt als Paar oder Familie teilnehmen',
+];
+
+const stimmen = [
+  ['Es ist ein schöner, innerer und äußerer Rhythmus entstanden, der durch den Tag getragen hat. Ich bin viel wacher durch die Tage gegangen.', 'Anke Spiess'],
+  ['Die 12 Heiligen Nächte mit dem täglichen Webinar waren für mich Ausnahmetage, geschenkte Tage, außerhalb des normalen Jahresverlaufs.', 'Veronika Sudhoff'],
+];
+---
+
+<FunnelLayout
+  title="Aufzeichnung: Webinar Die 12 heiligen Nächte | Himmelstoß Coaching"
+  description="Die Aufzeichnung des Webinars mit Annette & Herbert Himmelstoß vom 26. November 2026."
+  noindex={true}
+>
+<div class="hw" data-bis={AUFZEICHNUNG_BIS}>
+
+<header class="hw-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<section class="hw-hero hw-hero--single" style="padding-bottom:72px;">
+  <div class="hw-wrap hw-narrow" style="max-width:900px;">
+    <p class="hw-kicker">Aufzeichnung vom 26. November</p>
+    <h1>Die 12 heiligen Nächte<em>Rauhnächte einmal anders.</em></h1>
+
+    <div class="hw-video" data-video style="margin-top:34px;">
+      {videoSrc
+        ? <iframe src={videoSrc} title="Aufzeichnung: Webinar Die 12 heiligen Nächte" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        : <div class="hw-video-leer">Die Aufzeichnung steht hier ab Freitagmorgen, 27. November.</div>}
+    </div>
+    <div class="hw-video-leer" data-video-abgelaufen hidden style="position:static;padding:40px 0 0;">
+      Die Aufzeichnung ist nicht mehr online. Alles über die 12 heiligen Nächte findest du weiter unten.
+    </div>
+    <p class="hw-frist" data-frist>Online bis Sonntag, 29. November, 23:59 Uhr</p>
+  </div>
+</section>
+
+<!-- ANGEBOT -->
+<section class="hw-section hw-cream" id="angebot">
+  <div class="hw-wrap">
+    <div class="hw-center hw-narrow" style="margin:0 auto 36px;">
+      <p class="hw-kicker">Sei in den heiligen Nächten dabei</p>
+      <h2>Zwölf Morgen. Zwölf Botschaften für dein Jahr 2027.</h2>
+    </div>
+    <div class="hw-angebot" data-preisblock data-stufen={JSON.stringify(PREISSTUFEN)}>
+      <p class="hw-preis-tag" data-preis-tag>{aktiv.tag}</p>
+      <div class="hw-preis" data-preis-wert>{aktiv.preis}</div>
+      <p class="hw-preis-frist" data-preis-frist>{aktiv.frist}</p>
+      <p class="hw-preis-staffel" data-preis-staffel>{staffelText}</p>
+      <ul class="hw-leistungen">
+        {leistungen.map((l) => <li>{l}</li>)}
+      </ul>
+      <a class="hw-btn" href={buchenUrl} data-buchen>Ja, ich bin dabei →</a>
+      <p class="hw-fine"><a href={SALESPAGE_URL}>Mehr über die 12 heiligen Nächte</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="hw-section">
+  <div class="hw-wrap">
+    <div class="hw-center">
+      <p class="hw-kicker">Teilnehmerstimmen</p>
+      <h2>Was andere erlebt haben</h2>
+    </div>
+    <div class="hw-stimmen">
+      {stimmen.map(([text, name]) => (
+        <blockquote class="hw-stimme"><p>„{text}“</p><cite>{name}</cite></blockquote>
+      ))}
+    </div>
+    <p class="hw-note">Fragen? Schreib uns an <a href="mailto:kontakt@himmelstosscoaching.de">kontakt@himmelstosscoaching.de</a>.</p>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<script>
+  // Preis, Gutschein und Ablauf der Aufzeichnung im Browser nachziehen,
+  // damit die Seite auch ohne neuen Build am richtigen Tag umschaltet.
+  const heute = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
+
+  const root = document.querySelector('[data-bis]');
+  if (root instanceof HTMLElement && root.dataset.bis && heute > root.dataset.bis) {
+    document.querySelector('[data-video]')?.remove();
+    document.querySelector('[data-frist]')?.remove();
+    document.querySelector('[data-video-abgelaufen]')?.removeAttribute('hidden');
+  }
+
+  const block = document.querySelector('[data-preisblock]');
+  if (block instanceof HTMLElement && block.dataset.stufen) {
+    const stufen = JSON.parse(block.dataset.stufen);
+    let i = stufen.findIndex((s) => !s.bis || heute <= s.bis);
+    if (i < 0) i = stufen.length - 1;
+    const aktiv = stufen[i];
+    const setzen = (sel, text) => { const el = document.querySelector(sel); if (el) el.textContent = text; };
+    setzen('[data-preis-tag]', aktiv.tag);
+    setzen('[data-preis-wert]', aktiv.preis);
+    setzen('[data-preis-frist]', aktiv.frist);
+    setzen('[data-preis-staffel]', stufen.slice(i + 1).map((s) => `${s.ab} ${s.preis}`).join(' · '));
+    const basis = 'https://www.digistore24.com/product/751668';
+    document.querySelector('[data-buchen]')?.setAttribute('href', aktiv.code ? `${basis}?voucher=${aktiv.code}` : basis);
+  }
+</script>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+</style>
