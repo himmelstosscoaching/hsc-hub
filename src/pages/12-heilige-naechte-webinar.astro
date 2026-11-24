@@ -8,10 +8,10 @@ import '../styles/hn-webinar.css';
 import { QUENTN_FORM_URL, FORMULAR_BEREIT, DATUM_LANG, DATUM_KURZ, UHRZEIT } from '../data/hn-webinar';
 
 const punkte = [
-  ['Anregungen für deine Weihnachtszeit', 'Wie du sie so gestaltest, dass sie dich für das gesamte neue Jahr stärkt, ob du die Tage im Familienkreis verbringst oder für dich.'],
-  ['Die besondere Kraft dieser Tage', 'Warum gerade die Tage zwischen Weihnachten und dem 6. Januar so viel Kraft schenken können und wie du dich in den zwölf heiligen Nächten für das neue Jahr ausrichtest.'],
-  ['Halt in dir selbst', 'Im Außen bricht gerade so vieles weg, was lange Halt gegeben hat. Wir sprechen darüber, wie du diesen Halt in dir selbst findest.'],
-  ['Eine geführte Meditation', 'Sie lässt dich schon an diesem Abend spüren, wie es ist, bei dir anzukommen. Dieses Gefühl kannst du mit in die Feiertage nehmen.'],
+  ['Anregungen für deine Weihnachtszeit', 'Wie du sie so gestaltest, dass sie dich für das neue Jahr stärkt, im Familienkreis oder für dich.'],
+  ['Die besondere Kraft dieser Tage', 'Warum die Tage bis zum 6. Januar so viel Kraft schenken können und wie du dich in den zwölf heiligen Nächten neu ausrichtest.'],
+  ['Halt in dir selbst', 'Im Außen bricht gerade vieles weg. Wie du den Halt in dir selbst findest.'],
+  ['Eine geführte Meditation', 'Schon an diesem Abend spüren, wie es ist, bei dir anzukommen.'],
 ];
 
 const formular = (id) => (
@@ -28,7 +28,7 @@ const formular = (id) => (
   description="Ein Abend für deine Weihnachtszeit, mit geführter Meditation. Kostenfreies Live-Webinar mit Annette & Herbert Himmelstoß am 26. November 2026 um 19:30 Uhr."
   canonical="https://himmelstosscoaching.de/12-heilige-naechte-webinar"
 >
-<div class="hw">
+<div class="hw hw-optin">
 
 <header class="hw-head">
   <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
@@ -40,10 +40,9 @@ const formular = (id) => (
   <img class="hw-hero-snow hw-hero-snow--r" src="/img/heilige-naechte/Schnee-Wald.jpeg" alt="" aria-hidden="true" />
   <div class="hw-wrap hw-hero-grid">
     <div>
-      <p class="hw-kicker">Kostenfreies Live-Webinar · {DATUM_KURZ} · {UHRZEIT}</p>
+      <p class="hw-kicker">Kostenfreies Live-Webinar<span class="hw-punkt"> · </span><span class="hw-zeile">{DATUM_KURZ} · {UHRZEIT}</span></p>
       <h1>Weihnachten einmal anders.<em>Ein Abend für deine Weihnachtszeit.</em></h1>
-      <p>Wir laden dich ein, innezuhalten, bevor der Trubel beginnt, und dir anzuschauen, wie du diese Zeit erleben willst.</p>
-      <p>Annette &amp; Herbert geben dir Anregungen für eine Weihnachtszeit, die dich stärkt, und führen dich durch eine Meditation. Live im Zoom.</p>
+      <p>Innehalten, bevor der Trubel beginnt: Annette &amp; Herbert geben dir Anregungen für diese Zeit und führen dich durch eine Meditation. Live im Zoom.</p>
     </div>
     <div class="hw-card" id="anmeldung">
       <h2>Sei dabei</h2>
@@ -59,7 +58,7 @@ const formular = (id) => (
   <div class="hw-wrap hw-narrow hw-center">
     <p class="hw-kicker">Der 27. Dezember</p>
     <h2>Weihnachten wird nicht von allein still.</h2>
-    <p>Die Geschenke sind ausgepackt, der Familientrubel ist vorbei, und die Tage bis Neujahr liegen vor dir. Meist ziehen sie einfach vorbei: Reste vom Festessen, ein Film am Abend, und dazwischen arbeitest du auf, was im Weihnachtstrubel liegen geblieben ist. Und am 2. Januar geht alles weiter wie vorher.</p>
+    <p>Die Geschenke sind ausgepackt, die Tage bis Neujahr liegen vor dir. Meist ziehen sie einfach vorbei, und am 2. Januar geht alles weiter wie vorher.</p>
     <p>Dieses Jahr kannst du es anders angehen.</p>
   </div>
 </section>
@@ -129,5 +128,33 @@ const formular = (id) => (
 
 <style is:global>
   .sticky-cta { display: none !important; }
+  .hw-card p { text-shadow: none !important; }
+  .hw-zeile { white-space: nowrap; }
+  /* Handy: Formular samt Knopf soll ohne Scrollen sichtbar sein */
+  @media (max-width: 520px) {
+    .hw-optin .hw-head { padding: 9px 0; }
+    .hw-optin .hw-head img { height: 40px; }
+    .hw-optin .hw-hero { padding: 26px 0 40px; }
+    .hw-optin .hw-hero-grid { gap: 8px; }
+    .hw-optin .hw-hero .hw-kicker { letter-spacing: .12em; line-height: 1.5; margin-bottom: 10px !important; }
+    .hw-optin .hw-hero .hw-punkt { display: none; }
+    .hw-optin .hw-hero .hw-zeile { display: block; }
+    .hw-optin .hw-hero h1 { font-size: 33px; margin-bottom: 12px; }
+    .hw-optin .hw-hero h1 em { margin-top: 6px; }
+    .hw-optin p { line-height: 1.55; }
+    .hw-optin .hw-hero-grid > div:first-child > p:last-child { font-size: 16px; line-height: 1.5; margin-bottom: 10px; }
+    .hw-optin .hw-hero .hw-card { padding: 18px 18px 16px; }
+    .hw-optin .hw-hero .hw-card h2, .hw-optin .hw-hero .hw-card .hw-termin-mini { display: none; }
+    .hw-optin .hw-form { gap: 11px; }
+    .hw-optin .hw-form label { gap: 4px; line-height: 1.3; }
+    .hw-optin .hw-form input { padding: 11px 14px; line-height: 1.25; }
+    .hw-optin .hw-form button { padding: 14px 20px; line-height: 1.3; }
+    .hw-optin .hw-section { padding: 48px 0; }
+    .hw-optin .hw-section h2 { margin-bottom: 14px; }
+    .hw-optin .hw-punkte { margin-top: 22px; }
+    .hw-optin .hw-punkte li { grid-template-columns: 34px 1fr; padding: 16px 0; }
+    .hw-optin .hw-punkte h3 { font-size: 21px; line-height: 1.25; margin-bottom: 4px; }
+    .hw-optin .hw-split { gap: 24px; }
+  }
   .hw-form button[disabled] { opacity: .5; cursor: not-allowed; }
 </style>

@@ -1,0 +1,133 @@
+---
+// Opt-in-Seite: kostenfreies Live-Webinar „Die 12 heiligen Nächte“, Do 26.11.2026, 19:30 Uhr (Zoom).
+// Quentn-Formular → /12-heilige-naechte-webinar-fast-dabei → Bestätigung → /12-heilige-naechte-webinar-danke.
+// Webinar-Fokus seit 2026-11-24 (Kongress vorbei): Texte aus Annettes Einladungsmail „Ein Abend für deine Weihnachtszeit“. Der Workshop kommt erst im Webinar. Projekt-Doku: ../HSC-12-heilige-Naechte-Webinar/
+import FunnelLayout from '../layouts/FunnelLayout.astro';
+import FunnelFooter from '../components/FunnelFooter.astro';
+import '../styles/hn-webinar.css';
+import { QUENTN_FORM_URL, FORMULAR_BEREIT, DATUM_LANG, DATUM_KURZ, UHRZEIT } from '../data/hn-webinar';
+
+const punkte = [
+  ['Anregungen für deine Weihnachtszeit', 'Wie du sie so gestaltest, dass sie dich für das gesamte neue Jahr stärkt, ob du die Tage im Familienkreis verbringst oder für dich.'],
+  ['Die besondere Kraft dieser Tage', 'Warum gerade die Tage zwischen Weihnachten und dem 6. Januar so viel Kraft schenken können und wie du dich in den zwölf heiligen Nächten für das neue Jahr ausrichtest.'],
+  ['Halt in dir selbst', 'Im Außen bricht gerade so vieles weg, was lange Halt gegeben hat. Wir sprechen darüber, wie du diesen Halt in dir selbst findest.'],
+  ['Eine geführte Meditation', 'Sie lässt dich schon an diesem Abend spüren, wie es ist, bei dir anzukommen. Dieses Gefühl kannst du mit in die Feiertage nehmen.'],
+];
+
+const formular = (id) => (
+  `<form class="hw-form" action="${QUENTN_FORM_URL}" method="post">
+    <label for="${id}-vn">Vorname<input id="${id}-vn" type="text" name="first_name" required autocomplete="given-name" /></label>
+    <label for="${id}-em">E-Mail<input id="${id}-em" type="email" name="mail" required autocomplete="email" /></label>
+    <button type="submit"${FORMULAR_BEREIT ? '' : ' disabled title="Formular noch nicht verbunden"'}>Kostenfrei Platz sichern</button>
+  </form>`
+);
+---
+
+<FunnelLayout
+  title="Weihnachten einmal anders — kostenfreies Live-Webinar am 26. November | Himmelstoß Coaching"
+  description="Ein Abend für deine Weihnachtszeit, mit geführter Meditation. Kostenfreies Live-Webinar mit Annette & Herbert Himmelstoß am 26. November 2026 um 19:30 Uhr."
+  canonical="https://himmelstosscoaching.de/12-heilige-naechte-webinar"
+>
+<div class="hw">
+
+<header class="hw-head">
+  <img src="/img/logo.svg" alt="Himmelstoß Coaching" />
+</header>
+
+<!-- HERO -->
+<section class="hw-hero">
+  <img class="hw-hero-snow hw-hero-snow--l" src="/img/heilige-naechte/Schnee-Tannen.jpeg" alt="" aria-hidden="true" />
+  <img class="hw-hero-snow hw-hero-snow--r" src="/img/heilige-naechte/Schnee-Wald.jpeg" alt="" aria-hidden="true" />
+  <div class="hw-wrap hw-hero-grid">
+    <div>
+      <p class="hw-kicker">Kostenfreies Live-Webinar · {DATUM_KURZ} · {UHRZEIT}</p>
+      <h1>Weihnachten einmal anders.<em>Ein Abend für deine Weihnachtszeit.</em></h1>
+      <p>Wir laden dich ein, innezuhalten, bevor der Trubel beginnt, und dir anzuschauen, wie du diese Zeit erleben willst.</p>
+      <p>Annette &amp; Herbert geben dir Anregungen für eine Weihnachtszeit, die dich stärkt, und führen dich durch eine Meditation. Live im Zoom.</p>
+    </div>
+    <div class="hw-card" id="anmeldung">
+      <h2>Sei dabei</h2>
+      <p class="hw-termin-mini">{DATUM_LANG} · {UHRZEIT} · im Zoom</p>
+      <Fragment set:html={formular('h')} />
+      <p class="hw-fine">Den Zoom-Link bekommst du per E-Mail. Kannst du nicht live dabei sein, schicken wir dir die Aufzeichnung. Kein Spam, jederzeit abbestellbar. <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- DER 27. DEZEMBER -->
+<section class="hw-section hw-cream">
+  <div class="hw-wrap hw-narrow hw-center">
+    <p class="hw-kicker">Der 27. Dezember</p>
+    <h2>Weihnachten wird nicht von allein still.</h2>
+    <p>Die Geschenke sind ausgepackt, der Familientrubel ist vorbei, und die Tage bis Neujahr liegen vor dir. Meist ziehen sie einfach vorbei: Reste vom Festessen, ein Film am Abend, und dazwischen arbeitest du auf, was im Weihnachtstrubel liegen geblieben ist. Und am 2. Januar geht alles weiter wie vorher.</p>
+    <p>Dieses Jahr kannst du es anders angehen.</p>
+  </div>
+</section>
+
+<!-- PROGRAMM -->
+<section class="hw-section">
+  <div class="hw-wrap">
+    <div class="hw-center">
+      <p class="hw-kicker">{DATUM_KURZ} · {UHRZEIT} · im Zoom</p>
+      <h2>Das erwartet dich an diesem Abend.</h2>
+    </div>
+    <ul class="hw-punkte">
+      {punkte.map(([titel, text]) => (
+        <li>
+          <span class="hw-stern" aria-hidden="true">✦</span>
+          <div>
+            <h3>{titel}</h3>
+            <p>{text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- ZITAT -->
+<section class="hw-section hw-cream hw-center">
+  <div class="hw-wrap">
+    <span class="hw-pull-mark" aria-hidden="true"></span>
+    <p class="hw-pull">Die Welt braucht unser Menschsein. Und Weihnachten kann uns dafür stärken.</p>
+  </div>
+</section>
+
+<!-- WER WIR SIND -->
+<section class="hw-section">
+  <div class="hw-wrap hw-split">
+    <figure class="hw-photo">
+      <img src="/img/paar-strand.jpg" alt="Annette und Herbert Himmelstoß" loading="lazy" />
+    </figure>
+    <div>
+      <p class="hw-kicker">Wer wir sind</p>
+      <h2>Annette &amp; Herbert Himmelstoß</h2>
+      <p>Seit vielen Jahren gestalten wir die Tage zwischen Weihnachten und dem 6. Januar ganz bewusst als eine Zeit der Stille, der inneren Einkehr und der Inspiration. An diesem Abend teilen wir unsere Erfahrungen mit dir.</p>
+      <p>Annette ist Ärztin, Herbert war Lehrer. Heute begleiten wir Menschen und Paare von Zypern aus.</p>
+      <p>Uns bewegt die Frage, wie wir unser Menschsein immer bewusster leben und damit zu einer menschlicheren Welt beitragen können.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANMELDUNG -->
+<section class="hw-section hw-cream">
+  <div class="hw-wrap hw-narrow hw-center">
+    <p class="hw-kicker">Kostenfrei</p>
+    <h2>Komm am 26. November dazu.</h2>
+    <p style="margin-top:16px;">Und wenn du magst, nimm bis dahin eine Frage mit: Was wünschst du dir für die Weihnachtszeit?</p>
+    <div class="hw-card" style="text-align:left;margin-top:32px;">
+      <p class="hw-termin-mini">{DATUM_LANG} · {UHRZEIT} · im Zoom</p>
+      <Fragment set:html={formular('f')} />
+      <p class="hw-fine">Den Zoom-Link bekommst du per E-Mail. Kannst du nicht live dabei sein, schicken wir dir die Aufzeichnung. Kein Spam, jederzeit abbestellbar. <a href="/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+  </div>
+</section>
+
+</div>
+<FunnelFooter />
+</FunnelLayout>
+
+<style is:global>
+  .sticky-cta { display: none !important; }
+  .hw-form button[disabled] { opacity: .5; cursor: not-allowed; }
+</style>
