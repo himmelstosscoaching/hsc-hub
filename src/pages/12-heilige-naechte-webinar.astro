@@ -8,10 +8,10 @@ import '../styles/hn-webinar.css';
 import { QUENTN_FORM_URL, FORMULAR_BEREIT, DATUM_LANG, DATUM_KURZ, UHRZEIT } from '../data/hn-webinar';
 
 const punkte = [
-  ['Anregungen für deine Weihnachtszeit', 'Wie du sie so gestaltest, dass sie dich für das neue Jahr stärkt, im Familienkreis oder für dich.'],
-  ['Die besondere Kraft dieser Tage', 'Warum die Tage bis zum 6. Januar so viel Kraft schenken können und wie du dich in den zwölf heiligen Nächten neu ausrichtest.'],
-  ['Halt in dir selbst', 'Im Außen bricht gerade vieles weg. Wie du den Halt in dir selbst findest.'],
-  ['Eine geführte Meditation', 'Schon an diesem Abend spüren, wie es ist, bei dir anzukommen.'],
+  ['Die Welt braucht unser Menschsein', 'Warum es gerade heute so wichtig ist, unsere Menschlichkeit bewusst zu leben, und wie jeder von uns dazu beitragen kann, die Welt ein wenig menschlicher zu machen.'],
+  ['Die besondere Kraft der zwölf heiligen Nächte', 'Was die Zeit zwischen Weihnachten und dem 6. Januar so besonders macht und wie wir sie nutzen können, um innezuhalten, uns neu auszurichten und Kraft zu schöpfen.'],
+  ['Eine Meditation zum Mitmachen', 'Erlebe selbst, wie es sich anfühlt, den Alltag loszulassen, still zu werden und dich für deine eigenen inneren Impulse zu öffnen.'],
+  ['Deine zwölf Morgenbotschaften für 2027', 'Wie du in jeder der zwölf Nächte eine persönliche Botschaft für einen Monat des neuen Jahres empfängst, und wie diese Botschaften dich durch das ganze Jahr begleiten können.'],
 ];
 
 const formular = (id) => (
@@ -67,8 +67,8 @@ const formular = (id) => (
 <section class="hw-section">
   <div class="hw-wrap">
     <div class="hw-center">
-      <p class="hw-kicker">{DATUM_KURZ} · {UHRZEIT} · im Zoom</p>
-      <h2>Das erwartet dich an diesem Abend.</h2>
+      <p class="hw-kicker">An diesem Abend</p>
+      <h2>Weihnachten als Kraftquelle für unser Menschsein.</h2>
     </div>
     <ul class="hw-punkte">
       {punkte.map(([titel, text]) => (
@@ -142,6 +142,7 @@ const formular = (id) => (
     .hw-optin .hw-hero h1 { font-size: 33px; margin-bottom: 12px; }
     .hw-optin .hw-hero h1 em { margin-top: 6px; }
     .hw-optin p { line-height: 1.55; }
+    .hw-optin .hw-punkte p { line-height: 1.7; }
     .hw-optin .hw-hero-grid > div:first-child > p:last-child { font-size: 16px; line-height: 1.5; margin-bottom: 10px; }
     .hw-optin .hw-hero .hw-card { padding: 18px 18px 16px; }
     .hw-optin .hw-hero .hw-card h2, .hw-optin .hw-hero .hw-card .hw-termin-mini { display: none; }
@@ -151,9 +152,6 @@ const formular = (id) => (
     .hw-optin .hw-form button { padding: 14px 20px; line-height: 1.3; }
     .hw-optin .hw-section { padding: 48px 0; }
     .hw-optin .hw-section h2 { margin-bottom: 14px; }
-    .hw-optin .hw-punkte { margin-top: 22px; }
-    .hw-optin .hw-punkte li { grid-template-columns: 34px 1fr; padding: 16px 0; }
-    .hw-optin .hw-punkte h3 { font-size: 21px; line-height: 1.25; margin-bottom: 4px; }
     .hw-optin .hw-split { gap: 24px; }
   }
   .hw-form button[disabled] { opacity: .5; cursor: not-allowed; }
