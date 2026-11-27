@@ -21,9 +21,9 @@ export const ICS_URL = '/downloads/12-heilige-naechte-webinar.ics';
 
 // Aufzeichnung: nach dem Webinar hier die Bunny-Video-ID (Bibliothek 708695) ODER eine YouTube-ID eintragen.
 export const BUNNY_VIDEO_ID = '';
-export const YOUTUBE_VIDEO_ID = '';
-// Die Aufzeichnung ist 72 Stunden zu sehen: bis So 29.11.2026, 23:59 Uhr (deutsche Zeit) — gleiche Frist wie der 240-€-Preis.
-export const AUFZEICHNUNG_BIS = '2026-11-29';
+export const YOUTUBE_VIDEO_ID = 'upOzTElVxrE'; // nicht gelistet, hochgeladen 27.11.2026
+// Die Aufzeichnung bleibt bis kurz vor Weihnachten online: bis Mi 23.12.2026, 23:59 Uhr (deutsche Zeit) — die Meditation darin dient als Vorbereitung (Annette, 27.11.2026).
+export const AUFZEICHNUNG_BIS = '2026-12-23';
 
 export const SALESPAGE_URL = '/12-heilige-naechte';
 export const CHECKOUT_BASIS = 'https://www.digistore24.com/product/751668';
